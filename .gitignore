@@ -3,15 +3,17 @@ dist/
 *.zip
 .DS_Store
 .hermes/
-# Webpack build artifacts (chunk files from lazy imports)
+# Webpack build artifacts
+scripts/module.js
+scripts/module.js.map
+scripts/module.css
+scripts/module.css.map
+styles/module.js
+styles/module.js.map
+# Webpack chunks from dynamic imports
 213.js
 213.js.map
 589.js
 589.js.map
 scripts_systems_*.js
 scripts_systems_*.js.map
-# Duplicate build output
-scripts/module.css
-scripts/module.css.map
-styles/module.js
-styles/module.js.map
