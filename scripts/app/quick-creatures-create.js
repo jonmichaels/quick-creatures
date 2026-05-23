@@ -221,7 +221,7 @@ export async function createActor(app, html) {
     // Apply proficiency active effect (for CR mode where abilities are flat 10s)
     if (!stats.abilities) {
         try {
-            await ActiveEffect.implementation.create({
+            await ActiveEffect.createDocuments([{
                 name: "Proficiency",
                 icon: "icons/sundries/books/book-rounded-red.webp",
                 transfer: true,
@@ -230,7 +230,7 @@ export async function createActor(app, html) {
                     value: stats.PAB,
                     mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
                 }],
-            }, { parent: actor });
+            }], { parent: actor });
         } catch (e) {
             console.warn("Quick Creatures | Failed to create proficiency AE:", e);
         }

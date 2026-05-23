@@ -149,12 +149,10 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             modulePath: MODULE_PATH,
             crStats,
             archetypes: serializedArchetypes,
+            firstArchetype: serializedArchetypes[0] || null,
             types,
             features: serializedFeatures,
-            defaultStats: crStats[0] || null,
-            // i18n helpers
-            i18n: (key) => game.i18n.localize(`quick-creatures.${key}`),
-            i18nFormat: (key, data) => game.i18n.format(`quick-creatures.${key}`, data),
+            defaultStats: crStats[0] || {},
         };
     }
 
@@ -236,9 +234,9 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         });
 
         // Create monster button
-        const createBtn = html.querySelector("#create-monster-btn");
-        if (createBtn) {
-            createBtn.addEventListener("click", async (ev) => {
+        const createMonsterBtn = html.querySelector("#create-monster-btn");
+        if (createMonsterBtn) {
+            createMonsterBtn.addEventListener("click", async (ev) => {
                 ev.preventDefault();
                 await createActor(this, html);
             });
@@ -428,10 +426,13 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
 
 /**
  * Initialize the Quick Creatures module.
- * Registers hooks for the "Generate Creature" button in the Actors sidebar.
+ * Registers hooks for the "Quick Creatures" button in the Actors sidebar.
  */
 export async function initQuickCreatures() {
     // Register Handlebars helpers (not available by default in Foundry)
+    Handlebars.registerHelper("i18n", function (key) {
+        return game.i18n.localize(`quick-creatures.${key}`);
+    });
     Handlebars.registerHelper("arr", function () {
         return Array.from(arguments).slice(0, -1);
     });
@@ -447,16 +448,15 @@ export async function initQuickCreatures() {
         "modules/quick-creatures/templates/partials/tab-archetype.hbs",
         "modules/quick-creatures/templates/partials/features.hbs",
     ];
-    const loaded = await loadTemplates(partials);
+    await loadTemplates(partials);
     for (const path of partials) {
-        const name = path.replace("modules/quick-creatures/", "");
         Handlebars.registerPartial(path, await getTemplate(path));
     }
 
     // Register core data from local data files
     registerCoreData();
 
-    // Inject "Generate Creature" button into the Actors sidebar
+    // Inject "Quick Creatures" button into the Actors sidebar
     Hooks.on("renderSidebarTab", injectGenerateButton);
     Hooks.on("changeSidebarTab", injectGenerateButton);
 
@@ -467,7 +467,8 @@ export async function initQuickCreatures() {
 }
 
 /**
- * Inject the "Generate Creature" button next to "Create Entry" in the actors sidebar.
+ * Inject the "Quick Creatures" button into the actors sidebar header actions,
+ * positioned after "Create Folder" (third position).
  * @param {SidebarTab} app
  * @param {JQuery} html
  */
@@ -480,8 +481,8 @@ function injectGenerateButton(app, html) {
     // Guard against duplicate buttons
     if (element.querySelector(".qc-generate-monster")) return;
 
-    // Find the header actions area and append button at the end
-    const headerActions = element.querySelector(".header-actions, .directory-header .action-buttons, .directory-header");
+    // Find the header actions button bar (NOT the whole directory-header)
+    const headerActions = element.querySelector(".header-actions");
     if (!headerActions) return;
 
     const generateBtn = document.createElement("button");
@@ -491,7 +492,14 @@ function injectGenerateButton(app, html) {
         new QuickCreaturesApp().render({ force: true });
     });
 
-    headerActions.appendChild(generateBtn);
+    // Insert after "Create Folder" button (3rd position in the button bar)
+    const createFolderBtn = headerActions.querySelector(".create-folder");
+    if (createFolderBtn) {
+        createFolderBtn.after(generateBtn);
+    } else {
+        // Fallback: append to end of header-actions
+        headerActions.appendChild(generateBtn);
+    }
 }
 
 export { QuickCreaturesApp };

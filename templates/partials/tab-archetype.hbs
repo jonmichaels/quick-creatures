@@ -13,7 +13,7 @@
     </div>
     <div class="qc-archetype-desc">
         <p id="archetype-desc" data-tooltip="">
-            {{#if archetypes.[0].short}}{{archetypes.[0].short}}{{else}}{{archetypes.[0].desc}}{{/if}}
+            {{#if firstArchetype.short}}{{firstArchetype.short}}{{else if firstArchetype.desc}}{{firstArchetype.desc}}{{/if}}
         </p>
     </div>
 </div>
