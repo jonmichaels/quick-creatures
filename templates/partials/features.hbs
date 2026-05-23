@@ -1,0 +1,18 @@
+<!-- Feature selection (shared) -->
+<div class="qc-features-section">
+    <h3>{{i18n "features.title"}}</h3>
+    <div class="flexrow qc-feature-add">
+        <select id="monster-feature" name="featureSelect">
+            <option value="">{{i18n "features.select"}}</option>
+            {{#each features}}
+            <option value="{{name}}" data-feature="{{serialized}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <button type="button" id="add-feature" class="qc-add-btn">
+            <i class="fa-solid fa-circle-plus"></i> {{i18n "features.add"}}
+        </button>
+    </div>
+    <div id="feature-list" class="qc-feature-list flexcol">
+        <!-- Dynamically populated -->
+    </div>
+</div>

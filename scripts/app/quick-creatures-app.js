@@ -1,0 +1,475 @@
+/**
+ * QuickCreaturesApp — Main ApplicationV2 window for Quick Creatures.
+ *
+ * Provides a two-tab interface:
+ *   - "Monster by CR": Select a Challenge Rating, get auto-calculated stats
+ *   - "Monster by Archetype": Select a pre-built archetype stat block
+ *
+ * Uses HandlebarsApplicationMixin for template rendering.
+ * System-specific data model concerns are handled by adapters in ./systems/.
+ */
+
+import { registry } from "../registry.js";
+import { createActor } from "./quick-creatures-create.js";
+import { CR_TABLE } from "../data/cr-table.js";
+import { ARCHETYPES } from "../data/archetypes.js";
+import { MONSTER_FEATURES } from "../data/features.js";
+
+/** @type {string} Base path for module assets */
+const MODULE_PATH = "modules/quick-creatures";
+
+/**
+ * Register core CC-licensed data into the registry.
+ * Called once during module init, before the app can be opened.
+ */
+function registerCoreData() {
+    // Register default monster types (CC data)
+    if (registry.getTypes().length === 0) {
+        registry.registerTypes("core", [
+            { name: "Aberration" },
+            { name: "Beast" },
+            { name: "Celestial" },
+            { name: "Construct" },
+            { name: "Dragon" },
+            { name: "Elemental" },
+            { name: "Fey" },
+            { name: "Fiend" },
+            { name: "Giant" },
+            { name: "Humanoid" },
+            { name: "Monstrosity" },
+            { name: "Ooze" },
+            { name: "Plant" },
+            { name: "Undead" },
+        ]);
+    }
+
+    // Register archetypes if not already registered
+    if (registry.getArchetypes().length === 0) {
+        registry.registerArchetypes("core", ARCHETYPES);
+    }
+
+    // Register features if not already registered
+    if (registry.getFeatures().length === 0) {
+        registry.registerFeatures("core", MONSTER_FEATURES);
+    }
+}
+
+/**
+ * @extends {ApplicationV2}
+ * @mixes {HandlebarsApplicationMixin}
+ */
+class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMixin(
+    foundry.applications.api.ApplicationV2
+) {
+    /** @override */
+    static DEFAULT_OPTIONS = {
+        id: "quick-creatures",
+        tag: "form",
+        window: {
+            title: "quick-creatures.app.title",
+            icon: "fa-solid fa-spaghetti-monster-flying",
+        },
+        position: {
+            width: 560,
+            height: 520,
+        },
+        form: {
+            handler: QuickCreaturesApp.#onSubmit,
+            submitOnChange: false,
+            closeOnSubmit: false,
+        },
+    };
+
+    /** @override */
+    static PARTS = {
+        tabs: {
+            id: "tabs",
+            template: `${MODULE_PATH}/templates/partials/tabs.hbs`,
+            classes: ["qc-tabs"],
+        },
+        content: {
+            id: "content",
+            template: `${MODULE_PATH}/templates/quick-creatures.hbs`,
+            classes: ["qc-content"],
+        },
+    };
+
+    /** Tab configuration */
+    static TABS = {
+        tab_cr: {
+            id: "tab_cr",
+            group: "primary",
+            icon: "fa-solid fa-dragon",
+            label: "quick-creatures.tabs.cr",
+        },
+        tab_archetype: {
+            id: "tab_archetype",
+            group: "primary",
+            icon: "fa-solid fa-user-gear",
+            label: "quick-creatures.tabs.archetype",
+        },
+    };
+
+    /**
+     * Static form submission handler.
+     * @param {Event|SubmitEvent} event
+     * @param {HTMLFormElement} form
+     * @param {Object} formData
+     */
+    static async #onSubmit(event, form, formData) {
+        const app = this;
+        await createActor(app, app.element);
+    }
+
+    /** @override */
+    async _prepareContext(options) {
+        // Pull data from the registry (populated by registerCoreData + plugins)
+        const types = registry.getTypes();
+        const features = registry.getFeatures();
+        const archetypes = registry.getArchetypes();
+
+        // Serialize data for Handlebars templates (add serialized JSON for data attributes)
+        const crStats = CR_TABLE.map(s => ({
+            ...s,
+            serialized: JSON.stringify(s),
+        }));
+
+        const serializedArchetypes = archetypes.map(a => ({
+            ...a,
+            serialized: JSON.stringify(a),
+        }));
+
+        const serializedFeatures = features.map(f => ({
+            ...f,
+            serialized: JSON.stringify(f),
+        }));
+
+        return {
+            tabs: QuickCreaturesApp.TABS,
+            modulePath: MODULE_PATH,
+            crStats,
+            archetypes: serializedArchetypes,
+            types,
+            features: serializedFeatures,
+            defaultStats: crStats[0] || null,
+            // i18n helpers
+            i18n: (key) => game.i18n.localize(`quick-creatures.${key}`),
+            i18nFormat: (key, data) => game.i18n.format(`quick-creatures.${key}`, data),
+        };
+    }
+
+    /** @override */
+    async _preparePartContext(partId, context) {
+        if (partId === "tabs") {
+            context.tabs = QuickCreaturesApp.TABS;
+            context.activeTab = this.tabGroups?.primary || "tab_cr";
+        }
+        if (partId === "content") {
+            context.tab = this.tabGroups?.primary || "tab_cr";
+        }
+        return context;
+    }
+
+    /** @override */
+    _onRender(context, options) {
+        super._onRender(context, options);
+        this.#bindEvents();
+        this.#updatePreview();
+    }
+
+    /**
+     * Bind change/click events on the rendered DOM.
+     */
+    #bindEvents() {
+        const html = this.element;
+
+        // Tab switching
+        html.querySelectorAll(".qc-tab-btn").forEach(btn => {
+            btn.addEventListener("click", (ev) => {
+                const tabId = ev.currentTarget.dataset.tab;
+                this.#switchTab(tabId);
+            });
+        });
+
+        // CR select change
+        const crSelect = html.querySelector("#cr-value");
+        if (crSelect) {
+            crSelect.addEventListener("change", () => this.#updatePreview());
+        }
+
+        // Archetype select change
+        const archetypeSelect = html.querySelector("#archetype-select");
+        if (archetypeSelect) {
+            archetypeSelect.addEventListener("change", () => this.#updatePreview());
+        }
+
+        // Save proficiency checkboxes
+        html.querySelectorAll(".qc-save-check").forEach(cb => {
+            cb.addEventListener("change", () => this.#updatePreview());
+        });
+
+        // Monster type select → update token image
+        const typeSelect = html.querySelector("#monster-type");
+        if (typeSelect) {
+            typeSelect.addEventListener("change", () => {
+                const typeName = typeSelect.options[typeSelect.selectedIndex]?.value?.toLowerCase() || "aberration";
+                const tokenImg = html.querySelector("#token-preview");
+                if (tokenImg) {
+                    tokenImg.src = `${MODULE_PATH}/tokens/${typeName}.png`;
+                }
+            });
+        }
+
+        // Add feature button
+        const addFeatureBtn = html.querySelector("#add-feature");
+        if (addFeatureBtn) {
+            addFeatureBtn.addEventListener("click", () => this.#addFeature());
+        }
+
+        // Delete feature buttons (delegated)
+        html.addEventListener("click", (ev) => {
+            const deleteBtn = ev.target.closest(".qc-delete-feature");
+            if (deleteBtn) {
+                const idx = parseInt(deleteBtn.dataset.idx);
+                this.#removeFeature(idx);
+            }
+        });
+
+        // Create monster button
+        const createBtn = html.querySelector("#create-monster-btn");
+        if (createBtn) {
+            createBtn.addEventListener("click", async (ev) => {
+                ev.preventDefault();
+                await createActor(this, html);
+            });
+        }
+    }
+
+    /**
+     * Switch between CR and Archetype tabs.
+     * @param {string} tabId - "tab_cr" or "tab_archetype"
+     */
+    #switchTab(tabId) {
+        const html = this.element;
+
+        // Update tab button styles
+        html.querySelectorAll(".qc-tab-btn").forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.tab === tabId);
+        });
+
+        // Update tab content visibility
+        html.querySelectorAll(".qc-tab-content").forEach(content => {
+            content.classList.toggle("active", content.dataset.tab === tabId);
+        });
+
+        this.#updatePreview();
+    }
+
+    /**
+     * Update the live stat preview based on current selections.
+     */
+    #updatePreview() {
+        const html = this.element;
+
+        // Determine active tab
+        const crTab = html.querySelector('[data-tab="tab_cr"]');
+        const isArchetype = crTab && !crTab.classList.contains("active");
+
+        let stats = null;
+        let saveBonus = "+2";
+
+        if (isArchetype) {
+            const select = html.querySelector("#archetype-select");
+            if (select) {
+                const option = select.options[select.selectedIndex];
+                if (option && option.dataset.stats) {
+                    try { stats = JSON.parse(option.dataset.stats); } catch (e) {}
+                }
+            }
+        } else {
+            const select = html.querySelector("#cr-value");
+            if (select) {
+                const option = select.options[select.selectedIndex];
+                if (option && option.dataset.stats) {
+                    try { stats = JSON.parse(option.dataset.stats); } catch (e) {}
+                }
+            }
+        }
+
+        if (!stats) return;
+
+        saveBonus = stats.PAB || "+2";
+
+        // Update stat labels
+        this.#setText(html, "#hpLabel", stats.HP);
+        this.#setText(html, "#acLabel", stats.ACDC);
+        this.#setText(html, "#profLabel", stats.PAB);
+        this.#setText(html, "#saveBonus", saveBonus);
+
+        // Damage per attack × number of attacks
+        const noa = stats.NoA || 1;
+        this.#setText(html, "#dmgLabel", `${stats.DpACalc} × ${noa}`);
+
+        // Level equivalent
+        const eclEl = html.querySelector("#lvlLabel");
+        if (eclEl) {
+            eclEl.textContent = stats.ECL || "";
+        }
+
+        // Abilities (from archetype) or default 10s
+        if (stats.abilities) {
+            this.#setText(html, "#strLabel", stats.abilities.str?.value || 10);
+            this.#setText(html, "#dexLabel", stats.abilities.dex?.value || 10);
+            this.#setText(html, "#conLabel", stats.abilities.con?.value || 10);
+            this.#setText(html, "#intLabel", stats.abilities.int?.value || 10);
+            this.#setText(html, "#wisLabel", stats.abilities.wis?.value || 10);
+            this.#setText(html, "#chaLabel", stats.abilities.cha?.value || 10);
+        } else {
+            this.#setText(html, "#strLabel", "10");
+            this.#setText(html, "#dexLabel", "10");
+            this.#setText(html, "#conLabel", "10");
+            this.#setText(html, "#intLabel", "10");
+            this.#setText(html, "#wisLabel", "10");
+            this.#setText(html, "#chaLabel", "10");
+        }
+
+        // Archetype description
+        const descEl = html.querySelector("#archetype-desc");
+        if (descEl) {
+            descEl.textContent = stats.short || stats.desc || "";
+            if (stats.desc) {
+                descEl.setAttribute("data-tooltip", stats.desc);
+            }
+        }
+
+        // Feature list
+        this.#renderFeatureList(html);
+    }
+
+    /**
+     * Add the selected feature to the creature's feature list.
+     */
+    #addFeature() {
+        const html = this.element;
+        const featureSelect = html.querySelector("#monster-feature");
+        if (!featureSelect) return;
+
+        const option = featureSelect.options[featureSelect.selectedIndex];
+        if (!option || !option.dataset.feature) return;
+
+        let feature;
+        try {
+            feature = JSON.parse(option.dataset.feature);
+        } catch (e) {
+            return;
+        }
+
+        const listContainer = html.querySelector("#feature-list");
+        if (!listContainer) return;
+
+        const idx = listContainer.children.length;
+        const entry = document.createElement("div");
+        entry.className = "qc-feature-entry flexrow";
+        entry.dataset.feature = JSON.stringify(feature);
+        entry.innerHTML = `
+            <span class="qc-feature-name">${feature.name || "Unknown Feature"}</span>
+            <button type="button" class="qc-delete-feature" data-idx="${idx}" title="${game.i18n.localize("quick-creatures.features.remove")}">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        `;
+        listContainer.appendChild(entry);
+    }
+
+    /**
+     * Remove a feature from the list by index.
+     * @param {number} idx
+     */
+    #removeFeature(idx) {
+        const html = this.element;
+        const listContainer = html.querySelector("#feature-list");
+        if (!listContainer) return;
+
+        const children = listContainer.children;
+        if (idx >= 0 && idx < children.length) {
+            children[idx].remove();
+            // Re-index remaining entries
+            for (let i = 0; i < children.length; i++) {
+                const btn = children[i].querySelector(".qc-delete-feature");
+                if (btn) btn.dataset.idx = i;
+            }
+        }
+    }
+
+    /**
+     * Re-render the feature list from stored data attributes.
+     * @param {HTMLElement} html
+     */
+    #renderFeatureList(html) {
+        // Feature list is managed through DOM data attributes —
+        // renderFeatureList just ensures the list container exists
+        const listContainer = html.querySelector("#feature-list");
+        if (!listContainer) return;
+        // The list is additive — no need to re-render from scratch
+    }
+
+    /**
+     * Set text content of an element if it exists.
+     * @param {HTMLElement} html
+     * @param {string} selector
+     * @param {*} value
+     */
+    #setText(html, selector, value) {
+        const el = html.querySelector(selector);
+        if (el) {
+            el.textContent = value != null ? value : "";
+        }
+    }
+}
+
+/**
+ * Initialize the Quick Creatures module.
+ * Registers hooks for the "Generate Creature" button in the Actors sidebar.
+ */
+export function initQuickCreatures() {
+    // Register core data from local data files
+    // (These modules will register themselves — for now we register fallbacks)
+    registerCoreData();
+
+    // Inject "Generate Creature" button into the Actors sidebar
+    Hooks.on("renderSidebarTab", injectGenerateButton);
+    Hooks.on("changeSidebarTab", injectGenerateButton);
+
+    // Fire hook for expansion modules to register their data
+    Hooks.callAll("quickCreaturesReady", registry);
+
+    console.log("Quick Creatures | Initialized");
+}
+
+/**
+ * Inject the "Generate Creature" button next to "Create Entry" in the actors sidebar.
+ * @param {SidebarTab} app
+ * @param {JQuery} html
+ */
+function injectGenerateButton(app, html) {
+    if (!app.options.classes?.includes("actors-sidebar")) return;
+
+    const element = app.element;
+    if (!element) return;
+
+    // Guard against duplicate buttons
+    if (element.querySelector(".qc-generate-monster")) return;
+
+    const createBtn = element.querySelector("button.create-entry");
+    if (!createBtn) return;
+
+    const generateBtn = document.createElement("button");
+    generateBtn.className = "create-document qc-generate-monster";
+    generateBtn.innerHTML = `<i class="fa-solid fa-spaghetti-monster-flying"></i> ${game.i18n.localize("quick-creatures.sidebar.generateCreature")}`;
+    generateBtn.addEventListener("click", () => {
+        new QuickCreaturesApp().render({ force: true });
+    });
+
+    createBtn.parentNode.insertBefore(generateBtn, createBtn);
+}
+
+export { QuickCreaturesApp };

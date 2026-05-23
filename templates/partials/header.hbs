@@ -1,0 +1,82 @@
+<!-- Monster type selector + stat preview header -->
+<div class="qc-header flexrow">
+    <div class="flexcol qc-type-selector">
+        <label for="monster-type">{{i18n "create.typeLabel"}}</label>
+        <select id="monster-type" name="monsterType">
+            {{#each types}}
+            <option value="{{name}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="flexcol qc-name-input">
+        <label for="creature-name">{{i18n "create.nameLabel"}}</label>
+        <input type="text" id="creature-name" name="creatureName" placeholder="{{i18n 'create.namePlaceholder'}}" />
+    </div>
+</div>
+
+<!-- Live stat preview -->
+<div class="qc-stat-preview flexrow">
+    <div class="qc-token-preview">
+        <img id="token-preview" src="{{modulePath}}/tokens/aberration.png" alt="{{i18n 'preview.tokenAlt'}}" />
+    </div>
+    <div class="flexcol qc-stats">
+        <div class="flexrow">
+            <div class="qc-stat" data-tooltip="{{i18n 'preview.hp'}}">
+                <i class="fa-solid fa-heart"></i>
+                <span id="hpLabel">{{defaultStats.HP}}</span>
+            </div>
+            <div class="qc-stat" data-tooltip="{{i18n 'preview.ac'}}">
+                <i class="fa-solid fa-shield"></i>
+                <span id="acLabel">{{defaultStats.ACDC}}</span>
+            </div>
+        </div>
+        <div class="flexrow">
+            <div class="qc-stat" data-tooltip="{{i18n 'preview.prof'}}">
+                <i class="fa-solid fa-arrow-up"></i>
+                <span id="profLabel">{{defaultStats.PAB}}</span>
+            </div>
+            <div class="qc-stat" data-tooltip="{{i18n 'preview.level'}}">
+                <i class="fa-solid fa-dial"></i>
+                <span id="lvlLabel">{{defaultStats.ECL}}</span>
+            </div>
+        </div>
+        <div class="qc-stat" data-tooltip="{{i18n 'preview.damage'}}">
+            <i class="fa-solid fa-swords"></i>
+            <span id="dmgLabel">{{defaultStats.DpACalc}} × {{defaultStats.NoA}}</span>
+        </div>
+    </div>
+</div>
+
+<!-- Ability scores preview -->
+<div class="qc-abilities flexrow">
+    <div class="qc-ability" data-tooltip="{{i18n 'abilities.str'}}">
+        <i class="fa-solid fa-dumbbell"></i>
+        <span id="strLabel">10</span>
+    </div>
+    <div class="qc-ability" data-tooltip="{{i18n 'abilities.dex'}}">
+        <i class="fa-solid fa-bolt"></i>
+        <span id="dexLabel">10</span>
+    </div>
+    <div class="qc-ability" data-tooltip="{{i18n 'abilities.con'}}">
+        <i class="fa-solid fa-skeleton-ribs"></i>
+        <span id="conLabel">10</span>
+    </div>
+    <div class="qc-ability" data-tooltip="{{i18n 'abilities.int'}}">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span id="intLabel">10</span>
+    </div>
+    <div class="qc-ability" data-tooltip="{{i18n 'abilities.wis'}}">
+        <i class="fa-solid fa-leaf"></i>
+        <span id="wisLabel">10</span>
+    </div>
+    <div class="qc-ability" data-tooltip="{{i18n 'abilities.cha'}}">
+        <i class="fa-solid fa-mandolin"></i>
+        <span id="chaLabel">10</span>
+    </div>
+</div>
+
+<!-- Saving throws -->
+<div class="qc-saves flexrow">
+    <i class="fa-solid fa-shield-heart"></i>
+    <span id="stLabel" class="qc-save-text"></span>
+</div>

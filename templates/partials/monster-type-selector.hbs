@@ -1,0 +1,18 @@
+<!-- Quick Creatures - Monster Type Selector Partial -->
+<div class="form-group monster-type-selector">
+    <label>{{localize "quick-creatures.MonsterType"}}</label>
+    <div class="monster-type-controls">
+        <select name="monsterType" class="monster-type-dropdown">
+            {{#each monsterTypes}}
+            <option value="{{this.type}}" data-token="{{this.token}}"
+                    {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+            {{/each}}
+        </select>
+        {{#if tokenPreview}}
+        <div class="token-preview">
+            <img src="{{tokenPreview}}" alt="{{localize 'quick-creatures.MonsterType'}}"
+                 class="token-preview-image">
+        </div>
+        {{/if}}
+    </div>
+</div>

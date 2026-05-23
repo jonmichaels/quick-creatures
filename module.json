@@ -1,0 +1,53 @@
+{
+  "id": "quick-creatures",
+  "title": "Quick Creatures",
+  "description": "Quickly generate custom monsters for D&D 5E and Black Flag (Tales of the Valiant). Based on the Lazy GM's 5e Monster Builder Resource Document.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Jon Michaels",
+      "discord": "jonmichaels#9614",
+      "url": "https://github.com/jonmichaels"
+    }
+  ],
+  "esmodules": [
+    "scripts/module.js"
+  ],
+  "styles": [
+    "styles/module.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
+  "relationships": {
+    "requires": [],
+    "recommends": [],
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "5.0.0"
+        }
+      },
+      {
+        "id": "black-flag",
+        "type": "system",
+        "compatibility": {
+          "minimum": "2.0.0"
+        }
+      }
+    ]
+  },
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "url": "https://github.com/jonmichaels/quick-creatures",
+  "manifest": "https://github.com/jonmichaels/quick-creatures/releases/latest/download/module.json",
+  "download": "https://github.com/jonmichaels/quick-creatures/releases/latest/download/module.zip"
+}

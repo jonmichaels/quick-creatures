@@ -1,0 +1,24 @@
+<!-- Main Quick Creatures content template -->
+<div class="qc-app">
+    <!-- Header with monster type + token preview -->
+    {{> "modules/quick-creatures/templates/partials/header.hbs"}}
+
+    <!-- Tab content panels -->
+    <div class="qc-tab-content active" data-tab="tab_cr" data-group="primary">
+        {{> "modules/quick-creatures/templates/partials/tab-cr.hbs"}}
+    </div>
+    <div class="qc-tab-content" data-tab="tab_archetype" data-group="primary">
+        {{> "modules/quick-creatures/templates/partials/tab-archetype.hbs"}}
+    </div>
+
+    <!-- Feature selection (shared across tabs) -->
+    {{> "modules/quick-creatures/templates/partials/features.hbs"}}
+
+    <!-- Create button -->
+    <div class="qc-footer">
+        <button type="button" id="create-monster-btn" class="qc-create-btn">
+            <i class="fa-solid fa-spaghetti-monster-flying"></i>
+            {{i18n "create.button"}}
+        </button>
+    </div>
+</div>

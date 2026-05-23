@@ -1,0 +1,45 @@
+<!-- Quick Creatures - Stat Block Preview Partial -->
+<div class="stat-preview">
+    <h4 class="stat-preview-title">{{localize "quick-creatures.StatBlockPreview"}}</h4>
+
+    <div class="stat-preview-grid">
+        <!-- Armor Class -->
+        <div class="stat-item">
+            <span class="stat-label">{{localize "quick-creatures.ArmorClass"}}</span>
+            <span class="stat-value">{{ac}}</span>
+        </div>
+
+        <!-- Hit Points -->
+        <div class="stat-item">
+            <span class="stat-label">{{localize "quick-creatures.HitPoints"}}</span>
+            <span class="stat-value">{{hp}}</span>
+        </div>
+
+        <!-- Proficiency Bonus -->
+        <div class="stat-item">
+            <span class="stat-label">{{localize "quick-creatures.ProficiencyBonus"}}</span>
+            <span class="stat-value">{{numberFormat proficiencyBonus sign=true}}</span>
+        </div>
+
+        <!-- Attacks -->
+        <div class="stat-item stat-attacks">
+            <span class="stat-label">{{localize "quick-creatures.Attacks"}}</span>
+            <span class="stat-value">
+                {{attacks}} × {{localize "quick-creatures.DamagePerAttack"}}
+                <span class="stat-sub">({{damagePerRound}} {{localize "quick-creatures.DamagePerRound"}})</span>
+            </span>
+        </div>
+
+        <!-- Saving Throws -->
+        {{#if savingThrows}}
+        <div class="stat-item stat-saves">
+            <span class="stat-label">{{localize "quick-creatures.SavingThrows"}}</span>
+            <span class="stat-value">
+                {{#each savingThrows}}
+                <span class="save-entry">{{localize (concat "quick-creatures.Abilities." @key)}} {{numberFormat this sign=true}}</span>
+                {{/each}}
+            </span>
+        </div>
+        {{/if}}
+    </div>
+</div>

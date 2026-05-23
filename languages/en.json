@@ -1,0 +1,50 @@
+{
+    "quick-creatures": {
+        "app": {
+            "title": "Quick Creatures"
+        },
+        "sidebar": {
+            "generateCreature": "Generate Creature"
+        },
+        "tabs": {
+            "cr": "Monster by CR",
+            "archetype": "Monster by Archetype"
+        },
+        "create": {
+            "button": "Create Creature",
+            "typeLabel": "Creature Type",
+            "nameLabel": "Creature Name",
+            "namePlaceholder": "e.g. Flameheart",
+            "crLabel": "Challenge Rating",
+            "archetypeLabel": "Stat Block Archetype",
+            "saveProfs": "Saving Throw Proficiencies",
+            "abilityScores": "Ability Scores",
+            "noStats": "No monster statistics selected. Please choose a CR or archetype.",
+            "success": "Created creature: {name}",
+            "failed": "Failed to create creature. Check the console for details.",
+            "unsupportedSystem": "This game system is not supported by Quick Creatures."
+        },
+        "preview": {
+            "tokenAlt": "Creature token preview",
+            "hp": "Hit Points",
+            "ac": "Armor Class",
+            "prof": "Proficiency Bonus",
+            "level": "Equivalent Level",
+            "damage": "Damage per Attack"
+        },
+        "abilities": {
+            "str": "Strength",
+            "dex": "Dexterity",
+            "con": "Constitution",
+            "int": "Intelligence",
+            "wis": "Wisdom",
+            "cha": "Charisma"
+        },
+        "features": {
+            "title": "Monster Features",
+            "select": "Select a feature...",
+            "add": "Add Feature",
+            "remove": "Remove feature"
+        }
+    }
+}

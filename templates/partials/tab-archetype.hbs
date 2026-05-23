@@ -1,0 +1,19 @@
+<!-- Monster by Archetype tab -->
+<div class="qc-tab-panel">
+    <h3>{{i18n "tabs.archetype"}}</h3>
+    <div class="form-group">
+        <label for="archetype-select">{{i18n "create.archetypeLabel"}}</label>
+        <select id="archetype-select" name="archetype">
+            {{#each archetypes}}
+            <option value="{{name}}" data-stats="{{serialized}}">
+                {{name}} (CR {{CR}})
+            </option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="qc-archetype-desc">
+        <p id="archetype-desc" data-tooltip="">
+            {{#if archetypes.[0].short}}{{archetypes.[0].short}}{{else}}{{archetypes.[0].desc}}{{/if}}
+        </p>
+    </div>
+</div>
