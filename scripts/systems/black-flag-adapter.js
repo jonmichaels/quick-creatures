@@ -3,13 +3,11 @@
  *
  * Black Flag v13 uses an "activities" data model for items (ActivityCollection)
  * and a different actor data model than dnd5e (CR in attributes.cr, abilities
- * use {mod} format instead of {value}, etc.).
+ * use {mod} format instead of {value}, NPC modifiers ARE saves without prof layering).
  */
 
 /**
  * Parse a damage dice string like "1d6+2" or "3d8+3" into its components.
- * @param {string} diceStr
- * @returns {{ count: number, die: number, modifier: number }}
  */
 function parseDice(diceStr) {
     const match = diceStr?.match(/(\d+)d(\d+)([+-]\d+)?/);
@@ -22,26 +20,27 @@ function parseDice(diceStr) {
 }
 
 /**
- * Build a Black Flag activity object for a weapon attack.
- * @param {string} name - Activity name
- * @param {Object} stats - CR stat block
- * @param {boolean} isRanged - Whether this is a ranged attack
- * @returns {Object} Activity data
+ * Build a Black Flag attack activity for a natural weapon.
+ * Uses flat attack bonus (not computed from ability mod + prof).
  */
-function buildAttackActivity(name, stats, isRanged) {
+function buildAttackActivity(stats, isRanged) {
     const dice = parseDice(stats.DpACalc);
     const activityId = foundry.utils.randomID();
     return {
         [activityId]: {
             _id: activityId,
             type: "attack",
-            name,
             activation: { type: "action", value: null, condition: "", override: false, primary: true },
             range: isRanged
                 ? { override: false, unit: "foot", short: 60, long: 120 }
                 : { override: false, unit: "foot", short: null, long: null, reach: 5 },
             system: {
-                attack: { flat: false, bonus: stats.PAB || "", critical: { threshold: null }, type: {} },
+                attack: {
+                    flat: true,
+                    bonus: stats.PAB || "+2",
+                    critical: { threshold: null },
+                    type: { value: isRanged ? "ranged" : "melee", classification: "weapon" },
+                },
                 damage: {
                     parts: [{
                         number: dice.count,
@@ -59,7 +58,7 @@ function buildAttackActivity(name, stats, isRanged) {
             },
             consumption: { targets: [], scale: { allowed: false } },
             uses: { spent: 0, consumeQuantity: false, recovery: [], max: "" },
-            target: { affects: { type: "", choice: false }, template: { type: "", count: "1", contiguous: false, unit: "foot" }, override: false, prompt: true },
+            target: { template: { type: "", count: "1", contiguous: false, unit: "foot" }, affects: { type: "", choice: false }, override: false, prompt: true },
             duration: { concentration: false, override: false, unit: "instantaneous" },
             magical: false,
         },
@@ -67,92 +66,102 @@ function buildAttackActivity(name, stats, isRanged) {
 }
 
 /**
- * Create the mandatory "Melee Attack" weapon item.
- * @param {Object} stats - CR stat block
- * @returns {Object} Item data
+ * Build a utility activity for multiattack (Use button, no roll).
+ */
+function buildUtilityActivity() {
+    const activityId = foundry.utils.randomID();
+    return {
+        [activityId]: {
+            _id: activityId,
+            type: "utility",
+            activation: { type: "action", value: null, override: false, primary: true },
+            system: {
+                effects: [],
+                roll: { prompt: false, visible: false },
+            },
+            consumption: { targets: [], scale: { allowed: false } },
+            uses: { spent: 0, consumeQuantity: false, recovery: [] },
+            duration: { override: false, concentration: false, unit: "instantaneous" },
+            range: { override: false },
+            target: { template: { count: "1", contiguous: false, unit: "foot" }, affects: { choice: false }, override: false, prompt: true },
+            magical: false,
+        },
+    };
+}
+
+/**
+ * Melee Attack — Natural / Melee weapon.
  */
 export function createAttackItem(stats) {
     return {
         name: "Melee Attack",
         type: "weapon",
-        img: "icons/skills/melee/strike-slashes-red.webp",
+        img: "icons/skills/melee/blood-slash-foam-red.webp",
         system: {
-            description: { value: "<p>A melee weapon attack.</p>" },
-            activities: buildAttackActivity("Melee Attack", stats, false),
+            description: {
+                value: `<p>[[/attack extended]]. [[/damage average extended]].</p><p>The [[lookup @name lowercase]] makes a melee attack.</p>`,
+            },
+            type: { category: "monsters" },
+            activities: buildAttackActivity(stats, false),
         },
     };
 }
 
 /**
- * Create the mandatory "Ranged Attack" weapon item.
- * @param {Object} stats - CR stat block
- * @returns {Object} Item data
+ * Ranged Attack — Natural / Ranged weapon.
  */
 export function createRangedItem(stats) {
     return {
         name: "Ranged Attack",
         type: "weapon",
-        img: "icons/skills/ranged/arrow-flying-white.webp",
+        img: "icons/magic/unholy/beam-impact-purple.webp",
         system: {
-            description: { value: "<p>A ranged weapon attack.</p>" },
-            activities: buildAttackActivity("Ranged Attack", stats, true),
+            description: {
+                value: `<p>[[/attack extended]]. [[/damage average extended]].</p><p>The [[lookup @name lowercase]] makes a ranged attack.</p>`,
+            },
+            type: { category: "monsters" },
+            activities: buildAttackActivity(stats, true),
         },
     };
 }
 
 /**
- * Create a multiattack feature item.
- * @param {number} noa - Number of attacks from chart
- * @returns {Object} Item data
+ * Multiattack — feature with Use action, no roll.
  */
 export function createMultiattackItem(noa) {
     return {
         name: "Multiattack",
         type: "feature",
-        img: "icons/skills/melee/maneuver-greatsword-yellow.webp",
+        img: "icons/skills/melee/strike-weapons-orange.webp",
         system: {
             description: {
-                value: `<p>The creature can make ${noa} attack(s) on its turn.</p>`,
+                value: `<p>The [[lookup @name lowercase]] makes ${noa} attacks.</p>`,
             },
-            activation: {
-                type: "action",
-                value: null,
-                condition: "",
-                override: false,
-                primary: true,
-            },
+            activities: buildUtilityActivity(),
         },
     };
 }
 
 /**
  * Create a feature Item data object from a feature definition.
- * Maps dnd5e item templates to Black Flag conventions.
- * @param {Object} feature - Raw feature object from data
- * @param {Object} stats - Current stat block
- * @returns {Object|null} Item data or null
  */
 export function createFeatureItem(feature, stats) {
     if (!feature || !feature.item) return null;
 
     const item = foundry.utils.deepClone(feature.item);
 
-    // Map item type: dnd5e "feat" → black-flag "feature"
     if (item.type === "feat") {
         item.type = "feature";
     }
 
-    // Handle damage-replacing features
     if (feature.isDmg && item.system) {
         let dmgPart = stats.DpACalc;
-
         if (feature.useDpR && stats.NoA) {
             dmgPart = Array(parseInt(stats.NoA)).fill(stats.DpACalc).join("+");
         }
         if (feature.divideDmg) {
             dmgPart = `floor((${dmgPart})/${feature.divideDmg})`;
         }
-
         if (item.system.attackBonus !== undefined) {
             item.system.attackBonus = stats.atkBonus || stats.PAB || "";
         }
@@ -161,12 +170,10 @@ export function createFeatureItem(feature, stats) {
         }
     }
 
-    // Handle save DC features
     if (feature.hasSave && item.system?.save) {
         item.system.save.dc = stats.DC || stats.ACDC || null;
     }
 
-    // Handle active effect features
     if (feature.isEffect && item.effects) {
         const dmg = stats.DpACalc;
         for (const effect of item.effects) {
@@ -182,11 +189,6 @@ export function createFeatureItem(feature, stats) {
     return item;
 }
 
-/**
- * Parse CR string to a number (handles fractions like "1/8", "1/4", "1/2").
- * @param {string} crStr
- * @returns {number}
- */
 function parseCR(crStr) {
     if (!crStr) return 0;
     const str = String(crStr).trim();
@@ -197,24 +199,13 @@ function parseCR(crStr) {
     return Number(str) || 0;
 }
 
-/**
- * Build the full Actor creation data object for Black Flag.
- * @param {string} name
- * @param {Object} stats
- * @param {string} type
- * @param {Object} abilities
- * @param {string} tokenPath
- * @returns {Object} Actor.create data
- */
 export function buildActorData(name, stats, type, abilities, tokenPath) {
     const cr = parseCR(stats.CR);
 
-    // Map ability values to Black Flag {mod} format
     const bfAbilities = {};
     const ablKeys = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
     for (const key of ablKeys) {
         const abl = abilities[key] || {};
-        // BF uses 'mod' directly; convert from 'value' score if needed
         const mod = (abl.mod != null) ? Number(abl.mod) : Math.floor((Number(abl.value || 10) - 10) / 2);
         bfAbilities[key] = {
             mod,
@@ -236,7 +227,7 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
                     value: parseInt(stats.HP) || 10,
                     max: parseInt(stats.HP) || 10,
                 },
-                prof: stats.prof ?? (parseInt(stats.PAB) || 2),
+                prof: parseInt(stats.PAB) || 2,
                 cr,
                 movement: {
                     walk: stats.speed || 30,
