@@ -193,6 +193,12 @@ export function createFeatureItem(feature, stats) {
     // Handle damage-replacing weapon features: build BF attack activity
     if (feature.isDmg && item.system && item.type === "weapon") {
         const dice = parseDice(stats.DpACalc);
+        // Extra CR damage bonus (minimum 1) — e.g., Energy Weapons
+        if (feature.crBonusDmg) {
+            const crVal = parseCR(stats.CR);
+            const bonus = Math.max(1, Math.floor(crVal));
+            dice.modifier = (dice.modifier || 0) + bonus;
+        }
         const activityId = foundry.utils.randomID();
         const isRanged = item.system.actionType === "rwak";
         const dndRange = item.system.range || {};
@@ -262,9 +268,10 @@ export function createFeatureItem(feature, stats) {
             item.system.damage.parts = [[dmgPart]];
         }
     }
-
+    // Handle save DC features (DC = 8 + proficiency bonus)
     if (feature.hasSave && item.system?.save) {
-        item.system.save.dc = stats.DC || stats.ACDC || null;
+        const profBonus = parseInt(stats.PAB) || 2;
+        item.system.save.dc = 8 + profBonus;
     }
 
     if (feature.isEffect && item.effects) {

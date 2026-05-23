@@ -158,7 +158,7 @@ const MONSTER_FEATURES = [
         item: {
             name: "Damaging Burst",
             type: "weapon",
-            img: "icons/magic/lightning/orb-ball-purple.webp",
+            img: "icons/magic/sonic/explosion-shock-sound-wave.webp",
             system: {
                 description: {
                     value: "<p>As an action, this creature can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a Dexterity, Constitution, or Wisdom saving throw (your choice, based on the type of burst). On a failure, a target takes damage of an appropriate type equal to half this creature's total damage per round. On a success, a target takes half as much damage.</p>",
@@ -226,11 +226,12 @@ const MONSTER_FEATURES = [
         name: "Energy Weapons (extra attack)",
         isEffect: false,
         isDmg: true,
+        crBonusDmg: true,
         desc: "The creature's weapon attacks deal extra damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.",
         item: {
             name: "Energy Weapons (extra attack)",
             type: "weapon",
-            img: "icons/magic/symbols/runes-etched-steel-blade.webp",
+            img: "icons/weapons/swords/sword-flanged-lightning.webp",
             system: {
                 description: {
                     value: "<p>The creature's weapon attacks deal extra damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.</p>",
@@ -258,11 +259,12 @@ const MONSTER_FEATURES = [
         name: "Knockdown",
         isEffect: false,
         isDmg: false,
+        hasSave: true,
         desc: "When this creature hits a target with a melee attack, the target must succeed on a Strength saving throw or be knocked prone.",
         item: {
             name: "Knockdown",
             type: "feat",
-            img: "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+            img: "icons/magic/control/silhouette-fall-slip-prone.webp",
             system: {
                 description: {
                     value: "<p>When this creature hits a target with a melee attack, the target must succeed on a Strength saving throw or be knocked prone.</p>",
@@ -311,14 +313,21 @@ const MONSTER_FEATURES = [
         name: "Restraining Grab",
         isEffect: false,
         isDmg: false,
+        hasSave: true,
         desc: "When this creature hits a target with a melee attack, the target is grappled (escape DC based on this creature's Strength or Dexterity modifier). While grappled, the target is restrained.",
         item: {
             name: "Restraining Grab",
             type: "feat",
-            img: "icons/sundries/survival/cuffs-shackles-steel.webp",
+            img: "icons/skills/melee/unarmed-punch-fist.webp",
             system: {
                 description: {
                     value: "<p>When this creature hits a target with a melee attack, the target is grappled (escape DC based on this creature's Strength or Dexterity modifier). While grappled, the target is restrained.</p>",
+                },
+                actionType: "save",
+                save: {
+                    ability: "str",
+                    dc: null,
+                    scaling: "flat",
                 },
             },
         },
