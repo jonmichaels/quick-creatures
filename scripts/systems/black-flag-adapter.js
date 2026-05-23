@@ -33,6 +33,7 @@ function buildAttackActivity(name, stats, isRanged) {
     const activityId = foundry.utils.randomID();
     return {
         [activityId]: {
+            _id: activityId,
             type: "attack",
             name,
             activation: { type: "action", value: null, condition: "", override: false, primary: true },
