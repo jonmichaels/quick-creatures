@@ -30,8 +30,9 @@ function parseDice(diceStr) {
  */
 function buildAttackActivity(name, stats, isRanged) {
     const dice = parseDice(stats.DpACalc);
+    const activityId = foundry.utils.randomID();
     return {
-        [`${isRanged ? "ranged" : "melee"}-attack`]: {
+        [activityId]: {
             type: "attack",
             name,
             activation: { type: "action", value: null, condition: "", override: false, primary: true },

@@ -185,14 +185,14 @@ export async function createActor(app, html) {
         // Archetype mode provides explicit ability scores
         abilities = stats.abilities;
     } else {
-        // CR mode: all abilities start at +0 modifier, apply save proficiencies
+        // CR mode: all modifiers start at 0; checked saves get proficiency bonus
         abilities = {};
-        // Short key (HTML) → long key (data model)
+        const profBonus = parseInt(stats.PAB) || 2;
         const ablMap = { str: "strength", dex: "dexterity", con: "constitution", int: "intelligence", wis: "wisdom", cha: "charisma" };
         for (const [short, long] of Object.entries(ablMap)) {
             abilities[long] = {
-                value: 10,                                      // dnd5e uses score
-                mod: 0,                                          // Black Flag uses modifier directly
+                value: 10,
+                mod: saveProfs[short] ? profBonus : 0,
                 proficient: saveProfs[short] ? 1 : 0,
             };
         }
