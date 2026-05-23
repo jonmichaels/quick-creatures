@@ -252,6 +252,53 @@ export function createFeatureItem(feature, stats) {
         };
     }
 
+    // Handle save-based damage features (Damaging Burst etc.)
+    if (feature.isDmg && feature.hasSave && item.system && item.type !== "weapon") {
+        const profBonus = parseInt(stats.PAB) || 2;
+        const dmg = feature.useDpR ? stats.DpR : stats.DpACalc;
+        const dice = parseDice(dmg || stats.DpACalc);
+        if (feature.divideDmg) {
+            dice.count = Math.max(1, Math.floor(dice.count / feature.divideDmg));
+        }
+        const activityId = foundry.utils.randomID();
+        const dndActivation = item.system.activation || {};
+        const dndTarget = item.system.target || {};
+        const dndRange = item.system.range || {};
+        item.system.activities = {
+            [activityId]: {
+                _id: activityId,
+                type: "save",
+                activation: {
+                    type: dndActivation.type || "action",
+                    value: dndActivation.cost || null,
+                    condition: dndActivation.condition || "",
+                    override: false, primary: true,
+                },
+                system: {
+                    save: { ability: item.system.save?.ability || "dex", dc: 8 + profBonus, scaling: "flat" },
+                    damage: {
+                        parts: [{
+                            number: dice.count, denomination: dice.die,
+                            bonus: dice.modifier ? String(dice.modifier) : "",
+                            custom: { enabled: false }, type: "", additionalTypes: [], scaling: { number: 1 },
+                        }],
+                        critical: {}, includeBase: true,
+                    },
+                    effects: [],
+                },
+                target: {
+                    template: { type: dndTarget.type || "sphere", count: String(dndTarget.value || 10), contiguous: false, unit: dndTarget.units || "ft" },
+                    affects: { type: "creature", choice: false }, override: false, prompt: true,
+                },
+                range: { override: false, unit: dndRange.units || "ft", short: dndRange.value || null, long: dndRange.long || null },
+                consumption: { targets: [], scale: { allowed: false } },
+                uses: { spent: 0, consumeQuantity: false, recovery: [], max: "" },
+                duration: { concentration: false, override: false, unit: "instantaneous" },
+                magical: false,
+            },
+        };
+    }
+
     // Handle damage-replacing features
     if (feature.isDmg && item.system) {
         let dmgPart = stats.DpACalc;
