@@ -1,9 +1,9 @@
 /**
  * Black Flag (Tales of the Valiant) System Adapter for Quick Creatures.
  *
- * Black Flag shares much of its data model with dnd5e, but uses different
- * item type names and some different field paths. This adapter maps the
- * Quick Creatures stat data to Black Flag conventions.
+ * Black Flag v13 uses an "activities" data model for items (ActivityCollection)
+ * and a different actor data model than dnd5e (CR in attributes.cr, abilities
+ * use {mod} format instead of {value}, etc.).
  */
 
 /**
@@ -12,7 +12,7 @@
  * @returns {{ count: number, die: number, modifier: number }}
  */
 function parseDice(diceStr) {
-    const match = diceStr.match(/(\d+)d(\d+)([+-]\d+)?/);
+    const match = diceStr?.match(/(\d+)d(\d+)([+-]\d+)?/);
     if (!match) return { count: 1, die: 4, modifier: 0 };
     return {
         count: parseInt(match[1]),
@@ -22,47 +22,90 @@ function parseDice(diceStr) {
 }
 
 /**
- * Create an attack Item data object.
+ * Build a Black Flag activity object for a weapon attack.
+ * @param {string} name - Activity name
  * @param {Object} stats - CR stat block
- * @param {number} noa - Total number of attacks
- * @param {number} index - Which attack number this is (0-based)
+ * @param {boolean} isRanged - Whether this is a ranged attack
+ * @returns {Object} Activity data
+ */
+function buildAttackActivity(name, stats, isRanged) {
+    const dice = parseDice(stats.DpACalc);
+    return {
+        [`${isRanged ? "ranged" : "melee"}-attack`]: {
+            type: "attack",
+            name,
+            activation: { type: "action", value: null, condition: "", override: false, primary: true },
+            range: isRanged
+                ? { override: false, unit: "foot", short: 60, long: 120 }
+                : { override: false, unit: "foot", short: null, long: null, reach: 5 },
+            system: {
+                attack: { flat: false, bonus: stats.PAB || "", critical: { threshold: null }, type: {} },
+                damage: {
+                    parts: [{
+                        number: dice.count,
+                        denomination: dice.die,
+                        bonus: dice.modifier ? String(dice.modifier) : "",
+                        custom: { enabled: false },
+                        type: "",
+                        additionalTypes: [],
+                        scaling: { number: 1 },
+                    }],
+                    critical: {},
+                    includeBase: true,
+                },
+                effects: [],
+            },
+            consumption: { targets: [], scale: { allowed: false } },
+            uses: { spent: 0, consumeQuantity: false, recovery: [], max: "" },
+            target: { affects: { type: "", choice: false }, template: { type: "", count: "1", contiguous: false, unit: "foot" }, override: false, prompt: true },
+            duration: { concentration: false, override: false, unit: "instantaneous" },
+            magical: false,
+        },
+    };
+}
+
+/**
+ * Create the mandatory "Melee Attack" weapon item.
+ * @param {Object} stats - CR stat block
  * @returns {Object} Item data
  */
-export function createAttackItem(stats, noa, index) {
-    const label = noa > 1 ? `Attack #${index + 1}` : "Attack";
-
+export function createAttackItem(stats) {
     return {
-        name: label,
+        name: "Melee Attack",
         type: "weapon",
         img: "icons/skills/melee/strike-slashes-red.webp",
         system: {
-            description: {
-                value: `<p>A melee weapon attack.</p>`,
-            },
-            activation: {
-                type: "action",
-                cost: 1,
-            },
-            actionType: "mwak",
-            proficient: stats.abilities ? 0 : 1,
-            attackBonus: stats.atkBonus || "",
-            damage: {
-                parts: [
-                    [stats.DpACalc],
-                ],
-            },
+            description: { value: "<p>A melee weapon attack.</p>" },
+            activities: buildAttackActivity("Melee Attack", stats, false),
+        },
+    };
+}
+
+/**
+ * Create the mandatory "Ranged Attack" weapon item.
+ * @param {Object} stats - CR stat block
+ * @returns {Object} Item data
+ */
+export function createRangedItem(stats) {
+    return {
+        name: "Ranged Attack",
+        type: "weapon",
+        img: "icons/skills/ranged/arrow-flying-white.webp",
+        system: {
+            description: { value: "<p>A ranged weapon attack.</p>" },
+            activities: buildAttackActivity("Ranged Attack", stats, true),
         },
     };
 }
 
 /**
  * Create a multiattack feature item.
- * @param {number} noa - Number of attacks
+ * @param {number} noa - Number of attacks from chart
  * @returns {Object} Item data
  */
 export function createMultiattackItem(noa) {
     return {
-        name: `Multiattack (${noa} attacks)`,
+        name: "Multiattack",
         type: "feature",
         img: "icons/skills/melee/maneuver-greatsword-yellow.webp",
         system: {
@@ -71,7 +114,10 @@ export function createMultiattackItem(noa) {
             },
             activation: {
                 type: "action",
-                cost: 1,
+                value: null,
+                condition: "",
+                override: false,
+                primary: true,
             },
         },
     };
@@ -79,7 +125,7 @@ export function createMultiattackItem(noa) {
 
 /**
  * Create a feature Item data object from a feature definition.
- * In Black Flag, features use type "feature" or "talent" instead of "feat".
+ * Maps dnd5e item templates to Black Flag conventions.
  * @param {Object} feature - Raw feature object from data
  * @param {Object} stats - Current stat block
  * @returns {Object|null} Item data or null
@@ -87,7 +133,6 @@ export function createMultiattackItem(noa) {
 export function createFeatureItem(feature, stats) {
     if (!feature || !feature.item) return null;
 
-    // Deep clone the item template
     const item = foundry.utils.deepClone(feature.item);
 
     // Map item type: dnd5e "feat" → black-flag "feature"
@@ -96,7 +141,7 @@ export function createFeatureItem(feature, stats) {
     }
 
     // Handle damage-replacing features
-    if (feature.isDmg) {
+    if (feature.isDmg && item.system) {
         let dmgPart = stats.DpACalc;
 
         if (feature.useDpR && stats.NoA) {
@@ -115,7 +160,7 @@ export function createFeatureItem(feature, stats) {
     }
 
     // Handle save DC features
-    if (feature.hasSave && item.system.save) {
+    if (feature.hasSave && item.system?.save) {
         item.system.save.dc = stats.DC || stats.ACDC || null;
     }
 
@@ -136,6 +181,21 @@ export function createFeatureItem(feature, stats) {
 }
 
 /**
+ * Parse CR string to a number (handles fractions like "1/8", "1/4", "1/2").
+ * @param {string} crStr
+ * @returns {number}
+ */
+function parseCR(crStr) {
+    if (!crStr) return 0;
+    const str = String(crStr).trim();
+    if (str.includes("/")) {
+        const [num, den] = str.split("/").map(Number);
+        return num / den;
+    }
+    return Number(str) || 0;
+}
+
+/**
  * Build the full Actor creation data object for Black Flag.
  * @param {string} name
  * @param {Object} stats
@@ -145,15 +205,20 @@ export function createFeatureItem(feature, stats) {
  * @returns {Object} Actor.create data
  */
 export function buildActorData(name, stats, type, abilities, tokenPath) {
-    // Parse CR
-    let cr;
-    try {
-        cr = eval(stats.CR);
-    } catch (e) {
-        cr = 0;
+    const cr = parseCR(stats.CR);
+
+    // Map ability values to Black Flag {mod} format
+    const bfAbilities = {};
+    const ablKeys = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+    for (const key of ablKeys) {
+        const abl = abilities[key] || {};
+        // Black Flag uses 'mod' directly (the ability modifier, not the score)
+        bfAbilities[key] = {
+            mod: abl.mod ?? Math.floor((abl.value - 10) / 2),
+            proficient: abl.proficient ?? false,
+        };
     }
 
-    // Black Flag uses the same basic data model paths as dnd5e
     return {
         name,
         type: "npc",
@@ -168,17 +233,17 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
                     value: parseInt(stats.HP) || 10,
                     max: parseInt(stats.HP) || 10,
                 },
-                prof: parseInt(stats.PAB) || 2,
+                prof: stats.prof ?? (parseInt(stats.PAB) || 2),
+                cr,
                 movement: {
                     walk: stats.speed || 30,
                     units: "ft",
                 },
             },
-            details: {
+            traits: {
                 type: type.toLowerCase(),
-                cr,
             },
-            abilities,
+            abilities: bfAbilities,
         },
         prototypeToken: {
             name,

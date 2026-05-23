@@ -21,18 +21,13 @@ function parseDice(diceStr) {
 }
 
 /**
- * Create an attack Item data object.
+ * Create the mandatory "Melee Attack" weapon item.
  * @param {Object} stats - CR stat block
- * @param {number} noa - Total number of attacks
- * @param {number} index - Which attack number this is (0-based)
  * @returns {Object} Item data
  */
-export function createAttackItem(stats, noa, index) {
-    const label = noa > 1 ? `Attack #${index + 1}` : "Attack";
-    const dice = parseDice(stats.DpACalc);
-
+export function createAttackItem(stats) {
     return {
-        name: label,
+        name: "Melee Attack",
         type: "weapon",
         img: "icons/skills/melee/strike-slashes-red.webp",
         system: {
@@ -43,15 +38,43 @@ export function createAttackItem(stats, noa, index) {
                 type: "action",
                 cost: 1,
             },
-            ability: stats.abilities ? "" : "none",
+            ability: "str",
             actionType: "mwak",
-            proficient: stats.abilities ? 0 : 1,
-            attackBonus: stats.atkBonus || "",
+            proficient: !stats.abilities,
+            attackBonus: stats.PAB || "",
             damage: {
-                parts: [
-                    [stats.DpACalc],
-                ],
+                parts: [[stats.DpACalc || "1d4"]],
             },
+        },
+    };
+}
+
+/**
+ * Create the mandatory "Ranged Attack" weapon item.
+ * @param {Object} stats - CR stat block
+ * @returns {Object} Item data
+ */
+export function createRangedItem(stats) {
+    return {
+        name: "Ranged Attack",
+        type: "weapon",
+        img: "icons/skills/ranged/arrow-flying-white.webp",
+        system: {
+            description: {
+                value: `<p>A ranged weapon attack.</p>`,
+            },
+            activation: {
+                type: "action",
+                cost: 1,
+            },
+            ability: "dex",
+            actionType: "rwak",
+            proficient: !stats.abilities,
+            attackBonus: stats.PAB || "",
+            damage: {
+                parts: [[stats.DpACalc || "1d4"]],
+            },
+            range: { value: 60, long: 120, units: "ft" },
         },
     };
 }
@@ -131,6 +154,21 @@ export function createFeatureItem(feature, stats) {
 }
 
 /**
+ * Parse CR string to a number (handles fractions like "1/8", "1/4", "1/2").
+ * @param {string} crStr
+ * @returns {number}
+ */
+function parseCR(crStr) {
+    if (!crStr) return 0;
+    const str = String(crStr).trim();
+    if (str.includes("/")) {
+        const [num, den] = str.split("/").map(Number);
+        return num / den;
+    }
+    return Number(str) || 0;
+}
+
+/**
  * Build the full Actor creation data object for dnd5e.
  * @param {string} name
  * @param {Object} stats
@@ -140,13 +178,7 @@ export function createFeatureItem(feature, stats) {
  * @returns {Object} Actor.create data
  */
 export function buildActorData(name, stats, type, abilities, tokenPath) {
-    // Parse CR
-    let cr;
-    try {
-        cr = eval(stats.CR);
-    } catch (e) {
-        cr = 0;
-    }
+    const cr = parseCR(stats.CR);
 
     const data = {
         name,

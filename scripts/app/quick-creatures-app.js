@@ -71,7 +71,7 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         },
         position: {
             width: 600,
-            height: 640,
+            height: 700,
         },
         form: {
             handler: QuickCreaturesApp.#onSubmit,

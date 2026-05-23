@@ -94,12 +94,20 @@ function readFormData(app, html) {
     // Creature name
     const creatureName = nameInput ? nameInput.value.trim() : "";
 
-    // Ability save proficiencies (checkboxes)
-    const abilities = ["str", "dex", "con", "int", "wis", "cha"];
+    // Ability save proficiencies (checkboxes) and ability score values
+    const abilityKeys = ["str", "dex", "con", "int", "wis", "cha"];
     const saveProfs = {};
-    for (const abl of abilities) {
+    const abilityScores = {};
+    for (const abl of abilityKeys) {
         const checkbox = html.querySelector(`#${abl}Bonus`);
         saveProfs[abl] = checkbox ? checkbox.checked : false;
+        const input = html.querySelector(`#${abl}`);
+        if (input) {
+            const val = parseInt(input.value);
+            abilityScores[abl] = !isNaN(val) ? val : 10;
+        } else {
+            abilityScores[abl] = 10;
+        }
     }
 
     // Selected features
@@ -118,6 +126,7 @@ function readFormData(app, html) {
         monsterType,
         creatureName,
         saveProfs,
+        abilityScores,
         features,
         isArchetypeMode,
     };
@@ -131,7 +140,7 @@ function readFormData(app, html) {
  */
 export async function createActor(app, html) {
     const formData = readFormData(app, html);
-    const { stats, monsterType, creatureName, saveProfs, features, isArchetypeMode } = formData;
+    const { stats, monsterType, creatureName, saveProfs, abilityScores, features, isArchetypeMode } = formData;
 
     if (!stats) {
         ui.notifications.error(game.i18n.localize("quick-creatures.create.noStats"));
@@ -150,15 +159,15 @@ export async function createActor(app, html) {
         return null;
     }
 
-    // Determine number of attacks (features like Damage Reflection reduce this)
-    let noa = parseInt(stats.NoA) || 1;
+    // Track number of attacks for multiattack description (features can reduce it)
+    let multiAtkCount = parseInt(stats.NoA) || 1;
 
     // Build feature items
     const featureItems = [];
     for (const feature of features) {
         // Some features reduce attacks
-        if (feature.reduceAtk && noa === parseInt(stats.NoA)) {
-            noa--;
+        if (feature.reduceAtk) {
+            multiAtkCount = Math.max(1, multiAtkCount - 1);
         }
         const item = adapter.createFeatureItem(feature, stats);
         if (item) {
@@ -166,21 +175,17 @@ export async function createActor(app, html) {
         }
     }
 
-    // Build attack items
+    // Build attack items: always Melee Attack + Ranged Attack
     const attackItems = [];
-    for (let i = 0; i < noa; i++) {
-        const attackItem = adapter.createAttackItem(stats, noa, i);
-        if (attackItem) {
-            attackItems.push(attackItem);
-        }
-    }
+    const meleeItem = adapter.createAttackItem(stats);
+    if (meleeItem) attackItems.push(meleeItem);
+    const rangedItem = adapter.createRangedItem(stats);
+    if (rangedItem) attackItems.push(rangedItem);
 
-    // Build multiattack item if more than 1 attack
-    if (noa > 1) {
-        const multiItem = adapter.createMultiattackItem(noa);
-        if (multiItem) {
-            featureItems.push(multiItem);
-        }
+    // Build multiattack feature if chart says more than 1 attack
+    if (multiAtkCount > 1) {
+        const multiItem = adapter.createMultiattackItem(multiAtkCount);
+        if (multiItem) featureItems.push(multiItem);
     }
 
     // Determine abilities
@@ -189,12 +194,12 @@ export async function createActor(app, html) {
         // Archetype mode provides explicit ability scores
         abilities = stats.abilities;
     } else {
-        // CR mode: default 10s, apply save proficiencies
+        // CR mode: use form input values, apply save proficiencies
         abilities = {};
         const ablKeys = ["str", "dex", "con", "int", "wis", "cha"];
         for (const abl of ablKeys) {
             abilities[abl] = {
-                value: 10,
+                value: abilityScores[abl] || 10,
                 proficient: saveProfs[abl] ? 1 : 0,
             };
         }
