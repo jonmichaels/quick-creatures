@@ -48,7 +48,7 @@ const MONSTER_FEATURES = [
         item: {
             name: "Damaging Blast",
             type: "weapon",
-            img: "icons/magic/light/explosion-impact-purple.webp",
+            img: "icons/magic/light/beam-rays-magenta.webp",
             system: {
                 description: {
                     value: "<p>This creature has one or more single-target ranged attacks using the attack bonus and damage calculated above, and which deal damage of an appropriate type.</p>",
@@ -78,12 +78,13 @@ const MONSTER_FEATURES = [
         name: "Damage Reflection",
         isEffect: false,
         reduceAtk: true,
-        isDmg: false,
+        isDmg: true,
+        divideDmg: 2,
         desc: "Whenever a creature within 5 feet of this creature hits them with a melee attack, the attacker takes damage in return of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. If you give a creature this feature, give them one less attack than normal.",
         item: {
             name: "Damage Reflection",
             type: "feat",
-            img: "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+            img: "icons/magic/defensive/shield-barrier-deflect-gold.webp",
             system: {
                 description: {
                     value: "<p>Whenever a creature within 5 feet of this creature hits them with a melee attack, the attacker takes damage in return of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. If you give a creature this feature, give them one less attack than normal.</p>",
@@ -99,10 +100,14 @@ const MONSTER_FEATURES = [
         item: {
             name: "Damage Transference",
             type: "feat",
-            img: "icons/magic/control/energy-stream-link-white.webp",
+            img: "icons/magic/control/energy-stream-link-teal.webp",
             system: {
                 description: {
                     value: "<p>When this creature takes damage, they can transfer half or all of that damage (your choice) to a willing creature within 30 or 60 feet of them. This feature is particularly good for boss monsters.</p>",
+                },
+                activation: {
+                    type: "reaction",
+                    cost: 1,
                 },
             },
         },
@@ -117,7 +122,7 @@ const MONSTER_FEATURES = [
         item: {
             name: "Damaging Aura",
             type: "feat",
-            img: "icons/magic/unholy/silhouette-light-fire-blue.webp",
+            img: "icons/magic/control/encase-creature-monster-hold.webp",
             system: {
                 description: {
                     value: "<p>Each creature who starts their turn within 10 feet of this creature takes damage of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. If you give a creature this feature, give them one less attack than normal.</p>",

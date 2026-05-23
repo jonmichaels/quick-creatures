@@ -155,7 +155,8 @@ export function createFeatureItem(feature, stats) {
     }
 
     // Convert dnd5e-format activation to BF utility activity
-    if (item.system?.activation?.type && item.system.activation.type !== "none") {
+    // (only for non-weapon features — weapon features get attack activities below)
+    if (item.system?.activation?.type && item.system.activation.type !== "none" && item.type !== "weapon") {
         const activityId = foundry.utils.randomID();
         const dndActivation = item.system.activation;
         item.system.activities = {
@@ -187,6 +188,62 @@ export function createFeatureItem(feature, stats) {
     if (item.system?.description?.value) {
         item.system.description.value = item.system.description.value
             .replace(/this creature/gi, "the [[lookup @name lowercase]]");
+    }
+
+    // Handle damage-replacing weapon features: build BF attack activity
+    if (feature.isDmg && item.system && item.type === "weapon") {
+        const dice = parseDice(stats.DpACalc);
+        const activityId = foundry.utils.randomID();
+        const isRanged = item.system.actionType === "rwak";
+        const dndRange = item.system.range || {};
+        const dndActivation = item.system.activation || {};
+        item.system.activities = {
+            [activityId]: {
+                _id: activityId,
+                type: "attack",
+                activation: {
+                    type: dndActivation.type || "action",
+                    value: dndActivation.cost || null,
+                    condition: dndActivation.condition || "",
+                    override: false,
+                    primary: true,
+                },
+                range: {
+                    override: false,
+                    unit: dndRange.units || "ft",
+                    short: dndRange.value || (isRanged ? 60 : null),
+                    long: dndRange.long || (isRanged ? 120 : null),
+                    reach: isRanged ? null : 5,
+                },
+                system: {
+                    attack: {
+                        flat: true,
+                        bonus: stats.PAB || "+2",
+                        critical: { threshold: null },
+                        type: { value: isRanged ? "ranged" : "melee", classification: "weapon" },
+                    },
+                    damage: {
+                        parts: [{
+                            number: dice.count,
+                            denomination: dice.die,
+                            bonus: dice.modifier ? String(dice.modifier) : "",
+                            custom: { enabled: false },
+                            type: "",
+                            additionalTypes: [],
+                            scaling: { number: 1 },
+                        }],
+                        critical: {},
+                        includeBase: true,
+                    },
+                    effects: [],
+                },
+                consumption: { targets: [], scale: { allowed: false } },
+                uses: { spent: 0, consumeQuantity: false, recovery: [], max: "" },
+                target: { template: { count: "1", contiguous: false, unit: "foot" }, affects: { choice: false }, override: false, prompt: true },
+                duration: { concentration: false, override: false, unit: "instantaneous" },
+                magical: false,
+            },
+        };
     }
 
     // Handle damage-replacing features
