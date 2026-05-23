@@ -430,9 +430,22 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
  * Initialize the Quick Creatures module.
  * Registers hooks for the "Generate Creature" button in the Actors sidebar.
  */
-export function initQuickCreatures() {
+export async function initQuickCreatures() {
+    // Preload and register Handlebars partials
+    // (HandlebarsApplicationMixin uses isolated instances; global partials must be registered)
+    const partials = [
+        "modules/quick-creatures/templates/partials/header.hbs",
+        "modules/quick-creatures/templates/partials/tab-cr.hbs",
+        "modules/quick-creatures/templates/partials/tab-archetype.hbs",
+        "modules/quick-creatures/templates/partials/features.hbs",
+    ];
+    const loaded = await loadTemplates(partials);
+    for (const path of partials) {
+        const name = path.replace("modules/quick-creatures/", "");
+        Handlebars.registerPartial(path, await getTemplate(path));
+    }
+
     // Register core data from local data files
-    // (These modules will register themselves — for now we register fallbacks)
     registerCoreData();
 
     // Inject "Generate Creature" button into the Actors sidebar
@@ -469,7 +482,7 @@ function injectGenerateButton(app, html) {
         new QuickCreaturesApp().render({ force: true });
     });
 
-    createBtn.parentNode.insertBefore(generateBtn, createBtn);
+    createBtn.after(generateBtn);
 }
 
 export { QuickCreaturesApp };

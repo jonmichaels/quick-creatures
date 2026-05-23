@@ -4,7 +4,7 @@
             "title": "Quick Creatures"
         },
         "sidebar": {
-            "generateCreature": "Generate Creature"
+            "generateCreature": "Quick Creatures"
         },
         "tabs": {
             "cr": "Monster by CR",
