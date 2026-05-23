@@ -6,21 +6,6 @@
  */
 
 /**
- * Parse a damage dice string like "1d6+2" or "3d8+3" into its components.
- * @param {string} diceStr
- * @returns {{ count: number, die: number, modifier: number }}
- */
-function parseDice(diceStr) {
-    const match = diceStr.match(/(\d+)d(\d+)([+-]\d+)?/);
-    if (!match) return { count: 1, die: 4, modifier: 0 };
-    return {
-        count: parseInt(match[1]),
-        die: parseInt(match[2]),
-        modifier: match[3] ? parseInt(match[3]) : 0,
-    };
-}
-
-/**
  * Create the mandatory "Melee Attack" weapon item.
  * @param {Object} stats - CR stat block
  * @returns {Object} Item data

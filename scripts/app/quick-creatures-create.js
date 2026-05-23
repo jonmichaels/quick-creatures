@@ -94,20 +94,12 @@ function readFormData(app, html) {
     // Creature name
     const creatureName = nameInput ? nameInput.value.trim() : "";
 
-    // Ability save proficiencies (checkboxes) and ability score values
+    // Ability save proficiencies (checkboxes)
     const abilityKeys = ["str", "dex", "con", "int", "wis", "cha"];
     const saveProfs = {};
-    const abilityScores = {};
     for (const abl of abilityKeys) {
         const checkbox = html.querySelector(`#${abl}Bonus`);
         saveProfs[abl] = checkbox ? checkbox.checked : false;
-        const input = html.querySelector(`#${abl}`);
-        if (input) {
-            const val = parseInt(input.value);
-            abilityScores[abl] = !isNaN(val) ? val : 10;
-        } else {
-            abilityScores[abl] = 10;
-        }
     }
 
     // Selected features
@@ -126,7 +118,6 @@ function readFormData(app, html) {
         monsterType,
         creatureName,
         saveProfs,
-        abilityScores,
         features,
         isArchetypeMode,
     };
@@ -140,7 +131,7 @@ function readFormData(app, html) {
  */
 export async function createActor(app, html) {
     const formData = readFormData(app, html);
-    const { stats, monsterType, creatureName, saveProfs, abilityScores, features, isArchetypeMode } = formData;
+    const { stats, monsterType, creatureName, saveProfs, features, isArchetypeMode } = formData;
 
     if (!stats) {
         ui.notifications.error(game.i18n.localize("quick-creatures.create.noStats"));
@@ -194,13 +185,15 @@ export async function createActor(app, html) {
         // Archetype mode provides explicit ability scores
         abilities = stats.abilities;
     } else {
-        // CR mode: use form input values, apply save proficiencies
+        // CR mode: all abilities start at +0 modifier, apply save proficiencies
         abilities = {};
-        const ablKeys = ["str", "dex", "con", "int", "wis", "cha"];
-        for (const abl of ablKeys) {
-            abilities[abl] = {
-                value: abilityScores[abl] || 10,
-                proficient: saveProfs[abl] ? 1 : 0,
+        // Short key (HTML) → long key (data model)
+        const ablMap = { str: "strength", dex: "dexterity", con: "constitution", int: "intelligence", wis: "wisdom", cha: "charisma" };
+        for (const [short, long] of Object.entries(ablMap)) {
+            abilities[long] = {
+                value: 10,                                      // dnd5e uses score
+                mod: 0,                                          // Black Flag uses modifier directly
+                proficient: saveProfs[short] ? 1 : 0,
             };
         }
     }

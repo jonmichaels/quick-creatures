@@ -212,10 +212,11 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
     const ablKeys = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
     for (const key of ablKeys) {
         const abl = abilities[key] || {};
-        // Black Flag uses 'mod' directly (the ability modifier, not the score)
+        // BF uses 'mod' directly; convert from 'value' score if needed
+        const mod = (abl.mod != null) ? Number(abl.mod) : Math.floor((Number(abl.value || 10) - 10) / 2);
         bfAbilities[key] = {
-            mod: abl.mod ?? Math.floor((abl.value - 10) / 2),
-            proficient: abl.proficient ?? false,
+            mod,
+            proficient: abl.proficient ? 1 : 0,
         };
     }
 
