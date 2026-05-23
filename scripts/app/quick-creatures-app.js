@@ -431,6 +431,14 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
  * Registers hooks for the "Generate Creature" button in the Actors sidebar.
  */
 export async function initQuickCreatures() {
+    // Register Handlebars helpers (not available by default in Foundry)
+    Handlebars.registerHelper("arr", function () {
+        return Array.from(arguments).slice(0, -1);
+    });
+    Handlebars.registerHelper("concat", function (a, b) {
+        return String(a) + String(b);
+    });
+
     // Preload and register Handlebars partials
     // (HandlebarsApplicationMixin uses isolated instances; global partials must be registered)
     const partials = [
@@ -472,8 +480,9 @@ function injectGenerateButton(app, html) {
     // Guard against duplicate buttons
     if (element.querySelector(".qc-generate-monster")) return;
 
-    const createBtn = element.querySelector("button.create-entry");
-    if (!createBtn) return;
+    // Find the header actions area and append button at the end
+    const headerActions = element.querySelector(".header-actions, .directory-header .action-buttons, .directory-header");
+    if (!headerActions) return;
 
     const generateBtn = document.createElement("button");
     generateBtn.className = "create-document qc-generate-monster";
@@ -482,7 +491,7 @@ function injectGenerateButton(app, html) {
         new QuickCreaturesApp().render({ force: true });
     });
 
-    createBtn.after(generateBtn);
+    headerActions.appendChild(generateBtn);
 }
 
 export { QuickCreaturesApp };
