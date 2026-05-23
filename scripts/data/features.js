@@ -284,15 +284,20 @@ const MONSTER_FEATURES = [
         item: {
             name: "Misty Step",
             type: "feat",
-            img: "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+            img: "icons/magic/lightning/orb-ball-spiral-blue.webp",
             system: {
                 description: {
                     value: "<p>As a bonus action, this creature can teleport up to 30 feet to an unoccupied space they can see.</p>",
-                    chat: "",
                 },
-                type: {
-                    value: "monster",
-                    subtype: "",
+                activation: {
+                    type: "bonus",
+                    cost: 1,
+                },
+                target: {
+                    type: "self",
+                },
+                range: {
+                    units: "self",
                 },
             },
         },

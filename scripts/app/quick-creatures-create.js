@@ -166,18 +166,21 @@ export async function createActor(app, html) {
         }
     }
 
-    // Build attack items: always Melee Attack + Ranged Attack
-    const attackItems = [];
+    // Build attack items: Melee + Ranged (pushed to items array)
+    // Items array order: features first, then melee, then ranged
     const meleeItem = adapter.createAttackItem(stats);
-    if (meleeItem) attackItems.push(meleeItem);
     const rangedItem = adapter.createRangedItem(stats);
-    if (rangedItem) attackItems.push(rangedItem);
 
-    // Build multiattack feature if chart says more than 1 attack
+    // Build multiattack feature first (appears before attacks)
     if (multiAtkCount > 1) {
         const multiItem = adapter.createMultiattackItem(multiAtkCount);
         if (multiItem) featureItems.push(multiItem);
     }
+
+    // Then add attacks (melee before ranged in the sheet)
+    const attackItems = [];
+    if (meleeItem) attackItems.push(meleeItem);
+    if (rangedItem) attackItems.push(rangedItem);
 
     // Determine abilities
     let abilities;
@@ -201,11 +204,8 @@ export async function createActor(app, html) {
     // Token image path
     const tokenPath = `${MODULE_PATH}/tokens/${monsterType.toLowerCase()}.png`;
 
-    // Build actor name
-    const nameBase = creatureName || stats.name || "";
-    const name = nameBase
-        ? `${nameBase} ${monsterType} (CR ${stats.CR || stats.CR || "?"})`
-        : `${monsterType} (CR ${stats.CR || "?"})`;
+    // Build actor name: use user-provided name, or auto-generate
+    const name = creatureName || `${monsterType} (CR ${stats.CR || "?"})`;
 
     // Build actor data through the adapter
     const actorData = adapter.buildActorData(name, stats, monsterType, abilities, tokenPath);

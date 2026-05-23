@@ -154,6 +154,42 @@ export function createFeatureItem(feature, stats) {
         item.type = "feature";
     }
 
+    // Convert dnd5e-format activation to BF utility activity
+    if (item.system?.activation?.type && item.system.activation.type !== "none") {
+        const activityId = foundry.utils.randomID();
+        const dndActivation = item.system.activation;
+        item.system.activities = {
+            [activityId]: {
+                _id: activityId,
+                type: "utility",
+                activation: {
+                    type: dndActivation.type,       // "action" or "bonus"
+                    value: dndActivation.cost || null,
+                    condition: dndActivation.condition || "",
+                    override: false,
+                    primary: true,
+                },
+                system: {
+                    effects: [],
+                    roll: { prompt: false, visible: false },
+                },
+                consumption: { targets: [], scale: { allowed: false } },
+                uses: { spent: 0, consumeQuantity: false, recovery: [] },
+                duration: { override: false, concentration: false, unit: "instantaneous" },
+                range: item.system.range?.value ? { override: false, unit: item.system.range.units || "ft", short: item.system.range.value, long: item.system.range.long || null } : { override: false },
+                target: { template: { count: "1", contiguous: false, unit: "foot" }, affects: { choice: false }, override: false, prompt: true },
+                magical: false,
+            },
+        };
+    }
+
+    // Replace "this creature" with BF's [[lookup @name lowercase]] syntax
+    if (item.system?.description?.value) {
+        item.system.description.value = item.system.description.value
+            .replace(/this creature/gi, "the [[lookup @name lowercase]]");
+    }
+
+    // Handle damage-replacing features
     if (feature.isDmg && item.system) {
         let dmgPart = stats.DpACalc;
         if (feature.useDpR && stats.NoA) {
@@ -235,7 +271,7 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
                 },
             },
             traits: {
-                type: type.toLowerCase(),
+                type: { value: type.toLowerCase() },
             },
             abilities: bfAbilities,
         },
