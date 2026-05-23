@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname),
     filename: '[name].js',
+    publicPath: '/modules/quick-creatures/',
   },
   module: {
     rules: [

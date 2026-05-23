@@ -70,8 +70,8 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             icon: "fa-solid fa-spaghetti-monster-flying",
         },
         position: {
-            width: 560,
-            height: 520,
+            width: 600,
+            height: 640,
         },
         form: {
             handler: QuickCreaturesApp.#onSubmit,

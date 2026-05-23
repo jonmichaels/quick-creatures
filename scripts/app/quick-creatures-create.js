@@ -6,25 +6,29 @@
  */
 
 import { registry } from "../registry.js";
+import * as dnd5eAdapter from "../systems/dnd5e-adapter.js";
+import * as blackFlagAdapter from "../systems/black-flag-adapter.js";
 
 /** @type {string} Base path for module assets */
 const MODULE_PATH = "modules/quick-creatures";
 
+/** System adapter lookup (static imports — no code splitting) */
+const ADAPTERS = {
+    "dnd5e": dnd5eAdapter,
+    "black-flag": blackFlagAdapter,
+};
+
 /**
  * Get the system adapter for the active game system.
- * Lazily imported to avoid bundling errors when the system isn't present.
- * @returns {Promise<Object>} The adapter module
+ * @returns {Object} The adapter module
  */
-async function getAdapter() {
+function getAdapter() {
     const systemId = game.system.id;
-    switch (systemId) {
-        case "dnd5e":
-            return import("../systems/dnd5e-adapter.js");
-        case "black-flag":
-            return import("../systems/black-flag-adapter.js");
-        default:
-            throw new Error(`Quick Creatures: Unsupported system "${systemId}". Supported: dnd5e, black-flag`);
+    const adapter = ADAPTERS[systemId];
+    if (!adapter) {
+        throw new Error(`Quick Creatures: Unsupported system "${systemId}". Supported: dnd5e, black-flag`);
     }
+    return adapter;
 }
 
 /**
@@ -139,7 +143,7 @@ export async function createActor(app, html) {
     // Load the system adapter
     let adapter;
     try {
-        adapter = await getAdapter();
+        adapter = getAdapter();
     } catch (e) {
         ui.notifications.error(game.i18n.localize("quick-creatures.create.unsupportedSystem"));
         console.error("Quick Creatures | Adapter load error:", e);
