@@ -28,7 +28,7 @@
             "tokenAlt": "Creature token preview",
             "hp": "HP",
             "acdc": "AC / DC",
-            "prof": "PB",
+            "pb": "PB",
             "level": "Level",
             "damage": "Dmg"
         },

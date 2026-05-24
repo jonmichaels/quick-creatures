@@ -1,73 +1,53 @@
 <!-- Quick Creatures — two-column layout -->
 <div class="qc-app">
-    <!-- Left column: inputs + features + button -->
-    <div class="qc-left">
-        <!-- Name + Type header -->
+    <!-- Header row: Name + Type (spans both columns) -->
+    <div class="qc-header-row">
         {{> "modules/quick-creatures/templates/partials/header.hbs"}}
+    </div>
 
-        <!-- Tab content (CR or Archetype) -->
+    <!-- Left column: tab content -->
+    <div class="qc-left">
         <div class="qc-tab-content active" data-tab="tab_cr" data-group="primary">
             {{> "modules/quick-creatures/templates/partials/tab-cr.hbs"}}
         </div>
         <div class="qc-tab-content" data-tab="tab_archetype" data-group="primary">
             {{> "modules/quick-creatures/templates/partials/tab-archetype.hbs"}}
         </div>
-
-        <!-- Feature selection -->
-        {{> "modules/quick-creatures/templates/partials/features.hbs"}}
-
-        <!-- Create button -->
-        <div class="qc-footer">
-            <button type="button" id="create-monster-btn" class="qc-create-btn">
-                <i class="fa-solid fa-spaghetti-monster-flying"></i>
-                {{i18n "create.button"}}
-            </button>
-        </div>
     </div>
 
-    <!-- Right column: stat preview -->
+    <!-- Right column: token + stats side by side -->
     <div class="qc-right">
-        <div class="qc-stat-preview">
+        <div class="qc-stat-preview flexrow">
             <div class="qc-token-preview">
                 <img id="token-preview" src="{{modulePath}}/tokens/aberration.png" alt="{{i18n 'preview.tokenAlt'}}" />
             </div>
 
-            <!-- Combat stats -->
-            <div class="qc-stats flexrow">
+            <div class="qc-stats-grid">
                 <div class="qc-stat">
-                    <i class="fa-solid fa-heart"></i>
                     <span class="qc-stat-label">{{i18n "preview.hp"}}</span>
                     <span id="hpLabel">{{defaultStats.HP}}</span>
                 </div>
                 <div class="qc-stat">
-                    <i class="fa-solid fa-shield"></i>
                     <span class="qc-stat-label">{{i18n "preview.acdc"}}</span>
                     <span id="acLabel">{{defaultStats.ACDC}}</span>
                 </div>
-            </div>
-            <div class="qc-stats flexrow">
                 <div class="qc-stat">
-                    <i class="fa-solid fa-arrow-up"></i>
                     <span class="qc-stat-label">{{i18n "preview.pb"}}</span>
                     <span id="profLabel">{{defaultStats.PAB}}</span>
                 </div>
                 <div class="qc-stat">
-                    <i class="fa-solid fa-dial"></i>
                     <span class="qc-stat-label">{{i18n "preview.level"}}</span>
                     <span id="lvlLabel">{{defaultStats.ECL}}</span>
                 </div>
-            </div>
-            <div class="qc-stats">
                 <div class="qc-stat">
-                    <i class="fa-solid fa-swords"></i>
                     <span class="qc-stat-label">{{i18n "preview.damage"}}</span>
-                    <span id="dmgLabel">{{defaultStats.DpACalc}} × {{defaultStats.NoA}}</span>
+                    <span id="dmgLabel">{{defaultStats.DpACalc}} &times; {{defaultStats.NoA}}</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bottom bar — spanning both columns: abilities + saves -->
+    <!-- Bottom bar: abilities + saves (spans both columns) -->
     <div class="qc-bottom flexrow">
         <div class="qc-abilities flexrow">
             {{#each (arr "str" "dex" "con" "int" "wis" "cha")}}
@@ -80,5 +60,31 @@
         <div class="qc-saves">
             <span id="stLabel" class="qc-save-text"></span>
         </div>
+    </div>
+
+    <!-- Save proficiency toggles (below abilities, spans both columns) -->
+    <div class="qc-saves-section">
+        <h4>{{i18n "create.saveProfs"}} (<span id="saveBonus">+2</span>)</h4>
+        <div class="qc-save-profs flexrow">
+            {{#each (arr "str" "dex" "con" "int" "wis" "cha")}}
+            <label class="qc-save-toggle">
+                <input type="checkbox" id="{{this}}Bonus" class="qc-save-check" />
+                <span>{{i18n (concat "abilities." this)}}</span>
+            </label>
+            {{/each}}
+        </div>
+    </div>
+
+    <!-- Create button (spans both columns, above features) -->
+    <div class="qc-create-section">
+        <button type="button" id="create-monster-btn" class="qc-create-btn">
+            <i class="fa-solid fa-spaghetti-monster-flying"></i>
+            {{i18n "create.button"}}
+        </button>
+    </div>
+
+    <!-- Creature Features (spans both columns, at bottom) -->
+    <div class="qc-features-section">
+        {{> "modules/quick-creatures/templates/partials/features.hbs"}}
     </div>
 </div>

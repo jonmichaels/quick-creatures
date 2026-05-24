@@ -1,22 +1,13 @@
-<!-- CR tab — CR select + save proficiencies -->
+<!-- CR tab — CHALLENGE RATING label + select -->
 <div class="qc-tab-panel">
+    <label for="cr-value" class="qc-cr-label">{{i18n "create.crLabel"}}</label>
     <div class="form-group">
         <select id="cr-value" name="crValue">
             {{#each crStats}}
             <option value="{{CR}}" data-stats="{{serialized}}">
-                CR {{CR}}{{#if example_trunc}} ({{example_trunc}}){{/if}}
+                CR {{CR}}{{#if example}} ({{example}}){{/if}}
             </option>
             {{/each}}
         </select>
-    </div>
-
-    <h4>{{i18n "create.saveProfs"}} (<span id="saveBonus">+2</span>)</h4>
-    <div class="qc-save-profs flexrow">
-        {{#each (arr "str" "dex" "con" "int" "wis" "cha")}}
-        <label class="qc-save-toggle">
-            <input type="checkbox" id="{{this}}Bonus" class="qc-save-check" />
-            <span>{{i18n (concat "abilities." this)}}</span>
-        </label>
-        {{/each}}
     </div>
 </div>
