@@ -459,6 +459,7 @@ export async function initQuickCreatures() {
     // Inject "Quick Creatures" button into the Actors sidebar
     Hooks.on("renderSidebarTab", injectGenerateButton);
     Hooks.on("changeSidebarTab", injectGenerateButton);
+    Hooks.on("renderActorDirectory", injectGenerateButton);  // re-fire on directory re-render (deletion)
 
     // Fire hook for expansion modules to register their data
     Hooks.callAll("quickCreaturesReady", registry);
@@ -473,15 +474,18 @@ export async function initQuickCreatures() {
  * @param {JQuery} html
  */
 function injectGenerateButton(app, html) {
-    if (!app.options.classes?.includes("actors-sidebar")) return;
+    // Accept both SidebarTab and ActorDirectory renders — only for actors
+    const isActorTab = app.options?.classes?.includes("actors-sidebar");
+    const isActorDirectory = app.constructor?.name === "ActorDirectory";
+    if (!isActorTab && !isActorDirectory) return;
 
-    const element = app.element;
+    const element = app?.element;
     if (!element) return;
 
     // Guard against duplicate buttons
     if (element.querySelector(".qc-generate-monster")) return;
 
-    // Find the header actions button bar (NOT the whole directory-header)
+    // Find the header actions button bar
     const headerActions = element.querySelector(".header-actions");
     if (!headerActions) return;
 
