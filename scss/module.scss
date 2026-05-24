@@ -15,7 +15,6 @@
 }
 
 /* Full-width rows that span both columns */
-.qc-header-row,
 .qc-bottom,
 .qc-saves-section,
 .qc-create-section,
@@ -151,8 +150,8 @@
         flex-shrink: 0;
 
         img {
-            width: 64px;
-            height: 64px;
+            width: 128px;
+            height: 128px;
             border-radius: 50%;
             border: 2px solid var(--color-border, #666);
             object-fit: cover;
@@ -208,13 +207,13 @@
 
     .qc-ability-label {
         color: var(--color-text-muted, #888);
-        font-size: 10px;
+        font-size: 13px;
         text-transform: uppercase;
     }
 
     span:last-child {
         font-weight: bold;
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 

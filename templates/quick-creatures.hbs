@@ -1,12 +1,10 @@
 <!-- Quick Creatures — two-column layout -->
 <div class="qc-app">
-    <!-- Header row: Name + Type (spans both columns) -->
-    <div class="qc-header-row">
-        {{> "modules/quick-creatures/templates/partials/header.hbs"}}
-    </div>
-
-    <!-- Left column: tab content -->
+    <!-- Left column: header + tab content -->
     <div class="qc-left">
+        <!-- Name + Type header -->
+        {{> "modules/quick-creatures/templates/partials/header.hbs"}}
+
         <div class="qc-tab-content active" data-tab="tab_cr" data-group="primary">
             {{> "modules/quick-creatures/templates/partials/tab-cr.hbs"}}
         </div>
@@ -34,10 +32,6 @@
                 <div class="qc-stat">
                     <span class="qc-stat-label">{{i18n "preview.pb"}}</span>
                     <span id="profLabel">{{defaultStats.PAB}}</span>
-                </div>
-                <div class="qc-stat">
-                    <span class="qc-stat-label">{{i18n "preview.level"}}</span>
-                    <span id="lvlLabel">{{defaultStats.ECL}}</span>
                 </div>
                 <div class="qc-stat">
                     <span class="qc-stat-label">{{i18n "preview.damage"}}</span>
@@ -75,16 +69,16 @@
         </div>
     </div>
 
-    <!-- Create button (spans both columns, above features) -->
+    <!-- Creature Features (spans both columns) -->
+    <div class="qc-features-section">
+        {{> "modules/quick-creatures/templates/partials/features.hbs"}}
+    </div>
+
+    <!-- Create button (spans both columns, last item on page) -->
     <div class="qc-create-section">
         <button type="button" id="create-monster-btn" class="qc-create-btn">
             <i class="fa-solid fa-spaghetti-monster-flying"></i>
             {{i18n "create.button"}}
         </button>
-    </div>
-
-    <!-- Creature Features (spans both columns, at bottom) -->
-    <div class="qc-features-section">
-        {{> "modules/quick-creatures/templates/partials/features.hbs"}}
     </div>
 </div>
