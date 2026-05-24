@@ -378,14 +378,6 @@ export function createFeatureItem(feature, stats) {
         };
     }
 
-    // Also set dnd5e-style damage.parts as fallback
-    if (feature.isDmg && feature.hasSave && feature.useDpR && item.system) {
-        const dprNum = parseInt(stats.DpR) || 0;
-        const bonus = Math.max(0, Math.floor(dprNum / 2) - 3);
-        if (!item.system.damage) item.system.damage = {};
-        item.system.damage.parts = [[`1d6 + ${bonus}`]];
-    }
-
     // Handle damage-replacing features (weapon-type, NOT save-based)
     if (feature.isDmg && !feature.hasSave && item.system) {
         let dmgPart = stats.DpACalc;
@@ -403,12 +395,19 @@ export function createFeatureItem(feature, stats) {
         }
     }
 
-    // Handle save DC features (DC = AC/DC from chart)
-    if (feature.hasSave && item.system?.save) {
-        item.system.save.dc = parseInt(stats.ACDC) || 10;
-        if (feature.saveAbilities?.length) {
-            item.system.save.ability = feature.saveAbilities[0];
-        }
+    // After building BF activities, DELETE all dnd5e legacy fields
+    // BF reads ONLY from activities — any legacy fields interfere
+    if (item.system?.activities && Object.keys(item.system.activities).length > 0) {
+        delete item.system.target;
+        delete item.system.range;
+        delete item.system.save;
+        delete item.system.activation;
+        delete item.system.actionType;
+        delete item.system.ability;
+        delete item.system.attackBonus;
+        delete item.system.damage;       // dnd5e format, BF uses activities
+        delete item.system.properties;   // dnd5e weapon properties
+        delete item.system.proficient;   // dnd5e weapon proficiency
     }
 
     // Handle effect features (Energy Weapons bonus damage)
