@@ -254,11 +254,11 @@ export function createFeatureItem(feature, stats) {
 
     // Handle save-based damage features (Damaging Burst etc.)
     if (feature.isDmg && feature.hasSave && item.system && item.type !== "weapon") {
-        const dmg = feature.useDpR ? stats.DpR : stats.DpACalc;
-        const dice = parseDice(dmg || stats.DpACalc);
-        if (feature.divideDmg) {
-            dice.count = Math.max(1, Math.floor(dice.count / feature.divideDmg));
-        }
+        // Damage formula: 1d6 + ⌊DpR / 2⌋ − 3  (minimum +0)
+        // Uses total Damage per Round from the CR table, not per-attack dice
+        const dpR = parseInt(stats.DpR) || 0;
+        const bonus = Math.max(0, Math.floor(dpR / 2) - 3);
+        const dice = { count: 1, die: 6, modifier: bonus };
         const activityId = foundry.utils.randomID();
         const dndActivation = item.system.activation || {};
         const dndTarget = item.system.target || {};
@@ -274,7 +274,7 @@ export function createFeatureItem(feature, stats) {
                     override: false, primary: true,
                 },
                 system: {
-                    save: { ability: item.system.save?.ability || "dex", dc: parseInt(stats.ACDC) || 10, scaling: "flat" },
+                    save: { ability: feature.saveAbilities?.[0] || item.system.save?.ability || "dex", dc: parseInt(stats.ACDC) || 10, scaling: "flat" },
                     damage: {
                         parts: [{
                             number: dice.count, denomination: dice.die,

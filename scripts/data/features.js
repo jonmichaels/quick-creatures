@@ -154,14 +154,15 @@ const MONSTER_FEATURES = [
         hasSave: true,
         divideDmg: 2,
         useDpR: true,
-        desc: "As an action, this creature can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a Dexterity, Constitution, or Wisdom saving throw (your choice, based on the type of burst). On a failure, a target takes damage of an appropriate type equal to half this creature's total damage per round. On a success, a target takes half as much damage.",
+        saveAbilities: ["dex", "con", "wis"],
+        desc: "As an action, this creature can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a Dexterity, Constitution, or Wisdom saving throw (your choice, based on the type of burst). On a failure, a target takes 1d6 + (half this creature's total damage per round − 3) damage of an appropriate type. On a success, a target takes half as much damage.",
         item: {
             name: "Damaging Burst",
             type: "feat",
             img: "icons/magic/sonic/explosion-shock-sound-wave.webp",
             system: {
                 description: {
-                    value: "<p>As an action, this creature can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a Dexterity, Constitution, or Wisdom saving throw (your choice, based on the type of burst). On a failure, a target takes damage of an appropriate type equal to half this creature's total damage per round. On a success, a target takes half as much damage.</p>",
+                    value: "<p>As an action, this creature can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a Dexterity, Constitution, or Wisdom saving throw (your choice, based on the type of burst). On a failure, a target takes 1d6 + (half this creature's total damage per round − 3) damage of an appropriate type. On a success, a target takes half as much damage.</p>",
                     chat: "",
                 },
                 activation: {
