@@ -102,14 +102,17 @@ function readFormData(app, html) {
         saveProfs[abl] = checkbox ? checkbox.checked : false;
     }
 
-    // Selected features
-    const featureElements = html.querySelectorAll(".qc-feature-entry");
+    // Selected features (from checkboxes)
+    const featureCBs = html.querySelectorAll(".qc-feature-cb");
     const features = [];
-    for (const el of featureElements) {
-        if (el.dataset.feature) {
-            try {
-                features.push(JSON.parse(el.dataset.feature));
-            } catch (e) {}
+    for (const cb of featureCBs) {
+        if (cb.checked) {
+            const checkLabel = cb.closest(".qc-feature-check");
+            if (checkLabel && checkLabel.dataset.feature) {
+                try {
+                    features.push(JSON.parse(checkLabel.dataset.feature));
+                } catch (e) {}
+            }
         }
     }
 

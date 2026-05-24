@@ -218,20 +218,23 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             });
         }
 
-        // Add feature button
-        const addFeatureBtn = html.querySelector("#add-feature");
-        if (addFeatureBtn) {
-            addFeatureBtn.addEventListener("click", () => this.#addFeature());
+        // Feature hover — show description in description box
+        const descBoxText = html.querySelector(".qc-feature-desc-text");
+        if (descBoxText) {
+            html.querySelectorAll(".qc-feature-check").forEach(check => {
+                check.addEventListener("mouseenter", () => {
+                    try {
+                        const feature = JSON.parse(check.dataset.feature);
+                        descBoxText.textContent = feature.desc || feature.description || "";
+                    } catch (e) {
+                        descBoxText.textContent = "";
+                    }
+                });
+                check.addEventListener("mouseleave", () => {
+                    descBoxText.textContent = "";
+                });
+            });
         }
-
-        // Delete feature buttons (delegated)
-        html.addEventListener("click", (ev) => {
-            const deleteBtn = ev.target.closest(".qc-delete-feature");
-            if (deleteBtn) {
-                const idx = parseInt(deleteBtn.dataset.idx);
-                this.#removeFeature(idx);
-            }
-        });
 
         // Create monster button
         const createMonsterBtn = html.querySelector("#create-monster-btn");
@@ -344,75 +347,6 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
                 descEl.setAttribute("data-tooltip", stats.desc);
             }
         }
-
-        // Feature list
-        this.#renderFeatureList(html);
-    }
-
-    /**
-     * Add the selected feature to the creature's feature list.
-     */
-    #addFeature() {
-        const html = this.element;
-        const featureSelect = html.querySelector("#monster-feature");
-        if (!featureSelect) return;
-
-        const option = featureSelect.options[featureSelect.selectedIndex];
-        if (!option || !option.dataset.feature) return;
-
-        let feature;
-        try {
-            feature = JSON.parse(option.dataset.feature);
-        } catch (e) {
-            return;
-        }
-
-        const listContainer = html.querySelector("#feature-list");
-        if (!listContainer) return;
-
-        const idx = listContainer.children.length;
-        const entry = document.createElement("div");
-        entry.className = "qc-feature-entry flexrow";
-        entry.dataset.feature = JSON.stringify(feature);
-        entry.innerHTML = `
-            <span class="qc-feature-name">${feature.name || "Unknown Feature"}</span>
-            <button type="button" class="qc-delete-feature" data-idx="${idx}" title="${game.i18n.localize("quick-creatures.features.remove")}">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-        `;
-        listContainer.appendChild(entry);
-    }
-
-    /**
-     * Remove a feature from the list by index.
-     * @param {number} idx
-     */
-    #removeFeature(idx) {
-        const html = this.element;
-        const listContainer = html.querySelector("#feature-list");
-        if (!listContainer) return;
-
-        const children = listContainer.children;
-        if (idx >= 0 && idx < children.length) {
-            children[idx].remove();
-            // Re-index remaining entries
-            for (let i = 0; i < children.length; i++) {
-                const btn = children[i].querySelector(".qc-delete-feature");
-                if (btn) btn.dataset.idx = i;
-            }
-        }
-    }
-
-    /**
-     * Re-render the feature list from stored data attributes.
-     * @param {HTMLElement} html
-     */
-    #renderFeatureList(html) {
-        // Feature list is managed through DOM data attributes —
-        // renderFeatureList just ensures the list container exists
-        const listContainer = html.querySelector("#feature-list");
-        if (!listContainer) return;
-        // The list is additive — no need to re-render from scratch
     }
 
     /**

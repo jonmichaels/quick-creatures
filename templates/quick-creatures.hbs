@@ -41,9 +41,8 @@
         </div>
     </div>
 
-    <!-- Combined Ability Scores: modifier + checkbox (spans both columns) -->
+    <!-- Combined Ability Scores (spans both columns) -->
     <div class="qc-abilities-section">
-        <h4>{{i18n "create.saveProfs"}} (<span id="saveBonus">+2</span>)</h4>
         <div class="qc-abilities-row flexrow">
             {{#each (arr "str" "dex" "con" "int" "wis" "cha")}}
             <div class="qc-ability-col">
@@ -55,6 +54,7 @@
             </div>
             {{/each}}
         </div>
+        <p class="qc-abilities-hint">Check one or two primary abilities. (<span id="saveBonus">+2</span>)</p>
     </div>
 
     <!-- Creature Features (spans both columns) -->
@@ -65,7 +65,6 @@
     <!-- Create button (spans both columns, last item on page) -->
     <div class="qc-create-section">
         <button type="button" id="create-monster-btn" class="qc-create-btn">
-            <i class="fa-solid fa-spaghetti-monster-flying"></i>
             {{i18n "create.button"}}
         </button>
     </div>

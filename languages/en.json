@@ -11,7 +11,7 @@
             "archetype": "Creature by Archetype"
         },
         "create": {
-            "button": "Create Creature",
+            "button": "Create",
             "typeLabel": "Type",
             "nameLabel": "Name",
             "namePlaceholder": "e.g. Flameheart",
@@ -28,7 +28,7 @@
             "tokenAlt": "Creature token preview",
             "hp": "HP",
             "acdc": "AC / DC",
-            "pb": "PB / ATK / SAVE",
+            "pb": "ATK / SAVE",
             "level": "Level",
             "damage": "Dmg"
         },
@@ -41,7 +41,7 @@
             "cha": "CHA"
         },
         "features": {
-            "title": "Creature Features",
+            "title": "FEATURES",
             "select": "Select a feature...",
             "add": "Add Feature",
             "remove": "Remove feature"
