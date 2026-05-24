@@ -254,7 +254,6 @@ export function createFeatureItem(feature, stats) {
 
     // Handle save-based damage features (Damaging Burst etc.)
     if (feature.isDmg && feature.hasSave && item.system && item.type !== "weapon") {
-        const profBonus = parseInt(stats.PAB) || 2;
         const dmg = feature.useDpR ? stats.DpR : stats.DpACalc;
         const dice = parseDice(dmg || stats.DpACalc);
         if (feature.divideDmg) {
@@ -275,7 +274,7 @@ export function createFeatureItem(feature, stats) {
                     override: false, primary: true,
                 },
                 system: {
-                    save: { ability: item.system.save?.ability || "dex", dc: 8 + profBonus, scaling: "flat" },
+                    save: { ability: item.system.save?.ability || "dex", dc: parseInt(stats.ACDC) || 10, scaling: "flat" },
                     damage: {
                         parts: [{
                             number: dice.count, denomination: dice.die,
@@ -315,10 +314,9 @@ export function createFeatureItem(feature, stats) {
             item.system.damage.parts = [[dmgPart]];
         }
     }
-    // Handle save DC features (DC = 8 + proficiency bonus)
+    // Handle save DC features (DC = AC/DC from chart)
     if (feature.hasSave && item.system?.save) {
-        const profBonus = parseInt(stats.PAB) || 2;
-        item.system.save.dc = 8 + profBonus;
+        item.system.save.dc = parseInt(stats.ACDC) || 10;
     }
 
     if (feature.isEffect && item.effects) {
