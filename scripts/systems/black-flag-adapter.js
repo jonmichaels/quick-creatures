@@ -253,28 +253,34 @@ export function createFeatureItem(feature, stats) {
     }
 
     // Handle save-based damage features (Damaging Burst etc.)
+    // Creates one save activity per ability (DEX/CON/WIS → 3 activities, DM picks)
     if (feature.isDmg && feature.hasSave && item.system && item.type !== "weapon") {
         // Damage formula: 1d6 + ⌊DpR / 2⌋ − 3  (minimum +0)
-        // Uses total Damage per Round from the CR table, not per-attack dice
         const dpR = parseInt(stats.DpR) || 0;
         const bonus = Math.max(0, Math.floor(dpR / 2) - 3);
         const dice = { count: 1, die: 6, modifier: bonus };
-        const activityId = foundry.utils.randomID();
+        const abilities = (feature.saveAbilities?.length)
+            ? feature.saveAbilities
+            : [item.system.save?.ability || "dex"];
+        const dc = parseInt(stats.ACDC) || 10;
         const dndActivation = item.system.activation || {};
         const dndTarget = item.system.target || {};
         const dndRange = item.system.range || {};
-        item.system.activities = {
-            [activityId]: {
+
+        item.system.activities = {};
+        abilities.forEach((ability, i) => {
+            const activityId = foundry.utils.randomID();
+            item.system.activities[activityId] = {
                 _id: activityId,
                 type: "save",
                 activation: {
                     type: dndActivation.type || "action",
                     value: dndActivation.cost || null,
                     condition: dndActivation.condition || "",
-                    override: false, primary: true,
+                    override: false, primary: i === 0,
                 },
                 system: {
-                    save: { ability: feature.saveAbilities?.[0] || item.system.save?.ability || "dex", dc: parseInt(stats.ACDC) || 10, scaling: "flat" },
+                    save: { ability, dc, scaling: "flat" },
                     damage: {
                         parts: [{
                             number: dice.count, denomination: dice.die,
@@ -286,16 +292,16 @@ export function createFeatureItem(feature, stats) {
                     effects: [],
                 },
                 target: {
-                    template: { type: dndTarget.type || "sphere", count: String(dndTarget.value || 10), contiguous: false, unit: dndTarget.units || "ft" },
+                    template: { type: dndTarget.type || "sphere", count: String(dndTarget.value || 10), contiguous: false, unit: "foot" },
                     affects: { type: "creature", choice: false }, override: false, prompt: true,
                 },
-                range: { override: false, unit: dndRange.units || "ft", short: dndRange.value || null, long: dndRange.long || null },
+                range: { override: false, unit: dndRange.units || "foot", short: dndRange.value || null, long: dndRange.long || null },
                 consumption: { targets: [], scale: { allowed: false } },
                 uses: { spent: 0, consumeQuantity: false, recovery: [], max: "" },
                 duration: { concentration: false, override: false, unit: "instantaneous" },
                 magical: false,
-            },
-        };
+            };
+        });
     }
 
     // Also set dnd5e-style damage.parts as fallback for save-based damage features
