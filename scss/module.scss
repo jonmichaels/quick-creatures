@@ -30,6 +30,7 @@
 }
 
 .qc-bottom {
+    grid-column: 1 / -1;
     border-top: 1px solid var(--color-border-dark, #444);
     padding: 4px 0;
     gap: 8px;
