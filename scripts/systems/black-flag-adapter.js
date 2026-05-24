@@ -252,56 +252,79 @@ export function createFeatureItem(feature, stats) {
         };
     }
 
+    // BF item type is "feature" not "feat"
+    item.type = "feature";
+
     // Handle save-based damage features (Damaging Burst etc.)
-    // Creates one save activity per ability (DEX/CON/WIS → 3 activities, DM picks)
-    if (feature.isDmg && feature.hasSave && item.system && item.type !== "weapon") {
+    // Creates ONE save activity with ability as an array (DEX/CON/WIS)
+    if (feature.isDmg && feature.hasSave && item.system && item.type === "feature") {
         // Damage formula: 1d6 + ⌊DpR / 2⌋ − 3  (minimum +0)
         const dpR = parseInt(stats.DpR) || 0;
         const bonus = Math.max(0, Math.floor(dpR / 2) - 3);
-        const dice = { count: 1, die: 6, modifier: bonus };
-        const abilities = (feature.saveAbilities?.length)
+        const saveAbilities = (feature.saveAbilities?.length)
             ? feature.saveAbilities
-            : [item.system.save?.ability || "dex"];
-        const dc = parseInt(stats.ACDC) || 10;
+            : (item.system.save?.ability ? [item.system.save.ability] : ["dexterity"]);
+        const dcFormula = String(parseInt(stats.ACDC) || 10);
         const dndActivation = item.system.activation || {};
         const dndTarget = item.system.target || {};
         const dndRange = item.system.range || {};
+        const activityId = foundry.utils.randomID();
 
-        item.system.activities = {};
-        abilities.forEach((ability, i) => {
-            const activityId = foundry.utils.randomID();
-            item.system.activities[activityId] = {
+        item.system.activities = {
+            [activityId]: {
                 _id: activityId,
                 type: "save",
+                name: feature.item.name,
                 activation: {
                     type: dndActivation.type || "action",
                     value: dndActivation.cost || null,
                     condition: dndActivation.condition || "",
-                    override: false, primary: i === 0,
+                    override: false,
+                    primary: true,
                 },
                 system: {
-                    save: { ability, dc, scaling: "flat" },
+                    save: {
+                        ability: saveAbilities,
+                        dc: { formula: dcFormula },
+                    },
                     damage: {
                         parts: [{
-                            number: dice.count, denomination: dice.die,
-                            bonus: dice.modifier ? String(dice.modifier) : "",
-                            custom: { enabled: false }, type: "", additionalTypes: [], scaling: { number: 1 },
+                            number: 1, denomination: 6,
+                            bonus: bonus ? String(bonus) : "",
+                            custom: { enabled: false },
+                            type: "",
+                            scaling: { number: 1 },
                         }],
-                        critical: {}, includeBase: true,
+                        onSave: "half",
                     },
                     effects: [],
                 },
                 target: {
-                    template: { type: dndTarget.type || "sphere", count: String(dndTarget.value || 10), contiguous: false, unit: "foot" },
-                    affects: { type: "creature", choice: false }, override: false, prompt: true,
+                    template: {
+                        type: dndTarget.type || "sphere",
+                        count: String(dndTarget.value || 10),
+                        contiguous: false,
+                        unit: "foot",
+                    },
+                    affects: { type: "creature", choice: false },
+                    override: false,
+                    prompt: true,
                 },
-                range: { override: false, unit: dndRange.units || "foot", short: dndRange.value || null, long: dndRange.long || null },
+                range: {
+                    override: false,
+                    unit: dndRange.units !== "ft" ? (dndRange.units || "foot") : "foot",
+                    short: dndRange.value || null,
+                    long: dndRange.long || null,
+                },
+                description: "",
+                sort: 0,
                 consumption: { targets: [], scale: { allowed: false } },
                 uses: { spent: 0, consumeQuantity: false, recovery: [], max: "" },
                 duration: { concentration: false, override: false, unit: "instantaneous" },
                 magical: false,
-            };
-        });
+                visibility: { level: {}, requireAttunement: false, requireIdentification: false, requireMagic: false },
+            },
+        };
     }
 
     // Also set dnd5e-style damage.parts as fallback for save-based damage features
