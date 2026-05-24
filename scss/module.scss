@@ -8,6 +8,7 @@
 .qc-app {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
     gap: 8px;
     padding: 4px 0;
     flex: 1;
@@ -19,6 +20,13 @@
 .qc-create-section,
 .qc-features-section {
     grid-column: 1 / -1;
+}
+
+.qc-features-section {
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .qc-left {
@@ -272,7 +280,10 @@
 .qc-features-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     gap: 8px;
+    flex: 1;
+    min-height: 0;
 
     h3 {
         grid-column: 1 / -1;
@@ -287,7 +298,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    max-height: 120px;
     overflow-y: auto;
     align-content: flex-start;
 }
@@ -324,7 +334,6 @@
     background: rgba(0,0,0,0.15);
     border: 1px solid var(--color-border-dark, #444);
     border-radius: 4px;
-    min-height: 34px;
     font-size: 12px;
     color: var(--color-text-secondary, #aaa);
     font-style: italic;
