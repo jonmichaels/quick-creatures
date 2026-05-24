@@ -351,7 +351,8 @@ export function createFeatureItem(feature, stats) {
                 target: {
                     template: {
                         type: dndTarget.type || "sphere",
-                        count: String(dndTarget.value || 10),
+                        size: String(dndTarget.value || 10),
+                        count: "1",
                         contiguous: false,
                         unit: "foot",
                     },
