@@ -11,6 +11,10 @@ npm run watch    # dev mode with auto-rebuild
 
 `scripts/module.js` is **gitignored** — the webpack output. Foundry loads THIS file, not individual source files.
 
+### CSS Compilation
+
+**The CSS source is `scss/module.scss`** (SCSS with nested rules). Webpack compiles it to `styles/module.css` via sass-loader → css-loader → MiniCssExtractPlugin. Foundry loads `styles/module.css` (declared in `module.json`). `scripts/module.css` is also emitted by webpack from the JS entry point — do NOT edit it directly; it gets overwritten on each build. **Always edit `scss/module.scss`, then `npm run build`.**
+
 ## BF Data Model Reference
 
 **DO NOT GUESS at BF data structures.** The authoritative reference is in the foundry-vtt-dev skill:
