@@ -298,8 +298,17 @@ export function createFeatureItem(feature, stats) {
         };
     }
 
-    // Handle damage-replacing features
-    if (feature.isDmg && item.system) {
+    // Also set dnd5e-style damage.parts as fallback for save-based damage features
+    // (systems that migrate legacy fields to activities need this)
+    if (feature.isDmg && feature.hasSave && feature.useDpR && item.system) {
+        const dprNum = parseInt(stats.DpR) || 0;
+        const bonus = Math.max(0, Math.floor(dprNum / 2) - 3);
+        if (!item.system.damage) item.system.damage = {};
+        item.system.damage.parts = [[`1d6 + ${bonus}`]];
+    }
+
+    // Handle damage-replacing features (weapon-type, NOT save-based — those handled above)
+    if (feature.isDmg && !feature.hasSave && item.system) {
         let dmgPart = stats.DpACalc;
         if (feature.useDpR && stats.NoA) {
             dmgPart = Array(parseInt(stats.NoA)).fill(stats.DpACalc).join("+");
@@ -317,6 +326,9 @@ export function createFeatureItem(feature, stats) {
     // Handle save DC features (DC = AC/DC from chart)
     if (feature.hasSave && item.system?.save) {
         item.system.save.dc = parseInt(stats.ACDC) || 10;
+        if (feature.saveAbilities?.length) {
+            item.system.save.ability = feature.saveAbilities[0];  // DEX/CON/WIS → default DEX
+        }
     }
 
     if (feature.isEffect && item.effects) {
