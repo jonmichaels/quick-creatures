@@ -7,8 +7,8 @@
             "generateCreature": "Quick Creatures"
         },
         "tabs": {
-            "cr": "Monster by CR",
-            "archetype": "Monster by Archetype"
+            "cr": "Creature by CR",
+            "archetype": "Creature by Archetype"
         },
         "create": {
             "button": "Create Creature",
@@ -19,7 +19,7 @@
             "archetypeLabel": "Stat Block Archetype",
             "saveProfs": "Saving Throw Proficiencies",
             "abilityScores": "Ability Scores",
-            "noStats": "No monster statistics selected. Please choose a CR or archetype.",
+            "noStats": "No creature statistics selected. Please choose a CR or archetype.",
             "success": "Created creature: {name}",
             "failed": "Failed to create creature. Check the console for details.",
             "unsupportedSystem": "This game system is not supported by Quick Creatures."
@@ -41,7 +41,7 @@
             "cha": "Charisma"
         },
         "features": {
-            "title": "Monster Features",
+            "title": "Creature Features",
             "select": "Select a feature...",
             "add": "Add Feature",
             "remove": "Remove feature"
