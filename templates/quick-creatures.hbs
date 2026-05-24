@@ -11,6 +11,16 @@
         <div class="qc-tab-content" data-tab="tab_archetype" data-group="primary">
             {{> "modules/quick-creatures/templates/partials/tab-archetype.hbs"}}
         </div>
+
+        <!-- Size selector -->
+        <div class="qc-size-select">
+            <label for="creature-size">{{i18n "create.sizeLabel"}}</label>
+            <select id="creature-size" name="size">
+                {{#each sizes}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
     </div>
 
     <!-- Right column: token + stats side by side -->

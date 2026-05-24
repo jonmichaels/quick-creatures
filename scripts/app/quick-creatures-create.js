@@ -94,6 +94,12 @@ function readFormData(app, html) {
     // Creature name
     const creatureName = nameInput ? nameInput.value.trim() : "";
 
+    // Creature size
+    const sizeSelect = html.querySelector("#creature-size");
+    const creatureSize = sizeSelect
+        ? sizeSelect.options[sizeSelect.selectedIndex]?.value || "Medium"
+        : "Medium";
+
     // Ability save proficiencies (checkboxes)
     const abilityKeys = ["str", "dex", "con", "int", "wis", "cha"];
     const saveProfs = {};
@@ -122,6 +128,7 @@ function readFormData(app, html) {
         creatureName,
         saveProfs,
         features,
+        creatureSize,
         isArchetypeMode,
     };
 }
@@ -134,7 +141,7 @@ function readFormData(app, html) {
  */
 export async function createActor(app, html) {
     const formData = readFormData(app, html);
-    const { stats, monsterType, creatureName, saveProfs, features, isArchetypeMode } = formData;
+    const { stats, monsterType, creatureName, saveProfs, features, creatureSize, isArchetypeMode } = formData;
 
     if (!stats) {
         ui.notifications.error(game.i18n.localize("quick-creatures.create.noStats"));
@@ -221,6 +228,19 @@ export async function createActor(app, html) {
         console.error("Quick Creatures | Actor creation failed:", e);
         ui.notifications.error(game.i18n.localize("quick-creatures.create.failed"));
         return null;
+    }
+
+    // Set creature size and prototype token dimensions
+    const sizeMap = { "Tiny": 0.5, "Small": 1, "Medium": 1, "Large": 2, "Huge": 3, "Gargantuan": 4 };
+    const tokenSize = sizeMap[creatureSize] || 1;
+    try {
+        await actor.update({
+            "system.traits.size": creatureSize.toLowerCase(),
+            "prototypeToken.width": tokenSize,
+            "prototypeToken.height": tokenSize,
+        });
+    } catch (e) {
+        console.warn("Quick Creatures | Failed to set creature size:", e);
     }
 
     // Apply proficiency active effect (for CR mode where abilities are flat 10s)

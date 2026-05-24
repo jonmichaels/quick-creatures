@@ -12,6 +12,7 @@
         },
         "create": {
             "button": "Create",
+            "sizeLabel": "Size",
             "typeLabel": "Type",
             "nameLabel": "Name",
             "namePlaceholder": "e.g. Flameheart",
