@@ -97,6 +97,10 @@
         border-bottom: 1px solid var(--color-border-dark, #444);
         padding-bottom: 4px;
     }
+
+    .form-group {
+        margin-bottom: 0;
+    }
 }
 
 /* Header */
@@ -382,11 +386,16 @@
 }
 
 select, input[type="text"], input[type="number"] {
-    background: var(--color-bg-input, #1a1a1a);
-    color: var(--color-text, #ddd);
+    background: #111;
+    color: #ddd;
     border: 1px solid var(--color-border-dark, #555);
     border-radius: 4px;
     padding: 2px 6px;
+}
+
+select option {
+    background: #111;
+    color: #ddd;
 }
 
 .form-group {
