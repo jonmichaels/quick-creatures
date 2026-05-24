@@ -82,7 +82,7 @@
 }
 
 .qc-tab-panel {
-    padding: 4px 0;
+    padding: 0;
 
     h3, h4 {
         margin: 6px 0 4px;
@@ -116,7 +116,7 @@
 
 /* Size selector — no top border, equal spacing with CR */
 .qc-size-select {
-    padding-top: 4px;
+    padding-top: 0;
 
     label {
         display: block;
@@ -167,7 +167,6 @@
         flex-direction: column;
         gap: 3px;
         flex: 1;
-        min-width: 0;
     }
 
     .qc-stat {
@@ -189,6 +188,7 @@
         span:last-child {
             font-weight: bold;
             margin-left: auto;
+            white-space: nowrap;
         }
     }
 }
