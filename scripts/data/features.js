@@ -191,12 +191,12 @@ const MONSTER_FEATURES = [
         },
     },
     {
-        name: "Energy Weapons (bonus damage)",
+        name: "Energy Weapons",
         isEffect: true,
         isDmg: true,
         desc: "The creature's weapon attacks deal extra damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.",
         item: {
-            name: "Energy Weapons (bonus damage)",
+            name: "Energy Weapons",
             type: "feat",
             img: "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
             system: {
@@ -210,7 +210,7 @@ const MONSTER_FEATURES = [
             },
             effects: [
                 {
-                    name: "Energy Weapons (bonus damage)",
+                    name: "Energy Weapons",
                     icon: "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
                     disabled: false,
                     changes: [
@@ -221,39 +221,6 @@ const MONSTER_FEATURES = [
                     ],
                 },
             ],
-        },
-    },
-    {
-        name: "Energy Weapons (extra attack)",
-        isEffect: false,
-        isDmg: true,
-        crBonusDmg: true,
-        desc: "The creature's weapon attacks deal extra damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.",
-        item: {
-            name: "Energy Weapons (extra attack)",
-            type: "weapon",
-            img: "icons/weapons/swords/sword-flanged-lightning.webp",
-            system: {
-                description: {
-                    value: "<p>The creature's weapon attacks deal extra damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.</p>",
-                },
-                proficient: 0,
-                activation: {
-                    type: "action",
-                },
-                target: {
-                    value: 1,
-                    type: "creature",
-                },
-                range: {
-                    units: "touch",
-                },
-                actionType: "msak",
-                type: {
-                    value: "simpleM",
-                    baseItem: "",
-                },
-            },
         },
     },
     {

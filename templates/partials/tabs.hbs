@@ -2,7 +2,6 @@
 <nav class="qc-tab-nav" data-group="primary">
     {{#each tabs}}
     <button type="button" class="qc-tab-btn {{#if (eq ../activeTab id)}}active{{/if}}" data-tab="{{id}}" data-group="primary">
-        <i class="{{icon}}"></i>
         <span>{{localize label}}</span>
     </button>
     {{/each}}
