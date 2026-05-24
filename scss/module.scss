@@ -147,11 +147,12 @@
     background: var(--color-bg-secondary, #1e1e1e);
     border: 1px solid var(--color-border-dark, #444);
     border-radius: 6px;
-    gap: 10px;
+    gap: 6px;
     align-items: flex-start;
 
     .qc-token-preview {
         flex-shrink: 0;
+        width: 100px;
 
         img {
             width: 100px;
@@ -183,6 +184,7 @@
             text-transform: uppercase;
             color: var(--color-text-muted, #888);
             margin-right: 4px;
+            min-width: 68px;
         }
 
         span:last-child {
@@ -205,7 +207,31 @@
     input {
         margin: 0;
         cursor: pointer;
-        accent-color: #777;
+        appearance: none;
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #444;
+        border-radius: 2px;
+        background: #2a2a2a;
+        position: relative;
+    }
+
+    input:checked {
+        background: #555;
+        border-color: #444;
+    }
+
+    input:checked::after {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 0px;
+        width: 5px;
+        height: 9px;
+        border: solid #ccc;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
     }
 }
 
@@ -257,7 +283,31 @@
     input {
         margin: 0;
         cursor: pointer;
-        accent-color: #777;
+        appearance: none;
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #444;
+        border-radius: 2px;
+        background: #2a2a2a;
+        position: relative;
+    }
+
+    input:checked {
+        background: #555;
+        border-color: #444;
+    }
+
+    input:checked::after {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 0px;
+        width: 5px;
+        height: 9px;
+        border: solid #ccc;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
     }
 }
 
@@ -287,7 +337,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    max-height: 120px;
+    max-height: 300px;
     overflow-y: auto;
     align-content: flex-start;
 }
@@ -310,7 +360,31 @@
     input {
         margin: 0;
         cursor: pointer;
-        accent-color: #777;
+        appearance: none;
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #444;
+        border-radius: 2px;
+        background: #2a2a2a;
+        position: relative;
+    }
+
+    input:checked {
+        background: #555;
+        border-color: #444;
+    }
+
+    input:checked::after {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 0px;
+        width: 5px;
+        height: 9px;
+        border: solid #ccc;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
     }
 
     .qc-feature-name {
@@ -324,7 +398,7 @@
     background: rgba(0,0,0,0.15);
     border: 1px solid var(--color-border-dark, #444);
     border-radius: 4px;
-    min-height: 34px;
+    min-height: 80px;
     font-size: 12px;
     color: var(--color-text-secondary, #aaa);
     font-style: italic;
@@ -373,11 +447,16 @@
 }
 
 select, input[type="text"], input[type="number"] {
-    background: var(--color-bg-input, #1a1a1a);
-    color: var(--color-text, #ddd);
+    background: #111;
+    color: #ddd;
     border: 1px solid var(--color-border-dark, #555);
     border-radius: 4px;
     padding: 2px 6px;
+}
+
+select option {
+    background: #111;
+    color: #ddd;
 }
 
 .form-group {
