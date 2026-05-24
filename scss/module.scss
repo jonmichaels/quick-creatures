@@ -398,6 +398,11 @@ select option {
     color: #ddd;
 }
 
+/* Lighter checkbox icon color (Font Awesome ::before) */
+#quick-creatures input[type="checkbox"]::before {
+    color: #909090;
+}
+
 .form-group {
     margin-bottom: 6px;
 
