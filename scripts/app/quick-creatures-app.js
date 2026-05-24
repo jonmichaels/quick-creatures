@@ -314,21 +314,26 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             eclEl.textContent = stats.ECL || "";
         }
 
-        // Abilities (from archetype) or default 10s
+        // Abilities — show as modifiers (+0, +1, etc.)
+        const getMod = (val) => {
+            const v = parseInt(val) || 10;
+            const mod = Math.floor((v - 10) / 2);
+            return `${mod >= 0 ? "+" : ""}${mod}`;
+        };
         if (stats.abilities) {
-            this.#setText(html, "#strLabel", stats.abilities.str?.value || 10);
-            this.#setText(html, "#dexLabel", stats.abilities.dex?.value || 10);
-            this.#setText(html, "#conLabel", stats.abilities.con?.value || 10);
-            this.#setText(html, "#intLabel", stats.abilities.int?.value || 10);
-            this.#setText(html, "#wisLabel", stats.abilities.wis?.value || 10);
-            this.#setText(html, "#chaLabel", stats.abilities.cha?.value || 10);
+            this.#setText(html, "#strLabel", getMod(stats.abilities.str?.value));
+            this.#setText(html, "#dexLabel", getMod(stats.abilities.dex?.value));
+            this.#setText(html, "#conLabel", getMod(stats.abilities.con?.value));
+            this.#setText(html, "#intLabel", getMod(stats.abilities.int?.value));
+            this.#setText(html, "#wisLabel", getMod(stats.abilities.wis?.value));
+            this.#setText(html, "#chaLabel", getMod(stats.abilities.cha?.value));
         } else {
-            this.#setText(html, "#strLabel", "10");
-            this.#setText(html, "#dexLabel", "10");
-            this.#setText(html, "#conLabel", "10");
-            this.#setText(html, "#intLabel", "10");
-            this.#setText(html, "#wisLabel", "10");
-            this.#setText(html, "#chaLabel", "10");
+            this.#setText(html, "#strLabel", "+0");
+            this.#setText(html, "#dexLabel", "+0");
+            this.#setText(html, "#conLabel", "+0");
+            this.#setText(html, "#intLabel", "+0");
+            this.#setText(html, "#wisLabel", "+0");
+            this.#setText(html, "#chaLabel", "+0");
         }
 
         // Archetype description

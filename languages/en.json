@@ -12,8 +12,8 @@
         },
         "create": {
             "button": "Create Creature",
-            "typeLabel": "Creature Type",
-            "nameLabel": "Creature Name",
+            "typeLabel": "Type",
+            "nameLabel": "Name",
             "namePlaceholder": "e.g. Flameheart",
             "crLabel": "Challenge Rating",
             "archetypeLabel": "Stat Block Archetype",
@@ -26,19 +26,19 @@
         },
         "preview": {
             "tokenAlt": "Creature token preview",
-            "hp": "Hit Points",
-            "ac": "Armor Class",
-            "prof": "Proficiency Bonus",
-            "level": "Equivalent Level",
-            "damage": "Damage per Attack"
+            "hp": "HP",
+            "acdc": "AC / DC",
+            "prof": "PB",
+            "level": "Level",
+            "damage": "Dmg"
         },
         "abilities": {
-            "str": "Strength",
-            "dex": "Dexterity",
-            "con": "Constitution",
-            "int": "Intelligence",
-            "wis": "Wisdom",
-            "cha": "Charisma"
+            "str": "STR",
+            "dex": "DEX",
+            "con": "CON",
+            "int": "INT",
+            "wis": "WIS",
+            "cha": "CHA"
         },
         "features": {
             "title": "Creature Features",

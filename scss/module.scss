@@ -1,12 +1,39 @@
-/* Quick Creatures — Main Styles */
-
-.qc-app {
+/* Quick Creatures — Two-Column Layout */
+#quick-creatures section {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 8px;
+}
+
+.qc-app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 8px;
+    padding: 4px 0;
+    flex: 1;
     overflow-y: auto;
+}
+
+.qc-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+    min-width: 0;
+}
+
+.qc-right {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-width: 0;
+}
+
+.qc-bottom {
+    border-top: 1px solid var(--color-border-dark, #444);
+    padding: 4px 0;
+    gap: 8px;
+    align-items: center;
 }
 
 /* Tab navigation */
@@ -55,10 +82,10 @@
 }
 
 .qc-tab-panel {
-    padding: 8px 0;
+    padding: 4px 0;
 
     h3, h4 {
-        margin: 8px 0 4px;
+        margin: 6px 0 4px;
         border-bottom: 1px solid var(--color-border-dark, #444);
         padding-bottom: 4px;
     }
@@ -67,7 +94,7 @@
 /* Header */
 .qc-header {
     gap: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 
     .qc-type-selector,
     .qc-name-input {
@@ -90,15 +117,15 @@
 
 /* Stat preview */
 .qc-stat-preview {
-    gap: 12px;
     padding: 8px;
     background: var(--color-bg-secondary, #1e1e1e);
     border: 1px solid var(--color-border-dark, #444);
     border-radius: 6px;
-    margin-bottom: 8px;
-    align-items: center;
 
     .qc-token-preview {
+        text-align: center;
+        margin-bottom: 8px;
+
         img {
             width: 64px;
             height: 64px;
@@ -110,13 +137,13 @@
 
     .qc-stats {
         gap: 4px;
-        flex: 1;
+        margin-bottom: 4px;
     }
 
     .qc-stat {
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 4px;
         padding: 3px 6px;
         background: rgba(0,0,0,0.2);
         border-radius: 4px;
@@ -124,39 +151,51 @@
         font-size: 13px;
 
         i {
-            width: 16px;
+            width: 14px;
             text-align: center;
             color: var(--color-text-muted, #888);
+            font-size: 11px;
+        }
+
+        .qc-stat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--color-text-muted, #888);
+            margin-right: 4px;
+        }
+
+        span:last-child {
+            font-weight: bold;
+            margin-left: auto;
         }
     }
 }
 
-/* Abilities */
+/* Abilities — bottom bar */
 .qc-abilities {
     gap: 4px;
-    margin-bottom: 8px;
     flex-wrap: wrap;
+    flex: 1;
 }
 
 .qc-ability {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4px 8px;
-    background: rgba(0,0,0,0.15);
-    border-radius: 4px;
-    font-size: 12px;
+    padding: 2px 6px;
+    font-size: 11px;
     flex: 1;
-    min-width: 48px;
+    min-width: 40px;
 
-    i {
+    .qc-ability-label {
         color: var(--color-text-muted, #888);
-        margin-bottom: 2px;
+        font-size: 10px;
+        text-transform: uppercase;
     }
 
-    span {
+    span:last-child {
         font-weight: bold;
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 
@@ -164,13 +203,9 @@
 .qc-saves {
     align-items: center;
     gap: 6px;
-    padding: 4px 8px;
-    margin-bottom: 8px;
+    padding: 2px 8px;
     font-size: 12px;
-
-    i {
-        color: var(--color-text-muted, #888);
-    }
+    flex-shrink: 0;
 }
 
 .qc-save-profs {
@@ -191,41 +226,14 @@
     }
 }
 
-/* Advanced abilities */
-.qc-advanced-abilities {
-    margin-top: 8px;
-    padding: 8px;
-    border: 1px dashed var(--color-border-dark, #444);
-    border-radius: 4px;
-}
-
-.qc-ability-input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 11px;
-    padding: 2px;
-
-    label {
-        text-transform: uppercase;
-        color: var(--color-text-muted, #888);
-    }
-
-    input {
-        width: 48px;
-        text-align: center;
-        height: 26px;
-    }
-}
-
 /* Features */
 .qc-features-section {
-    margin-top: 8px;
-    padding-top: 8px;
+    margin-top: 4px;
+    padding-top: 6px;
     border-top: 1px solid var(--color-border-dark, #444);
 
     h3 {
-        margin: 0 0 6px;
+        margin: 0 0 4px;
     }
 }
 
@@ -248,7 +256,7 @@
 
 .qc-feature-list {
     gap: 3px;
-    max-height: 120px;
+    max-height: 100px;
     overflow-y: auto;
 }
 
@@ -282,7 +290,7 @@
     font-size: 12px;
     color: var(--color-text-secondary, #aaa);
     font-style: italic;
-    max-height: 80px;
+    max-height: 60px;
     overflow-y: auto;
     margin: 4px 0;
     padding: 6px;
@@ -293,7 +301,7 @@
 /* Footer */
 .qc-footer {
     margin-top: auto;
-    padding-top: 8px;
+    padding-top: 6px;
     text-align: center;
 }
 
