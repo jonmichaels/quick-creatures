@@ -153,7 +153,7 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             types,
             features: serializedFeatures,
             defaultStats: crStats[0] || {},
-            sizes: ["Medium", "Tiny", "Small", "Large", "Huge", "Gargantuan"],
+            sizes: ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"],
         };
     }
 

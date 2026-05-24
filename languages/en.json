@@ -31,7 +31,8 @@
             "acdc": "AC / DC",
             "pb": "ATK / SAVE",
             "level": "Level",
-            "damage": "Dmg"
+            "damage": "Dmg",
+            "dynamicRing": "Dynamic Ring"
         },
         "abilities": {
             "str": "STR",

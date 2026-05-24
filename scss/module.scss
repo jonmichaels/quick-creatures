@@ -114,10 +114,9 @@
     }
 }
 
-/* Size selector */
+/* Size selector — no top border, equal spacing with CR */
 .qc-size-select {
-    padding-top: 6px;
-    border-top: 1px solid var(--color-border-dark, #444);
+    padding-top: 4px;
 
     label {
         display: block;
@@ -178,10 +177,10 @@
         padding: 3px 6px;
         background: rgba(0,0,0,0.2);
         border-radius: 4px;
-        font-size: 15px;
+        font-size: 18px;
 
         .qc-stat-label {
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
             color: var(--color-text-muted, #888);
             margin-right: 4px;
@@ -194,10 +193,26 @@
     }
 }
 
+/* Dynamic Ring checkbox below token preview */
+.qc-dynamic-ring {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--color-text-muted, #888);
+
+    input {
+        margin: 0;
+        cursor: pointer;
+        accent-color: #777;
+    }
+}
+
 /* Combined Ability Scores (modifiers + checkboxes, spans full width) */
 .qc-abilities-section {
     border-top: 1px solid var(--color-border-dark, #444);
-    padding: 6px 0 4px;
+    padding: 6px 0 0;
 
     h4 {
         margin: 0 0 8px;
@@ -240,6 +255,7 @@
     input {
         margin: 0;
         cursor: pointer;
+        accent-color: #777;
     }
 }
 
@@ -250,10 +266,14 @@
     margin: 6px 0 0;
 }
 
-/* Features — checkbox list */
+/* Features — two-column grid: checkbox list left, description right */
 .qc-features-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
 
     h3 {
+        grid-column: 1 / -1;
         margin: 0 0 4px;
         font-size: 13px;
         text-transform: uppercase;
@@ -267,6 +287,7 @@
     gap: 4px;
     max-height: 120px;
     overflow-y: auto;
+    align-content: flex-start;
 }
 
 .qc-feature-check {
@@ -287,6 +308,7 @@
     input {
         margin: 0;
         cursor: pointer;
+        accent-color: #777;
     }
 
     .qc-feature-name {
@@ -295,7 +317,7 @@
 }
 
 .qc-feature-desc-box {
-    margin-top: 6px;
+    margin-top: 0;
     padding: 6px 8px;
     background: rgba(0,0,0,0.15);
     border: 1px solid var(--color-border-dark, #444);
@@ -306,9 +328,9 @@
     font-style: italic;
 }
 
-/* Create button section */
+/* Create button section — right justified */
 .qc-create-section {
-    text-align: center;
+    text-align: right;
     padding: 4px 0 0;
     border-top: 1px solid var(--color-border-dark, #444);
 }
