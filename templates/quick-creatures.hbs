@@ -41,30 +41,18 @@
         </div>
     </div>
 
-    <!-- Bottom bar: abilities + saves (spans both columns) -->
-    <div class="qc-bottom flexrow">
-        <div class="qc-abilities flexrow">
-            {{#each (arr "str" "dex" "con" "int" "wis" "cha")}}
-            <div class="qc-ability">
-                <span class="qc-ability-label">{{i18n (concat "abilities." this)}}</span>
-                <span id="{{this}}Label">+0</span>
-            </div>
-            {{/each}}
-        </div>
-        <div class="qc-saves">
-            <span id="stLabel" class="qc-save-text"></span>
-        </div>
-    </div>
-
-    <!-- Save proficiency toggles (below abilities, spans both columns) -->
-    <div class="qc-saves-section">
+    <!-- Combined Ability Scores: modifier + checkbox (spans both columns) -->
+    <div class="qc-abilities-section">
         <h4>{{i18n "create.saveProfs"}} (<span id="saveBonus">+2</span>)</h4>
-        <div class="qc-save-profs flexrow">
+        <div class="qc-abilities-row flexrow">
             {{#each (arr "str" "dex" "con" "int" "wis" "cha")}}
-            <label class="qc-save-toggle">
-                <input type="checkbox" id="{{this}}Bonus" class="qc-save-check" />
-                <span>{{i18n (concat "abilities." this)}}</span>
-            </label>
+            <div class="qc-ability-col">
+                <span class="qc-ability-label">{{i18n (concat "abilities." this)}}</span>
+                <span id="{{this}}Label" class="qc-ability-mod">+0</span>
+                <label class="qc-ability-check">
+                    <input type="checkbox" id="{{this}}Bonus" class="qc-save-check" />
+                </label>
+            </div>
             {{/each}}
         </div>
     </div>

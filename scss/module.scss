@@ -15,8 +15,7 @@
 }
 
 /* Full-width rows that span both columns */
-.qc-bottom,
-.qc-saves-section,
+.qc-abilities-section,
 .qc-create-section,
 .qc-features-section {
     grid-column: 1 / -1;
@@ -35,13 +34,6 @@
     flex-direction: column;
     overflow-y: auto;
     min-width: 0;
-}
-
-.qc-bottom {
-    border-top: 1px solid var(--color-border-dark, #444);
-    padding: 4px 0;
-    gap: 8px;
-    align-items: center;
 }
 
 /* Tab navigation */
@@ -99,13 +91,7 @@
     }
 }
 
-/* Header row */
-.qc-header-row {
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--color-border-dark, #444);
-    margin-bottom: 4px;
-}
-
+/* Header */
 .qc-header {
     gap: 8px;
 
@@ -189,94 +175,52 @@
     }
 }
 
-/* Abilities — bottom bar */
-.qc-abilities {
-    gap: 4px;
-    flex-wrap: wrap;
-    flex: 1;
-}
-
-.qc-ability {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2px 6px;
-    font-size: 11px;
-    flex: 1;
-    min-width: 40px;
-
-    .qc-ability-label {
-        color: var(--color-text-muted, #888);
-        font-size: 13px;
-        text-transform: uppercase;
-    }
-
-    span:last-child {
-        font-weight: bold;
-        font-size: 16px;
-    }
-}
-
-/* Saves */
-.qc-saves {
-    align-items: center;
-    gap: 6px;
-    padding: 2px 8px;
-    font-size: 12px;
-    flex-shrink: 0;
-}
-
-/* Save proficiency section (below abilities) */
-.qc-saves-section {
+/* Combined Ability Scores (modifiers + checkboxes, spans full width) */
+.qc-abilities-section {
     border-top: 1px solid var(--color-border-dark, #444);
-    padding: 6px 0;
+    padding: 8px 0;
 
     h4 {
-        margin: 0 0 4px;
+        margin: 0 0 8px;
         font-size: 13px;
     }
 }
 
-.qc-save-profs {
+.qc-abilities-row {
     gap: 4px;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
-.qc-save-toggle {
+.qc-ability-col {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4px;
-    font-size: 12px;
+    gap: 3px;
     flex: 1;
+}
+
+.qc-ability-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--color-text-muted, #888);
+}
+
+.qc-ability-mod {
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--color-text-gold, #e8b42c);
+}
+
+.qc-ability-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 2px;
 
     input {
         margin: 0;
-    }
-}
-
-/* Create button section */
-.qc-create-section {
-    text-align: center;
-    padding: 6px 0;
-    border-top: 1px solid var(--color-border-dark, #444);
-}
-
-.qc-create-btn {
-    padding: 8px 24px;
-    font-size: 14px;
-    font-weight: bold;
-    background: var(--color-bg-accent, #4a3);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    &:hover {
-        background: var(--color-bg-accent-hover, #5b4);
+        cursor: pointer;
     }
 }
 
@@ -335,6 +279,31 @@
         &:hover {
             color: var(--color-text-error, #c44);
         }
+    }
+}
+
+/* Create button section */
+.qc-create-section {
+    text-align: center;
+    padding: 6px 0;
+    border-top: 1px solid var(--color-border-dark, #444);
+}
+
+.qc-create-btn {
+    padding: 8px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    background: var(--color-bg-accent, #4a3);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+        background: var(--color-bg-accent-hover, #5b4);
     }
 }
 
