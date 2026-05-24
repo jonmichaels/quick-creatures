@@ -4,6 +4,9 @@
  * Black Flag v13 uses an "activities" data model for items (ActivityCollection)
  * and a different actor data model than dnd5e (CR in attributes.cr, abilities
  * use {mod} format instead of {value}, NPC modifiers ARE saves without prof layering).
+ *
+ * CRITICAL: Range is a SIBLING entry in activities, NOT nested inside activity objects.
+ * See docs/bf-data-model.md for the full verified structure (BF 2.0.074).
  */
 
 /**
@@ -21,7 +24,7 @@ function parseDice(diceStr) {
 
 /**
  * Build a Black Flag attack activity for a natural weapon.
- * Uses flat attack bonus (not computed from ability mod + prof).
+ * Range is a SIBLING entry, NOT nested in the activity.
  */
 function buildAttackActivity(stats, isRanged) {
     const dice = parseDice(stats.DpACalc);
@@ -30,16 +33,14 @@ function buildAttackActivity(stats, isRanged) {
         [activityId]: {
             _id: activityId,
             type: "attack",
-            activation: { type: "action", value: null, condition: "", override: false, primary: true },
-            range: isRanged
-                ? { override: false, unit: "foot", short: 60, long: 120 }
-                : { override: false, unit: "foot", short: null, long: null, reach: 5 },
+            name: isRanged ? "Ranged Attack" : "Melee Attack",
+            activation: { type: "action", override: false, primary: true },
             system: {
                 attack: {
                     flat: true,
                     bonus: stats.PAB || "+2",
-                    critical: { threshold: null },
-                    type: { value: isRanged ? "ranged" : "melee", classification: "weapon" },
+                    critical: {},
+                    type: {},
                 },
                 damage: {
                     parts: [{
@@ -48,7 +49,6 @@ function buildAttackActivity(stats, isRanged) {
                         bonus: dice.modifier ? String(dice.modifier) : "",
                         custom: { enabled: false },
                         type: "",
-                        additionalTypes: [],
                         scaling: { number: 1 },
                     }],
                     critical: {},
@@ -56,17 +56,30 @@ function buildAttackActivity(stats, isRanged) {
                 },
                 effects: [],
             },
+            target: {
+                template: { count: "", type: "", unit: "foot", contiguous: false },
+                affects: { choice: false },
+                prompt: true,
+                override: false,
+            },
+            description: "",
+            flags: {},
+            sort: 0,
             consumption: { targets: [], scale: { allowed: false } },
-            uses: { spent: 0, consumeQuantity: false, recovery: [], max: "" },
-            target: { template: { type: "", count: "1", contiguous: false, unit: "foot" }, affects: { type: "", choice: false }, override: false, prompt: true },
-            duration: { concentration: false, override: false, unit: "instantaneous" },
+            uses: { spent: 0, consumeQuantity: false, recovery: [] },
+            duration: { unit: "instantaneous", concentration: false, override: false },
             magical: false,
+            visibility: { level: {}, requireAttunement: false, requireIdentification: false, requireMagic: false },
         },
+        // RANGE IS A SIBLING — separate key in activities map
+        range: isRanged
+            ? { override: false, unit: "foot", short: 60, long: 120 }
+            : { override: false, unit: "foot", reach: 5 },
     };
 }
 
 /**
- * Build a utility activity for multiattack (Use button, no roll).
+ * Build a utility activity for multiattack.
  */
 function buildUtilityActivity() {
     const activityId = foundry.utils.randomID();
@@ -74,17 +87,26 @@ function buildUtilityActivity() {
         [activityId]: {
             _id: activityId,
             type: "utility",
-            activation: { type: "action", value: null, override: false, primary: true },
+            name: "Multiattack",
+            activation: { type: "action", override: false, primary: true },
             system: {
                 effects: [],
                 roll: { prompt: false, visible: false },
             },
+            target: {
+                template: { contiguous: false, unit: "foot" },
+                affects: { choice: false },
+                prompt: true,
+                override: false,
+            },
+            description: "",
+            flags: {},
+            sort: 0,
             consumption: { targets: [], scale: { allowed: false } },
             uses: { spent: 0, consumeQuantity: false, recovery: [] },
-            duration: { override: false, concentration: false, unit: "instantaneous" },
-            range: { override: false },
-            target: { template: { count: "1", contiguous: false, unit: "foot" }, affects: { choice: false }, override: false, prompt: true },
+            duration: { unit: "instantaneous", concentration: false, override: false },
             magical: false,
+            visibility: { level: {}, requireAttunement: false, requireIdentification: false, requireMagic: false },
         },
     };
 }
@@ -101,7 +123,8 @@ export function createAttackItem(stats) {
             description: {
                 value: `<p>[[/attack extended]]. [[/damage average extended]].</p><p>The [[lookup @name lowercase]] makes a melee attack.</p>`,
             },
-            type: { category: "monsters" },
+            type: { value: "melee" },
+            damage: { base: {} },
             activities: buildAttackActivity(stats, false),
         },
     };
@@ -119,7 +142,8 @@ export function createRangedItem(stats) {
             description: {
                 value: `<p>[[/attack extended]]. [[/damage average extended]].</p><p>The [[lookup @name lowercase]] makes a ranged attack.</p>`,
             },
-            type: { category: "monsters" },
+            type: { value: "ranged" },
+            damage: { base: {} },
             activities: buildAttackActivity(stats, true),
         },
     };
@@ -150,21 +174,24 @@ export function createFeatureItem(feature, stats) {
 
     const item = foundry.utils.deepClone(feature.item);
 
+    // BF item type is "feature" not "feat"
     if (item.type === "feat") {
         item.type = "feature";
     }
 
     // Convert dnd5e-format activation to BF utility activity
-    // (only for non-weapon features — weapon features get attack activities below)
+    // (for bonus action features like Misty Step, Cunning Action)
     if (item.system?.activation?.type && item.system.activation.type !== "none" && item.type !== "weapon") {
         const activityId = foundry.utils.randomID();
         const dndActivation = item.system.activation;
+        const dndRange = item.system.range || {};
         item.system.activities = {
             [activityId]: {
                 _id: activityId,
                 type: "utility",
+                name: item.name,
                 activation: {
-                    type: dndActivation.type,       // "action" or "bonus"
+                    type: dndActivation.type,
                     value: dndActivation.cost || null,
                     condition: dndActivation.condition || "",
                     override: false,
@@ -174,14 +201,31 @@ export function createFeatureItem(feature, stats) {
                     effects: [],
                     roll: { prompt: false, visible: false },
                 },
+                target: {
+                    template: { contiguous: false, unit: "foot" },
+                    affects: { choice: false },
+                    override: false,
+                    prompt: true,
+                },
+                description: "",
+                flags: {},
+                sort: 0,
                 consumption: { targets: [], scale: { allowed: false } },
                 uses: { spent: 0, consumeQuantity: false, recovery: [] },
-                duration: { override: false, concentration: false, unit: "instantaneous" },
-                range: item.system.range?.value ? { override: false, unit: item.system.range.units || "ft", short: item.system.range.value, long: item.system.range.long || null } : { override: false },
-                target: { template: { count: "1", contiguous: false, unit: "foot" }, affects: { choice: false }, override: false, prompt: true },
+                duration: { unit: "instantaneous", concentration: false, override: false },
                 magical: false,
+                visibility: { level: {}, requireAttunement: false, requireIdentification: false, requireMagic: false },
             },
         };
+        // If the feature has range/target data, add range as sibling
+        if (dndRange.value || dndRange.units) {
+            item.system.activities.range = {
+                override: false,
+                unit: "foot",
+                short: dndRange.value || null,
+                long: dndRange.long || null,
+            };
+        }
     }
 
     // Replace "this creature" with BF's [[lookup @name lowercase]] syntax
@@ -193,7 +237,6 @@ export function createFeatureItem(feature, stats) {
     // Handle damage-replacing weapon features: build BF attack activity
     if (feature.isDmg && item.system && item.type === "weapon") {
         const dice = parseDice(stats.DpACalc);
-        // Extra CR damage bonus (minimum 1) — e.g., Energy Weapons
         if (feature.crBonusDmg) {
             const crVal = parseCR(stats.CR);
             const bonus = Math.max(1, Math.floor(crVal));
@@ -207,6 +250,7 @@ export function createFeatureItem(feature, stats) {
             [activityId]: {
                 _id: activityId,
                 type: "attack",
+                name: item.name,
                 activation: {
                     type: dndActivation.type || "action",
                     value: dndActivation.cost || null,
@@ -214,19 +258,12 @@ export function createFeatureItem(feature, stats) {
                     override: false,
                     primary: true,
                 },
-                range: {
-                    override: false,
-                    unit: dndRange.units || "ft",
-                    short: dndRange.value || (isRanged ? 60 : null),
-                    long: dndRange.long || (isRanged ? 120 : null),
-                    reach: isRanged ? null : 5,
-                },
                 system: {
                     attack: {
                         flat: true,
                         bonus: stats.PAB || "+2",
-                        critical: { threshold: null },
-                        type: { value: isRanged ? "ranged" : "melee", classification: "weapon" },
+                        critical: {},
+                        type: {},
                     },
                     damage: {
                         parts: [{
@@ -235,7 +272,6 @@ export function createFeatureItem(feature, stats) {
                             bonus: dice.modifier ? String(dice.modifier) : "",
                             custom: { enabled: false },
                             type: "",
-                            additionalTypes: [],
                             scaling: { number: 1 },
                         }],
                         critical: {},
@@ -243,22 +279,35 @@ export function createFeatureItem(feature, stats) {
                     },
                     effects: [],
                 },
+                target: {
+                    template: { count: "", type: "", unit: "foot", contiguous: false },
+                    affects: { choice: false },
+                    prompt: true,
+                    override: false,
+                },
+                description: "",
+                flags: {},
+                sort: 0,
                 consumption: { targets: [], scale: { allowed: false } },
-                uses: { spent: 0, consumeQuantity: false, recovery: [], max: "" },
-                target: { template: { count: "1", contiguous: false, unit: "foot" }, affects: { choice: false }, override: false, prompt: true },
-                duration: { concentration: false, override: false, unit: "instantaneous" },
+                uses: { spent: 0, consumeQuantity: false, recovery: [] },
+                duration: { unit: "instantaneous", concentration: false, override: false },
                 magical: false,
+                visibility: { level: {}, requireAttunement: false, requireIdentification: false, requireMagic: false },
+            },
+            // RANGE AS SIBLING
+            range: {
+                override: false,
+                unit: "foot",
+                short: dndRange.value || (isRanged ? 60 : null),
+                long: dndRange.long || (isRanged ? 120 : null),
+                reach: isRanged ? null : 5,
             },
         };
     }
 
-    // BF item type is "feature" not "feat"
-    item.type = "feature";
-
     // Handle save-based damage features (Damaging Burst etc.)
-    // Creates ONE save activity with ability as an array (DEX/CON/WIS)
+    // ONE save activity with ability as an array. Range is sibling.
     if (feature.isDmg && feature.hasSave && item.system && item.type === "feature") {
-        // Damage formula: 1d6 + ⌊DpR / 2⌋ − 3  (minimum +0)
         const dpR = parseInt(stats.DpR) || 0;
         const bonus = Math.max(0, Math.floor(dpR / 2) - 3);
         const saveAbilities = (feature.saveAbilities?.length)
@@ -310,25 +359,26 @@ export function createFeatureItem(feature, stats) {
                     override: false,
                     prompt: true,
                 },
-                range: {
-                    override: false,
-                    unit: dndRange.units !== "ft" ? (dndRange.units || "foot") : "foot",
-                    short: dndRange.value || null,
-                    long: dndRange.long || null,
-                },
                 description: "",
+                flags: {},
                 sort: 0,
                 consumption: { targets: [], scale: { allowed: false } },
-                uses: { spent: 0, consumeQuantity: false, recovery: [], max: "" },
-                duration: { concentration: false, override: false, unit: "instantaneous" },
+                uses: { spent: 0, consumeQuantity: false, recovery: [] },
+                duration: { unit: "instantaneous", concentration: false, override: false },
                 magical: false,
                 visibility: { level: {}, requireAttunement: false, requireIdentification: false, requireMagic: false },
+            },
+            // RANGE AS SIBLING
+            range: {
+                override: false,
+                unit: "foot",
+                short: dndRange.value || null,
+                long: dndRange.long || null,
             },
         };
     }
 
-    // Also set dnd5e-style damage.parts as fallback for save-based damage features
-    // (systems that migrate legacy fields to activities need this)
+    // Also set dnd5e-style damage.parts as fallback
     if (feature.isDmg && feature.hasSave && feature.useDpR && item.system) {
         const dprNum = parseInt(stats.DpR) || 0;
         const bonus = Math.max(0, Math.floor(dprNum / 2) - 3);
@@ -336,7 +386,7 @@ export function createFeatureItem(feature, stats) {
         item.system.damage.parts = [[`1d6 + ${bonus}`]];
     }
 
-    // Handle damage-replacing features (weapon-type, NOT save-based — those handled above)
+    // Handle damage-replacing features (weapon-type, NOT save-based)
     if (feature.isDmg && !feature.hasSave && item.system) {
         let dmgPart = stats.DpACalc;
         if (feature.useDpR && stats.NoA) {
@@ -352,14 +402,16 @@ export function createFeatureItem(feature, stats) {
             item.system.damage.parts = [[dmgPart]];
         }
     }
+
     // Handle save DC features (DC = AC/DC from chart)
     if (feature.hasSave && item.system?.save) {
         item.system.save.dc = parseInt(stats.ACDC) || 10;
         if (feature.saveAbilities?.length) {
-            item.system.save.ability = feature.saveAbilities[0];  // DEX/CON/WIS → default DEX
+            item.system.save.ability = feature.saveAbilities[0];
         }
     }
 
+    // Handle effect features (Energy Weapons bonus damage)
     if (feature.isEffect && item.effects) {
         const dmg = stats.DpACalc;
         for (const effect of item.effects) {
@@ -387,7 +439,6 @@ function parseCR(crStr) {
 
 export function buildActorData(name, stats, type, abilities, tokenPath) {
     const cr = parseCR(stats.CR);
-
     const bfAbilities = {};
     const ablKeys = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
     for (const key of ablKeys) {
@@ -405,24 +456,13 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
         img: tokenPath,
         system: {
             attributes: {
-                ac: {
-                    flat: parseInt(stats.ACDC) || 10,
-                    calc: "flat",
-                },
-                hp: {
-                    value: parseInt(stats.HP) || 10,
-                    max: parseInt(stats.HP) || 10,
-                },
+                ac: { flat: parseInt(stats.ACDC) || 10, calc: "flat" },
+                hp: { value: parseInt(stats.HP) || 10, max: parseInt(stats.HP) || 10 },
                 prof: parseInt(stats.PAB) || 2,
                 cr,
-                movement: {
-                    walk: stats.speed || 30,
-                    units: "ft",
-                },
+                movement: { walk: stats.speed || 30, units: "ft" },
             },
-            traits: {
-                type: { value: type.toLowerCase() },
-            },
+            traits: { type: { value: type.toLowerCase() } },
             abilities: bfAbilities,
         },
         prototypeToken: {
