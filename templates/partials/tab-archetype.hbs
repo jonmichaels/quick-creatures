@@ -1,6 +1,7 @@
 <!-- Archetype tab — select + description -->
 <div class="qc-tab-panel">
     <div class="form-group">
+        <label for="archetype-select">Archetype</label>
         <select id="archetype-select" name="archetype">
             {{#each archetypes}}
             <option value="{{name}}" data-stats="{{serialized}}">
@@ -8,10 +9,5 @@
             </option>
             {{/each}}
         </select>
-    </div>
-    <div class="qc-archetype-desc">
-        <p id="archetype-desc" data-tooltip="">
-            {{#if firstArchetype.short}}{{firstArchetype.short}}{{else if firstArchetype.desc}}{{firstArchetype.desc}}{{/if}}
-        </p>
     </div>
 </div>

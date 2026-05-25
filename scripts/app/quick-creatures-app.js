@@ -441,6 +441,9 @@ export async function initQuickCreatures() {
     Handlebars.registerHelper("concat", function (a, b) {
         return String(a) + String(b);
     });
+    Handlebars.registerHelper("eq", function (a, b) {
+        return a === b;
+    });
 
     // Preload and register Handlebars partials
     // (HandlebarsApplicationMixin uses isolated instances; global partials must be registered)
