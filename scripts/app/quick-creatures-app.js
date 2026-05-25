@@ -258,10 +258,11 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             });
         }
 
-        // Token picker button — opens TokenPickerApp
-        const tokenPickerBtn = html.querySelector("#open-token-picker");
-        if (tokenPickerBtn) {
-            tokenPickerBtn.addEventListener("click", (ev) => {
+        // Token preview image — click opens TokenPickerApp
+        const tokenPreview = html.querySelector("#token-preview");
+        if (tokenPreview) {
+            tokenPreview.style.cursor = "pointer";
+            tokenPreview.addEventListener("click", (ev) => {
                 ev.preventDefault();
                 const typeSelect = html.querySelector("#monster-type");
                 const monsterType = typeSelect
