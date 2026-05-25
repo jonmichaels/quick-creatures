@@ -22,7 +22,7 @@
             <h3 class="qc-tp-type-header">{{type}}</h3>
             <div class="qc-tp-grid">
                 {{#each tokens}}
-                <div class="qc-token-tile" data-file="{{file}}" data-pack="{{../../selectedPack}}">
+                <div class="qc-token-tile {{#if (eq file ../../currentTokenFile)}}selected{{/if}}" data-file="{{file}}" data-pack="{{../../selectedPack}}">
                     <div class="qc-token-tile-img">
                         <img src="{{../../modulePath}}/assets/{{../../selectedPack}}/{{file}}" alt="{{name}}" loading="lazy" />
                     </div>
@@ -37,7 +37,7 @@
     <!-- Single type grid -->
     <div class="qc-tp-grid">
         {{#each tokens}}
-        <div class="qc-token-tile" data-file="{{file}}" data-pack="{{../selectedPack}}">
+        <div class="qc-token-tile {{#if (eq file ../currentTokenFile)}}selected{{/if}}" data-file="{{file}}" data-pack="{{../selectedPack}}">
             <div class="qc-token-tile-img">
                 <img src="{{../modulePath}}/assets/{{../selectedPack}}/{{file}}" alt="{{name}}" loading="lazy" />
             </div>

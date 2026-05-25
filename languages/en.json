@@ -27,12 +27,16 @@
         },
         "preview": {
             "tokenAlt": "Creature token preview",
+            "switchToken": "Change Token",
             "hp": "HP",
             "acdc": "AC / DC",
             "pb": "ATK / SAVE",
             "level": "Level",
             "damage": "Dmg",
             "dynamicRing": "Dynamic Ring"
+        },
+        "tokenPicker": {
+            "title": "Token Picker"
         },
         "abilities": {
             "str": "STR",

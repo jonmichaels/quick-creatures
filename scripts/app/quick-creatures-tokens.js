@@ -46,6 +46,7 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
     this.monsterType = options.monsterType || "Aberration";
     this._onSelect = options.onSelect || (() => {});
     this._selectedPack = options.currentPack || "Original_Tokens";
+    this._currentToken = options.currentToken || null;
     this._searchQuery = "";
     this._packs = [];
   }
@@ -67,11 +68,25 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
     // If current type has no tokens, show all tokens from all types
     const showingAllTypes = tokens.length === 0;
 
+    // Compute which file matches currentToken for selected highlight
+    let currentTokenFile = null;
+    if (this._currentToken) {
+      for (const pack of this._packs) {
+        const prefix = `${MODULE_PATH}/assets/${pack.id}/`;
+        if (this._currentToken.startsWith(prefix)) {
+          currentTokenFile = this._currentToken.slice(prefix.length);
+          break;
+        }
+      }
+    }
+
     return {
       packs: this._packs,
       modulePath: MODULE_PATH,
       monsterType: this.monsterType,
       selectedPack: this._selectedPack,
+      currentToken: this._currentToken,
+      currentTokenFile,
       tokens,
       allTypesTokens,
       searchQuery: this._searchQuery,
@@ -168,7 +183,7 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
         const file = ev.currentTarget.dataset.file;
         const pack = ev.currentTarget.dataset.pack;
         if (file && pack) {
-          this._onSelect(tokenImagePath(pack, file));
+          this._onSelect(tokenImagePath(pack, file), pack);
           this.close();
         }
       });

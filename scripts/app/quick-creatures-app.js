@@ -272,8 +272,10 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
                 new TokenPickerApp({
                     monsterType,
                     currentPack: this._tokenPack,
-                    onSelect: (path) => {
+                    currentToken: this._currentToken,
+                    onSelect: (path, pack) => {
                         this._currentToken = path;
+                        this._tokenPack = pack;
                         const tokenImg = html.querySelector("#token-preview");
                         if (tokenImg) {
                             tokenImg.src = path;
