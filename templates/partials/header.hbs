@@ -1,5 +1,5 @@
-<!-- Name + Type header (swapped order — Name first) -->
-<div class="qc-header flexcol">
+<!-- Name + Type header -->
+<div class="qc-header flexrow">
     <div class="flexcol qc-name-input">
         <label for="creature-name">{{i18n "create.nameLabel"}}</label>
         <input type="text" id="creature-name" name="creatureName" placeholder="{{i18n 'create.namePlaceholder'}}" />
@@ -8,7 +8,7 @@
         <label for="monster-type">{{i18n "create.typeLabel"}}</label>
         <select id="monster-type" name="monsterType">
             {{#each types}}
-            <option value="{{name}}">{{name}}</option>
+            <option value="{{name}}" {{#if (eq name ../defaults.type)}}selected{{/if}}>{{name}}</option>
             {{/each}}
         </select>
     </div>

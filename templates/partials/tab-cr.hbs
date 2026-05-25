@@ -1,10 +1,10 @@
-<!-- CR tab — CHALLENGE RATING label + select -->
+<!-- CR tab -- CHALLENGE RATING label + select -->
 <div class="qc-tab-panel">
     <label for="cr-value" class="qc-cr-label">{{i18n "create.crLabel"}}</label>
     <div class="form-group">
         <select id="cr-value" name="crValue">
             {{#each crStats}}
-            <option value="{{CR}}" data-stats="{{serialized}}">
+            <option value="{{CR}}" data-stats="{{serialized}}" {{#if (eq CR ../defaults.cr)}}selected{{/if}}>
                 CR {{CR}}{{#if example}} ({{example}}){{/if}}
             </option>
             {{/each}}

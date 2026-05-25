@@ -38,6 +38,34 @@
         "tokenPicker": {
             "title": "Token Picker"
         },
+        "settings": {
+            "title": "Quick Creatures Settings",
+            "button": "Configure Settings",
+            "defaultType": {
+                "name": "Default Creature Type",
+                "hint": "Default monster type when opening Quick Creatures."
+            },
+            "defaultSize": {
+                "name": "Default Size",
+                "hint": "Default creature size when opening Quick Creatures."
+            },
+            "defaultCR": {
+                "name": "Default Challenge Rating",
+                "hint": "Default CR when opening the CR tab."
+            },
+            "defaultDynamicRing": {
+                "name": "Default Dynamic Ring",
+                "hint": "Whether the Dynamic Ring checkbox is on by default."
+            },
+            "defaultTokenSet": {
+                "name": "Default Token Set",
+                "hint": "Default token pack used for creature portraits."
+            },
+            "defaultArchetype": {
+                "name": "Default Archetype",
+                "hint": "Default archetype when opening the Archetype tab."
+            }
+        },
         "abilities": {
             "str": "STR",
             "dex": "DEX",

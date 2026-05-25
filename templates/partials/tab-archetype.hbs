@@ -1,10 +1,10 @@
-<!-- Archetype tab — select + description -->
+<!-- Archetype tab -- select + description -->
 <div class="qc-tab-panel">
     <div class="form-group">
         <label for="archetype-select">Archetype</label>
         <select id="archetype-select" name="archetype">
             {{#each archetypes}}
-            <option value="{{name}}" data-stats="{{serialized}}">
+            <option value="{{name}}" data-stats="{{serialized}}" {{#if (eq name ../defaults.archetype)}}selected{{/if}}>
                 {{name}} (CR {{CR}})
             </option>
             {{/each}}

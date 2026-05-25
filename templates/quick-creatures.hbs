@@ -10,7 +10,7 @@
             <label for="creature-size">{{i18n "create.sizeLabel"}}</label>
             <select id="creature-size" name="size">
                 {{#each sizes}}
-                <option value="{{this}}" {{#if (eq this "Medium")}}selected{{/if}}>{{this}}</option>
+                <option value="{{this}}" {{#if (eq this ../defaults.size)}}selected{{/if}}>{{this}}</option>
                 {{/each}}
             </select>
         </div>
@@ -32,7 +32,7 @@
                     <i class="fa-solid fa-arrows-rotate"></i>
                 </button>
                 <label class="qc-dynamic-ring">
-                    <input type="checkbox" id="dynamic-ring" />
+                    <input type="checkbox" id="dynamic-ring" {{#if defaults.dynamicRing}}checked{{/if}} />
                     <span>{{i18n "preview.dynamicRing"}}</span>
                 </label>
             </div>

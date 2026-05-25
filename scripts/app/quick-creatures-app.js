@@ -64,7 +64,7 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
     foundry.applications.api.ApplicationV2
 ) {
     /** @type {string} Currently selected token pack ID */
-    _tokenPack = "Original_Tokens";
+    _tokenPack = game.settings?.get("quick-creatures", "defaultTokenSet") || "Original_Tokens";
 
     /** @type {string|null} Path to currently selected token image (relative to pack) */
     _currentToken = null;
@@ -86,6 +86,11 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             submitOnChange: false,
             closeOnSubmit: false,
         },
+        actions: [{
+            action: "configure",
+            label: "quick-creatures.settings.button",
+            icon: "fa-solid fa-gear",
+        }],
     };
 
     /** @override */
@@ -129,6 +134,17 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         await createActor(app, app.element);
     }
 
+    /** @override — handle header button actions */
+    static async _onAction(action) {
+        if (action === "configure") {
+            const configApp = new game.settings.apps.SettingsConfig({
+                namespace: "quick-creatures",
+                title: game.i18n.localize("quick-creatures.settings.title"),
+            });
+            configApp.render({ force: true });
+        }
+    }
+
     /** @override */
     async _prepareContext(options) {
         // Pull data from the registry (populated by registerCoreData + plugins)
@@ -165,6 +181,13 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             features: serializedFeatures,
             defaultStats: crStats[0] || {},
             sizes: ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"],
+            defaults: {
+                type: game.settings?.get("quick-creatures", "defaultType") || "Aberration",
+                size: game.settings?.get("quick-creatures", "defaultSize") || "Medium",
+                cr: game.settings?.get("quick-creatures", "defaultCR") || "0",
+                archetype: game.settings?.get("quick-creatures", "defaultArchetype") || "",
+                dynamicRing: game.settings?.get("quick-creatures", "defaultDynamicRing") || false,
+            },
         };
     }
 
@@ -434,6 +457,66 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
  * Registers hooks for the "Quick Creatures" button in the Actors sidebar.
  */
 export async function initQuickCreatures() {
+    // Register module settings
+    game.settings.register("quick-creatures", "defaultType", {
+        name: "quick-creatures.settings.defaultType.name",
+        hint: "quick-creatures.settings.defaultType.hint",
+        scope: "world",
+        config: true,
+        type: String,
+        default: "Aberration",
+        choices: {
+            Aberration: "Aberration", Beast: "Beast", Celestial: "Celestial",
+            Construct: "Construct", Dragon: "Dragon", Elemental: "Elemental",
+            Fey: "Fey", Fiend: "Fiend", Giant: "Giant", Humanoid: "Humanoid",
+            Monstrosity: "Monstrosity", Ooze: "Ooze", Plant: "Plant", Undead: "Undead",
+        },
+    });
+    game.settings.register("quick-creatures", "defaultSize", {
+        name: "quick-creatures.settings.defaultSize.name",
+        hint: "quick-creatures.settings.defaultSize.hint",
+        scope: "world",
+        config: true,
+        type: String,
+        default: "Medium",
+        choices: ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"],
+    });
+    game.settings.register("quick-creatures", "defaultCR", {
+        name: "quick-creatures.settings.defaultCR.name",
+        hint: "quick-creatures.settings.defaultCR.hint",
+        scope: "world",
+        config: true,
+        type: String,
+        default: "0",
+        choices: Object.fromEntries(CR_TABLE.map(cr => [cr.CR, `CR ${cr.CR}${cr.example ? ` (${cr.example})` : ""}`])),
+    });
+    game.settings.register("quick-creatures", "defaultDynamicRing", {
+        name: "quick-creatures.settings.defaultDynamicRing.name",
+        hint: "quick-creatures.settings.defaultDynamicRing.hint",
+        scope: "world",
+        config: true,
+        type: Boolean,
+        default: false,
+    });
+    game.settings.register("quick-creatures", "defaultTokenSet", {
+        name: "quick-creatures.settings.defaultTokenSet.name",
+        hint: "quick-creatures.settings.defaultTokenSet.hint",
+        scope: "world",
+        config: true,
+        type: String,
+        default: "Original_Tokens",
+        choices: { "Original_Tokens": "Original Tokens", "Cute_Tokens": "Cute Tokens" },
+    });
+    game.settings.register("quick-creatures", "defaultArchetype", {
+        name: "quick-creatures.settings.defaultArchetype.name",
+        hint: "quick-creatures.settings.defaultArchetype.hint",
+        scope: "world",
+        config: true,
+        type: String,
+        default: "",
+        choices: Object.fromEntries(ARCHETYPES.map(a => [a.name, `${a.name} (CR ${a.CR})`])),
+    });
+
     // Register Handlebars helpers (not available by default in Foundry)
     Handlebars.registerHelper("i18n", function (key) {
         return game.i18n.localize(`quick-creatures.${key}`);
