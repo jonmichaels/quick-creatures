@@ -8,6 +8,7 @@
 import { registry } from "../registry.js";
 import * as dnd5eAdapter from "../systems/dnd5e-adapter.js";
 import * as blackFlagAdapter from "../systems/black-flag-adapter.js";
+import { getDefaultToken } from "../data/token-packs.js";
 
 /** @type {string} Base path for module assets */
 const MODULE_PATH = "modules/quick-creatures";
@@ -122,6 +123,10 @@ function readFormData(app, html) {
         }
     }
 
+    // Dynamic token ring checkbox
+    const dynamicRingCB = html.querySelector("#dynamic-ring");
+    const dynamicRing = dynamicRingCB ? dynamicRingCB.checked : false;
+
     return {
         stats,
         monsterType,
@@ -130,6 +135,7 @@ function readFormData(app, html) {
         features,
         creatureSize,
         isArchetypeMode,
+        dynamicRing,
     };
 }
 
@@ -141,7 +147,7 @@ function readFormData(app, html) {
  */
 export async function createActor(app, html) {
     const formData = readFormData(app, html);
-    const { stats, monsterType, creatureName, saveProfs, features, creatureSize, isArchetypeMode } = formData;
+    const { stats, monsterType, creatureName, saveProfs, features, creatureSize, isArchetypeMode, dynamicRing } = formData;
 
     if (!stats) {
         ui.notifications.error(game.i18n.localize("quick-creatures.create.noStats"));
@@ -211,8 +217,18 @@ export async function createActor(app, html) {
         }
     }
 
-    // Token image path
-    const tokenPath = `${MODULE_PATH}/tokens/${monsterType.toLowerCase()}.png`;
+    // Token image path — use user-selected token or pack default
+    let tokenPath;
+    if (app._currentToken) {
+        tokenPath = app._currentToken;
+    } else {
+        const defaultFile = getDefaultToken(app._tokenPack, monsterType);
+        if (defaultFile) {
+            tokenPath = `${MODULE_PATH}/assets/${app._tokenPack}/${defaultFile}`;
+        } else {
+            tokenPath = `${MODULE_PATH}/assets/Original_Tokens/${monsterType}/${monsterType.toLowerCase()}.webp`;
+        }
+    }
 
     // Build actor name: use user-provided name, or auto-generate
     const name = creatureName || `${monsterType} (CR ${stats.CR || "?"})`;
@@ -230,15 +246,21 @@ export async function createActor(app, html) {
         return null;
     }
 
-    // Set creature size and prototype token dimensions
+    // Set creature size, token dimensions, and dynamic ring
     const sizeMap = { "Tiny": 0.5, "Small": 1, "Medium": 1, "Large": 2, "Huge": 3, "Gargantuan": 4 };
     const tokenSize = sizeMap[creatureSize] || 1;
     try {
-        await actor.update({
+        const updates = {
             "system.traits.size": creatureSize.toLowerCase(),
             "prototypeToken.width": tokenSize,
             "prototypeToken.height": tokenSize,
-        });
+        };
+        if (dynamicRing) {
+            updates["prototypeToken.ring.enabled"] = true;
+            updates["prototypeToken.ring.subject.texture"] = tokenPath;
+            updates["prototypeToken.ring.subject.scale"] = 1;
+        }
+        await actor.update(updates);
     } catch (e) {
         console.warn("Quick Creatures | Failed to set creature size:", e);
     }

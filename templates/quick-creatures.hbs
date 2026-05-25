@@ -1,18 +1,11 @@
 <!-- Quick Creatures — two-column layout -->
 <div class="qc-app">
-    <!-- Left column: header + tab content -->
+    <!-- Left column: header + size + tab content -->
     <div class="qc-left">
         <!-- Name + Type header -->
         {{> "modules/quick-creatures/templates/partials/header.hbs"}}
 
-        <div class="qc-tab-content active" data-tab="tab_cr" data-group="primary">
-            {{> "modules/quick-creatures/templates/partials/tab-cr.hbs"}}
-        </div>
-        <div class="qc-tab-content" data-tab="tab_archetype" data-group="primary">
-            {{> "modules/quick-creatures/templates/partials/tab-archetype.hbs"}}
-        </div>
-
-        <!-- Size selector -->
+        <!-- Size selector (visible on both tabs) -->
         <div class="qc-size-select">
             <label for="creature-size">{{i18n "create.sizeLabel"}}</label>
             <select id="creature-size" name="size">
@@ -21,13 +14,23 @@
                 {{/each}}
             </select>
         </div>
+
+        <div class="qc-tab-content active" data-tab="tab_cr" data-group="primary">
+            {{> "modules/quick-creatures/templates/partials/tab-cr.hbs"}}
+        </div>
+        <div class="qc-tab-content" data-tab="tab_archetype" data-group="primary">
+            {{> "modules/quick-creatures/templates/partials/tab-archetype.hbs"}}
+        </div>
     </div>
 
     <!-- Right column: token + stats side by side -->
     <div class="qc-right">
         <div class="qc-stat-preview flexrow">
             <div class="qc-token-preview">
-                <img id="token-preview" src="{{modulePath}}/tokens/aberration.png" alt="{{i18n 'preview.tokenAlt'}}" />
+                <img id="token-preview" src="{{tokenPreviewSrc}}" alt="{{i18n 'preview.tokenAlt'}}" />
+                <button type="button" id="open-token-picker" class="qc-token-switch-btn" title="{{i18n 'preview.switchToken'}}">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
                 <label class="qc-dynamic-ring">
                     <input type="checkbox" id="dynamic-ring" />
                     <span>{{i18n "preview.dynamicRing"}}</span>
@@ -53,6 +56,12 @@
                 </div>
             </div>
         </div>
+
+        <div class="qc-tab-content qc-archetype-desc" data-tab="tab_archetype">
+            <p id="archetype-desc" data-tooltip="">
+                {{#if firstArchetype.short}}{{firstArchetype.short}}{{else if firstArchetype.desc}}{{firstArchetype.desc}}{{/if}}
+            </p>
+        </div>
     </div>
 
     <!-- Combined Ability Scores (spans both columns) -->
@@ -62,13 +71,17 @@
             <div class="qc-ability-col">
                 <span class="qc-ability-label">{{i18n (concat "abilities." this)}}</span>
                 <span id="{{this}}Label" class="qc-ability-mod">+0</span>
-                <label class="qc-ability-check">
-                    <input type="checkbox" id="{{this}}Bonus" class="qc-save-check" />
-                </label>
+                <div class="qc-tab-content active" data-tab="tab_cr">
+                    <label class="qc-ability-check">
+                        <input type="checkbox" id="{{this}}Bonus" class="qc-save-check" />
+                    </label>
+                </div>
             </div>
             {{/each}}
         </div>
-        <p class="qc-abilities-hint">Check one or two primary abilities. (<span id="saveBonus">+2</span>)</p>
+        <div class="qc-tab-content active" data-tab="tab_cr">
+            <p class="qc-abilities-hint">Check one or two primary abilities. (<span id="saveBonus">+2</span>)</p>
+        </div>
     </div>
 
     <!-- Creature Features (spans both columns) -->

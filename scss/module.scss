@@ -159,7 +159,7 @@
     background: var(--color-bg-secondary, #1e1e1e);
     border: 1px solid var(--color-border-dark, #444);
     border-radius: 6px;
-    gap: 10px;
+    gap: 0;
     align-items: flex-start;
 
     .qc-token-preview {
@@ -185,7 +185,7 @@
         display: flex;
         align-items: center;
         gap: 4px;
-        padding: 3px 6px;
+        padding: 3px 6px 3px 0;
         background: rgba(0,0,0,0.2);
         border-radius: 4px;
         font-size: 18px;
@@ -218,6 +218,32 @@
         margin: 0;
         cursor: pointer;
         accent-color: #aaa;
+    }
+}
+
+/* Token preview switch button */
+.qc-token-switch-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 1px solid var(--color-border-dark, #555);
+    border-radius: 4px;
+    background: rgba(0,0,0,0.6);
+    color: var(--color-text-muted, #aaa);
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+
+    &:hover {
+        color: var(--color-text-bright, #fff);
+        border-color: var(--color-border-highlight, #888);
+        background: rgba(0,0,0,0.8);
     }
 }
 
@@ -302,6 +328,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
+    justify-content: space-between;
     overflow-y: auto;
     align-content: flex-start;
 }
@@ -349,7 +376,6 @@
     justify-content: flex-end;
     text-align: right;
     padding: 4px 0 0;
-    border-top: 1px solid var(--color-border-dark, #444);
 }
 
 .qc-create-btn {
@@ -400,7 +426,7 @@ select option {
 
 /* Lighter checkbox icon color (Font Awesome ::before) */
 #quick-creatures input[type="checkbox"]::before {
-    color: #838383;
+    color: #7d7d7d;
 }
 
 .form-group {
@@ -418,4 +444,109 @@ select option {
         width: 100%;
         height: 28px;
     }
+}
+
+/* ── Token Picker Window ── */
+.qc-token-picker-window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 8px;
+    padding: 8px;
+}
+
+.qc-tp-header {
+    display: flex;
+    gap: 8px;
+}
+
+.qc-tp-set-select {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    label {
+        font-size: 11px;
+        font-weight: bold;
+        color: var(--color-text-dark-secondary, #888);
+    }
+
+    select {
+        width: 180px;
+    }
+}
+
+.qc-tp-search {
+    flex: 1;
+
+    input {
+        width: 100%;
+    }
+}
+
+.qc-tp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 11px;
+    overflow-y: auto;
+    flex: 1;
+    padding: 0 4px;
+}
+
+.qc-tp-all-types {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.qc-tp-type-section {
+    margin-bottom: 12px;
+}
+
+.qc-tp-type-header {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--color-text-dark-secondary, #888);
+    margin: 0 0 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--color-border-dark, #444);
+}
+
+.qc-token-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 6px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        border-color: var(--color-border-highlight, #888);
+        background: var(--color-fill-secondary, rgba(255,255,255,0.05));
+    }
+}
+
+.qc-token-tile-img {
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+.qc-token-tile-name {
+    font-size: 11px;
+    color: var(--color-text-dark-secondary, #888);
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 140px;
 }

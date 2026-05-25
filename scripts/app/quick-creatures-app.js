@@ -14,6 +14,8 @@ import { createActor } from "./quick-creatures-create.js";
 import { CR_TABLE } from "../data/cr-table.js";
 import { ARCHETYPES } from "../data/archetypes.js";
 import { MONSTER_FEATURES } from "../data/features.js";
+import { TokenPickerApp } from "./quick-creatures-tokens.js";
+import { discoverPacks, getDefaultToken, tokenImagePath } from "../data/token-packs.js";
 
 /** @type {string} Base path for module assets */
 const MODULE_PATH = "modules/quick-creatures";
@@ -61,6 +63,12 @@ function registerCoreData() {
 class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMixin(
     foundry.applications.api.ApplicationV2
 ) {
+    /** @type {string} Currently selected token pack ID */
+    _tokenPack = "Original_Tokens";
+
+    /** @type {string|null} Path to currently selected token image (relative to pack) */
+    _currentToken = null;
+
     /** @override */
     static DEFAULT_OPTIONS = {
         id: "quick-creatures",
@@ -147,6 +155,9 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         return {
             tabs: QuickCreaturesApp.TABS,
             modulePath: MODULE_PATH,
+            tokenPack: this._tokenPack,
+            // Initial token preview image — use current selection or type default
+            tokenPreviewSrc: this._getTokenPreviewSrc("Aberration"),
             crStats,
             archetypes: serializedArchetypes,
             firstArchetype: serializedArchetypes[0] || null,
@@ -207,14 +218,15 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             cb.addEventListener("change", () => this.#updatePreview());
         });
 
-        // Monster type select → update token image
+        // Monster type select → update token image to pack default
         const typeSelect = html.querySelector("#monster-type");
         if (typeSelect) {
             typeSelect.addEventListener("change", () => {
-                const typeName = typeSelect.options[typeSelect.selectedIndex]?.value?.toLowerCase() || "aberration";
+                const displayType = typeSelect.options[typeSelect.selectedIndex]?.value || "Aberration";
+                this._currentToken = null; // reset custom selection
                 const tokenImg = html.querySelector("#token-preview");
                 if (tokenImg) {
-                    tokenImg.src = `${MODULE_PATH}/tokens/${typeName}.png`;
+                    tokenImg.src = this._getTokenPreviewSrc(displayType);
                 }
             });
         }
@@ -243,6 +255,30 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             createMonsterBtn.addEventListener("click", async (ev) => {
                 ev.preventDefault();
                 await createActor(this, html);
+            });
+        }
+
+        // Token picker button — opens TokenPickerApp
+        const tokenPickerBtn = html.querySelector("#open-token-picker");
+        if (tokenPickerBtn) {
+            tokenPickerBtn.addEventListener("click", (ev) => {
+                ev.preventDefault();
+                const typeSelect = html.querySelector("#monster-type");
+                const monsterType = typeSelect
+                    ? typeSelect.options[typeSelect.selectedIndex]?.value || "Aberration"
+                    : "Aberration";
+
+                new TokenPickerApp({
+                    monsterType,
+                    currentPack: this._tokenPack,
+                    onSelect: (path) => {
+                        this._currentToken = path;
+                        const tokenImg = html.querySelector("#token-preview");
+                        if (tokenImg) {
+                            tokenImg.src = path;
+                        }
+                    },
+                }).render({ force: true });
             });
         }
     }
@@ -332,12 +368,13 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             this.#setText(html, "#wisLabel", getMod(stats.abilities.wis?.value));
             this.#setText(html, "#chaLabel", getMod(stats.abilities.cha?.value));
         } else {
-            this.#setText(html, "#strLabel", "+0");
-            this.#setText(html, "#dexLabel", "+0");
-            this.#setText(html, "#conLabel", "+0");
-            this.#setText(html, "#intLabel", "+0");
-            this.#setText(html, "#wisLabel", "+0");
-            this.#setText(html, "#chaLabel", "+0");
+            const pb = parseInt(stats.PAB) || 2;
+            const ablKeys = ["str", "dex", "con", "int", "wis", "cha"];
+            for (const key of ablKeys) {
+                const cb = html.querySelector(`#${key}Bonus`);
+                const val = cb && cb.checked ? `+${pb}` : "+0";
+                this.#setText(html, `#${key}Label`, val);
+            }
         }
 
         // Archetype description
@@ -361,6 +398,31 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         if (el) {
             el.textContent = value != null ? value : "";
         }
+    }
+
+    /**
+     * Get the token preview image source for a given monster type,
+     * using the current pack's default token (or a user-picked token).
+     * @param {string} type - Monster type e.g. "Aberration"
+     * @returns {string} Full image path
+     */
+    _getTokenPreviewSrc(type) {
+        // If user has picked a specific token via the picker, use it
+        if (this._currentToken) return this._currentToken;
+
+        // Otherwise use the current pack's default for this type
+        const defaultFile = getDefaultToken(this._tokenPack, type);
+        if (defaultFile) {
+            return tokenImagePath(this._tokenPack, defaultFile);
+        }
+
+        // Fallback to Original_Tokens
+        const fallback = getDefaultToken("Original_Tokens", type);
+        if (fallback) {
+            return tokenImagePath("Original_Tokens", fallback);
+        }
+
+        return `${MODULE_PATH}/assets/Original_Tokens/${type}/${type.toLowerCase()}.webp`;
     }
 }
 

@@ -12,5 +12,8 @@
     "sass-loader": "^16.0.4",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.1"
   }
 }
