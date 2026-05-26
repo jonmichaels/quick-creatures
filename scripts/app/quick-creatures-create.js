@@ -96,9 +96,11 @@ function readFormData(app, html) {
     // Creature name
     const creatureName = nameInput ? nameInput.value.trim() : "";
 
-    // Creature size
+    // Creature size — map numeric index (pre-0.2.0 array choices) to size name
+    const SIZES = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"];
     const sizeSelect = html.querySelector("#creature-size");
-    const defaultSize = game.settings?.get("quick-creatures", "defaultSize") || "Medium";
+    const rawSize = game.settings?.get("quick-creatures", "defaultSize") || "Medium";
+    const defaultSize = SIZES[parseInt(rawSize)] || rawSize;
     const creatureSize = sizeSelect
         ? sizeSelect.options[sizeSelect.selectedIndex]?.value || defaultSize
         : defaultSize;

@@ -170,6 +170,12 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
 
         const defaultType = game.settings?.get("quick-creatures", "defaultType") || "Aberration";
 
+        // Size setting used an array `choices` pre-0.2.0, which stored the index
+        // rather than the value. Map numeric strings to size names for backward compat.
+        const SIZES = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"];
+        const rawSize = game.settings?.get("quick-creatures", "defaultSize") || "Medium";
+        const defaultSize = SIZES[parseInt(rawSize)] || rawSize;
+
         return {
             tabs: QuickCreaturesApp.TABS,
             modulePath: MODULE_PATH,
@@ -182,10 +188,10 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             types,
             features: serializedFeatures,
             defaultStats: crStats[0] || {},
-            sizes: ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"],
+            sizes: SIZES,
             defaults: {
-                type: game.settings?.get("quick-creatures", "defaultType") || "Aberration",
-                size: game.settings?.get("quick-creatures", "defaultSize") || "Medium",
+                type: defaultType,
+                size: defaultSize,
                 cr: game.settings?.get("quick-creatures", "defaultCR") || "0",
                 archetype: game.settings?.get("quick-creatures", "defaultArchetype") || "",
                 dynamicRing: game.settings?.get("quick-creatures", "defaultDynamicRing") || false,
@@ -483,7 +489,10 @@ export async function initQuickCreatures() {
         config: true,
         type: String,
         default: "Medium",
-        choices: ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"],
+        choices: {
+            Tiny: "Tiny", Small: "Small", Medium: "Medium",
+            Large: "Large", Huge: "Huge", Gargantuan: "Gargantuan",
+        },
     });
     game.settings.register("quick-creatures", "defaultCR", {
         name: "quick-creatures.settings.defaultCR.name",
