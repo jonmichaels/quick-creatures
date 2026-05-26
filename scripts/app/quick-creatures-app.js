@@ -176,6 +176,11 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         const rawSize = game.settings?.get("quick-creatures", "defaultSize") || "Medium";
         const defaultSize = SIZES[parseInt(rawSize)] || rawSize;
 
+        // CR setting uses `_` prefix on keys to avoid integer-key sort in Object.entries().
+        // Strip prefix for use. Backward compat: no prefix → use as-is.
+        const rawCR = game.settings?.get("quick-creatures", "defaultCR") || "_1";
+        const defaultCR = rawCR.startsWith("_") ? rawCR.slice(1) : rawCR;
+
         return {
             tabs: QuickCreaturesApp.TABS,
             modulePath: MODULE_PATH,
@@ -192,7 +197,7 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             defaults: {
                 type: defaultType,
                 size: defaultSize,
-                cr: game.settings?.get("quick-creatures", "defaultCR") || "0",
+                cr: defaultCR,
                 archetype: game.settings?.get("quick-creatures", "defaultArchetype") || "",
                 dynamicRing: game.settings?.get("quick-creatures", "defaultDynamicRing") || false,
             },
@@ -500,8 +505,8 @@ export async function initQuickCreatures() {
         scope: "world",
         config: true,
         type: String,
-        default: "0",
-        choices: Object.fromEntries(CR_TABLE.map(cr => [cr.CR, `CR ${cr.CR}${cr.example ? ` (${cr.example})` : ""}`])),
+        default: "_1",
+        choices: Object.fromEntries(CR_TABLE.map(cr => [`_${cr.CR}`, `CR ${cr.CR}${cr.example ? ` (${cr.example})` : ""}`])),
     });
     game.settings.register("quick-creatures", "defaultDynamicRing", {
         name: "quick-creatures.settings.defaultDynamicRing.name",
@@ -509,7 +514,7 @@ export async function initQuickCreatures() {
         scope: "world",
         config: true,
         type: Boolean,
-        default: false,
+        default: true,
     });
     game.settings.register("quick-creatures", "defaultTokenSet", {
         name: "quick-creatures.settings.defaultTokenSet.name",
@@ -526,7 +531,7 @@ export async function initQuickCreatures() {
         scope: "world",
         config: true,
         type: String,
-        default: "",
+        default: "Soldier",
         choices: Object.fromEntries(ARCHETYPES.map(a => [a.name, `${a.name} (CR ${a.CR})`])),
     });
 
