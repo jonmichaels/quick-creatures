@@ -88,18 +88,20 @@ function readFormData(app, html) {
     }
 
     // Monster type
+    const defaultType = game.settings?.get("quick-creatures", "defaultType") || "Aberration";
     const monsterType = typeSelect
-        ? typeSelect.options[typeSelect.selectedIndex]?.value || "Aberration"
-        : "Aberration";
+        ? typeSelect.options[typeSelect.selectedIndex]?.value || defaultType
+        : defaultType;
 
     // Creature name
     const creatureName = nameInput ? nameInput.value.trim() : "";
 
     // Creature size
     const sizeSelect = html.querySelector("#creature-size");
+    const defaultSize = game.settings?.get("quick-creatures", "defaultSize") || "Medium";
     const creatureSize = sizeSelect
-        ? sizeSelect.options[sizeSelect.selectedIndex]?.value || "Medium"
-        : "Medium";
+        ? sizeSelect.options[sizeSelect.selectedIndex]?.value || defaultSize
+        : defaultSize;
 
     // Ability save proficiencies (checkboxes)
     const abilityKeys = ["str", "dex", "con", "int", "wis", "cha"];

@@ -168,12 +168,14 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             serialized: JSON.stringify(f),
         }));
 
+        const defaultType = game.settings?.get("quick-creatures", "defaultType") || "Aberration";
+
         return {
             tabs: QuickCreaturesApp.TABS,
             modulePath: MODULE_PATH,
             tokenPack: this._tokenPack,
             // Initial token preview image — use current selection or type default
-            tokenPreviewSrc: this._getTokenPreviewSrc("Aberration"),
+            tokenPreviewSrc: this._getTokenPreviewSrc(defaultType),
             crStats,
             archetypes: serializedArchetypes,
             firstArchetype: serializedArchetypes[0] || null,
@@ -244,8 +246,9 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         // Monster type select → update token image to pack default
         const typeSelect = html.querySelector("#monster-type");
         if (typeSelect) {
+            const defaultType = game.settings?.get("quick-creatures", "defaultType") || "Aberration";
             typeSelect.addEventListener("change", () => {
-                const displayType = typeSelect.options[typeSelect.selectedIndex]?.value || "Aberration";
+                const displayType = typeSelect.options[typeSelect.selectedIndex]?.value || defaultType;
                 this._currentToken = null; // reset custom selection
                 const tokenImg = html.querySelector("#token-preview");
                 if (tokenImg) {
@@ -288,9 +291,10 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             tokenPreview.addEventListener("click", (ev) => {
                 ev.preventDefault();
                 const typeSelect = html.querySelector("#monster-type");
+                const defaultType = game.settings?.get("quick-creatures", "defaultType") || "Aberration";
                 const monsterType = typeSelect
-                    ? typeSelect.options[typeSelect.selectedIndex]?.value || "Aberration"
-                    : "Aberration";
+                    ? typeSelect.options[typeSelect.selectedIndex]?.value || defaultType
+                    : defaultType;
 
                 new TokenPickerApp({
                     monsterType,
