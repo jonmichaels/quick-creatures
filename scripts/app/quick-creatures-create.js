@@ -105,12 +105,12 @@ function readFormData(app, html) {
         ? sizeSelect.options[sizeSelect.selectedIndex]?.value || defaultSize
         : defaultSize;
 
-    // Ability save proficiencies (checkboxes)
+    // Ability save proficiencies (3-state: off / full / half)
     const abilityKeys = ["str", "dex", "con", "int", "wis", "cha"];
     const saveProfs = {};
     for (const abl of abilityKeys) {
-        const checkbox = html.querySelector(`#${abl}Bonus`);
-        saveProfs[abl] = checkbox ? checkbox.checked : false;
+        const toggle = html.querySelector(`.qc-ability-toggle[data-ability="${abl}"]`);
+        saveProfs[abl] = toggle ? toggle.dataset.state : "off";
     }
 
     // Selected features (from checkboxes)
@@ -208,15 +208,18 @@ export async function createActor(app, html) {
         // Archetype mode provides explicit ability scores
         abilities = stats.abilities;
     } else {
-        // CR mode: all modifiers start at 0; checked saves get proficiency bonus
+        // CR mode: all modifiers start at 0; toggled abilities get full or half PB
         abilities = {};
         const profBonus = parseInt(stats.PAB) || 2;
+        const halfPB = Math.ceil(profBonus / 2);
         const ablMap = { str: "strength", dex: "dexterity", con: "constitution", int: "intelligence", wis: "wisdom", cha: "charisma" };
         for (const [short, long] of Object.entries(ablMap)) {
+            const state = saveProfs[short] || "off";
+            const mod = state === "full" ? profBonus : state === "half" ? halfPB : 0;
             abilities[long] = {
                 value: 10,
-                mod: saveProfs[short] ? profBonus : 0,
-                proficient: saveProfs[short] ? 1 : 0,
+                mod: mod,
+                proficient: state !== "off" ? 1 : 0,
             };
         }
     }

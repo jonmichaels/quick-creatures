@@ -72,15 +72,13 @@
                 <span class="qc-ability-label">{{i18n (concat "abilities." this)}}</span>
                 <span id="{{this}}Label" class="qc-ability-mod">+0</span>
                 <div class="qc-tab-content active" data-tab="tab_cr">
-                    <label class="qc-ability-check">
-                        <input type="checkbox" id="{{this}}Bonus" class="qc-save-check" />
-                    </label>
+                    <span class="qc-ability-toggle" data-state="off" data-ability="{{this}}" role="checkbox" aria-checked="false"></span>
                 </div>
             </div>
             {{/each}}
         </div>
         <div class="qc-tab-content active" data-tab="tab_cr">
-            <p class="qc-abilities-hint">Check one or two primary abilities. (<span id="saveBonus">+2</span>)</p>
+            <p class="qc-abilities-hint">Check one or two primary abilities. (<span id="saveBonus">+2</span>) Optional: two or three secondary. (+1/2PB)</p>
         </div>
     </div>
 

@@ -249,9 +249,16 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             archetypeSelect.addEventListener("change", () => this.#updatePreview());
         }
 
-        // Save proficiency checkboxes
-        html.querySelectorAll(".qc-save-check").forEach(cb => {
-            cb.addEventListener("change", () => this.#updatePreview());
+        // 3-state ability proficiency toggles: off → full → half → off
+        html.querySelectorAll(".qc-ability-toggle").forEach(toggle => {
+            toggle.addEventListener("click", () => {
+                const states = ["off", "full", "half"];
+                const current = toggle.dataset.state || "off";
+                const next = states[(states.indexOf(current) + 1) % states.length];
+                toggle.dataset.state = next;
+                toggle.setAttribute("aria-checked", next !== "off");
+                this.#updatePreview();
+            });
         });
 
         // Monster type select → update token image to pack default
@@ -410,10 +417,12 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             this.#setText(html, "#chaLabel", getMod(stats.abilities.cha?.value));
         } else {
             const pb = parseInt(stats.PAB) || 2;
+            const halfPB = Math.ceil(pb / 2);
             const ablKeys = ["str", "dex", "con", "int", "wis", "cha"];
             for (const key of ablKeys) {
-                const cb = html.querySelector(`#${key}Bonus`);
-                const val = cb && cb.checked ? `+${pb}` : "+0";
+                const toggle = html.querySelector(`.qc-ability-toggle[data-ability="${key}"]`);
+                const state = toggle ? toggle.dataset.state : "off";
+                const val = state === "full" ? `+${pb}` : state === "half" ? `+${halfPB}` : "+0";
                 this.#setText(html, `#${key}Label`, val);
             }
         }
