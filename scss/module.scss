@@ -307,18 +307,18 @@
     }
 
     &[data-state="full"] {
-        background: rgba(0,140,0,0.25);
-        border-color: #4a4;
-        color: #5c5;
+        background: #4a3;
+        border-color: #4a3;
+        color: #fff;
         &::after {
             content: "✓";
         }
     }
 
     &[data-state="half"] {
-        background: rgba(180,140,0,0.25);
-        border-color: #c90;
-        color: #db2;
+        background: #d80;
+        border-color: #c70;
+        color: #7d7d7d;
         &::after {
             content: "−";
         }
