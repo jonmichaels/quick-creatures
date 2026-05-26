@@ -105,6 +105,7 @@
 
 /* Header */
 .qc-header {
+    flex-direction: column;
     gap: 8px;
 
     .qc-type-selector,

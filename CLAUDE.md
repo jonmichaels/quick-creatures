@@ -57,3 +57,11 @@ Test-create+inspect pattern (from the reference):
 ## Git
 - Author: `276414342+hermes90201@users.noreply.github.com`
 - `.hermes/` gitignored
+
+## Foundry Settings Pitfalls
+
+1. **Array `choices` stores the INDEX, not the value.** `choices: ["Tiny", "Small"]` stores `"1"` for "Small", not `"Small"`. Always use object `choices: {Tiny: "Tiny", Small: "Small"}`.
+
+2. **Object `choices` with integer-like keys sort numerically.** JavaScript `Object.entries()` iterates integer-like string keys (`"0"`, `"1"`...) before non-integer keys (`"1/2"`). Prefix with a non-digit character (e.g., `_1`, `_1/2`) to preserve insertion order.
+
+3. **`default:` is only for first-time installers.** Existing users who saved a setting are unaffected by default changes — `game.settings.get()` returns the stored value.
