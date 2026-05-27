@@ -297,7 +297,7 @@ const MONSTER_FEATURES = [
         isEffect: false,
         isDmg: false,
         hasSave: true,
-        bfActivity: { type: "check", activation: "none", abilities: ["strength", "dexterity"] },
+        bfActivity: { type: "check", activation: "none", abilities: ["acrobatics", "athletics"] },
         desc: "When this creature hits a target with a melee attack, the target is grappled (escape DC based on this creature's Strength or Dexterity modifier). While grappled, the target is restrained.",
         item: {
             name: "Restraining Grab",
