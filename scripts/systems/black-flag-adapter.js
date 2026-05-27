@@ -590,18 +590,38 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
         };
     }
 
+    // Build BF attributes with perception/stealth from archetype skills
+    const attrs = {
+        ac: { flat: parseInt(stats.ACDC) || 10, calc: "natural", baseFormulas: ["natural"] },
+        hp: { value: parseInt(stats.HP) || 10, max: parseInt(stats.HP) || 10 },
+        prof: parseInt(stats.PAB) || 2,
+        cr,
+        movement: { walk: stats.speed || 30, units: "ft" },
+    };
+
+    // BF NPCs: perception defaults to 10 + WIS mod, stealth to DEX mod
+    // If archetype lists these skills, override with computed flat values
+    if (stats.skills) {
+        const pb = parseInt(stats.PAB) || 2;
+        const wisMod = bfAbilities.wisdom?.mod || 0;
+        const dexMod = bfAbilities.dexterity?.mod || 0;
+
+        if (stats.skills.prc) {
+            // Passive Perception: 10 + WIS mod + PB (if proficient)
+            attrs.perception = 10 + wisMod + pb;
+        }
+        if (stats.skills.ste) {
+            // Stealth: DEX mod + PB (if proficient)
+            attrs.stealth = dexMod + pb;
+        }
+    }
+
     return {
         name,
         type: "npc",
         img: tokenPath,
         system: {
-            attributes: {
-                ac: { flat: parseInt(stats.ACDC) || 10, calc: "natural", baseFormulas: ["natural"] },
-                hp: { value: parseInt(stats.HP) || 10, max: parseInt(stats.HP) || 10 },
-                prof: parseInt(stats.PAB) || 2,
-                cr,
-                movement: { walk: stats.speed || 30, units: "ft" },
-            },
+            attributes: attrs,
             traits: { type: { value: type.toLowerCase() } },
             abilities: bfAbilities,
         },
