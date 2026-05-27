@@ -122,6 +122,7 @@ const MONSTER_FEATURES = [
         divideDmg: 2,
         reduceAtk: true,
         isDmg: true,
+        bfActivity: { type: "damage", activation: "none" },
         desc: "Each creature who starts their turn within 10 feet of this creature takes damage of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. If you give a creature this feature, give them one less attack than normal.",
         item: {
             name: "Damaging Aura",
@@ -198,6 +199,7 @@ const MONSTER_FEATURES = [
         name: "Energy Weapons",
         isEffect: true,
         isDmg: true,
+        bfActivity: { type: "attack", activation: "action" },
         desc: "The creature's weapon attacks deal extra damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.",
         item: {
             name: "Energy Weapons",
@@ -206,6 +208,10 @@ const MONSTER_FEATURES = [
             system: {
                 description: {
                     value: "<p>[[/attack extended]]. [[/damage average extended]]. The [[lookup @name lowercase]]'s weapon attacks deal extra CR damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.</p>",
+                },
+                activation: {
+                    type: "action",
+                    cost: 1,
                 },
                 type: {
                     value: "monster",
@@ -232,6 +238,7 @@ const MONSTER_FEATURES = [
         isEffect: false,
         isDmg: false,
         hasSave: true,
+        bfActivity: { type: "save", activation: "none", abilities: ["strength"] },
         desc: "When this creature hits a target with a melee attack, the target must succeed on a Strength saving throw or be knocked prone.",
         item: {
             name: "Knockdown",
@@ -289,6 +296,7 @@ const MONSTER_FEATURES = [
         isEffect: false,
         isDmg: false,
         hasSave: true,
+        bfActivity: { type: "save", activation: "none", abilities: ["strength", "dexterity"] },
         desc: "When this creature hits a target with a melee attack, the target is grappled (escape DC based on this creature's Strength or Dexterity modifier). While grappled, the target is restrained.",
         item: {
             name: "Restraining Grab",

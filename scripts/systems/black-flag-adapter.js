@@ -234,6 +234,114 @@ export function createFeatureItem(feature, stats) {
             .replace(/this creature/gi, "the [[lookup @name lowercase]]");
     }
 
+    // Build BF activity from bfActivity metadata
+    // (for features with activation "none" or no activation in dnd5e format)
+    if (feature.bfActivity?.type && item.type !== "weapon") {
+        const bfType = feature.bfActivity.type;
+        const bfActivation = feature.bfActivity.activation || "none";
+        const activityId = foundry.utils.randomID();
+
+        if (bfType === "damage") {
+            // Damage activity — auto-dealt damage, no attack roll or save
+            const dice = parseDice(stats.DpACalc);
+            if (feature.divideDmg && dice.modifier) {
+                dice.modifier = Math.floor(dice.modifier / feature.divideDmg);
+            }
+            item.system.activities = {
+                [activityId]: {
+                    _id: activityId, type: "damage", name: item.name,
+                    activation: { type: bfActivation, override: false, primary: true },
+                    system: {
+                        damage: {
+                            parts: [{
+                                number: dice.count, denomination: dice.die,
+                                bonus: dice.modifier ? String(dice.modifier) : "",
+                                custom: { enabled: false }, type: "", scaling: { number: 1 },
+                            }],
+                        },
+                        effects: [],
+                    },
+                    target: {
+                        template: { type: "sphere", size: String(item.system?.target?.value || 10), count: "1", contiguous: false, unit: "foot" },
+                        affects: { type: "creature", choice: false },
+                        prompt: false, override: false,
+                    },
+                    description: "", flags: {}, sort: 0,
+                    consumption: { targets: [], scale: { allowed: false } },
+                    uses: { spent: 0, consumeQuantity: false, recovery: [] },
+                    duration: { unit: "instantaneous", concentration: false, override: false },
+                    magical: false,
+                    visibility: { level: {}, requireAttunement: false, requireIdentification: false, requireMagic: false },
+                },
+                range: { override: false, unit: "foot", short: item.system?.range?.value || 10 },
+            };
+        } else if (bfType === "save") {
+            // Non-damaging save activity (Knockdown, Restraining Grab)
+            const abilities = feature.bfActivity.abilities || ["strength"];
+            const dcFormula = String(parseInt(stats.ACDC) || 10);
+            item.system.activities = {
+                [activityId]: {
+                    _id: activityId, type: "save", name: item.name,
+                    activation: { type: bfActivation, override: false, primary: true },
+                    system: {
+                        save: { ability: abilities, dc: { formula: dcFormula } },
+                        damage: { parts: [] },
+                        effects: [],
+                    },
+                    target: {
+                        template: { count: "", type: "", unit: "foot", contiguous: false },
+                        affects: { choice: false },
+                        prompt: true, override: false,
+                    },
+                    description: "", flags: {}, sort: 0,
+                    consumption: { targets: [], scale: { allowed: false } },
+                    uses: { spent: 0, consumeQuantity: false, recovery: [] },
+                    duration: { unit: "instantaneous", concentration: false, override: false },
+                    magical: false,
+                    visibility: { level: {}, requireAttunement: false, requireIdentification: false, requireMagic: false },
+                },
+                range: { override: false, unit: "foot", reach: 5 },
+            };
+        } else if (bfType === "attack") {
+            // Attack activity for feat-type features (Energy Weapons CR damage)
+            const dice = parseDice(stats.DpACalc);
+            const crVal = parseCR(stats.CR);
+            const crBonus = Math.max(1, Math.floor(crVal));
+            dice.modifier = (dice.modifier || 0) + crBonus;
+            item.system.activities = {
+                [activityId]: {
+                    _id: activityId, type: "attack", name: item.name,
+                    activation: { type: bfActivation, override: false, primary: true },
+                    system: {
+                        attack: { flat: true, bonus: stats.PAB || "+2", critical: {}, type: {} },
+                        damage: {
+                            parts: [{
+                                number: dice.count, denomination: dice.die,
+                                bonus: dice.modifier ? String(dice.modifier) : "",
+                                custom: { enabled: false }, type: "", scaling: { number: 1 },
+                            }],
+                            critical: {},
+                            includeBase: true,
+                        },
+                        effects: [],
+                    },
+                    target: {
+                        template: { count: "", type: "", unit: "foot", contiguous: false },
+                        affects: { choice: false },
+                        prompt: true, override: false,
+                    },
+                    description: "", flags: {}, sort: 0,
+                    consumption: { targets: [], scale: { allowed: false } },
+                    uses: { spent: 0, consumeQuantity: false, recovery: [] },
+                    duration: { unit: "instantaneous", concentration: false, override: false },
+                    magical: false,
+                    visibility: { level: {}, requireAttunement: false, requireIdentification: false, requireMagic: false },
+                },
+                range: { override: false, unit: "foot", reach: 5 },
+            };
+        }
+    }
+
     // Handle damage-replacing weapon features: build BF attack activity
     if (feature.isDmg && item.system && item.type === "weapon") {
         const dice = parseDice(stats.DpACalc);
