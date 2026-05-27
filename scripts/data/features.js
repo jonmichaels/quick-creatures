@@ -22,7 +22,7 @@ const MONSTER_FEATURES = [
             img: "icons/magic/control/hypnosis-mesmerism-watch.webp",
             system: {
                 description: {
-                    value: "<p>On each of their turns, this creature can use a bonus action to take the Dash, Disengage, or Hide action.</p>",
+                    value: "<p>The [[lookup @name lowercase]] takes the &Reference[Dash apply=false], the &Reference[Disengage apply=false], or &Reference[Hide apply=false] action.</p>",
                 },
                 activation: {
                     type: "bonus",
@@ -51,7 +51,7 @@ const MONSTER_FEATURES = [
             img: "icons/magic/light/beam-rays-magenta.webp",
             system: {
                 description: {
-                    value: "<p>This creature has one or more single-target ranged attacks using the attack bonus and damage calculated above, and which deal damage of an appropriate type.</p>",
+                    value: "<p>[[/attack extended]]. [[/damage average extended]]. The [[lookup @name lowercase]] has one or more single-target ranged attacks which deal damage of an appropriate type.</p>",
                 },
                 proficient: 0,
                 activation: {
@@ -80,14 +80,18 @@ const MONSTER_FEATURES = [
         reduceAtk: true,
         isDmg: true,
         divideDmg: 2,
-        desc: "Whenever a creature within 5 feet of this creature hits them with a melee attack, the attacker takes damage in return of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. If you give a creature this feature, give them one less attack than normal.",
+        desc: "Whenever a creature within 5 feet of this creature hits them with a melee attack, the attacker takes damage in return of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. If you give a creature this feature, they get one less attack than normal.",
         item: {
             name: "Damage Reflection",
             type: "feat",
             img: "icons/magic/defensive/shield-barrier-deflect-gold.webp",
             system: {
                 description: {
-                    value: "<p>Whenever a creature within 5 feet of this creature hits them with a melee attack, the attacker takes damage in return of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. If you give a creature this feature, give them one less attack than normal.</p>",
+                    value: "<p>Whenever a creature within 5 feet of the [[lookup @name lowercase]] hits them with a melee attack, the attacker takes damage in return of a type appropriate to the creature. The damage dealt is equal to half the damage of one of the [[lookup @name lowercase]]'s attacks. [[/damage average extended]]</p>",
+                },
+                activation: {
+                    type: "reaction",
+                    cost: 1,
                 },
             },
         },
@@ -103,7 +107,7 @@ const MONSTER_FEATURES = [
             img: "icons/magic/control/energy-stream-link-teal.webp",
             system: {
                 description: {
-                    value: "<p>When this creature takes damage, they can transfer half or all of that damage (your choice) to a willing creature within 30 or 60 feet of them. This feature is particularly good for boss monsters.</p>",
+                    value: "<p>When the [[lookup @name lowercase]] takes damage, they can transfer half or all of that damage (your choice) to a willing creature within 30 or 60 feet of them.</p>",
                 },
                 activation: {
                     type: "reaction",
@@ -125,7 +129,7 @@ const MONSTER_FEATURES = [
             img: "icons/magic/control/encase-creature-monster-hold.webp",
             system: {
                 description: {
-                    value: "<p>Each creature who starts their turn within 10 feet of this creature takes damage of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. If you give a creature this feature, give them one less attack than normal.</p>",
+                    value: "<p>Each creature who starts their turn within 10 feet of the [[lookup @name lowercase]] takes damage of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. [[/damage average extended]]</p>",
                 },
                 activation: {
                     type: "none",
@@ -155,14 +159,14 @@ const MONSTER_FEATURES = [
         divideDmg: 2,
         useDpR: true,
         saveAbilities: ["dexterity", "constitution", "wisdom"],
-        desc: "As an action, this creature can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a Dexterity, Constitution, or Wisdom saving throw (your choice, based on the type of burst). On a failure, a target takes 1d6 + (half this creature's total damage per round − 3) damage of an appropriate type. On a success, a target takes half as much damage.",
+        desc: "As an action, this creature can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a Dexterity, Constitution, or Wisdom saving throw (your choice, based on the type of burst). On a failure, a target takes damage of an appropriate type equal to half this creature's total damage per round. On a success, a target takes half as much damage.",
         item: {
             name: "Damaging Burst",
             type: "feat",
             img: "icons/magic/sonic/explosion-shock-sound-wave.webp",
             system: {
                 description: {
-                    value: "<p>As an action, this creature can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a Dexterity, Constitution, or Wisdom saving throw (your choice, based on the type of burst). On a failure, a target takes 1d6 + (half this creature's total damage per round − 3) damage of an appropriate type. On a success, a target takes half as much damage.</p>",
+                    value: "<p>As an action, the [[lookup @name lowercase]] can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a Dexterity, Constitution, or Wisdom [[/save]] saving throw (your choice, based on the type of burst). On a failure, a target takes damage of an appropriate type equal to half this creature's total damage per round. [[/damage average extended]] On a success, a target takes half as much damage.</p>",
                     chat: "",
                 },
                 activation: {
@@ -201,7 +205,7 @@ const MONSTER_FEATURES = [
             img: "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
             system: {
                 description: {
-                    value: "<p>The creature's weapon attacks deal extra damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.</p>",
+                    value: "<p>[[/attack extended]]. [[/damage average extended]]. The [[lookup @name lowercase]]'s weapon attacks deal extra CR damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.</p>",
                 },
                 type: {
                     value: "monster",
@@ -235,8 +239,11 @@ const MONSTER_FEATURES = [
             img: "icons/magic/control/silhouette-fall-slip-prone.webp",
             system: {
                 description: {
-                    value: "<p>When this creature hits a target with a melee attack, the target must succeed on a Strength saving throw or be knocked prone.</p>",
+                    value: "<p>When the [[lookup @name lowercase]] hits a target with a melee attack, the target must succeed on a [[/save str]] saving throw or be knocked &Reference[prone].</p>",
                     chat: "",
+                },
+                activation: {
+                    type: "none",
                 },
                 actionType: "save",
                 save: {
@@ -262,7 +269,7 @@ const MONSTER_FEATURES = [
             img: "icons/magic/lightning/orb-ball-spiral-blue.webp",
             system: {
                 description: {
-                    value: "<p>As a bonus action, this creature can teleport up to 30 feet to an unoccupied space they can see.</p>",
+                    value: "<p>The [[lookup @name lowercase]] can teleport up to 30 feet to an unoccupied space they can see.</p>",
                 },
                 activation: {
                     type: "bonus",
@@ -289,9 +296,12 @@ const MONSTER_FEATURES = [
             img: "icons/skills/melee/unarmed-punch-fist.webp",
             system: {
                 description: {
-                    value: "<p>When this creature hits a target with a melee attack, the target is grappled (escape DC based on this creature's Strength or Dexterity modifier). While grappled, the target is restrained.</p>",
+                    value: "<p>When the [[lookup @name lowercase]] hits a target with a melee attack, the target is &Reference[grappled] (Acrobatics or Athletics to escape). While grappled, the target is &Reference[restrained].</p>",
                 },
-                actionType: "save",
+                activation: {
+                    type: "none",
+                },
+                actionType: "abil",
                 save: {
                     ability: "str",
                     dc: null,
