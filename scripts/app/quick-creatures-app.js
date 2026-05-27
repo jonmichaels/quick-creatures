@@ -385,16 +385,18 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         if (!stats) return;
 
         saveBonus = stats.PAB || "+2";
+        // Ensure "+" prefix (archetype PAB is a plain number, CR table PAB has "+")
+        saveBonus = String(saveBonus).startsWith("+") ? String(saveBonus) : "+" + String(saveBonus);
 
         // Calculate half-PB (rounded up)
-        const pbNum = parseInt(stats.PAB, 10) || 0;
+        const pbNum = parseInt(saveBonus, 10) || 0;
         const halfPb = Math.ceil(pbNum / 2);
         const halfPbStr = halfPb >= 0 ? `+${halfPb}` : `${halfPb}`;
 
         // Update stat labels
         this.#setText(html, "#hpLabel", stats.HP);
         this.#setText(html, "#acLabel", stats.ACDC);
-        this.#setText(html, "#profLabel", stats.PAB);
+        this.#setText(html, "#profLabel", saveBonus);
         this.#setText(html, "#saveBonus", saveBonus);
         this.#setText(html, "#halfPbLabel", halfPbStr);
 
