@@ -314,7 +314,6 @@ export function createFeatureItem(feature, stats) {
                     activation: { type: bfActivation, override: false, primary: true },
                     system: {
                         check: {
-                            ability: "strength",
                             associated: feature.bfActivity.abilities || ["acrobatics", "athletics"],
                             dc: { calculation: "", formula: dcFormula },
                         },
@@ -597,7 +596,7 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
         img: tokenPath,
         system: {
             attributes: {
-                ac: { flat: parseInt(stats.ACDC) || 10, calc: "natural" },
+                ac: { flat: parseInt(stats.ACDC) || 10, baseFormulas: ["natural"] },
                 hp: { value: parseInt(stats.HP) || 10, max: parseInt(stats.HP) || 10 },
                 prof: parseInt(stats.PAB) || 2,
                 cr,
