@@ -243,9 +243,10 @@ export function createFeatureItem(feature, stats) {
 
         if (bfType === "damage") {
             // Damage activity — auto-dealt damage, no attack roll or save
-            const dice = parseDice(stats.DpACalc);
-            if (feature.divideDmg && dice.modifier) {
-                dice.modifier = Math.floor(dice.modifier / feature.divideDmg);
+            // Use custom formula for half-damage: floor((DpACalc)/divideDmg)
+            let dmgPart = stats.DpACalc;
+            if (feature.divideDmg) {
+                dmgPart = `floor((${dmgPart})/${feature.divideDmg})`;
             }
             item.system.activities = {
                 [activityId]: {
@@ -254,9 +255,9 @@ export function createFeatureItem(feature, stats) {
                     system: {
                         damage: {
                             parts: [{
-                                number: dice.count, denomination: dice.die,
-                                bonus: dice.modifier ? String(dice.modifier) : "",
-                                custom: { enabled: false }, type: "", scaling: { number: 1 },
+                                custom: { enabled: true, formula: dmgPart },
+                                number: 0, denomination: 0, bonus: "",
+                                type: "", scaling: { number: 1 },
                             }],
                         },
                         effects: [],

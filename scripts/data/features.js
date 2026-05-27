@@ -80,6 +80,7 @@ const MONSTER_FEATURES = [
         reduceAtk: true,
         isDmg: true,
         divideDmg: 2,
+        bfActivity: { type: "damage", activation: "reaction" },
         desc: "Whenever a creature within 5 feet of this creature hits them with a melee attack, the attacker takes damage in return of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. If you give a creature this feature, they get one less attack than normal.",
         item: {
             name: "Damage Reflection",
