@@ -168,7 +168,7 @@ const MONSTER_FEATURES = [
             img: "icons/magic/sonic/explosion-shock-sound-wave.webp",
             system: {
                 description: {
-                    value: "<p>As an action, the [[lookup @name lowercase]] can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a Dexterity, Constitution, or Wisdom [[/save]] saving throw (your choice, based on the type of burst). On a failure, a target takes damage of an appropriate type equal to half this creature's total damage per round. [[/damage average extended]] On a success, a target takes half as much damage.</p>",
+                    value: "<p>As an action, the [[lookup @name lowercase]] can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a [[/save]] saving throw (your choice, based on the type of burst). On a failure, a target takes damage of an appropriate type equal to half this creature's total damage per round [[/damage average extended]]. On a success, a target takes half as much damage.</p>",
                     chat: "",
                 },
                 activation: {
@@ -247,7 +247,7 @@ const MONSTER_FEATURES = [
             img: "icons/magic/control/silhouette-fall-slip-prone.webp",
             system: {
                 description: {
-                    value: "<p>When the [[lookup @name lowercase]] hits a target with a melee attack, the target must succeed on a [[/save str]] saving throw or be knocked &Reference[prone].</p>",
+                    value: "<p>When the [[lookup @name lowercase]] hits a target with a melee attack, the target must succeed on a [[/save]] saving throw or be knocked &Reference[prone].</p>",
                     chat: "",
                 },
                 activation: {
@@ -277,7 +277,7 @@ const MONSTER_FEATURES = [
             img: "icons/magic/lightning/orb-ball-spiral-blue.webp",
             system: {
                 description: {
-                    value: "<p>The [[lookup @name lowercase]] can teleport up to 30 feet to an unoccupied space they can see.</p>",
+                    value: "<p>As a bonus action, the [[lookup @name lowercase]] can teleport up to 30 feet to an unoccupied space they can see.</p>",
                 },
                 activation: {
                     type: "bonus",
@@ -297,7 +297,7 @@ const MONSTER_FEATURES = [
         isEffect: false,
         isDmg: false,
         hasSave: true,
-        bfActivity: { type: "save", activation: "none", abilities: ["strength", "dexterity"] },
+        bfActivity: { type: "check", activation: "none", abilities: ["strength", "dexterity"] },
         desc: "When this creature hits a target with a melee attack, the target is grappled (escape DC based on this creature's Strength or Dexterity modifier). While grappled, the target is restrained.",
         item: {
             name: "Restraining Grab",

@@ -303,6 +303,33 @@ export function createFeatureItem(feature, stats) {
                 },
                 range: { override: false, unit: "foot", reach: 5 },
             };
+        } else if (bfType === "check") {
+            // Ability check activity (Restraining Grab)
+            const abilities = feature.bfActivity.abilities || ["strength"];
+            const dcFormula = String(parseInt(stats.ACDC) || 10);
+            item.system.activities = {
+                [activityId]: {
+                    _id: activityId, type: "check", name: item.name,
+                    activation: { type: bfActivation, override: false, primary: true },
+                    system: {
+                        save: { ability: abilities, dc: { formula: dcFormula } },
+                        damage: { parts: [] },
+                        effects: [],
+                    },
+                    target: {
+                        template: { count: "", type: "", unit: "foot", contiguous: false },
+                        affects: { choice: false },
+                        prompt: true, override: false,
+                    },
+                    description: "", flags: {}, sort: 0,
+                    consumption: { targets: [], scale: { allowed: false } },
+                    uses: { spent: 0, consumeQuantity: false, recovery: [] },
+                    duration: { unit: "instantaneous", concentration: false, override: false },
+                    magical: false,
+                    visibility: { level: {}, requireAttunement: false, requireIdentification: false, requireMagic: false },
+                },
+                range: { override: false, unit: "foot", reach: 5 },
+            };
         } else if (bfType === "attack") {
             // Attack activity for feat-type features (Energy Weapons CR damage)
             const dice = parseDice(stats.DpACalc);
