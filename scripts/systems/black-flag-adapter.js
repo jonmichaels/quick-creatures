@@ -601,15 +601,42 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
 
     // Quick Creatures BF: perception = 10 + WIS mod (NO PB), stealth = 10 + DEX mod (NO PB)
     // If archetype lists specific skill values, substitute them
+    // Other skills (ath, acr, etc.) → BF modifiers that add the delta above ability mod
+    const skillModifiers = [];
+    const skillAbilityMap = {
+        ath: "strength", acr: "dexterity", sle: "dexterity",
+        arc: "intelligence", his: "intelligence", inv: "intelligence",
+        nat: "intelligence", rel: "intelligence",
+        ani: "wisdom", ins: "wisdom", med: "wisdom", sur: "wisdom",
+        dec: "charisma", itm: "charisma", prf: "charisma", per: "charisma"
+    };
+
     if (stats.skills) {
         const wisMod = bfAbilities.wisdom?.mod || 0;
         const dexMod = bfAbilities.dexterity?.mod || 0;
 
+        // Perception & Stealth → direct attribute values
         if (stats.skills.prc !== undefined) {
-            attrs.perception = 10 + (stats.skills.prc || wisMod);
+            attrs.perception = 10 + (stats.skills.prc ?? wisMod);
         }
         if (stats.skills.ste !== undefined) {
-            attrs.stealth = 10 + (stats.skills.ste || dexMod);
+            attrs.stealth = 10 + (stats.skills.ste ?? dexMod);
+        }
+
+        // Other skills → BF modifiers (formula = flat value - ability mod)
+        for (const [key, flatValue] of Object.entries(stats.skills)) {
+            if (key === "prc" || key === "ste") continue;
+            const abilityKey = skillAbilityMap[key];
+            if (!abilityKey) continue;
+            const abilityMod = bfAbilities[abilityKey]?.mod || 0;
+            const delta = (flatValue ?? 0) - abilityMod;
+            if (delta !== 0) {
+                skillModifiers.push({
+                    type: "bonus",
+                    filter: [{ k: "skill", v: key }],
+                    formula: String(delta)
+                });
+            }
         }
     }
 
@@ -621,6 +648,7 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
             attributes: attrs,
             traits: { type: { value: type.toLowerCase() } },
             abilities: bfAbilities,
+            modifiers: skillModifiers,
         },
         prototypeToken: {
             name,
