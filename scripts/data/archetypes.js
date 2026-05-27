@@ -6,8 +6,15 @@
  *
  * Each archetype provides a ready-to-use stat block with explicit ability scores,
  * skills, and a description of the monster's narrative role.
+ *
+ * Ability scores: standard dnd5e values. Where a save bonus is listed in the
+ * source document, the score is adjusted so floor((value-10)/2) = save bonus,
+ * because BF NPCs use unified modifiers (mod = save).
+ *
+ * Skills: flat total bonus values (not proficiency flags).
+ *
+ * PAB: chart proficiency/attack bonus for the archetype's CR.
  */
-
 const ARCHETYPES = [
     {
         name: "Minion",
@@ -19,7 +26,7 @@ const ARCHETYPES = [
         DpACalc: "1d6+1",
         atkBonus: 3,
         speed: 30,
-        PAB: 2,
+        PAB: 3,
         abilities: {
             str: { value: 10, proficient: 0 },
             dex: { value: 12, proficient: 0 },
@@ -41,11 +48,11 @@ const ARCHETYPES = [
         DpACalc: "1d12+2",
         atkBonus: 4,
         speed: 30,
-        PAB: 2,
+        PAB: 4,
         abilities: {
             str: { value: 14, proficient: 0 },
             dex: { value: 12, proficient: 0 },
-            con: { value: 10, proficient: 0 },
+            con: { value: 12, proficient: 0 },
             int: { value: 10, proficient: 0 },
             wis: { value: 10, proficient: 0 },
             cha: { value: 10, proficient: 0 },
@@ -63,17 +70,17 @@ const ARCHETYPES = [
         DpACalc: "1d12+3",
         atkBonus: 5,
         speed: 30,
-        PAB: 2,
+        PAB: 5,
         abilities: {
             str: { value: 16, proficient: 0 },
             dex: { value: 12, proficient: 0 },
-            con: { value: 14, proficient: 1 },
+            con: { value: 18, proficient: 1 },  // save +4 → mod +4
             int: { value: 10, proficient: 0 },
             wis: { value: 10, proficient: 0 },
             cha: { value: 8, proficient: 0 },
         },
         skills: {
-            ath: { value: 1 },
+            ath: { value: 5 },  // flat total bonus
         },
         short: "Heavy-hitting veterans, bodyguards, low-ranking fiends, dangerous monsters. Boss at 2nd, groups at 10th+.",
         desc: "Heavy-hitting veterans, capable bodyguards, low-ranking demons or devils, dangerous monsters in the wild, and powerful humanoids can all be represented by this stat block. A brute can serve as a boss against 2nd-level characters, an elite foe against two 4th-level characters, or a one-on-one opponent at 5th level, or in large groups at 10th level. This stat block relies on Strength.",
@@ -88,19 +95,19 @@ const ARCHETYPES = [
         DpACalc: "3d6+4",
         atkBonus: 6,
         speed: 30,
-        PAB: 2,
+        PAB: 6,
         abilities: {
             str: { value: 12, proficient: 0 },
-            dex: { value: 18, proficient: 1 },
+            dex: { value: 22, proficient: 1 },  // save +6 → mod +6
             con: { value: 14, proficient: 0 },
             int: { value: 10, proficient: 0 },
-            wis: { value: 14, proficient: 1 },
+            wis: { value: 18, proficient: 1 },  // save +4 → mod +4
             cha: { value: 12, proficient: 0 },
         },
         skills: {
-            acr: { value: 1 },
-            prc: { value: 1 },
-            ste: { value: 1 },
+            acr: { value: 6 },  // flat total bonus
+            prc: { value: 4 },
+            ste: { value: 6 },
         },
         short: "Spies, assassins, hunters, trained elite forces. Boss at 4th, groups at 16th+. Dexterity-focused.",
         desc: "This stat block can represent spies, assassins, hunters, and trained elite forces. The specialist serves as a boss for 4th-level characters, an elite opponent versus two 5th-level characters, or a one-on-one combatant for 10th-level characters, or in large groups against 16th-level characters. Dexterity is this stat block's primary ability.",
@@ -115,17 +122,17 @@ const ARCHETYPES = [
         DpACalc: "3d8+4",
         atkBonus: 7,
         speed: 30,
-        PAB: 3,
+        PAB: 7,
         abilities: {
             str: { value: 10, proficient: 0 },
-            dex: { value: 14, proficient: 1 },
+            dex: { value: 20, proficient: 1 },  // save +5 → mod +5
             con: { value: 14, proficient: 0 },
             int: { value: 18, proficient: 0 },
-            wis: { value: 14, proficient: 1 },
+            wis: { value: 20, proficient: 1 },  // save +5 → mod +5
             cha: { value: 10, proficient: 0 },
         },
         skills: {
-            prc: { value: 1 },
+            prc: { value: 5 },  // flat total bonus
         },
         short: "Elite bodyguards, high priests, wizards, warlocks, demons. Boss at 5th, groups at 20th+. Intelligence-focused.",
         desc: "Powerful elite bodyguards, high priests, wizards, warlocks, sorcerers, demons, and devils can all be represented by this stat block. A myrmidon can serve as a boss monster for 5th-level characters, an elite combatant against two characters of 7th level, or a one-on-one combatant against 14th-level characters, or in large groups against 20th-level characters. This stat block focuses on Intelligence.",
@@ -140,17 +147,17 @@ const ARCHETYPES = [
         DpACalc: "3d8+5",
         atkBonus: 9,
         speed: 30,
-        PAB: 4,
+        PAB: 9,
         abilities: {
-            str: { value: 10, proficient: 0 },
-            dex: { value: 14, proficient: 1 },
-            con: { value: 14, proficient: 0 },
-            int: { value: 18, proficient: 0 },
-            wis: { value: 14, proficient: 1 },
+            str: { value: 28, proficient: 1 },  // save +9 → mod +9 (value 28 gives mod +9)
+            dex: { value: 24, proficient: 1 },  // save +7 → mod +7 (value 24 gives mod +7)
+            con: { value: 16, proficient: 0 },
+            int: { value: 10, proficient: 0 },
+            wis: { value: 14, proficient: 0 },
             cha: { value: 10, proficient: 0 },
         },
         skills: {
-            prc: { value: 1 },
+            prc: { value: 6 },  // flat total bonus
         },
         short: "Strong otherworldly creatures: demons, devils, guardian constructs, powerful undead. Boss at 7th.",
         desc: "This stat block is a good fit for strong, often-otherworldly creatures such as demons, devils, impressive beings of the Outer Planes, guardian constructs, or powerful undead. The sentinel can serve as a boss for 7th-level characters, an elite foe against two 12th-level characters, or can stand one-on-one against 16th-level characters. This stat block focuses on Strength.",
@@ -165,17 +172,17 @@ const ARCHETYPES = [
         DpACalc: "4d8+6",
         atkBonus: 9,
         speed: 30,
-        PAB: 5,
+        PAB: 11,
         abilities: {
             str: { value: 10, proficient: 0 },
             dex: { value: 12, proficient: 0 },
             con: { value: 18, proficient: 0 },
             int: { value: 12, proficient: 0 },
-            wis: { value: 16, proficient: 1 },
-            cha: { value: 22, proficient: 1 },
+            wis: { value: 26, proficient: 1 },  // save +8 → mod +8 (value 26 gives mod +8)
+            cha: { value: 32, proficient: 1 },  // save +11 → mod +11 (value 32 gives mod +11)
         },
         skills: {
-            prc: { value: 1 },
+            prc: { value: 8 },  // flat total bonus
         },
         short: "Greater demons, devils, vampires, liches, powerful spellcasters. Boss at 11th. Charisma-focused.",
         desc: "Representing greater demons, devils, vampires, liches, or powerful spellcasters, the champion serves as a boss for 11th-level characters, an elite foe for two 15th-level characters, or a one-on-one challenge against 17th-level characters. This stat block focuses on Charisma.",
