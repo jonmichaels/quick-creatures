@@ -62,10 +62,17 @@ Test-create+inspect pattern (from the reference):
 - `type: "check"` — verified in BF black-flag.mjs (308 mentions)
 
 ## BF AC — Natural Armor (NPCs)
-- NPC `attributes.ac` uses `baseFormulas` (SetField), NOT `calc`
-- `baseFormulas: ["natural"]` — flat AC only, no DEX
-- Valid values: `"unarmored"`, `"armored"`, `"natural"`
-- `flat` is optional (not in NPC schema but provides the AC value)
+- NPC `attributes.ac` schema only has `baseFormulas` (SetField), not `calc`
+- But both `calc: "natural"` AND `baseFormulas: ["natural"]` may be needed
+- `calc: "natural"` = flat AC only, no DEX; `calc: "flat"` in BF = unarmored (flat + DEX)
+- Valid baseFormulas values: `"unarmored"`, `"armored"`, `"natural"`
+- `flat` provides the AC value (optional in NPC schema but used by calculation)
+
+## BF Activation Types
+- Valid `activation.type` values (standard): `"action"`, `"bonus"`, `"reaction"`, `"free"`
+- `activation.type: "free"` maps to Free Action via `BF.ACTIVATION.Type.FreeAction`
+- `activation.type: "none"` is NOT a valid BF activation type — use `"free"` for free actions
+- Monster-only: `"lair"`, `"legendary"`
 
 ## Git
 - Author: `276414342+hermes90201@users.noreply.github.com`
