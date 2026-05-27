@@ -216,7 +216,7 @@ export async function createActor(app, html) {
     if (creatureName) {
         name = creatureName;
     } else if (isArchetypeMode && stats.name) {
-        name = `${monsterType} ${stats.name} (${stats.CR || "?"})`;
+        name = `${monsterType} ${stats.name} (CR ${stats.CR || "?"})`;
     } else {
         name = `${monsterType} (CR ${stats.CR || "?"})`;
     }

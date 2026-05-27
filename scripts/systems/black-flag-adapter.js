@@ -649,6 +649,28 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
         }
     }
 
+    // Build skill readout for NPC biography (BF NPCs don't have a skills list)
+    let skillReadout = "";
+    if (stats.skills) {
+        const skillLabels = {
+            ath: "Athletics", acr: "Acrobatics", sle: "Sleight of Hand",
+            arc: "Arcana", his: "History", inv: "Investigation", nat: "Nature", rel: "Religion",
+            ani: "Animal Handling", ins: "Insight", med: "Medicine", prc: "Perception", sur: "Survival",
+            dec: "Deception", itm: "Intimidation", prf: "Performance", per: "Persuasion", ste: "Stealth"
+        };
+        const unwrap = v => (v && typeof v === "object" && "value" in v) ? v.value : v;
+        const parts = [];
+        for (const [key, raw] of Object.entries(stats.skills)) {
+            const label = skillLabels[key] || key;
+            const val = unwrap(raw);
+            if (val != null) {
+                const sign = val >= 0 ? "+" : "";
+                parts.push(`${label} ${sign}${val}`);
+            }
+        }
+        if (parts.length) skillReadout = `<p><strong>Skills:</strong> ${parts.join(", ")}</p>`;
+    }
+
     return {
         name,
         type: "npc",
@@ -658,6 +680,7 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
             traits: { type: { value: type.toLowerCase() } },
             abilities: bfAbilities,
             modifiers: skillModifiers,
+            biography: skillReadout ? { value: skillReadout } : undefined,
         },
         prototypeToken: {
             name,
