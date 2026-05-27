@@ -386,11 +386,17 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
 
         saveBonus = stats.PAB || "+2";
 
+        // Calculate half-PB (rounded up)
+        const pbNum = parseInt(stats.PAB, 10) || 0;
+        const halfPb = Math.ceil(pbNum / 2);
+        const halfPbStr = halfPb >= 0 ? `+${halfPb}` : `${halfPb}`;
+
         // Update stat labels
         this.#setText(html, "#hpLabel", stats.HP);
         this.#setText(html, "#acLabel", stats.ACDC);
         this.#setText(html, "#profLabel", stats.PAB);
         this.#setText(html, "#saveBonus", saveBonus);
+        this.#setText(html, "#halfPbLabel", halfPbStr);
 
         // Damage per attack × number of attacks
         const noa = stats.NoA || 1;

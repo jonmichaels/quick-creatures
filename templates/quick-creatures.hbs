@@ -28,9 +28,6 @@
         <div class="qc-stat-preview flexrow">
             <div class="qc-token-preview">
                 <img id="token-preview" src="{{tokenPreviewSrc}}" alt="{{i18n 'preview.tokenAlt'}}" />
-                <button type="button" id="open-token-picker" class="qc-token-switch-btn" title="{{i18n 'preview.switchToken'}}">
-                    <i class="fa-solid fa-arrows-rotate"></i>
-                </button>
                 <label class="qc-dynamic-ring">
                     <input type="checkbox" id="dynamic-ring" {{#if defaults.dynamicRing}}checked{{/if}} />
                     <span>{{i18n "preview.dynamicRing"}}</span>
@@ -78,7 +75,7 @@
             {{/each}}
         </div>
         <div class="qc-tab-content active" data-tab="tab_cr">
-            <p class="qc-abilities-hint">Check one or two primary abilities. (<span id="saveBonus">+2</span>) Optional: two or three secondary. (+1/2PB)</p>
+            <p class="qc-abilities-hint">Check one or two primary abilities. (<span id="saveBonus">+2</span>) Optional: two or three secondary. (<span id="halfPbLabel">+1</span>)</p>
         </div>
     </div>
 
