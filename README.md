@@ -51,6 +51,7 @@ The module uses a system adapter pattern — all actor creation routes through t
 
 - **Lazy GM's Monster Builder Resource Document:** Scott Fitzgerald Gray, Teos Abadía, Michael E. Shea — [CC-BY 4.0](http://creativecommons.org/licenses/by/4.0/)
 - **Reference module:** [SetaSensei/lazy-monster-builder](https://github.com/SetaSensei/lazy-monster-builder) — original Foundry implementation
+- **Creature tokens:** [Cute Tokens by Justin Nichol](https://opengameart.org/users/justin-nichol) — [CC-BY 4.0](http://creativecommons.org/licenses/by/4.0/)
 - **Quick Creatures:** Jon Michaels, coded by Hephaestus (AI agent via Hermes Agent)
 
 ## Attribution
