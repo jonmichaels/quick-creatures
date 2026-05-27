@@ -599,20 +599,17 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
         movement: { walk: stats.speed || 30, units: "ft" },
     };
 
-    // BF NPCs: perception defaults to 10 + WIS mod, stealth to DEX mod
-    // If archetype lists these skills, override with computed flat values
+    // Quick Creatures BF: perception = 10 + WIS mod (NO PB), stealth = 10 + DEX mod (NO PB)
+    // If archetype lists specific skill values, substitute them
     if (stats.skills) {
-        const pb = parseInt(stats.PAB) || 2;
         const wisMod = bfAbilities.wisdom?.mod || 0;
         const dexMod = bfAbilities.dexterity?.mod || 0;
 
-        if (stats.skills.prc) {
-            // Passive Perception: 10 + WIS mod + PB (if proficient)
-            attrs.perception = 10 + wisMod + pb;
+        if (stats.skills.prc !== undefined) {
+            attrs.perception = 10 + (stats.skills.prc || wisMod);
         }
-        if (stats.skills.ste) {
-            // Stealth: DEX mod + PB (if proficient)
-            attrs.stealth = dexMod + pb;
+        if (stats.skills.ste !== undefined) {
+            attrs.stealth = 10 + (stats.skills.ste || dexMod);
         }
     }
 
