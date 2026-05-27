@@ -596,7 +596,7 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
         img: tokenPath,
         system: {
             attributes: {
-                ac: { flat: parseInt(stats.ACDC) || 10, baseFormulas: ["natural"] },
+                ac: { flat: parseInt(stats.ACDC) || 10, calc: "natural", baseFormulas: ["natural"] },
                 hp: { value: parseInt(stats.HP) || 10, max: parseInt(stats.HP) || 10 },
                 prof: parseInt(stats.PAB) || 2,
                 cr,

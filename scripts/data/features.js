@@ -123,7 +123,7 @@ const MONSTER_FEATURES = [
         divideDmg: 2,
         reduceAtk: true,
         isDmg: true,
-        bfActivity: { type: "damage", activation: "none" },
+        bfActivity: { type: "damage", activation: "free" },
         desc: "Each creature who starts their turn within 10 feet of this creature takes damage of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. If you give a creature this feature, give them one less attack than normal.",
         item: {
             name: "Damaging Aura",
@@ -239,7 +239,7 @@ const MONSTER_FEATURES = [
         isEffect: false,
         isDmg: false,
         hasSave: true,
-        bfActivity: { type: "save", activation: "none", abilities: ["strength"] },
+        bfActivity: { type: "save", activation: "free", abilities: ["strength"] },
         desc: "When this creature hits a target with a melee attack, the target must succeed on a Strength saving throw or be knocked prone.",
         item: {
             name: "Knockdown",
@@ -297,7 +297,7 @@ const MONSTER_FEATURES = [
         isEffect: false,
         isDmg: false,
         hasSave: true,
-        bfActivity: { type: "check", activation: "none", abilities: ["acrobatics", "athletics"] },
+        bfActivity: { type: "check", activation: "free", abilities: ["acrobatics", "athletics"] },
         desc: "When this creature hits a target with a melee attack, the target is grappled (escape DC based on this creature's Strength or Dexterity modifier). While grappled, the target is restrained.",
         item: {
             name: "Restraining Grab",
