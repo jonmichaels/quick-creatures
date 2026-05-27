@@ -9,6 +9,7 @@ import { registry } from "../registry.js";
 import * as dnd5eAdapter from "../systems/dnd5e-adapter.js";
 import * as blackFlagAdapter from "../systems/black-flag-adapter.js";
 import { getDefaultToken } from "../data/token-packs.js";
+import { CR_TABLE } from "../data/cr-table.js";
 
 /** @type {string} Base path for module assets */
 const MODULE_PATH = "modules/quick-creatures";
@@ -71,7 +72,15 @@ function readFormData(app, html) {
             if (selectedOption && selectedOption.dataset.stats) {
                 try {
                     stats = JSON.parse(selectedOption.dataset.stats);
-                    // Archetype data may have abilities directly
+                    // Merge chart values (DpR, etc.) for features that need them
+                    if (stats && stats.CR) {
+                        const chartRow = CR_TABLE.find(r => r.CR === stats.CR);
+                        if (chartRow) {
+                            for (const [k, v] of Object.entries(chartRow)) {
+                                if (!(k in stats)) stats[k] = v;
+                            }
+                        }
+                    }
                 } catch (e) {
                     console.error("Quick Creatures | Failed to parse archetype stats:", e);
                 }
@@ -202,10 +211,20 @@ export async function createActor(app, html) {
     if (meleeItem) attackItems.push(meleeItem);
     if (rangedItem) attackItems.push(rangedItem);
 
+    // Build actor name: use user-provided name, or auto-generate
+    let name;
+    if (creatureName) {
+        name = creatureName;
+    } else if (isArchetypeMode && stats.name) {
+        name = `${monsterType} ${stats.name} (${stats.CR || "?"})`;
+    } else {
+        name = `${monsterType} (CR ${stats.CR || "?"})`;
+    }
+
     // Determine abilities
     let abilities;
     if (stats.abilities) {
-        // Archetype mode provides explicit ability scores
+        // Archetype mode provides explicit ability scores (short keys: str, dex, etc.)
         abilities = stats.abilities;
     } else {
         // CR mode: all modifiers start at 0; toggled abilities get full or half PB
@@ -236,9 +255,6 @@ export async function createActor(app, html) {
             tokenPath = `${MODULE_PATH}/assets/Original_Tokens/${monsterType}/${monsterType.toLowerCase()}.webp`;
         }
     }
-
-    // Build actor name: use user-provided name, or auto-generate
-    const name = creatureName || `${monsterType} (CR ${stats.CR || "?"})`;
 
     // Build actor data through the adapter
     const actorData = adapter.buildActorData(name, stats, monsterType, abilities, tokenPath);

@@ -581,8 +581,11 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
     const cr = parseCR(stats.CR);
     const bfAbilities = {};
     const ablKeys = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+    // Archetype data uses short keys (str, dex, etc.) — map to long BF keys
+    const shortToLong = { str: "strength", dex: "dexterity", con: "constitution", int: "intelligence", wis: "wisdom", cha: "charisma" };
     for (const key of ablKeys) {
-        const abl = abilities[key] || {};
+        // Try long key first, then short key lookup
+        const abl = abilities[key] || abilities[Object.keys(shortToLong).find(k => shortToLong[k] === key)] || {};
         const mod = (abl.mod != null) ? Number(abl.mod) : Math.floor((Number(abl.value || 10) - 10) / 2);
         bfAbilities[key] = {
             mod,
@@ -615,19 +618,25 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
         const wisMod = bfAbilities.wisdom?.mod || 0;
         const dexMod = bfAbilities.dexterity?.mod || 0;
 
+        // Unwrap nested skill format: { value: 5 } → 5
+        const unwrap = v => (v && typeof v === "object" && "value" in v) ? v.value : v;
+
         // Perception & Stealth → direct attribute values
+        const rawPrc = unwrap(stats.skills.prc);
+        const rawSte = unwrap(stats.skills.ste);
         if (stats.skills.prc !== undefined) {
-            attrs.perception = 10 + (stats.skills.prc ?? wisMod);
+            attrs.perception = 10 + (rawPrc ?? wisMod);
         }
         if (stats.skills.ste !== undefined) {
-            attrs.stealth = 10 + (stats.skills.ste ?? dexMod);
+            attrs.stealth = 10 + (rawSte ?? dexMod);
         }
 
         // Other skills → BF modifiers (formula = flat value - ability mod)
-        for (const [key, flatValue] of Object.entries(stats.skills)) {
+        for (const [key, rawValue] of Object.entries(stats.skills)) {
             if (key === "prc" || key === "ste") continue;
             const abilityKey = skillAbilityMap[key];
             if (!abilityKey) continue;
+            const flatValue = unwrap(rawValue);
             const abilityMod = bfAbilities[abilityKey]?.mod || 0;
             const delta = (flatValue ?? 0) - abilityMod;
             if (delta !== 0) {
