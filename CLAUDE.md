@@ -54,6 +54,11 @@ Test-create+inspect pattern (from the reference):
 ## Damaging Burst Formula
 `1d6 + floor(DpR / 2) - 3` (min +0), DC from ACDC, ONE save activity with ability array
 
+## BF Check Activity
+- Check activities use `system.check` (NOT `system.save`)
+- `system.check: { ability: ["acrobatics","athletics"], dc: { formula: "13" } }`
+- `type: "check"` — verified in BF black-flag.mjs (308 mentions)
+
 ## Git
 - Author: `276414342+hermes90201@users.noreply.github.com`
 - `.hermes/` gitignored

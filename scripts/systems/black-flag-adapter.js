@@ -312,7 +312,7 @@ export function createFeatureItem(feature, stats) {
                     _id: activityId, type: "check", name: item.name,
                     activation: { type: bfActivation, override: false, primary: true },
                     system: {
-                        save: { ability: abilities, dc: { formula: dcFormula } },
+                        check: { ability: abilities, dc: { formula: dcFormula } },
                         damage: { parts: [] },
                         effects: [],
                     },
