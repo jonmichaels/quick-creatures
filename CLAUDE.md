@@ -56,8 +56,15 @@ Test-create+inspect pattern (from the reference):
 
 ## BF Check Activity
 - Check activities use `system.check` (NOT `system.save`)
-- `system.check: { ability: ["acrobatics","athletics"], dc: { formula: "13" } }`
+- `check.ability` = single base ability string (e.g., `"strength"`), NOT an array
+- `check.associated` = array of skills that can contribute (e.g., `["acrobatics","athletics"]`)
+- `check.dc` = `{ calculation: "", formula: "13" }` — `calculation` is method or ability, empty for flat formula
 - `type: "check"` — verified in BF black-flag.mjs (308 mentions)
+
+## BF AC — Natural Armor
+- `attributes.ac` uses `calc: "natural"` for flat/natural armor (no DEX added)
+- `calc: "flat"` in BF behaves as unarmored (flat + DEX) — DO NOT USE
+- Valid calc values: `"unarmored"`, `"armored"`, `"natural"`
 
 ## Git
 - Author: `276414342+hermes90201@users.noreply.github.com`

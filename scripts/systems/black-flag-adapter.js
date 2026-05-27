@@ -305,14 +305,19 @@ export function createFeatureItem(feature, stats) {
             };
         } else if (bfType === "check") {
             // Ability check activity (Restraining Grab)
-            const abilities = feature.bfActivity.abilities || ["strength"];
+            // BF check activities use system.check (NOT system.save)
+            // check.ability = single base ability, check.associated = skills that can contribute
             const dcFormula = String(parseInt(stats.ACDC) || 10);
             item.system.activities = {
                 [activityId]: {
                     _id: activityId, type: "check", name: item.name,
                     activation: { type: bfActivation, override: false, primary: true },
                     system: {
-                        check: { ability: abilities, dc: { formula: dcFormula } },
+                        check: {
+                            ability: "strength",
+                            associated: feature.bfActivity.abilities || ["acrobatics", "athletics"],
+                            dc: { calculation: "", formula: dcFormula },
+                        },
                         damage: { parts: [] },
                         effects: [],
                     },
@@ -592,7 +597,7 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
         img: tokenPath,
         system: {
             attributes: {
-                ac: { flat: parseInt(stats.ACDC) || 10, calc: "flat" },
+                ac: { flat: parseInt(stats.ACDC) || 10, calc: "natural" },
                 hp: { value: parseInt(stats.HP) || 10, max: parseInt(stats.HP) || 10 },
                 prof: parseInt(stats.PAB) || 2,
                 cr,
