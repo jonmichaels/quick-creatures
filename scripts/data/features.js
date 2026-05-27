@@ -305,7 +305,7 @@ const MONSTER_FEATURES = [
             img: "icons/skills/melee/unarmed-punch-fist.webp",
             system: {
                 description: {
-                    value: "<p>When the [[lookup @name lowercase]] hits a target with a melee attack, the target is &Reference[grappled] (Acrobatics or Athletics to escape). While grappled, the target is &Reference[restrained].</p>",
+                    value: "<p>When the [[lookup @name lowercase]] hits a target with a melee attack, the target is &Reference[grappled] ([[/check]] to escape). While grappled, the target is &Reference[restrained].</p>",
                 },
                 activation: {
                     type: "none",
