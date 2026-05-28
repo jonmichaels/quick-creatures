@@ -178,17 +178,21 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
     const cr = parseCR(stats.CR);
 
     // Convert CR-mode abilities (detected by mod field) to real 5E scores
+    // CR mode uses long keys (strength, dexterity...) but dnd5e expects short (str, dex...)
     const firstKey = Object.keys(abilities)[0];
     const isCRMode = firstKey && abilities[firstKey].mod !== undefined;
     let converted = abilities;
     if (isCRMode) {
         const pb = parseInt(stats.PAB) || 2;
         const prof5E = get5EProf(pb);
+        const keyMap = { strength: "str", dexterity: "dex", constitution: "con",
+                         intelligence: "int", wisdom: "wis", charisma: "cha" };
         converted = {};
         for (const [key, abl] of Object.entries(abilities)) {
+            const short = keyMap[key] || key;
             const isFull = abl.mod >= pb;
             const realMod = isFull ? abl.mod - prof5E : (abl.mod || 0);
-            converted[key] = {
+            converted[short] = {
                 value: 10 + realMod * 2,
                 mod: isFull ? prof5E : 0,
                 proficient: 0,
