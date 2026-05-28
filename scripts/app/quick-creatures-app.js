@@ -439,16 +439,25 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             const halfPB = Math.ceil(pb / 2);
             const ablKeys = ["str", "dex", "con", "int", "wis", "cha"];
             const is5E = game.system.id === "dnd5e";
+            // 5E proficiency bonus by Lazy GM PB
+            const get5EProf = (p) => { if (p <= 6) return 2; if (p <= 7) return 3; if (p <= 9) return 4; if (p <= 11) return 5; if (p <= 13) return 6; return 7; };
+            const prof5E = get5EProf(pb);
             for (const key of ablKeys) {
                 const toggle = html.querySelector(`.qc-ability-toggle[data-ability="${key}"]`);
                 const state = toggle ? toggle.dataset.state : "off";
                 const mod = state === "full" ? pb : state === "half" ? halfPB : 0;
                 const modStr = mod >= 0 ? `+${mod}` : `${mod}`;
+                const labelEl = html.querySelector(`#${key}Label`);
                 if (is5E) {
-                    const score = 10 + mod * 2;
-                    this.#setText(html, `#${key}Label`, `${score} (${modStr})`);
+                    const realMod = state === "full" ? mod - prof5E : mod;
+                    const score = 10 + realMod * 2;
+                    labelEl.textContent = `${score} (${modStr})`;
+                    // Tooltip
+                    labelEl.title = state === "full"
+                        ? `This ability includes a proficiency bonus. (+${realMod} +${prof5E} = ${modStr})`
+                        : "This ability doesn't include a proficiency bonus.";
                 } else {
-                    this.#setText(html, `#${key}Label`, modStr);
+                    labelEl.textContent = modStr;
                 }
             }
         }
