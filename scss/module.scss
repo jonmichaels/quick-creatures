@@ -521,6 +521,8 @@ select option {
     overflow-y: auto;
     flex: 1;
     padding: 0 4px;
+    grid-auto-rows: min-content;
+    align-content: start;
 }
 
 .qc-tp-all-types {
