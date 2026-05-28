@@ -6,6 +6,67 @@
  */
 
 /**
+ * Parse a damage dice string like "1d6+2" or "3d8+3".
+ */
+function parseDice(diceStr) {
+    const match = diceStr?.match(/(\d+)d(\d+)([+-]\d+)?/);
+    if (!match) return { count: 1, die: 4, modifier: 0 };
+    return {
+        count: parseInt(match[1]),
+        die: parseInt(match[2]),
+        modifier: match[3] ? parseInt(match[3]) : 0,
+    };
+}
+
+/**
+ * Build an attack activity (dnd5e 5.x format).
+ */
+function buildAttackActivity(stats, isRanged) {
+    const dice = parseDice(stats.DpACalc);
+    const activityId = foundry.utils.randomID();
+    return {
+        [activityId]: {
+            _id: activityId,
+            type: "attack",
+            activation: { type: "action", override: false },
+            attack: {
+                flat: true,
+                bonus: stats.PAB || "+2",
+                critical: {},
+                type: {},
+            },
+            damage: {
+                parts: [{
+                    number: dice.count,
+                    denomination: dice.die,
+                    bonus: dice.modifier ? String(dice.modifier) : "",
+                    types: [],
+                    custom: { enabled: false },
+                    scaling: { number: 1 },
+                }],
+                includeBase: true,
+                critical: {},
+            },
+            range: isRanged
+                ? { value: 60, long: 120, units: "ft", override: false }
+                : { units: "ft", override: false },
+            target: {
+                template: { contiguous: false, units: "ft" },
+                affects: {},
+                override: false,
+                prompt: true,
+            },
+            consumption: { scaling: { allowed: false }, spellSlot: true, targets: [] },
+            duration: { units: "inst", concentration: false, override: false },
+            uses: { spent: 0, recovery: [] },
+            description: {},
+            effects: [],
+            sort: 0,
+        },
+    };
+}
+
+/**
  * Create the mandatory "Melee Attack" weapon item.
  * @param {Object} stats - CR stat block
  * @returns {Object} Item data
@@ -19,18 +80,9 @@ export function createAttackItem(stats) {
             description: {
                 value: `<p>A melee weapon attack.</p>`,
             },
-            activation: {
-                type: "action",
-                cost: 1,
-            },
-            ability: "",
-            actionType: "mwak",
             proficient: !stats.abilities,
-            attackBonus: stats.PAB || "",
-            damage: {
-                parts: [[stats.DpACalc || "1d4"]],
-            },
             type: { value: "naturalM" },
+            activities: buildAttackActivity(stats, false),
         },
     };
 }
@@ -49,19 +101,9 @@ export function createRangedItem(stats) {
             description: {
                 value: `<p>A ranged weapon attack.</p>`,
             },
-            activation: {
-                type: "action",
-                cost: 1,
-            },
-            ability: "",
-            actionType: "rwak",
             proficient: !stats.abilities,
-            attackBonus: stats.PAB || "",
-            damage: {
-                parts: [[stats.DpACalc || "1d4"]],
-            },
-            range: { value: 60, long: 120, units: "ft" },
             type: { value: "naturalR" },
+            activities: buildAttackActivity(stats, true),
         },
     };
 }
