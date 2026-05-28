@@ -23,13 +23,14 @@ export function createAttackItem(stats) {
                 type: "action",
                 cost: 1,
             },
-            ability: "none",
+            ability: "",
             actionType: "mwak",
             proficient: !stats.abilities,
             attackBonus: stats.PAB || "",
             damage: {
                 parts: [[stats.DpACalc || "1d4"]],
             },
+            type: { value: "naturalM" },
         },
     };
 }
@@ -52,7 +53,7 @@ export function createRangedItem(stats) {
                 type: "action",
                 cost: 1,
             },
-            ability: "none",
+            ability: "",
             actionType: "rwak",
             proficient: !stats.abilities,
             attackBonus: stats.PAB || "",
@@ -60,6 +61,7 @@ export function createRangedItem(stats) {
                 parts: [[stats.DpACalc || "1d4"]],
             },
             range: { value: 60, long: 120, units: "ft" },
+            type: { value: "naturalR" },
         },
     };
 }
