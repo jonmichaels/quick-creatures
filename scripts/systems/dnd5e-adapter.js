@@ -111,7 +111,7 @@ function buildSaveActivity(activationType, abilities, dc, dmgPart) {
         activation: { type: activationType, override: false },
         save: {
             ability: abilities,
-            dc: { formula: String(dc), calculation: "custom" },
+            dc: { formula: String(dc), calculation: "" },
         },
         damage: {
             parts: [],
@@ -154,10 +154,10 @@ function buildCheckActivity(skills, dc) {
         [activityId]: {
             _id: activityId,
             type: "check",
-            activation: { type: "none", override: false },
+            activation: { type: "special", override: false },
             check: {
                 associated: skills,
-                dc: { formula: String(dc), calculation: "custom" },
+                dc: { formula: String(dc), calculation: "" },
             },
             damage: {
                 parts: [],
@@ -304,11 +304,11 @@ const FEATURE_ACTIVITIES = {
         };
     },
 
-    /** Damaging Aura: half damage, free action (no activation cost) */
+    /** Damaging Aura: half damage, triggers automatically (special activation) */
     "Damaging Aura": (feature, stats) => {
         const halfDmg = `floor((${stats.DpACalc})/2)`;
         return {
-            activities: buildDamageActivity(halfDmg, "none"),
+            activities: buildDamageActivity(halfDmg, "special"),
             description: `<p>Each creature who starts their turn within 10 feet of the [[lookup @name lowercase]] takes damage of a type appropriate to the creature. The damage dealt is equal to half the damage of one of this creature's attacks. [[/damage average extended]]</p>`,
         };
     },
@@ -326,16 +326,17 @@ const FEATURE_ACTIVITIES = {
         };
     },
 
-    /** Knockdown: Strength save vs prone, free trigger */
+    /** Knockdown: Strength save vs prone, triggers on hit */
     "Knockdown": (feature, stats) => {
         const dc = stats.ACDC || 13;
         return {
-            activities: buildSaveActivity("none", ["str"], dc, null),
+            activities: buildSaveActivity("special", ["str"], dc, null),
             description: `<p>When the [[lookup @name lowercase]] hits a target with a melee attack, the target must succeed on a [[/save]] saving throw or be knocked &Reference[prone].</p>`,
         };
     },
 
-    /** Restraining Grab: grapple + restrained, contested check to escape */
+    /** Restraining Grab: grapple + restrained, contested check to escape.
+     *  Triggers on hit like Knockdown. */
     "Restraining Grab": (feature, stats) => {
         const dc = stats.ACDC || 13;
         return {
