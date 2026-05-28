@@ -192,12 +192,18 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
             const short = keyMap[key] || key;
             const isFull = abl.mod >= pb;
             // Score: subtract 5E prof so it looks standard (18 not 22 at CR4)
-            // Modifier: set via ActiveEffect override after creation
             const realMod = isFull ? abl.mod - prof5E : (abl.mod || 0);
             converted[short] = {
                 value: 10 + realMod * 2,
                 proficient: 0,
             };
+            // Primary abilities: add 5E prof as save/check bonus
+            if (isFull) {
+                converted[short].bonuses = {
+                    check: String(prof5E),
+                    save: String(prof5E),
+                };
+            }
         }
     }
 

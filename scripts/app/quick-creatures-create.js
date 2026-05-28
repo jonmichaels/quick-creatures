@@ -304,35 +304,6 @@ export async function createActor(app, html) {
         } catch (e) {
             console.warn("Quick Creatures | Failed to create proficiency AE:", e);
         }
-
-        // dnd5e: override ability mods to Lazy GM values (dnd5e recomputes mod from score)
-        if (game.system.id === "dnd5e") {
-            try {
-                const ablMap = { str: "strength", dex: "dexterity", con: "constitution",
-                                 int: "intelligence", wis: "wisdom", cha: "charisma" };
-                const changes = [];
-                for (const [short, long] of Object.entries(ablMap)) {
-                    const mod = abilities[long]?.mod || 0;
-                    if (mod > 0) {
-                        changes.push({
-                            key: `system.abilities.${short}.mod`,
-                            value: mod,
-                            mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
-                        });
-                    }
-                }
-                if (changes.length > 0) {
-                    await ActiveEffect.createDocuments([{
-                        name: "Ability Modifiers",
-                        icon: "icons/svg/upgrade.svg",
-                        transfer: true,
-                        changes,
-                    }], { parent: actor });
-                }
-            } catch (e) {
-                console.warn("Quick Creatures | Failed to create ability mod AE:", e);
-            }
-        }
     }
 
     // Create embedded items
