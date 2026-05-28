@@ -302,17 +302,22 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             });
         }
 
-        // Lazy GM journal button
+        // Lazy GM journal button — opens the bundled HTML directly (no world copy)
         const journalBtn = html.querySelector("#open-lazy-gm-journal");
         if (journalBtn) {
-            journalBtn.addEventListener("click", (ev) => {
+            journalBtn.addEventListener("click", async (ev) => {
                 ev.preventDefault();
-                const journalId = game.settings.get("quick-creatures", "lazyGmJournalId");
-                const journal = journalId ? game.journal.get(journalId) : null;
-                if (journal) {
-                    journal.sheet.render(true);
+                const content = await fetch("modules/quick-creatures/templates/lazy-gm-journal.html")
+                    .then(r => r.text())
+                    .catch(() => null);
+                if (content) {
+                    new foundry.applications.api.Dialog({
+                        title: "The Lazy GM's 5e Monster Builder Resource Document",
+                        content: `<div style="max-height:80vh;overflow-y:auto;padding:1em">${content}</div>`,
+                        buttons: { close: { icon: '<i class="fas fa-times"></i>', label: "Close" } }
+                    }, { width: 900 }).render(true);
                 } else {
-                    ui.notifications.warn("Lazy GM journal not found. Try reloading Foundry.");
+                    ui.notifications.warn("Lazy GM journal not found.");
                 }
             });
         }
@@ -565,14 +570,6 @@ export async function initQuickCreatures() {
         type: String,
         default: "Soldier",
         choices: Object.fromEntries(ARCHETYPES.map(a => [a.name, `${a.name} (CR ${a.CR})`])),
-    });
-
-    // Internal: tracks the created Lazy GM journal ID (not user-configurable)
-    game.settings.register("quick-creatures", "lazyGmJournalId", {
-        scope: "world",
-        config: false,
-        type: String,
-        default: "",
     });
 
     // Register Handlebars helpers (not available by default in Foundry)
