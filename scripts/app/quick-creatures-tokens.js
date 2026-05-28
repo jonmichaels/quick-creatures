@@ -172,7 +172,8 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
       search.removeEventListener("input", this._onSearchInput);
       this._onSearchInput = (ev) => {
         this._searchQuery = ev.target.value;
-        this.render();
+        clearTimeout(this._searchTimer);
+        this._searchTimer = setTimeout(() => this.render(), 250);
       };
       search.addEventListener("input", this._onSearchInput);
     }
