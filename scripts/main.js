@@ -8,7 +8,7 @@ Hooks.once("init", () => {
 Hooks.once("ready", async () => {
     // Ensure Lazy GM journal exists
     const MODULE = "quick-creatures";
-    const JOURNAL_NAME = "Lazy GM 5e Monster Builder";
+    const JOURNAL_NAME = "The Lazy GM\u0027s 5e Monster Builder Resource Document";
     let journalId = game.settings.get(MODULE, "lazyGmJournalId");
     let journal = journalId ? game.journal.get(journalId) : null;
 
