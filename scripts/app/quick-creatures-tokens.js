@@ -157,6 +157,17 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
   }
 
   /**
+   * Cycle to previous/next creature type and re-render.
+   * @param {number} dir — +1 for next, -1 for previous
+   */
+  #cycleType(dir) {
+    const idx = TYPES.indexOf(this.monsterType);
+    const newIdx = ((idx + dir) % TYPES.length + TYPES.length) % TYPES.length;
+    this.monsterType = TYPES[newIdx];
+    this.render();
+  }
+
+  /**
    * Bind DOM events.
    */
   #bindEvents() {
@@ -172,6 +183,13 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
       };
       packSelect.addEventListener("change", this._onPackChange);
     }
+
+    // Creature type arrows
+    html.querySelectorAll(".qc-tp-arrow").forEach(btn => {
+      btn.addEventListener("click", () => {
+        this.#cycleType(btn.dataset.action === "next-type" ? 1 : -1);
+      });
+    });
 
     // Search input — filter DOM directly, no re-render
     const search = html.querySelector("#qc-token-search");

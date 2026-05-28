@@ -487,13 +487,15 @@ select option {
 
 .qc-tp-header {
     display: flex;
+    align-items: center;
     gap: 8px;
 }
 
 .qc-tp-set-select {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
+    flex-shrink: 0;
 
     label {
         font-size: 11px;
@@ -502,15 +504,51 @@ select option {
     }
 
     select {
-        width: 180px;
+        width: 130px;
+    }
+}
+
+.qc-tp-type-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    justify-content: center;
+}
+
+.qc-tp-type-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-text-light-highlight, #ddd);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.qc-tp-arrow {
+    background: none;
+    border: 1px solid var(--color-border-dark, #555);
+    border-radius: 3px;
+    color: var(--color-text-light-highlight, #ddd);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 7px;
+    line-height: 1;
+
+    &:hover {
+        border-color: var(--color-border-highlight, #888);
+        background: var(--color-fill-secondary, rgba(255,255,255,0.05));
     }
 }
 
 .qc-tp-search {
-    flex: 1;
+    flex-shrink: 0;
 
     input {
-        width: 100%;
+        width: 90px;
+        font-size: 11px;
     }
 }
 

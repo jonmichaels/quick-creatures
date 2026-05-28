@@ -1,5 +1,5 @@
 <div class="qc-token-picker-window">
-    <!-- Header -->
+    <!-- Header: Set pulldown | ◀ Type ▶ | Search -->
     <div class="qc-tp-header">
         <div class="qc-tp-set-select">
             <label>SET</label>
@@ -8,6 +8,11 @@
                 <option value="{{id}}" {{#if (eq id ../selectedPack)}}selected{{/if}}>{{name}}</option>
                 {{/each}}
             </select>
+        </div>
+        <div class="qc-tp-type-nav">
+            <button type="button" class="qc-tp-arrow" data-action="prev-type" aria-label="Previous type">&lt;</button>
+            <span class="qc-tp-type-label">{{monsterType}}</span>
+            <button type="button" class="qc-tp-arrow" data-action="next-type" aria-label="Next type">&gt;</button>
         </div>
         <div class="qc-tp-search">
             <input type="text" id="qc-token-search" placeholder="SEARCH" />
