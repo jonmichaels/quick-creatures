@@ -421,19 +421,19 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             eclEl.textContent = stats.ECL || "";
         }
 
-        // Abilities — show as modifiers (+0, +1, etc.)
-        const getMod = (val) => {
-            const v = parseInt(val) || 10;
-            const mod = Math.floor((v - 10) / 2);
-            return `${mod >= 0 ? "+" : ""}${mod}`;
-        };
+        // Abilities — archetypes: show Score (Modifier) for dnd5e, modifiers only otherwise
         if (stats.abilities) {
-            this.#setText(html, "#strLabel", getMod(stats.abilities.str?.value));
-            this.#setText(html, "#dexLabel", getMod(stats.abilities.dex?.value));
-            this.#setText(html, "#conLabel", getMod(stats.abilities.con?.value));
-            this.#setText(html, "#intLabel", getMod(stats.abilities.int?.value));
-            this.#setText(html, "#wisLabel", getMod(stats.abilities.wis?.value));
-            this.#setText(html, "#chaLabel", getMod(stats.abilities.cha?.value));
+            const is5E = game.system.id === "dnd5e";
+            const ablKeys = ["str", "dex", "con", "int", "wis", "cha"];
+            for (const key of ablKeys) {
+                const val = stats.abilities[key]?.value || 10;
+                const mod = Math.floor((val - 10) / 2);
+                const modStr = `${mod >= 0 ? "+" : ""}${mod}`;
+                const labelEl = html.querySelector(`#${key}Label`);
+                if (labelEl) {
+                    labelEl.textContent = is5E ? `${val} (${modStr})` : modStr;
+                }
+            }
         } else {
             const pb = parseInt(stats.PAB) || 2;
             const halfPB = Math.ceil(pb / 2);
