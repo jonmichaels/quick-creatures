@@ -302,26 +302,8 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             });
         }
 
-        // Lazy GM journal button — opens the bundled HTML directly (no world copy)
-        const journalBtn = html.querySelector("#open-lazy-gm-journal");
-        if (journalBtn) {
-            journalBtn.addEventListener("click", async (ev) => {
-                ev.preventDefault();
-                const content = await fetch("modules/quick-creatures/templates/lazy-gm-journal.html")
-                    .then(r => r.text())
-                    .catch(() => null);
-                if (content) {
-                    new foundry.applications.api.Dialog({
-                        title: "The Lazy GM's 5e Monster Builder Resource Document",
-                        content: `<div style="max-height:80vh;overflow-y:auto;padding:1em">${content}</div>`,
-                        buttons: [{ action: "close", icon: "fas fa-times", label: "Close" }],
-                        classes: ["qc-journal-dialog"]
-                    }).render(true);
-                } else {
-                    ui.notifications.warn("Lazy GM journal not found.");
-                }
-            });
-        }
+        // Lazy GM journal button removed — scraped due to v13 DialogV2 issues
+
 
         // Token preview image — click opens TokenPickerApp
         const tokenPreview = html.querySelector("#token-preview");
