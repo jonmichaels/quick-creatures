@@ -84,8 +84,11 @@
         {{> "modules/quick-creatures/templates/partials/features.hbs"}}
     </div>
 
-    <!-- Create button (spans both columns, last item on page) -->
+    <!-- Create button + Journal reference (spans both columns, last item on page) -->
     <div class="qc-create-section">
+        <button type="button" id="open-lazy-gm-journal" class="qc-journal-btn" data-tooltip="Lazy GM Monster Builder Reference">
+            <i class="fa-solid fa-book-open"></i>
+        </button>
         <button type="button" id="create-monster-btn" class="qc-create-btn">
             {{i18n "create.button"}}
         </button>

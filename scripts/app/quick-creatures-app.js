@@ -302,6 +302,21 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             });
         }
 
+        // Lazy GM journal button
+        const journalBtn = html.querySelector("#open-lazy-gm-journal");
+        if (journalBtn) {
+            journalBtn.addEventListener("click", (ev) => {
+                ev.preventDefault();
+                const journalId = game.settings.get("quick-creatures", "lazyGmJournalId");
+                const journal = journalId ? game.journal.get(journalId) : null;
+                if (journal) {
+                    journal.sheet.render(true);
+                } else {
+                    ui.notifications.warn("Lazy GM journal not found. Try reloading Foundry.");
+                }
+            });
+        }
+
         // Token preview image — click opens TokenPickerApp
         const tokenPreview = html.querySelector("#token-preview");
         if (tokenPreview) {
@@ -550,6 +565,14 @@ export async function initQuickCreatures() {
         type: String,
         default: "Soldier",
         choices: Object.fromEntries(ARCHETYPES.map(a => [a.name, `${a.name} (CR ${a.CR})`])),
+    });
+
+    // Internal: tracks the created Lazy GM journal ID (not user-configurable)
+    game.settings.register("quick-creatures", "lazyGmJournalId", {
+        scope: "world",
+        config: false,
+        type: String,
+        default: "",
     });
 
     // Register Handlebars helpers (not available by default in Foundry)
