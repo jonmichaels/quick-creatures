@@ -230,11 +230,11 @@ export async function createActor(app, html) {
         // CR mode: all modifiers start at 0; toggled abilities get full or half PB
         abilities = {};
         const profBonus = parseInt(stats.PAB) || 2;
-        const halfPB = Math.ceil(profBonus / 2);
+        const secMod = Math.min(stats.NoA || 1, 4);
         const ablMap = { str: "strength", dex: "dexterity", con: "constitution", int: "intelligence", wis: "wisdom", cha: "charisma" };
         for (const [short, long] of Object.entries(ablMap)) {
             const state = saveProfs[short] || "off";
-            const mod = state === "full" ? profBonus : state === "half" ? halfPB : 0;
+            const mod = state === "full" ? profBonus : state === "half" ? secMod : 0;
             abilities[long] = {
                 value: 10,
                 mod: mod,

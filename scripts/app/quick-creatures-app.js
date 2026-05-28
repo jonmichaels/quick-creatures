@@ -399,17 +399,16 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         // Ensure "+" prefix (archetype PAB is a plain number, CR table PAB has "+")
         saveBonus = String(saveBonus).startsWith("+") ? String(saveBonus) : "+" + String(saveBonus);
 
-        // Calculate half-PB (rounded up)
-        const pbNum = parseInt(saveBonus, 10) || 0;
-        const halfPb = Math.ceil(pbNum / 2);
-        const halfPbStr = halfPb >= 0 ? `+${halfPb}` : `${halfPb}`;
+        // Calculate secondary modifier from Number of Attacks (max +4)
+        const secMod = Math.min(stats.NoA || 1, 4);
+        const secModStr = `+${secMod}`;
 
         // Update stat labels
         this.#setText(html, "#hpLabel", stats.HP);
         this.#setText(html, "#acLabel", stats.ACDC);
         this.#setText(html, "#profLabel", saveBonus);
         this.#setText(html, "#saveBonus", saveBonus);
-        this.#setText(html, "#halfPbLabel", halfPbStr);
+        this.#setText(html, "#halfPbLabel", secModStr);
 
         // Damage per attack × number of attacks
         const noa = stats.NoA || 1;
@@ -436,12 +435,12 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             this.#setText(html, "#chaLabel", getMod(stats.abilities.cha?.value));
         } else {
             const pb = parseInt(stats.PAB) || 2;
-            const halfPB = Math.ceil(pb / 2);
+            const secMod = Math.min(stats.NoA || 1, 4);
             const ablKeys = ["str", "dex", "con", "int", "wis", "cha"];
             for (const key of ablKeys) {
                 const toggle = html.querySelector(`.qc-ability-toggle[data-ability="${key}"]`);
                 const state = toggle ? toggle.dataset.state : "off";
-                const val = state === "full" ? `+${pb}` : state === "half" ? `+${halfPB}` : "+0";
+                const val = state === "full" ? `+${pb}` : state === "half" ? `+${secMod}` : "+0";
                 this.#setText(html, `#${key}Label`, val);
             }
         }
