@@ -421,8 +421,9 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             eclEl.textContent = stats.ECL || "";
         }
 
-        // Abilities — archetypes: show Score (Modifier) like CR tab.
-        // Primary abilities (proficient:1) add standard dnd5e prof to modifier.
+        // Abilities — archetypes: compute dnd5e score from BF-inflated value.
+        // Primary abilities (proficient:1): real score = 10 + (inflatedMod - prof5E)*2.
+        // The modifier shown is the full Lazy GM save bonus (inflatedMod).
         if (stats.abilities) {
             const is5E = game.system.id === "dnd5e";
             const pb = parseInt(stats.PAB) || 2;
@@ -431,14 +432,17 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             const ablKeys = ["str", "dex", "con", "int", "wis", "cha"];
             for (const key of ablKeys) {
                 const abl = stats.abilities[key];
-                const val = abl?.value || 10;
-                const baseMod = Math.floor((val - 10) / 2);
+                const bfValue = abl?.value || 10;
+                const inflatedMod = Math.floor((bfValue - 10) / 2);
                 const isPrimary = abl?.proficient === 1;
-                const displayMod = is5E && isPrimary ? baseMod + prof5E : baseMod;
-                const modStr = `${displayMod >= 0 ? "+" : ""}${displayMod}`;
+                // BF stores inflated values for proficient abilities. Compute real score.
+                const realScore = (is5E && isPrimary)
+                    ? 10 + (inflatedMod - prof5E) * 2
+                    : bfValue;
+                const modStr = `${inflatedMod >= 0 ? "+" : ""}${inflatedMod}`;
                 const labelEl = html.querySelector(`#${key}Label`);
                 if (labelEl) {
-                    labelEl.textContent = is5E ? `${val} (${modStr})` : modStr;
+                    labelEl.textContent = is5E ? `${realScore} (${modStr})` : modStr;
                 }
             }
         } else {
