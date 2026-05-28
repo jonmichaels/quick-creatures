@@ -232,7 +232,7 @@ export function createAttackItem(stats) {
                 value: `<p>[[/attack extended]]. [[/damage average extended]].</p><p>The [[lookup @name lowercase]] makes a melee attack.</p>`,
             },
             proficient: true,
-            type: { value: "natural", baseItem: "" },
+            type: { value: "simpleM", baseItem: "" },
             activities: buildAttackActivity(stats, false),
         },
     };
@@ -251,7 +251,7 @@ export function createRangedItem(stats) {
                 value: `<p>[[/attack extended]]. [[/damage average extended]].</p><p>The [[lookup @name lowercase]] makes a ranged attack.</p>`,
             },
             proficient: true,
-            type: { value: "natural", baseItem: "" },
+            type: { value: "simpleR", baseItem: "" },
             activities: buildAttackActivity(stats, true),
         },
     };
