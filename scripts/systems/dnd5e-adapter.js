@@ -546,6 +546,25 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
                 };
             }
         }
+    } else {
+        // Archetype abilities: already short keys (str, dex). Primary
+        // abilities (proficient:1) have BF-inflated values. Compute real
+        // dnd5e score from inflated value, add global save/check bonuses
+        // the same way CR mode does.
+        const pb = parseInt(stats.PAB) || 2;
+        const prof5E = get5EProf(pb);
+        for (const [key, abl] of Object.entries(abilities)) {
+            const isPrimary = abl?.proficient === 1;
+            if (isPrimary) {
+                const inflatedMod = Math.floor((abl.value - 10) / 2);
+                const realMod = inflatedMod - prof5E;
+                abilities[key] = {
+                    value: 10 + realMod * 2,
+                    proficient: 0,
+                    bonuses: { check: String(prof5E), save: String(prof5E) },
+                };
+            }
+        }
     }
 
     const data = {
