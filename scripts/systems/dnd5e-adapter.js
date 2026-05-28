@@ -154,18 +154,6 @@ function parseCR(crStr) {
 }
 
 /**
- * Map Lazy GM PB to standard D&D 5E proficiency bonus.
- */
-function get5EProf(pb) {
-    if (pb <= 6) return 2;
-    if (pb <= 7) return 3;
-    if (pb <= 9) return 4;
-    if (pb <= 11) return 5;
-    if (pb <= 13) return 6;
-    return 7;
-}
-
-/**
  * Build the full Actor creation data object for dnd5e.
  * @param {string} name
  * @param {Object} stats
@@ -183,18 +171,16 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
     const isCRMode = firstKey && abilities[firstKey].mod !== undefined;
     let converted = abilities;
     if (isCRMode) {
-        const pb = parseInt(stats.PAB) || 2;
-        const prof5E = get5EProf(pb);
         const keyMap = { strength: "str", dexterity: "dex", constitution: "con",
                          intelligence: "int", wisdom: "wis", charisma: "cha" };
         converted = {};
         for (const [key, abl] of Object.entries(abilities)) {
             const short = keyMap[key] || key;
-            const isFull = abl.mod >= pb;
-            const realMod = isFull ? abl.mod - prof5E : (abl.mod || 0);
+            // Set score so derived modifier = Lazy GM PB or half PB
+            // dnd5e sheet shows floor((value-10)/2), mod field is invisible bonus
+            const mod = abl.mod || 0;
             converted[short] = {
-                value: 10 + realMod * 2,
-                mod: isFull ? prof5E : 0,
+                value: 10 + mod * 2,
                 proficient: 0,
             };
         }
