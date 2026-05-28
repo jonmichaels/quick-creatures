@@ -421,14 +421,21 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             eclEl.textContent = stats.ECL || "";
         }
 
-        // Abilities — archetypes: show Score (Modifier) for dnd5e, modifiers only otherwise
+        // Abilities — archetypes: show Score (Modifier) like CR tab.
+        // Primary abilities (proficient:1) add standard dnd5e prof to modifier.
         if (stats.abilities) {
             const is5E = game.system.id === "dnd5e";
+            const pb = parseInt(stats.PAB) || 2;
+            const get5EProf = (p) => { if (p <= 6) return 2; if (p <= 7) return 3; if (p <= 9) return 4; if (p <= 11) return 5; if (p <= 13) return 6; return 7; };
+            const prof5E = get5EProf(pb);
             const ablKeys = ["str", "dex", "con", "int", "wis", "cha"];
             for (const key of ablKeys) {
-                const val = stats.abilities[key]?.value || 10;
-                const mod = Math.floor((val - 10) / 2);
-                const modStr = `${mod >= 0 ? "+" : ""}${mod}`;
+                const abl = stats.abilities[key];
+                const val = abl?.value || 10;
+                const baseMod = Math.floor((val - 10) / 2);
+                const isPrimary = abl?.proficient === 1;
+                const displayMod = is5E && isPrimary ? baseMod + prof5E : baseMod;
+                const modStr = `${displayMod >= 0 ? "+" : ""}${displayMod}`;
                 const labelEl = html.querySelector(`#${key}Label`);
                 if (labelEl) {
                     labelEl.textContent = is5E ? `${val} (${modStr})` : modStr;

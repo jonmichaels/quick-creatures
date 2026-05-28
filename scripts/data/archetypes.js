@@ -74,7 +74,7 @@ const ARCHETYPES = [
         abilities: {
             str: { value: 16, proficient: 0 },
             dex: { value: 12, proficient: 0 },
-            con: { value: 18, proficient: 1 },  // save +4 → mod +4
+            con: { value: 14, proficient: 1 },  // save +4: mod +2 + prof(2) = 4
             int: { value: 10, proficient: 0 },
             wis: { value: 10, proficient: 0 },
             cha: { value: 8, proficient: 0 },
@@ -98,10 +98,10 @@ const ARCHETYPES = [
         PAB: 6,
         abilities: {
             str: { value: 12, proficient: 0 },
-            dex: { value: 22, proficient: 1 },  // save +6 → mod +6
+            dex: { value: 18, proficient: 1 },  // save +6: mod +4 + prof(2) = 6
             con: { value: 14, proficient: 0 },
             int: { value: 10, proficient: 0 },
-            wis: { value: 18, proficient: 1 },  // save +4 → mod +4
+            wis: { value: 14, proficient: 1 },  // save +4: mod +2 + prof(2) = 4
             cha: { value: 12, proficient: 0 },
         },
         skills: {
@@ -125,10 +125,10 @@ const ARCHETYPES = [
         PAB: 7,
         abilities: {
             str: { value: 10, proficient: 0 },
-            dex: { value: 20, proficient: 1 },  // save +5 → mod +5
+            dex: { value: 14, proficient: 1 },  // save +5: mod +2 + prof(3) = 5
             con: { value: 14, proficient: 0 },
             int: { value: 18, proficient: 0 },
-            wis: { value: 20, proficient: 1 },  // save +5 → mod +5
+            wis: { value: 14, proficient: 1 },  // save +5: mod +2 + prof(3) = 5
             cha: { value: 10, proficient: 0 },
         },
         skills: {
@@ -149,8 +149,8 @@ const ARCHETYPES = [
         speed: 30,
         PAB: 9,
         abilities: {
-            str: { value: 28, proficient: 1 },  // save +9 → mod +9 (value 28 gives mod +9)
-            dex: { value: 24, proficient: 1 },  // save +7 → mod +7 (value 24 gives mod +7)
+            str: { value: 20, proficient: 1 },  // save +9: mod +5 + prof(4) = 9
+            dex: { value: 16, proficient: 1 },  // save +7: mod +3 + prof(4) = 7
             con: { value: 16, proficient: 0 },
             int: { value: 10, proficient: 0 },
             wis: { value: 14, proficient: 0 },
@@ -178,8 +178,8 @@ const ARCHETYPES = [
             dex: { value: 12, proficient: 0 },
             con: { value: 18, proficient: 0 },
             int: { value: 12, proficient: 0 },
-            wis: { value: 26, proficient: 1 },  // save +8 → mod +8 (value 26 gives mod +8)
-            cha: { value: 32, proficient: 1 },  // save +11 → mod +11 (value 32 gives mod +11)
+            wis: { value: 16, proficient: 1 },  // save +8: mod +3 + prof(5) = 8
+            cha: { value: 22, proficient: 1 },  // save +11: mod +6 + prof(5) = 11
         },
         skills: {
             prc: { value: 8 },  // flat total bonus
