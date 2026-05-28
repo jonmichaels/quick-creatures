@@ -147,6 +147,13 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
   _onRender(context, options) {
     super._onRender(context, options);
     this.#bindEvents();
+
+    // Restore search input value & cursor position after DOM replacement
+    const search = this.element.querySelector("#qc-token-search");
+    if (search && this._searchQuery) {
+      search.value = this._searchQuery;
+      search.setSelectionRange(this._searchQuery.length, this._searchQuery.length);
+    }
   }
 
   /**
