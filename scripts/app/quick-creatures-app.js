@@ -438,13 +438,18 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             const pb = parseInt(stats.PAB) || 2;
             const halfPB = Math.ceil(pb / 2);
             const ablKeys = ["str", "dex", "con", "int", "wis", "cha"];
+            const is5E = game.system.id === "dnd5e";
             for (const key of ablKeys) {
                 const toggle = html.querySelector(`.qc-ability-toggle[data-ability="${key}"]`);
                 const state = toggle ? toggle.dataset.state : "off";
                 const mod = state === "full" ? pb : state === "half" ? halfPB : 0;
                 const modStr = mod >= 0 ? `+${mod}` : `${mod}`;
-                const score = 10 + mod * 2;
-                this.#setText(html, `#${key}Label`, `${score} (${modStr})`);
+                if (is5E) {
+                    const score = 10 + mod * 2;
+                    this.#setText(html, `#${key}Label`, `${score} (${modStr})`);
+                } else {
+                    this.#setText(html, `#${key}Label`, modStr);
+                }
             }
         }
 
