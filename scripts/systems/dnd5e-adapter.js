@@ -48,7 +48,7 @@ function buildAttackActivity(stats, isRanged) {
                     custom: { enabled: false },
                     scaling: { number: 1 },
                 }],
-                includeBase: true,
+                includeBase: false,
                 critical: {},
             },
             range: isRanged
@@ -292,7 +292,7 @@ const FEATURE_ACTIVITIES = {
         activities: _buildFeatureAttack(stats, "action"),
         description: `<p>[[/attack extended]]. [[/damage average extended]]. The [[lookup @name lowercase]] has one or more single-target ranged attacks which deal damage of an appropriate type.</p>`,
         img: "icons/magic/light/beam-rays-magenta.webp",
-        weaponType: "natural",
+        weaponType: "simpleR",
     }),
 
     /** Damage Reflection: half of one attack's damage as a reaction */
@@ -313,12 +313,14 @@ const FEATURE_ACTIVITIES = {
         };
     },
 
-    /** Damaging Burst: save for half DpR/2, 10ft sphere, 120ft range */
+    /** Damaging Burst: save for half damage, 10ft sphere, 120ft range.
+     *  Uses BF formula: 1d6 + floor(DpR / 2) - 3 (min +0).
+     *  DC from ACDC chart column. */
     "Damaging Burst": (feature, stats) => {
-        const halfDpR = `floor(${Number(stats.DpR)} / 2)`;
+        const burstDmg = `max(0, 1d6 + floor(${Number(stats.DpR)} / 2) - 3)`;
         const dc = stats.ACDC || 13;
         return {
-            activities: buildSaveActivity("action", ["dex", "con", "wis"], dc, halfDpR),
+            activities: buildSaveActivity("action", ["dex", "con", "wis"], dc, burstDmg),
             description: `<p>As an action, the [[lookup @name lowercase]] can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a [[/save]] saving throw (your choice, based on the type of burst). On a failure, a target takes damage of an appropriate type equal to half this creature's total damage per round [[/damage average extended]]. On a success, a target takes half as much damage.</p>`,
             img: "icons/magic/sonic/explosion-shock-sound-wave.webp",
         };
@@ -362,7 +364,8 @@ const FEATURE_ACTIVITIES = {
         description: `<p>When the [[lookup @name lowercase]] takes damage, they can transfer half or all of that damage (your choice) to a willing creature within 30 or 60 feet of them.</p>`,
     }),
 
-    /** Energy Weapons: active effect with bonus damage on all weapon attacks */
+    /** Energy Weapons: active effect adds CR as bonus damage to all attacks.
+     *  Feature attack activity shows regular chart damage. */
     "Energy Weapons": (feature, stats) => ({
         activities: _buildFeatureAttack(stats, "action"),
         description: `<p>[[/attack extended]]. [[/damage average extended]]. The [[lookup @name lowercase]]'s weapon attacks deal extra CR damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.</p>`,
@@ -373,13 +376,13 @@ const FEATURE_ACTIVITIES = {
                 transfer: true,
                 disabled: false,
                 changes: [
-                    { key: "system.bonuses.mwak.damage", mode: 2, value: stats.DpACalc },
-                    { key: "system.bonuses.rwak.damage", mode: 2, value: stats.DpACalc },
+                    { key: "system.bonuses.mwak.damage", mode: 2, value: String(Number(stats.CR) || 0) },
+                    { key: "system.bonuses.rwak.damage", mode: 2, value: String(Number(stats.CR) || 0) },
                 ],
             },
         ],
         img: "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
-        weaponType: "natural",
+        weaponType: "simpleM",
     }),
 };
 
@@ -410,7 +413,7 @@ function _buildFeatureAttack(stats, activationType) {
                     custom: { enabled: false },
                     scaling: { number: 1 },
                 }],
-                includeBase: true,
+                includeBase: false,
                 critical: {},
             },
             range: { value: 60, long: 120, units: "ft", override: false },
