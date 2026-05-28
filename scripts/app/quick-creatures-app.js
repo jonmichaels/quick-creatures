@@ -441,8 +441,10 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             for (const key of ablKeys) {
                 const toggle = html.querySelector(`.qc-ability-toggle[data-ability="${key}"]`);
                 const state = toggle ? toggle.dataset.state : "off";
-                const val = state === "full" ? `+${pb}` : state === "half" ? `+${halfPB}` : "+0";
-                this.#setText(html, `#${key}Label`, val);
+                const mod = state === "full" ? pb : state === "half" ? halfPB : 0;
+                const modStr = mod >= 0 ? `+${mod}` : `${mod}`;
+                const score = 10 + mod * 2;
+                this.#setText(html, `#${key}Label`, `${score} (${modStr})`);
             }
         }
 
