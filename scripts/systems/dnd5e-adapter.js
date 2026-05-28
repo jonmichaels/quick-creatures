@@ -111,7 +111,7 @@ function buildSaveActivity(activationType, abilities, dc, dmgPart) {
         activation: { type: activationType, override: false },
         save: {
             ability: abilities,
-            dc: { formula: String(dc), calculation: "flat" },
+            dc: { formula: String(dc), calculation: "custom" },
         },
         damage: {
             parts: [],
@@ -157,7 +157,7 @@ function buildCheckActivity(skills, dc) {
             activation: { type: "none", override: false },
             check: {
                 associated: skills,
-                dc: { formula: String(dc), calculation: "flat" },
+                dc: { formula: String(dc), calculation: "custom" },
             },
             damage: {
                 parts: [],
@@ -364,23 +364,10 @@ const FEATURE_ACTIVITIES = {
         description: `<p>When the [[lookup @name lowercase]] takes damage, they can transfer half or all of that damage (your choice) to a willing creature within 30 or 60 feet of them.</p>`,
     }),
 
-    /** Energy Weapons: active effect adds CR as bonus damage to all attacks.
-     *  Feature attack activity shows regular chart damage. */
+    /** Energy Weapons: adds CR as extra damage to the feature attack. */
     "Energy Weapons": (feature, stats) => ({
-        activities: _buildFeatureAttack(stats, "action"),
+        activities: _buildFeatureAttack(stats, "action", Number(stats.CR) || 0),
         description: `<p>[[/attack extended]]. [[/damage average extended]]. The [[lookup @name lowercase]]'s weapon attacks deal extra CR damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.</p>`,
-        effects: [
-            {
-                name: "Energy Weapons",
-                icon: "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
-                transfer: true,
-                disabled: false,
-                changes: [
-                    { key: "system.bonuses.mwak.damage", mode: 2, value: String(Number(stats.CR) || 0) },
-                    { key: "system.bonuses.rwak.damage", mode: 2, value: String(Number(stats.CR) || 0) },
-                ],
-            },
-        ],
         img: "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
         weaponType: "simpleM",
     }),
@@ -388,10 +375,13 @@ const FEATURE_ACTIVITIES = {
 
 /**
  * Build a feature-only attack activity (for Damaging Blast, Energy Weapons).
- * Uses the same attack/damage from the chart.
+ * @param {Object} stats — stat block
+ * @param {string} activationType
+ * @param {number} extraDamage — optional flat damage to add (CR for Energy Weapons)
  */
-function _buildFeatureAttack(stats, activationType) {
+function _buildFeatureAttack(stats, activationType, extraDamage = 0) {
     const dice = parseDice(stats.DpACalc);
+    const bonus = extraDamage ? String(dice.modifier + extraDamage) : (dice.modifier ? String(dice.modifier) : "");
     const activityId = foundry.utils.randomID();
     return {
         [activityId]: {
@@ -408,7 +398,7 @@ function _buildFeatureAttack(stats, activationType) {
                 parts: [{
                     number: dice.count,
                     denomination: dice.die,
-                    bonus: dice.modifier ? String(dice.modifier) : "",
+                    bonus: bonus,
                     types: [],
                     custom: { enabled: false },
                     scaling: { number: 1 },
