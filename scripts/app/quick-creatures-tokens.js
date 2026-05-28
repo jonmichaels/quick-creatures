@@ -173,14 +173,24 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
       packSelect.addEventListener("change", this._onPackChange);
     }
 
-    // Search input
+    // Search input — filter DOM directly, no re-render
     const search = html.querySelector("#qc-token-search");
     if (search) {
       search.removeEventListener("input", this._onSearchInput);
       this._onSearchInput = (ev) => {
-        this._searchQuery = ev.target.value;
-        clearTimeout(this._searchTimer);
-        this._searchTimer = setTimeout(() => this.render(), 250);
+        this._searchQuery = ev.target.value.toLowerCase();
+        // Filter visible tokens without re-rendering
+        html.querySelectorAll(".qc-token-tile").forEach(tile => {
+          const name = (tile.querySelector(".qc-token-tile-name")?.textContent || "").toLowerCase();
+          tile.style.display = name.includes(this._searchQuery) ? "" : "none";
+        });
+        // Also hide/show type sections in all-types view
+        html.querySelectorAll(".qc-tp-type-section").forEach(section => {
+          const tiles = section.querySelectorAll(".qc-token-tile");
+          let hidden = 0;
+          tiles.forEach(t => { if (t.style.display === "none") hidden++; });
+          section.style.display = hidden === tiles.length ? "none" : "";
+        });
       };
       search.addEventListener("input", this._onSearchInput);
     }
