@@ -336,11 +336,11 @@ const FEATURE_ACTIVITIES = {
     },
 
     /** Restraining Grab: grapple + restrained, contested check to escape.
-     *  Triggers on hit like Knockdown. */
+     *  Triggers on hit like Knockdown. Skills use short codes (acr, ath). */
     "Restraining Grab": (feature, stats) => {
         const dc = stats.ACDC || 13;
         return {
-            activities: buildCheckActivity(["acrobatics", "athletics"], dc),
+            activities: buildCheckActivity(["acr", "ath"], dc),
             description: `<p>When the [[lookup @name lowercase]] hits a target with a melee attack, the target is &Reference[grappled] ([[/check]] to escape). While grappled, the target is &Reference[restrained].</p>`,
         };
     },
