@@ -314,8 +314,9 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
                     new foundry.applications.api.Dialog({
                         title: "The Lazy GM's 5e Monster Builder Resource Document",
                         content: `<div style="max-height:80vh;overflow-y:auto;padding:1em">${content}</div>`,
-                        buttons: [{ action: "close", icon: "fas fa-times", label: "Close" }]
-                    }, { width: 600 }).render(true);
+                        buttons: [{ action: "close", icon: "fas fa-times", label: "Close" }],
+                        classes: ["qc-journal-dialog"]
+                    }).render(true);
                 } else {
                     ui.notifications.warn("Lazy GM journal not found.");
                 }
