@@ -15,6 +15,7 @@ import { CR_TABLE } from "../data/cr-table.js";
 import { ARCHETYPES } from "../data/archetypes.js";
 import { MONSTER_FEATURES } from "../data/features.js";
 import { TokenPickerApp } from "./quick-creatures-tokens.js";
+import { CreditsDialog } from "./credits-dialog.js";
 import { discoverPacks, getDefaultToken, tokenImagePath } from "../data/token-packs.js";
 
 /** @type {string} Base path for module assets */
@@ -302,27 +303,12 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             });
         }
 
-        // Credits button — opens credits dialog
+        // Credits button — opens CreditsDialog (Handlebars ApplicationV2)
         const creditsBtn = html.querySelector("#qc-credits-btn");
         if (creditsBtn) {
             creditsBtn.addEventListener("click", (ev) => {
                 ev.preventDefault();
-                const creditsHTML = `<div style="line-height:1.7;color:#ccc">
-<p>This work includes material taken from the <a href="https://slyflourish.com/lazy_5e_monster_building_resource_document.html">Lazy GM's 5e Monster Builder Resource Document</a> written by Teos Abadía of <a href="https://alphastream.org">Alphastream.org</a>, Scott Fitzgerald Gray of <a href="https://insaneangel.com">Insaneangel.com</a>, and Michael E. Shea of <a href="https://slyflourish.com">SlyFlourish.com</a>, available under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
-
-<p>Original Foundry VTT module: <a href="https://github.com/SetaSensei/lazy-monster-builder">Lazy Monster Builder</a> by Seta Sensei. <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></p>
-
-<p><a href="https://opengameart.org/users/justin-nichol">Cute Tokens</a> by Justin Nichol. <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></p>
-
-<p><a href="https://github.com/jonmichaels/quick-creatures">Quick Creatures</a> by Jon Michaels. Coded by Hephaestus, a Hermes AI-Coding Agent.</p>
-
-<p>This module is released under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
-</div>`;
-                new foundry.applications.api.Dialog({
-                    title: "Quick Creatures — Credits",
-                    content: creditsHTML,
-                    buttons: [{ action: "close", icon: "fas fa-times", label: "Close" }]
-                }).render(true);
+                new CreditsDialog().render(true);
             });
         }
 
