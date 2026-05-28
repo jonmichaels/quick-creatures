@@ -191,12 +191,11 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
         for (const [key, abl] of Object.entries(abilities)) {
             const short = keyMap[key] || key;
             const isFull = abl.mod >= pb;
-            // Full: score subtracts 5E prof (18 at CR4), mod field bridges the gap
-            // Half/off: mod directly → score
+            // Score: subtract 5E prof so it looks standard (18 not 22 at CR4)
+            // Modifier: set via ActiveEffect override after creation
             const realMod = isFull ? abl.mod - prof5E : (abl.mod || 0);
             converted[short] = {
                 value: 10 + realMod * 2,
-                mod: isFull ? prof5E : 0,
                 proficient: 0,
             };
         }
