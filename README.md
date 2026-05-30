@@ -2,10 +2,10 @@
 
 > **⚠️ Disclaimer:** This module was created by an AI coding agent (Hephaestus, via Hermes Agent) under the direction of Jon Michaels. While tested and functional, users should verify behavior in their own games before relying on it in critical sessions.
 
-[![Foundry VTT](https://img.shields.io/badge/Foundry-v13-orange)](https://foundryvtt.com)
+[![Foundry VTT](https://img.shields.io/badge/Foundry-v13%20%7C%20v14-orange)](https://foundryvtt.com)
 [![D&D 5E](https://img.shields.io/badge/System-D%26D%205E-red)](https://dnd.wizards.com)
 [![Black Flag](https://img.shields.io/badge/System-Black%20Flag%20%2F%20ToV-blue)](https://github.com/koboldpress/black-flag)
-[![Version](https://img.shields.io/badge/Version-1.0.0-green)](https://github.com/jonmichaels/quick-creatures/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.1-green)](https://github.com/jonmichaels/quick-creatures/releases)
 
 Quickly generate custom monsters for **D&D 5E** and **Black Flag (Tales of the Valiant)**. Based on the [Lazy GM's 5e Monster Builder Resource Document](https://slyflourish.com/lazy_5e_monster_building_resource_document.html) (CC-BY 4.0). Select a Challenge Rating or archetype stat block, pick creature features, and create a fully-statted NPC in seconds.
 
