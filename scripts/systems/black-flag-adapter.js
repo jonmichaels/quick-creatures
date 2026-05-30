@@ -551,19 +551,6 @@ export function createFeatureItem(feature, stats) {
         delete item.system.proficient;   // dnd5e weapon proficiency
     }
 
-    // Handle effect features (Energy Weapons bonus damage)
-    if (feature.isEffect && item.effects) {
-        const dmg = stats.DpACalc;
-        for (const effect of item.effects) {
-            effect.changes = effect.changes.map(change => {
-                if (change.key.includes("damage")) {
-                    return { ...change, value: dmg };
-                }
-                return change;
-            });
-        }
-    }
-
     return item;
 }
 

@@ -198,7 +198,6 @@ const MONSTER_FEATURES = [
     },
     {
         name: "Energy Weapons",
-        isEffect: true,
         isDmg: true,
         bfActivity: { type: "attack", activation: "action" },
         desc: "The creature's weapon attacks deal extra damage of an appropriate type. You can add this damage on top of the creature's regular damage output to give them a combat boost, or you can replace some of the creature's normal weapon damage with this energy damage.",
@@ -219,19 +218,6 @@ const MONSTER_FEATURES = [
                 },
                 properties: ["mgc"],
             },
-            effects: [
-                {
-                    name: "Energy Weapons",
-                    icon: "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
-                    disabled: false,
-                    changes: [
-                        { key: "system.bonuses.mwak.damage", mode: 2, value: "" },
-                        { key: "system.bonuses.rwak.damage", mode: 2, value: "" },
-                        { key: "system.bonuses.rsak.damage", mode: 2, value: "" },
-                        { key: "system.bonuses.msak.damage", mode: 2, value: "" },
-                    ],
-                },
-            ],
         },
     },
     {

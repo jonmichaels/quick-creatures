@@ -479,11 +479,6 @@ export function createFeatureItem(feature, stats) {
         itemData.system.activities = built.activities;
     }
 
-    // Attach active effects (Energy Weapons)
-    if (built.effects) {
-        itemData.effects = built.effects;
-    }
-
     return itemData;
 }
 
