@@ -271,11 +271,14 @@ export async function createActor(app, html) {
 
     // Set creature size, token dimensions, and dynamic ring
     const sizeMap = { "Tiny": 0.5, "Small": 1, "Medium": 1, "Large": 2, "Huge": 3, "Gargantuan": 4 };
-    const sizeAbbrev = { "Tiny": "tiny", "Small": "sm", "Medium": "med", "Large": "lg", "Huge": "huge", "Gargantuan": "grg" };
+    // dnd5e uses abbreviated size keys (sm, med, lg, grg); Black Flag uses full words
+    const sizeAbbrev = game.system.id === "dnd5e"
+        ? { "Tiny": "tiny", "Small": "sm", "Medium": "med", "Large": "lg", "Huge": "huge", "Gargantuan": "grg" }
+        : null;
     const tokenSize = sizeMap[creatureSize] || 1;
     try {
         const updates = {
-            "system.traits.size": sizeAbbrev[creatureSize] || creatureSize.toLowerCase(),
+            "system.traits.size": (sizeAbbrev ? sizeAbbrev[creatureSize] : creatureSize.toLowerCase()),
             "prototypeToken.width": tokenSize,
             "prototypeToken.height": tokenSize,
         };
