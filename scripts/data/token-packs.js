@@ -70,7 +70,7 @@ const EMBEDDED_TOKENS = {
     ],
     Fiend: [
       { file: "Fiend/monster_abyssal.webp", name: "Abyssal" },
-      { file: "Fiend/monster_gnoll.webp", name: "Gnoll" },
+      { file: "Fiend/monster_devilkin.webp", name: "Devilkin" },
       { file: "Fiend/monster_hellion.webp", name: "Hellion" },
       { file: "Fiend/monster_hellionminstrel.webp", name: "Hellion Minstrel" },
       { file: "Fiend/monster_heresiarch.webp", name: "Heresiarch" },
