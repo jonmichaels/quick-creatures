@@ -685,7 +685,9 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
         prototypeToken: {
             name,
             texture: { src: tokenPath },
-            displayName: CONST.TOKEN_DISPLAY_MODES.ALWAYS,
+            displayName: CONST.TOKEN_DISPLAY_MODES.HOVER,
+            displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER,
+            lockRotation: true,
             actorLink: true,
         },
     };
