@@ -16,7 +16,7 @@ import { ARCHETYPES } from "../data/archetypes.js";
 import { MONSTER_FEATURES } from "../data/features.js";
 import { TokenPickerApp } from "./quick-creatures-tokens.js";
 import { CreditsDialog } from "./credits-dialog.js";
-import { discoverPacks, getDefaultToken, tokenImagePath } from "../data/token-packs.js";
+import { discoverPacks, getDefaultToken, getDefaultTokenEntry, getTokenSetChoices, tokenImagePath } from "../data/token-packs.js";
 
 /** @type {string} Base path for module assets */
 const MODULE_PATH = "modules/quick-creatures";
@@ -69,6 +69,18 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
 
     /** @type {string|null} Path to currently selected token image (relative to pack) */
     _currentToken = null;
+
+    /** @type {string|null} Path to selected dynamic-ring subject image */
+    _currentTokenSubject = null;
+
+    /** @type {string|null} Path to selected actor portrait image */
+    _currentTokenPortrait = null;
+
+    /** @type {number} Dynamic-ring subject scale for selected token */
+    _currentTokenScale = 1;
+
+    /** @type {Array<object>} Available token packs for preview defaults */
+    _packs = [];
 
     /** @override */
     static DEFAULT_OPTIONS = {
@@ -170,6 +182,10 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         }));
 
         const defaultType = game.settings?.get("quick-creatures", "defaultType") || "Aberration";
+        this._packs = await discoverPacks();
+        if (!this._packs.some(pack => pack.id === this._tokenPack)) {
+            this._tokenPack = "Original_Tokens";
+        }
 
         // Size setting used an array `choices` pre-0.2.0, which stored the index
         // rather than the value. Map numeric strings to size names for backward compat.
@@ -269,6 +285,9 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             typeSelect.addEventListener("change", () => {
                 const displayType = typeSelect.options[typeSelect.selectedIndex]?.value || defaultType;
                 this._currentToken = null; // reset custom selection
+                this._currentTokenSubject = null;
+                this._currentTokenPortrait = null;
+                this._currentTokenScale = 1;
                 const tokenImg = html.querySelector("#token-preview");
                 if (tokenImg) {
                     tokenImg.src = this._getTokenPreviewSrc(displayType);
@@ -329,8 +348,11 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
                     monsterType,
                     currentPack: this._tokenPack,
                     currentToken: this._currentToken,
-                    onSelect: (path, pack) => {
+                    onSelect: (path, pack, token = {}) => {
                         this._currentToken = path;
+                        this._currentTokenSubject = token.subject || null;
+                        this._currentTokenPortrait = token.portrait || null;
+                        this._currentTokenScale = token.scale ?? 1;
                         this._tokenPack = pack;
                         const tokenImg = html.querySelector("#token-preview");
                         if (tokenImg) {
@@ -507,6 +529,12 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         if (this._currentToken) return this._currentToken;
 
         // Otherwise use the current pack's default for this type
+        const pack = this._packs.find(p => p.id === this._tokenPack);
+        const defaultEntry = pack?.tokens?.[type]?.[0];
+        if (defaultEntry) {
+            return tokenImagePath(this._tokenPack, defaultEntry.file);
+        }
+
         const defaultFile = getDefaultToken(this._tokenPack, type);
         if (defaultFile) {
             return tokenImagePath(this._tokenPack, defaultFile);
@@ -571,6 +599,14 @@ export async function initQuickCreatures() {
         type: Boolean,
         default: true,
     });
+    game.settings.register("quick-creatures", "enablePathfinderTokensBestiaries", {
+        name: "quick-creatures.settings.enablePathfinderTokensBestiaries.name",
+        hint: "quick-creatures.settings.enablePathfinderTokensBestiaries.hint",
+        scope: "world",
+        config: true,
+        type: Boolean,
+        default: true,
+    });
     game.settings.register("quick-creatures", "defaultTokenSet", {
         name: "quick-creatures.settings.defaultTokenSet.name",
         hint: "quick-creatures.settings.defaultTokenSet.hint",
@@ -578,7 +614,7 @@ export async function initQuickCreatures() {
         config: true,
         type: String,
         default: "Original_Tokens",
-        choices: { "Original_Tokens": "Original Tokens", "Cute_Tokens": "Cute Tokens" },
+        choices: getTokenSetChoices(),
     });
     game.settings.register("quick-creatures", "defaultArchetype", {
         name: "quick-creatures.settings.defaultArchetype.name",

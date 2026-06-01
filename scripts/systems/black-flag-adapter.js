@@ -564,7 +564,7 @@ function parseCR(crStr) {
     return Number(str) || 0;
 }
 
-export function buildActorData(name, stats, type, abilities, tokenPath) {
+export function buildActorData(name, stats, type, abilities, tokenPath, portraitPath = tokenPath) {
     const cr = parseCR(stats.CR);
     const bfAbilities = {};
     const ablKeys = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
@@ -661,7 +661,7 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
     return {
         name,
         type: "npc",
-        img: tokenPath,
+        img: portraitPath,
         system: {
             attributes: attrs,
             traits: { type: { value: type.toLowerCase() } },

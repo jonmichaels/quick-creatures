@@ -61,6 +61,10 @@
                 "name": "Default Token Set",
                 "hint": "Default token pack used for creature portraits."
             },
+            "enablePathfinderTokensBestiaries": {
+                "name": "Use Pathfinder Tokens: Bestiaries",
+                "hint": "When the pf2e-tokens-bestiaries module is active, offer its artwork as a Quick Creatures token set."
+            },
             "defaultArchetype": {
                 "name": "Default Archetype",
                 "hint": "Default archetype when opening the Archetype tab."

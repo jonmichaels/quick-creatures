@@ -77,6 +77,10 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
           currentTokenFile = this._currentToken.slice(prefix.length);
           break;
         }
+        if (pack.tokens && Object.values(pack.tokens).some(tokens => tokens.some(t => t.file === this._currentToken))) {
+          currentTokenFile = this._currentToken;
+          break;
+        }
       }
     }
 
@@ -116,7 +120,7 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
       const q = this._searchQuery.toLowerCase();
       tokens = tokens.filter(t => t.name.toLowerCase().includes(q));
     }
-    return tokens;
+    return tokens.map(t => ({ ...t, src: tokenImagePath(pack.id, t.file) }));
   }
 
   /**
@@ -136,7 +140,7 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
           tokens = tokens.filter(t => t.name.toLowerCase().includes(q));
         }
         if (tokens.length > 0) {
-          result.push({ type, tokens });
+          result.push({ type, tokens: tokens.map(t => ({ ...t, src: tokenImagePath(pack.id, t.file) })) });
         }
       }
     }
@@ -217,9 +221,12 @@ class TokenPickerApp extends foundry.applications.api.HandlebarsApplicationMixin
     html.querySelectorAll(".qc-token-tile").forEach(tile => {
       tile.addEventListener("click", (ev) => {
         const file = ev.currentTarget.dataset.file;
-        const pack = ev.currentTarget.dataset.pack;
-        if (file && pack) {
-          this._onSelect(tokenImagePath(pack, file), pack);
+        const packId = ev.currentTarget.dataset.pack;
+        const type = ev.currentTarget.dataset.type || this.monsterType;
+        const pack = this._packs.find(p => p.id === packId);
+        const token = pack?.tokens?.[type]?.find(t => t.file === file) || {};
+        if (file && packId) {
+          this._onSelect(tokenImagePath(packId, file), packId, token);
           this.close();
         }
       });

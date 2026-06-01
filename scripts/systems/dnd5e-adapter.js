@@ -512,7 +512,7 @@ function get5EProf(pb) {
 /**
  * Build the full Actor creation data object for dnd5e.
  */
-export function buildActorData(name, stats, type, abilities, tokenPath) {
+export function buildActorData(name, stats, type, abilities, tokenPath, portraitPath = tokenPath) {
     const cr = parseCR(stats.CR);
 
     // Convert CR-mode abilities (detected by mod field) to real 5E scores
@@ -565,7 +565,7 @@ export function buildActorData(name, stats, type, abilities, tokenPath) {
     const data = {
         name,
         type: "npc",
-        img: tokenPath,
+        img: portraitPath,
         system: {
             attributes: {
                 ac: {

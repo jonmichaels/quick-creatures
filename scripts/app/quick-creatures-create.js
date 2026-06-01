@@ -8,7 +8,7 @@
 import { registry } from "../registry.js";
 import * as dnd5eAdapter from "../systems/dnd5e-adapter.js";
 import * as blackFlagAdapter from "../systems/black-flag-adapter.js";
-import { getDefaultToken } from "../data/token-packs.js";
+import { getDefaultToken, getDefaultTokenEntry, tokenImagePath } from "../data/token-packs.js";
 import { CR_TABLE } from "../data/cr-table.js";
 
 /** @type {string} Base path for module assets */
@@ -245,19 +245,28 @@ export async function createActor(app, html) {
 
     // Token image path — use user-selected token or pack default
     let tokenPath;
+    let tokenSubjectPath = app._currentTokenSubject || null;
+    let tokenPortraitPath = app._currentTokenPortrait || null;
+    let tokenSubjectScale = app._currentTokenScale ?? 1;
     if (app._currentToken) {
         tokenPath = app._currentToken;
     } else {
-        const defaultFile = getDefaultToken(app._tokenPack, monsterType);
-        if (defaultFile) {
-            tokenPath = `${MODULE_PATH}/assets/${app._tokenPack}/${defaultFile}`;
+        const defaultEntry = await getDefaultTokenEntry(app._tokenPack, monsterType);
+        if (defaultEntry) {
+            tokenPath = tokenImagePath(app._tokenPack, defaultEntry.file);
+            tokenSubjectPath = defaultEntry.subject || null;
+            tokenPortraitPath = defaultEntry.portrait || null;
+            tokenSubjectScale = defaultEntry.scale ?? 1;
         } else {
-            tokenPath = `${MODULE_PATH}/assets/Original_Tokens/${monsterType}/${monsterType.toLowerCase()}.webp`;
+            const defaultFile = getDefaultToken("Original_Tokens", monsterType);
+            tokenPath = defaultFile
+                ? tokenImagePath("Original_Tokens", defaultFile)
+                : `${MODULE_PATH}/assets/Original_Tokens/${monsterType}/${monsterType.toLowerCase()}.webp`;
         }
     }
 
     // Build actor data through the adapter
-    const actorData = adapter.buildActorData(name, stats, monsterType, abilities, tokenPath);
+    const actorData = adapter.buildActorData(name, stats, monsterType, abilities, tokenPath, tokenPortraitPath || tokenPath);
 
     // Create the actor
     let actor;
@@ -284,8 +293,8 @@ export async function createActor(app, html) {
         };
         if (dynamicRing) {
             updates["prototypeToken.ring.enabled"] = true;
-            updates["prototypeToken.ring.subject.texture"] = tokenPath;
-            updates["prototypeToken.ring.subject.scale"] = 1;
+            updates["prototypeToken.ring.subject.texture"] = tokenSubjectPath || tokenPath;
+            updates["prototypeToken.ring.subject.scale"] = tokenSubjectScale;
         }
         await actor.update(updates);
     } catch (e) {

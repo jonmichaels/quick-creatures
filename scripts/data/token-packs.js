@@ -18,6 +18,9 @@ const TYPES = [
   "Monstrosity", "Ooze", "Plant", "Undead",
 ];
 
+const PF2E_TOKENS_BESTIARIES_ID = "pf2e-tokens-bestiaries";
+const PF2E_TOKENS_BESTIARIES_DATASHEET = `modules/${PF2E_TOKENS_BESTIARIES_ID}/datasheet-bestiaries.json`;
+
 /**
  * Embedded token file listings per pack.
  * Original_Tokens: one .webp per type folder, file = type.toLowerCase().
@@ -154,6 +157,124 @@ const EMBEDDED_TOKENS = {
   },
 };
 
+
+const BUILT_IN_PACK_NAMES = {
+  Original_Tokens: "Original Tokens",
+  Cute_Tokens: "Cute Tokens",
+};
+
+const PATHFINDER_TYPE_OVERRIDES = {
+  "aberrant/monstrous": "Monstrosity",
+  "aberrant/ooze": "Ooze",
+  "bestial/mythological": "Monstrosity",
+  "humanoid/giant": "Giant",
+  "humanoid/hag": "Fey",
+  "humanoid/kobold": "Dragon",
+  "humanoid/troll": "Giant",
+  "humanoid/werecreature": "Monstrosity",
+};
+
+const PATHFINDER_PRIMARY_TYPE_MAP = {
+  aberrant: "Aberration",
+  bestial: "Beast",
+  constructed: "Construct",
+  divine: "Celestial",
+  draconic: "Dragon",
+  elemental: "Elemental",
+  fey: "Fey",
+  fiendish: "Fiend",
+  humanoid: "Humanoid",
+  monitor: "Celestial",
+  planar: "Celestial",
+  plant: "Plant",
+  undead: "Undead",
+};
+
+/**
+ * Is Pathfinder Tokens: Bestiaries installed and active?
+ * @param {object} [gameLike=game]
+ * @returns {boolean}
+ */
+export function isPathfinderTokensBestiariesAvailable(gameLike = globalThis.game) {
+  const module = gameLike?.modules?.get?.(PF2E_TOKENS_BESTIARIES_ID);
+  return Boolean(module?.active);
+}
+
+/**
+ * Should the Pathfinder token set be offered?
+ * @param {object} [gameLike=game]
+ * @returns {boolean}
+ */
+export function shouldUsePathfinderTokensBestiaries(gameLike = globalThis.game) {
+  if (!isPathfinderTokensBestiariesAvailable(gameLike)) return false;
+  const settings = gameLike?.settings;
+  if (!settings?.get) return true;
+  try {
+    return settings.get("quick-creatures", "enablePathfinderTokensBestiaries") !== false;
+  } catch (_e) {
+    return true;
+  }
+}
+
+/**
+ * Token-set choices for Foundry settings.
+ * @param {object} [gameLike=game]
+ * @returns {Record<string, string>}
+ */
+export function getTokenSetChoices(gameLike = globalThis.game) {
+  const choices = { ...BUILT_IN_PACK_NAMES };
+  if (shouldUsePathfinderTokensBestiaries(gameLike)) {
+    choices[PF2E_TOKENS_BESTIARIES_ID] = "Pathfinder Tokens: Bestiaries";
+  }
+  return choices;
+}
+
+/**
+ * Map Pathfinder Tokens category path to one of Quick Creatures' 14 creature types.
+ * @param {string[]} categories
+ * @returns {string|null}
+ */
+export function mapPathfinderCategoriesToType(categories = []) {
+  const normalized = categories.map(c => String(c).toLowerCase());
+  const exact = PATHFINDER_TYPE_OVERRIDES[normalized.join("/")];
+  if (exact) return exact;
+  return PATHFINDER_PRIMARY_TYPE_MAP[normalized[0]] || null;
+}
+
+/**
+ * Build a Quick Creatures token pack from the Pathfinder datasheet.
+ * @param {Array<object>} datasheet
+ * @returns {object}
+ */
+export function createPathfinderBestiariesPack(datasheet = []) {
+  const tokens = Object.fromEntries(TYPES.map(type => [type, []]));
+
+  for (const entry of datasheet) {
+    const type = mapPathfinderCategoriesToType(entry?.tags?.category || []);
+    const token = entry?.art?.token;
+    if (!type || !token) continue;
+    tokens[type].push({
+      file: token,
+      name: entry.label || nameFromFile(token.split("/").pop() || token),
+      subject: entry.art?.subject || null,
+      portrait: entry.art?.portrait || null,
+      scale: entry.art?.scale ?? 1,
+    });
+  }
+
+  for (const list of Object.values(tokens)) {
+    list.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  return {
+    id: PF2E_TOKENS_BESTIARIES_ID,
+    name: "Pathfinder Tokens: Bestiaries",
+    description: "Artwork from the Pathfinder Tokens: Bestiaries module.",
+    defaults: {},
+    tokens,
+  };
+}
+
 /**
  * Display-friendly name from a filename (remove extension, replace underscores).
  * @param {string} filename
@@ -189,6 +310,13 @@ export async function discoverPacks() {
     }
   }
 
+  if (shouldUsePathfinderTokensBestiaries()) {
+    const datasheet = await _loadJson(PF2E_TOKENS_BESTIARIES_DATASHEET);
+    if (Array.isArray(datasheet)) {
+      results.push(createPathfinderBestiariesPack(datasheet));
+    }
+  }
+
   return results;
 }
 
@@ -205,13 +333,45 @@ export function getDefaultToken(packId, type) {
 }
 
 /**
+ * Get the default token entry for a creature type in a pack.
+ * @param {string} packId
+ * @param {string} type
+ * @returns {Promise<object|null>}
+ */
+export async function getDefaultTokenEntry(packId, type) {
+  if (EMBEDDED_TOKENS[packId]?.[type]?.length) return EMBEDDED_TOKENS[packId][type][0];
+  if (packId !== PF2E_TOKENS_BESTIARIES_ID || !shouldUsePathfinderTokensBestiaries()) return null;
+  const datasheet = await _loadJson(PF2E_TOKENS_BESTIARIES_DATASHEET);
+  if (!Array.isArray(datasheet)) return null;
+  const pack = createPathfinderBestiariesPack(datasheet);
+  return pack.tokens[type]?.[0] || null;
+}
+
+/**
  * Get the full module-relative image path for a token.
  * @param {string} packId
  * @param {string} file - Relative path within pack e.g. "Aberration/aberration.webp"
  * @returns {string} Full module path e.g. "modules/quick-creatures/assets/Original_Tokens/Aberration/aberration.webp"
  */
 export function tokenImagePath(packId, file) {
+  if (packId === PF2E_TOKENS_BESTIARIES_ID) return file;
   return `${MODULE_PATH}/assets/${packId}/${file}`;
+}
+
+/**
+ * Load JSON via fetch.
+ * @param {string} path
+ * @returns {Promise<object|null>}
+ */
+async function _loadJson(path) {
+  try {
+    const resp = await fetch(path);
+    if (!resp.ok) return null;
+    return await resp.json();
+  } catch (e) {
+    console.warn(`Quick Creatures | Failed to load JSON: ${path}`, e);
+    return null;
+  }
 }
 
 /**
