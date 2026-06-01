@@ -153,6 +153,37 @@ function readFormData(app, html) {
 }
 
 /**
+ * Build prototype token update data for size, texture scale, and dynamic ring.
+ * @param {string} creatureSize
+ * @param {number} tokenArtworkScale
+ * @param {boolean} dynamicRing
+ * @param {string} tokenPath
+ * @param {string|null} tokenSubjectPath
+ * @returns {object}
+ */
+export function buildPrototypeTokenUpdates(creatureSize, tokenArtworkScale, dynamicRing, tokenPath, tokenSubjectPath = null) {
+    const sizeMap = { "Tiny": 0.5, "Small": 1, "Medium": 1, "Large": 2, "Huge": 3, "Gargantuan": 4 };
+    const sizeAbbrev = game.system.id === "dnd5e"
+        ? { "Tiny": "tiny", "Small": "sm", "Medium": "med", "Large": "lg", "Huge": "huge", "Gargantuan": "grg" }
+        : null;
+    const tokenSize = sizeMap[creatureSize] || 1;
+    const scale = Number(tokenArtworkScale) || 1;
+    const updates = {
+        "system.traits.size": (sizeAbbrev ? sizeAbbrev[creatureSize] : creatureSize.toLowerCase()),
+        "prototypeToken.width": tokenSize,
+        "prototypeToken.height": tokenSize,
+        "prototypeToken.texture.scaleX": scale,
+        "prototypeToken.texture.scaleY": scale,
+    };
+    if (dynamicRing) {
+        updates["prototypeToken.ring.enabled"] = true;
+        updates["prototypeToken.ring.subject.texture"] = tokenSubjectPath || tokenPath;
+        updates["prototypeToken.ring.subject.scale"] = scale;
+    }
+    return updates;
+}
+
+/**
  * Create an Actor from the form data in the QuickCreaturesApp.
  * @param {ApplicationV2} app - The QuickCreaturesApp instance
  * @param {HTMLElement} html - The rendered HTML element
@@ -278,24 +309,9 @@ export async function createActor(app, html) {
         return null;
     }
 
-    // Set creature size, token dimensions, and dynamic ring
-    const sizeMap = { "Tiny": 0.5, "Small": 1, "Medium": 1, "Large": 2, "Huge": 3, "Gargantuan": 4 };
-    // dnd5e uses abbreviated size keys (sm, med, lg, grg); Black Flag uses full words
-    const sizeAbbrev = game.system.id === "dnd5e"
-        ? { "Tiny": "tiny", "Small": "sm", "Medium": "med", "Large": "lg", "Huge": "huge", "Gargantuan": "grg" }
-        : null;
-    const tokenSize = sizeMap[creatureSize] || 1;
+    // Set creature size, token dimensions, artwork scale, and dynamic ring
     try {
-        const updates = {
-            "system.traits.size": (sizeAbbrev ? sizeAbbrev[creatureSize] : creatureSize.toLowerCase()),
-            "prototypeToken.width": tokenSize,
-            "prototypeToken.height": tokenSize,
-        };
-        if (dynamicRing) {
-            updates["prototypeToken.ring.enabled"] = true;
-            updates["prototypeToken.ring.subject.texture"] = tokenSubjectPath || tokenPath;
-            updates["prototypeToken.ring.subject.scale"] = tokenSubjectScale;
-        }
+        const updates = buildPrototypeTokenUpdates(creatureSize, tokenSubjectScale, dynamicRing, tokenPath, tokenSubjectPath);
         await actor.update(updates);
     } catch (e) {
         console.warn("Quick Creatures | Failed to set creature size:", e);
