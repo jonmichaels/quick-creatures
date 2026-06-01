@@ -599,14 +599,6 @@ export async function initQuickCreatures() {
         type: Boolean,
         default: true,
     });
-    game.settings.register("quick-creatures", "enablePathfinderTokensBestiaries", {
-        name: "quick-creatures.settings.enablePathfinderTokensBestiaries.name",
-        hint: "quick-creatures.settings.enablePathfinderTokensBestiaries.hint",
-        scope: "world",
-        config: true,
-        type: Boolean,
-        default: true,
-    });
     game.settings.register("quick-creatures", "defaultTokenSet", {
         name: "quick-creatures.settings.defaultTokenSet.name",
         hint: "quick-creatures.settings.defaultTokenSet.hint",
@@ -614,7 +606,7 @@ export async function initQuickCreatures() {
         config: true,
         type: String,
         default: "Original_Tokens",
-        choices: getTokenSetChoices(),
+        choices: getTokenSetChoices(game, { respectSettings: false }),
     });
     game.settings.register("quick-creatures", "defaultArchetype", {
         name: "quick-creatures.settings.defaultArchetype.name",
@@ -624,6 +616,22 @@ export async function initQuickCreatures() {
         type: String,
         default: "Soldier",
         choices: Object.fromEntries(ARCHETYPES.map(a => [a.name, `${a.name} (CR ${a.CR})`])),
+    });
+    game.settings.register("quick-creatures", "enablePathfinderTokensBestiaries", {
+        name: "quick-creatures.settings.enablePathfinderTokensBestiaries.name",
+        hint: "quick-creatures.settings.enablePathfinderTokensBestiaries.hint",
+        scope: "world",
+        config: true,
+        type: Boolean,
+        default: true,
+    });
+    game.settings.register("quick-creatures", "enablePathfinderTokensMonsterCore", {
+        name: "quick-creatures.settings.enablePathfinderTokensMonsterCore.name",
+        hint: "quick-creatures.settings.enablePathfinderTokensMonsterCore.hint",
+        scope: "world",
+        config: true,
+        type: Boolean,
+        default: true,
     });
 
     // Register Handlebars helpers (not available by default in Foundry)

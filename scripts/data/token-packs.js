@@ -19,7 +19,24 @@ const TYPES = [
 ];
 
 const PF2E_TOKENS_BESTIARIES_ID = "pf2e-tokens-bestiaries";
-const PF2E_TOKENS_BESTIARIES_DATASHEET = `modules/${PF2E_TOKENS_BESTIARIES_ID}/datasheet-bestiaries.json`;
+const PF2E_TOKENS_MONSTER_CORE_ID = "pf2e-tokens-monster-core";
+
+const PATHFINDER_TOKEN_PACKS = {
+  [PF2E_TOKENS_BESTIARIES_ID]: {
+    id: PF2E_TOKENS_BESTIARIES_ID,
+    name: "Pathfinder Tokens: Bestiaries",
+    description: "Artwork from the Pathfinder Tokens: Bestiaries module.",
+    settingKey: "enablePathfinderTokensBestiaries",
+    datasheet: `modules/${PF2E_TOKENS_BESTIARIES_ID}/datasheet-bestiaries.json`,
+  },
+  [PF2E_TOKENS_MONSTER_CORE_ID]: {
+    id: PF2E_TOKENS_MONSTER_CORE_ID,
+    name: "Pathfinder Tokens: Monster Core",
+    description: "Artwork from the Pathfinder Tokens: Monster Core module.",
+    settingKey: "enablePathfinderTokensMonsterCore",
+    datasheet: `modules/${PF2E_TOKENS_MONSTER_CORE_ID}/assets/datasheet/datasheet.json`,
+  },
+};
 
 /**
  * Embedded token file listings per pack.
@@ -174,6 +191,13 @@ const PATHFINDER_TYPE_OVERRIDES = {
   "humanoid/werecreature": "Monstrosity",
 };
 
+const PATHFINDER_CATEGORY_OVERRIDES = {
+  giant: "Giant",
+  hag: "Fey",
+  ooze: "Ooze",
+  troll: "Giant",
+};
+
 const PATHFINDER_PRIMARY_TYPE_MAP = {
   aberrant: "Aberration",
   bestial: "Beast",
@@ -196,24 +220,57 @@ const PATHFINDER_PRIMARY_TYPE_MAP = {
  * @returns {boolean}
  */
 export function isPathfinderTokensBestiariesAvailable(gameLike = globalThis.game) {
-  const module = gameLike?.modules?.get?.(PF2E_TOKENS_BESTIARIES_ID);
+  return isPathfinderTokenPackAvailable(PF2E_TOKENS_BESTIARIES_ID, gameLike);
+}
+
+/**
+ * Is Pathfinder Tokens: Monster Core installed and active?
+ * @param {object} [gameLike=game]
+ * @returns {boolean}
+ */
+export function isPathfinderTokensMonsterCoreAvailable(gameLike = globalThis.game) {
+  return isPathfinderTokenPackAvailable(PF2E_TOKENS_MONSTER_CORE_ID, gameLike);
+}
+
+function isPathfinderTokenPackAvailable(packId, gameLike = globalThis.game) {
+  const module = gameLike?.modules?.get?.(packId);
   return Boolean(module?.active);
 }
 
 /**
- * Should the Pathfinder token set be offered?
+ * Should a Pathfinder token set be offered?
+ * @param {string} packId
+ * @param {object} [gameLike=game]
+ * @returns {boolean}
+ */
+export function shouldUsePathfinderTokenPack(packId, gameLike = globalThis.game) {
+  const pack = PATHFINDER_TOKEN_PACKS[packId];
+  if (!pack || !isPathfinderTokenPackAvailable(packId, gameLike)) return false;
+  const settings = gameLike?.settings;
+  if (!settings?.get) return true;
+  try {
+    return settings.get("quick-creatures", pack.settingKey) !== false;
+  } catch (_e) {
+    return true;
+  }
+}
+
+/**
+ * Should the Pathfinder Bestiaries token set be offered?
  * @param {object} [gameLike=game]
  * @returns {boolean}
  */
 export function shouldUsePathfinderTokensBestiaries(gameLike = globalThis.game) {
-  if (!isPathfinderTokensBestiariesAvailable(gameLike)) return false;
-  const settings = gameLike?.settings;
-  if (!settings?.get) return true;
-  try {
-    return settings.get("quick-creatures", "enablePathfinderTokensBestiaries") !== false;
-  } catch (_e) {
-    return true;
-  }
+  return shouldUsePathfinderTokenPack(PF2E_TOKENS_BESTIARIES_ID, gameLike);
+}
+
+/**
+ * Should the Pathfinder Monster Core token set be offered?
+ * @param {object} [gameLike=game]
+ * @returns {boolean}
+ */
+export function shouldUsePathfinderTokensMonsterCore(gameLike = globalThis.game) {
+  return shouldUsePathfinderTokenPack(PF2E_TOKENS_MONSTER_CORE_ID, gameLike);
 }
 
 /**
@@ -221,10 +278,14 @@ export function shouldUsePathfinderTokensBestiaries(gameLike = globalThis.game) 
  * @param {object} [gameLike=game]
  * @returns {Record<string, string>}
  */
-export function getTokenSetChoices(gameLike = globalThis.game) {
+export function getTokenSetChoices(gameLike = globalThis.game, options = {}) {
+  const { respectSettings = true } = options;
   const choices = { ...BUILT_IN_PACK_NAMES };
-  if (shouldUsePathfinderTokensBestiaries(gameLike)) {
-    choices[PF2E_TOKENS_BESTIARIES_ID] = "Pathfinder Tokens: Bestiaries";
+  for (const pack of Object.values(PATHFINDER_TOKEN_PACKS)) {
+    const enabled = respectSettings
+      ? shouldUsePathfinderTokenPack(pack.id, gameLike)
+      : isPathfinderTokenPackAvailable(pack.id, gameLike);
+    if (enabled) choices[pack.id] = pack.name;
   }
   return choices;
 }
@@ -238,15 +299,22 @@ export function mapPathfinderCategoriesToType(categories = []) {
   const normalized = categories.map(c => String(c).toLowerCase());
   const exact = PATHFINDER_TYPE_OVERRIDES[normalized.join("/")];
   if (exact) return exact;
-  return PATHFINDER_PRIMARY_TYPE_MAP[normalized[0]] || null;
+  for (const category of normalized) {
+    if (PATHFINDER_CATEGORY_OVERRIDES[category]) return PATHFINDER_CATEGORY_OVERRIDES[category];
+    if (PATHFINDER_PRIMARY_TYPE_MAP[category]) return PATHFINDER_PRIMARY_TYPE_MAP[category];
+  }
+  return null;
 }
 
 /**
- * Build a Quick Creatures token pack from the Pathfinder datasheet.
+ * Build a Quick Creatures token pack from a Pathfinder datasheet.
+ * @param {string} packId
+ * @param {string} packName
  * @param {Array<object>} datasheet
  * @returns {object}
  */
-export function createPathfinderBestiariesPack(datasheet = []) {
+export function createPathfinderTokenPack(packId, packName, datasheet = []) {
+  const config = PATHFINDER_TOKEN_PACKS[packId] || { description: `Artwork from the ${packName} module.` };
   const tokens = Object.fromEntries(TYPES.map(type => [type, []]));
 
   for (const entry of datasheet) {
@@ -267,12 +335,17 @@ export function createPathfinderBestiariesPack(datasheet = []) {
   }
 
   return {
-    id: PF2E_TOKENS_BESTIARIES_ID,
-    name: "Pathfinder Tokens: Bestiaries",
-    description: "Artwork from the Pathfinder Tokens: Bestiaries module.",
+    id: packId,
+    name: packName,
+    description: config.description,
     defaults: {},
     tokens,
   };
+}
+
+export function createPathfinderBestiariesPack(datasheet = []) {
+  const config = PATHFINDER_TOKEN_PACKS[PF2E_TOKENS_BESTIARIES_ID];
+  return createPathfinderTokenPack(config.id, config.name, datasheet);
 }
 
 /**
@@ -310,11 +383,10 @@ export async function discoverPacks() {
     }
   }
 
-  if (shouldUsePathfinderTokensBestiaries()) {
-    const datasheet = await _loadJson(PF2E_TOKENS_BESTIARIES_DATASHEET);
-    if (Array.isArray(datasheet)) {
-      results.push(createPathfinderBestiariesPack(datasheet));
-    }
+  for (const pack of Object.values(PATHFINDER_TOKEN_PACKS)) {
+    if (!shouldUsePathfinderTokenPack(pack.id)) continue;
+    const datasheet = await _loadJson(pack.datasheet);
+    if (Array.isArray(datasheet)) results.push(createPathfinderTokenPack(pack.id, pack.name, datasheet));
   }
 
   return results;
@@ -340,10 +412,11 @@ export function getDefaultToken(packId, type) {
  */
 export async function getDefaultTokenEntry(packId, type) {
   if (EMBEDDED_TOKENS[packId]?.[type]?.length) return EMBEDDED_TOKENS[packId][type][0];
-  if (packId !== PF2E_TOKENS_BESTIARIES_ID || !shouldUsePathfinderTokensBestiaries()) return null;
-  const datasheet = await _loadJson(PF2E_TOKENS_BESTIARIES_DATASHEET);
+  const packConfig = PATHFINDER_TOKEN_PACKS[packId];
+  if (!packConfig || !shouldUsePathfinderTokenPack(packId)) return null;
+  const datasheet = await _loadJson(packConfig.datasheet);
   if (!Array.isArray(datasheet)) return null;
-  const pack = createPathfinderBestiariesPack(datasheet);
+  const pack = createPathfinderTokenPack(packConfig.id, packConfig.name, datasheet);
   return pack.tokens[type]?.[0] || null;
 }
 
@@ -354,7 +427,7 @@ export async function getDefaultTokenEntry(packId, type) {
  * @returns {string} Full module path e.g. "modules/quick-creatures/assets/Original_Tokens/Aberration/aberration.webp"
  */
 export function tokenImagePath(packId, file) {
-  if (packId === PF2E_TOKENS_BESTIARIES_ID) return file;
+  if (PATHFINDER_TOKEN_PACKS[packId]) return file;
   return `${MODULE_PATH}/assets/${packId}/${file}`;
 }
 

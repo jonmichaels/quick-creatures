@@ -65,6 +65,10 @@
                 "name": "Use Pathfinder Tokens: Bestiaries",
                 "hint": "When the pf2e-tokens-bestiaries module is active, offer its artwork as a Quick Creatures token set."
             },
+            "enablePathfinderTokensMonsterCore": {
+                "name": "Use Pathfinder Tokens: Monster Core",
+                "hint": "When the pf2e-tokens-monster-core module is active, offer its artwork as a Quick Creatures token set."
+            },
             "defaultArchetype": {
                 "name": "Default Archetype",
                 "hint": "Default archetype when opening the Archetype tab."
