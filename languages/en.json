@@ -69,6 +69,10 @@
                 "name": "Use Pathfinder Tokens: Monster Core",
                 "hint": "When the pf2e-tokens-monster-core module is active, offer its artwork as a Quick Creatures token set."
             },
+            "enablePathfinderTokensMonsterCore2": {
+                "name": "Use Pathfinder Tokens: Monster Core 2",
+                "hint": "When the pf2e-tokens-monster-core-2 module is active, offer its artwork as a Quick Creatures token set."
+            },
             "defaultArchetype": {
                 "name": "Default Archetype",
                 "hint": "Default archetype when opening the Archetype tab."

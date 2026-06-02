@@ -20,6 +20,7 @@ const TYPES = [
 
 const PF2E_TOKENS_BESTIARIES_ID = "pf2e-tokens-bestiaries";
 const PF2E_TOKENS_MONSTER_CORE_ID = "pf2e-tokens-monster-core";
+const PF2E_TOKENS_MONSTER_CORE_2_ID = "pf2e-tokens-monster-core-2";
 
 const PATHFINDER_TOKEN_PACKS = {
   [PF2E_TOKENS_BESTIARIES_ID]: {
@@ -35,6 +36,13 @@ const PATHFINDER_TOKEN_PACKS = {
     description: "Artwork from the Pathfinder Tokens: Monster Core module.",
     settingKey: "enablePathfinderTokensMonsterCore",
     datasheet: `modules/${PF2E_TOKENS_MONSTER_CORE_ID}/assets/datasheet/datasheet.json`,
+  },
+  [PF2E_TOKENS_MONSTER_CORE_2_ID]: {
+    id: PF2E_TOKENS_MONSTER_CORE_2_ID,
+    name: "Pathfinder Tokens: Monster Core 2",
+    description: "Artwork from the Pathfinder Tokens: Monster Core 2 module.",
+    settingKey: "enablePathfinderTokensMonsterCore2",
+    datasheet: `modules/${PF2E_TOKENS_MONSTER_CORE_2_ID}/assets/datasheet/datasheet.json`,
   },
 };
 
@@ -232,6 +240,15 @@ export function isPathfinderTokensMonsterCoreAvailable(gameLike = globalThis.gam
   return isPathfinderTokenPackAvailable(PF2E_TOKENS_MONSTER_CORE_ID, gameLike);
 }
 
+/**
+ * Is Pathfinder Tokens: Monster Core 2 installed and active?
+ * @param {object} [gameLike=game]
+ * @returns {boolean}
+ */
+export function isPathfinderTokensMonsterCore2Available(gameLike = globalThis.game) {
+  return isPathfinderTokenPackAvailable(PF2E_TOKENS_MONSTER_CORE_2_ID, gameLike);
+}
+
 function isPathfinderTokenPackAvailable(packId, gameLike = globalThis.game) {
   const module = gameLike?.modules?.get?.(packId);
   return Boolean(module?.active);
@@ -271,6 +288,15 @@ export function shouldUsePathfinderTokensBestiaries(gameLike = globalThis.game) 
  */
 export function shouldUsePathfinderTokensMonsterCore(gameLike = globalThis.game) {
   return shouldUsePathfinderTokenPack(PF2E_TOKENS_MONSTER_CORE_ID, gameLike);
+}
+
+/**
+ * Should the Pathfinder Monster Core 2 token set be offered?
+ * @param {object} [gameLike=game]
+ * @returns {boolean}
+ */
+export function shouldUsePathfinderTokensMonsterCore2(gameLike = globalThis.game) {
+  return shouldUsePathfinderTokenPack(PF2E_TOKENS_MONSTER_CORE_2_ID, gameLike);
 }
 
 /**

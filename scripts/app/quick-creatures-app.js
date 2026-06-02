@@ -633,6 +633,14 @@ export async function initQuickCreatures() {
         type: Boolean,
         default: true,
     });
+    game.settings.register("quick-creatures", "enablePathfinderTokensMonsterCore2", {
+        name: "quick-creatures.settings.enablePathfinderTokensMonsterCore2.name",
+        hint: "quick-creatures.settings.enablePathfinderTokensMonsterCore2.hint",
+        scope: "world",
+        config: true,
+        type: Boolean,
+        default: true,
+    });
 
     // Register Handlebars helpers (not available by default in Foundry)
     Handlebars.registerHelper("i18n", function (key) {

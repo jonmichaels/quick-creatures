@@ -69,24 +69,36 @@ const inactiveGame = {
   modules: new Map([
     ["pf2e-tokens-bestiaries", { active: false }],
     ["pf2e-tokens-monster-core", { active: false }],
+    ["pf2e-tokens-monster-core-2", { active: false }],
   ]),
 };
 const activeBestiariesGame = {
   modules: new Map([
     ["pf2e-tokens-bestiaries", { active: true }],
     ["pf2e-tokens-monster-core", { active: false }],
+    ["pf2e-tokens-monster-core-2", { active: false }],
   ]),
 };
 const activeBothGame = {
   modules: new Map([
     ["pf2e-tokens-bestiaries", { active: true }],
     ["pf2e-tokens-monster-core", { active: true }],
+    ["pf2e-tokens-monster-core-2", { active: false }],
+  ]),
+};
+const activeAllPathfinderGame = {
+  modules: new Map([
+    ["pf2e-tokens-bestiaries", { active: true }],
+    ["pf2e-tokens-monster-core", { active: true }],
+    ["pf2e-tokens-monster-core-2", { active: true }],
   ]),
 };
 assert.equal(tokenPacks.isPathfinderTokensBestiariesAvailable(inactiveGame), false);
 assert.equal(tokenPacks.isPathfinderTokensBestiariesAvailable(activeBestiariesGame), true);
 assert.equal(tokenPacks.isPathfinderTokensMonsterCoreAvailable(inactiveGame), false);
 assert.equal(tokenPacks.isPathfinderTokensMonsterCoreAvailable(activeBothGame), true);
+assert.equal(tokenPacks.isPathfinderTokensMonsterCore2Available(inactiveGame), false);
+assert.equal(tokenPacks.isPathfinderTokensMonsterCore2Available(activeAllPathfinderGame), true);
 assert.deepEqual(
   Object.keys(tokenPacks.getTokenSetChoices(inactiveGame)),
   ["Original_Tokens", "Cute_Tokens"],
@@ -102,13 +114,19 @@ assert.deepEqual(
   ["Original_Tokens", "Cute_Tokens", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core"],
   "PF packs should be offered after built-in packs when active",
 );
+assert.deepEqual(
+  Object.keys(tokenPacks.getTokenSetChoices(activeAllPathfinderGame)),
+  ["Original_Tokens", "Cute_Tokens", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core", "pf2e-tokens-monster-core-2"],
+  "Monster Core 2 should be offered after Bestiaries and Monster Core when active",
+);
 
 const disabledSettingsGame = {
-  modules: activeBothGame.modules,
+  modules: activeAllPathfinderGame.modules,
   settings: {
     get: (_namespace, key) => ({
       enablePathfinderTokensBestiaries: false,
       enablePathfinderTokensMonsterCore: false,
+      enablePathfinderTokensMonsterCore2: false,
     }[key]),
   },
 };
@@ -118,8 +136,8 @@ assert.deepEqual(
   "PF packs should be disabled by their settings",
 );
 assert.deepEqual(
-  Object.keys(tokenPacks.getTokenSetChoices(disabledSettingsGame, { respectSettings: false })),
-  ["Original_Tokens", "Cute_Tokens", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core"],
+  Object.keys(tokenPacks.getTokenSetChoices({ ...disabledSettingsGame, modules: activeAllPathfinderGame.modules }, { respectSettings: false })),
+  ["Original_Tokens", "Cute_Tokens", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core", "pf2e-tokens-monster-core-2"],
   "defaultTokenSet registration can list active PF modules before the last toggle settings are registered",
 );
 
@@ -178,6 +196,59 @@ assert.equal(
   tokenPacks.tokenImagePath("pf2e-tokens-monster-core", "modules/pf2e-tokens-monster-core/assets/tokens/aeon-arbiter.webp"),
   "modules/pf2e-tokens-monster-core/assets/tokens/aeon-arbiter.webp",
   "external Monster Core token paths should not be prefixed with Quick Creatures assets",
+);
+
+const monsterCore2Pack = tokenPacks.createPathfinderTokenPack(
+  "pf2e-tokens-monster-core-2",
+  "Pathfinder Tokens: Monster Core 2",
+  [
+    {
+      label: "Monster Core 2 Arbiter",
+      art: {
+        token: "modules/pf2e-tokens-monster-core-2/assets/tokens/monster-core-2-arbiter.webp",
+        subject: "modules/pf2e-tokens-monster-core-2/assets/subjects/monster-core-2-arbiter.webp",
+        portrait: "modules/pf2e-tokens-monster-core-2/assets/portraits/monster-core-2-arbiter.webp",
+        scale: 1.25,
+      },
+      tags: { category: ["angel", "divine"] },
+    },
+  ],
+);
+assert.equal(monsterCore2Pack.id, "pf2e-tokens-monster-core-2");
+assert.equal(monsterCore2Pack.tokens.Celestial[0].scale, 1.25);
+assert.equal(monsterCore2Pack.tokens.Celestial[0].file, "modules/pf2e-tokens-monster-core-2/assets/tokens/monster-core-2-arbiter.webp");
+assert.equal(
+  tokenPacks.tokenImagePath("pf2e-tokens-monster-core-2", "modules/pf2e-tokens-monster-core-2/assets/tokens/monster-core-2-arbiter.webp"),
+  "modules/pf2e-tokens-monster-core-2/assets/tokens/monster-core-2-arbiter.webp",
+  "external Monster Core 2 token paths should not be prefixed with Quick Creatures assets",
+);
+
+const originalGame = globalThis.game;
+const originalFetch = globalThis.fetch;
+const requestedPaths = [];
+globalThis.game = activeAllPathfinderGame;
+globalThis.fetch = async (url) => {
+  requestedPaths.push(url);
+  if (url === "modules/pf2e-tokens-monster-core-2/assets/datasheet/datasheet.json") {
+    return { ok: true, json: async () => monsterCore2Pack.tokens.Celestial.map(entry => ({
+      label: entry.name,
+      art: { token: entry.file, subject: entry.subject, portrait: entry.portrait, scale: entry.scale },
+      tags: { category: ["angel", "divine"] },
+    })) };
+  }
+  return { ok: false, text: async () => "", json: async () => null };
+};
+const discovered = await tokenPacks.discoverPacks();
+globalThis.fetch = originalFetch;
+globalThis.game = originalGame;
+assert.ok(
+  requestedPaths.includes("modules/pf2e-tokens-monster-core-2/assets/datasheet/datasheet.json"),
+  "discoverPacks should request the Monster Core 2 datasheet path",
+);
+assert.equal(
+  discovered.find(pack => pack.id === "pf2e-tokens-monster-core-2")?.tokens.Celestial[0]?.scale,
+  1.25,
+  "discoverPacks should include Monster Core 2 with datasheet scale metadata",
 );
 
 console.log("token pack tests passed");
