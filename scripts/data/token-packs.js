@@ -5,6 +5,7 @@
  * and provides token file listings per creature type.
  */
 import yaml from "js-yaml";
+import A5E_TOKEN_MAP from "./a5e-token-map.json" with { type: "json" };
 
 /** @type {string} Base path for module assets */
 const MODULE_PATH = "modules/quick-creatures";
@@ -21,6 +22,44 @@ const TYPES = [
 const PF2E_TOKENS_BESTIARIES_ID = "pf2e-tokens-bestiaries";
 const PF2E_TOKENS_MONSTER_CORE_ID = "pf2e-tokens-monster-core";
 const PF2E_TOKENS_MONSTER_CORE_2_ID = "pf2e-tokens-monster-core-2";
+
+export const TOKEN_SET_CONFIG_SECTION_ORDER = ["defaults", "core", "pathfinder", "a5e", "custom"];
+
+const CORE_TOKEN_PACKS = {
+  Original_Tokens: { id: "Original_Tokens", name: "Original Tokens", settingKey: "enableOriginalTokens" },
+  Cute_Tokens: { id: "Cute_Tokens", name: "Cute Tokens", settingKey: "enableCuteTokens" },
+};
+
+export const A5E_TOKEN_PACKS = {
+  "a5e-system": {
+    id: "a5e-system",
+    name: "A5E System",
+    settingKey: "enableA5eSystemTokens",
+    systemId: "a5e",
+    dataPath: "Data/systems/a5e/assets/",
+    mappingSource: "System",
+  },
+  "a5e-monstrous-menagerie": {
+    id: "a5e-monstrous-menagerie",
+    name: "Monstrous Menagerie",
+    settingKey: "enableA5eMonstrousMenagerieTokens",
+    folderAliases: ["Monstrous_Menagerie_1_Tokens", "Level_Up_Monstrous_Menagerie_VTT_Tokens_(A5E)", "MoMe Pawns"],
+    mappingSource: "MM",
+  },
+  "a5e-monstrous-menagerie-2": {
+    id: "a5e-monstrous-menagerie-2",
+    name: "Monstrous Menagerie 2",
+    settingKey: "enableA5eMonstrousMenagerie2Tokens",
+    folderAliases: ["Monstrous_Menagerie_2_Tokens", "MM2 VTT tokens"],
+    mappingSource: null,
+  },
+};
+
+export const TOKEN_SET_GROUPS = [
+  { id: "core", labelKey: "quick-creatures.tokenConfig.sections.core", packIds: ["Original_Tokens", "Cute_Tokens"] },
+  { id: "pathfinder", labelKey: "quick-creatures.tokenConfig.sections.pathfinder", packIds: [PF2E_TOKENS_BESTIARIES_ID, PF2E_TOKENS_MONSTER_CORE_ID, PF2E_TOKENS_MONSTER_CORE_2_ID] },
+  { id: "a5e", labelKey: "quick-creatures.tokenConfig.sections.a5e", packIds: ["a5e-system", "a5e-monstrous-menagerie", "a5e-monstrous-menagerie-2"] },
+];
 
 const PATHFINDER_TOKEN_PACKS = {
   [PF2E_TOKENS_BESTIARIES_ID]: {
@@ -183,10 +222,7 @@ const EMBEDDED_TOKENS = {
 };
 
 
-const BUILT_IN_PACK_NAMES = {
-  Original_Tokens: "Original Tokens",
-  Cute_Tokens: "Cute Tokens",
-};
+const BUILT_IN_PACK_NAMES = Object.fromEntries(Object.values(CORE_TOKEN_PACKS).map(pack => [pack.id, pack.name]));
 
 const PATHFINDER_TYPE_OVERRIDES = {
   "aberrant/monstrous": "Monstrosity",
@@ -254,6 +290,24 @@ function isPathfinderTokenPackAvailable(packId, gameLike = globalThis.game) {
   return Boolean(module?.active);
 }
 
+function getSetting(gameLike, key, fallback) {
+  try {
+    const value = gameLike?.settings?.get?.("quick-creatures", key);
+    return value === undefined ? fallback : value;
+  } catch (_e) {
+    return fallback;
+  }
+}
+
+export function isA5eTokenPackAvailable(packId, gameLike = globalThis.game, options = {}) {
+  const pack = A5E_TOKEN_PACKS[packId];
+  if (!pack) return false;
+  if (pack.systemId) return gameLike?.system?.id === pack.systemId || gameLike?.systems?.get?.(pack.systemId);
+  const aliases = pack.folderAliases || [];
+  const descriptors = options.customSets || [];
+  return descriptors.some(set => set.id === packId || aliases.includes(set.name));
+}
+
 /**
  * Should a Pathfinder token set be offered?
  * @param {string} packId
@@ -305,14 +359,25 @@ export function shouldUsePathfinderTokensMonsterCore2(gameLike = globalThis.game
  * @returns {Record<string, string>}
  */
 export function getTokenSetChoices(gameLike = globalThis.game, options = {}) {
-  const { respectSettings = true } = options;
-  const choices = { ...BUILT_IN_PACK_NAMES };
+  const { respectSettings = true, customSets = [] } = options;
+  const choices = {};
+  for (const pack of Object.values(CORE_TOKEN_PACKS)) {
+    if (!respectSettings || getSetting(gameLike, pack.settingKey, true) !== false) choices[pack.id] = pack.name;
+  }
   for (const pack of Object.values(PATHFINDER_TOKEN_PACKS)) {
     const enabled = respectSettings
       ? shouldUsePathfinderTokenPack(pack.id, gameLike)
       : isPathfinderTokenPackAvailable(pack.id, gameLike);
     if (enabled) choices[pack.id] = pack.name;
   }
+  for (const pack of Object.values(A5E_TOKEN_PACKS)) {
+    if (isA5eTokenPackAvailable(pack.id, gameLike, options) && (!respectSettings || getSetting(gameLike, pack.settingKey, true) !== false)) choices[pack.id] = pack.name;
+  }
+  for (const set of customSets) {
+    const enabled = getSetting(gameLike, "customTokenSetEnabled", {})?.[set.id] !== false;
+    if (!respectSettings || enabled) choices[set.id] = set.name;
+  }
+  if (Object.keys(choices).length === 0) choices.Original_Tokens = CORE_TOKEN_PACKS.Original_Tokens.name;
   return choices;
 }
 
@@ -380,7 +445,7 @@ export function createPathfinderBestiariesPack(datasheet = []) {
  * @returns {string}
  */
 function nameFromFile(filename) {
-  const base = filename.replace(/\.webp$/i, "");
+  const base = filename.replace(/\.[^.]+$/i, "");
   return base
     .replace(/_/g, " ")
     .replace(/\b\w/g, c => c.toUpperCase());
@@ -453,7 +518,7 @@ export async function getDefaultTokenEntry(packId, type) {
  * @returns {string} Full module path e.g. "modules/quick-creatures/assets/Original_Tokens/Aberration/aberration.webp"
  */
 export function tokenImagePath(packId, file) {
-  if (PATHFINDER_TOKEN_PACKS[packId]) return file;
+  if (PATHFINDER_TOKEN_PACKS[packId] || A5E_TOKEN_PACKS[packId] || String(packId).startsWith("custom:")) return file;
   return `${MODULE_PATH}/assets/${packId}/${file}`;
 }
 
@@ -488,6 +553,116 @@ async function _loadManifest(path) {
     console.warn(`Quick Creatures | Failed to load manifest: ${path}`, e);
     return null;
   }
+}
+
+export function getTokenSetConfigGroups(gameLike = globalThis.game) {
+  const allPacks = { ...CORE_TOKEN_PACKS, ...PATHFINDER_TOKEN_PACKS, ...A5E_TOKEN_PACKS };
+  return TOKEN_SET_GROUPS.map(group => ({
+    ...group,
+    packs: group.packIds.map(id => ({ ...allPacks[id], enabled: getSetting(gameLike, allPacks[id]?.settingKey, true) !== false })).filter(pack => pack.id),
+  }));
+}
+
+export function parseCustomTokenDirectory(value = "Data/assets/quick-creatures-tokens/") {
+  const raw = String(value || "Data/assets/quick-creatures-tokens/");
+  if (raw.startsWith("Data/")) return { source: "data", path: raw.slice(5) };
+  return { source: "data", path: raw.replace(/^\/+/, "") };
+}
+
+const MAPPING_FILES = new Set(["quick-creatures-map.json", "tokens.json", "tokens.md", "README.md"]);
+const IMAGE_RE = /\.(webp|png|jpg|jpeg|gif)$/i;
+
+function basename(p = "") {
+  return String(p).split("/").filter(Boolean).pop() || "";
+}
+
+function dirname(p = "") {
+  const parts = String(p).split("/").filter(Boolean);
+  parts.pop();
+  return parts.join("/");
+}
+
+function dataPath(path) {
+  return String(path).startsWith("Data/") ? path : `Data/${String(path).replace(/^\/+/, "")}`;
+}
+
+export function classifyCustomSetStructure({ folders = [], files = [] } = {}) {
+  if (files.some(file => MAPPING_FILES.has(basename(file)))) return "mapping-file";
+  if (folders.some(folder => TYPES.includes(basename(folder)))) return "typed-subfolders";
+  return "filename-fallback";
+}
+
+function slugCustomId(name) {
+  const mm = Object.values(A5E_TOKEN_PACKS).find(pack => pack.folderAliases?.includes(name));
+  return mm?.id || `custom:${name.replace(/[\\/]/g, "_")}`;
+}
+
+export function createCustomTokenSetDescriptors(browseResult = {}, options = {}) {
+  const root = String(browseResult.target || parseCustomTokenDirectory(options.customTokenDirectory).path || "").replace(/\/$/, "");
+  return (browseResult.dirs || []).map(dir => {
+    const name = basename(dir);
+    const childFiles = (browseResult.files || []).filter(file => dirname(file).startsWith(String(dir).replace(/\/$/, "")));
+    const childDirs = (browseResult.dirs || []).filter(child => child !== dir && dirname(child) === String(dir).replace(/\/$/, ""));
+    const known = Object.values(A5E_TOKEN_PACKS).find(pack => pack.folderAliases?.includes(name));
+    return {
+      id: slugCustomId(name),
+      name,
+      path: String(dir).replace(/^Data\//, "") || `${root}/${name}`,
+      files: childFiles,
+      dirs: childDirs,
+      classification: known?.mappingSource ? "mapping-file" : classifyCustomSetStructure({ folders: childDirs, files: childFiles }),
+      mappingSource: known?.mappingSource || null,
+    };
+  });
+}
+
+export function createCustomTokenPack(descriptor) {
+  const tokens = Object.fromEntries(TYPES.map(type => [type, []]));
+  const imageFiles = (descriptor.files || []).filter(file => IMAGE_RE.test(file));
+  if (descriptor.mappingSource) {
+    for (const file of imageFiles) {
+      const mapped = resolveA5eTokenMapping(file, descriptor.mappingSource);
+      if (!mapped || !tokens[mapped.creatureType]) continue;
+      tokens[mapped.creatureType].push({ file: dataPath(file), name: mapped.creatureName });
+    }
+  } else if (descriptor.classification === "typed-subfolders") {
+    for (const file of imageFiles) {
+      const type = String(file).split("/").find(part => TYPES.includes(part));
+      if (type) tokens[type].push({ file: dataPath(file), name: nameFromFile(basename(file)) });
+    }
+  } else {
+    const entries = imageFiles.map(file => ({ file: dataPath(file), name: nameFromFile(basename(file)) }));
+    for (const type of TYPES) tokens[type] = [...entries];
+  }
+  for (const list of Object.values(tokens)) list.sort((a, b) => a.name.localeCompare(b.name));
+  return { id: descriptor.id, name: descriptor.name, description: "Custom token set", defaults: {}, tokens };
+}
+
+export async function discoverCustomTokenSets(directory = "Data/assets/quick-creatures-tokens/", gameLike = globalThis.game) {
+  const picker = globalThis.FilePicker;
+  if (!picker?.browse) return [];
+  const { source, path } = parseCustomTokenDirectory(directory);
+  try {
+    return createCustomTokenSetDescriptors(await picker.browse(source, path), { customTokenDirectory: directory });
+  } catch (e) {
+    console.warn(`Quick Creatures | Failed to browse custom token directory: ${directory}`, e);
+    return [];
+  }
+}
+
+export function normalizeTokenBasename(value = "") {
+  return basename(value)
+    .replace(/\.[^.]+$/, "")
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/[_\-]+/g, " ")
+    .replace(/[^a-zA-Z0-9]+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+export function resolveA5eTokenMapping(tokenFile, source = null) {
+  const normalized = normalizeTokenBasename(tokenFile);
+  return A5E_TOKEN_MAP.find(entry => (!source || entry.source === source) && normalizeTokenBasename(entry.token) === normalized) || null;
 }
 
 export { TYPES };

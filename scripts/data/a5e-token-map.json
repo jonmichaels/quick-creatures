@@ -1,0 +1,2494 @@
+[
+  {
+    "source": "MM",
+    "token": "Aboleth.png",
+    "creatureName": "Aboleth",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Angel.png",
+    "creatureName": "Angel of Protection",
+    "creatureType": "Celestial",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "AnimatedObject.png",
+    "creatureName": "Animated Armor",
+    "creatureType": "Construct",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Ankheg.png",
+    "creatureName": "Ankheg",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Azer.png",
+    "creatureName": "Azer",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Banshee.png",
+    "creatureName": "Banshee",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Basalisk.png",
+    "creatureName": "Basilisk",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Beast, Bear.png",
+    "creatureName": "Brown Bear",
+    "creatureType": "Beast",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Beast, Giant Spider.png",
+    "creatureName": "Giant Spider",
+    "creatureType": "Beast",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Beast, Roc.png",
+    "creatureName": "Roc",
+    "creatureType": "Beast",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Beast, Winter Wolf.png",
+    "creatureName": "Winter Wolf",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Behir.png",
+    "creatureName": "Behir",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Boggard.png",
+    "creatureName": "Boggard",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Bugbear.png",
+    "creatureName": "Bugbear",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Bulette.png",
+    "creatureName": "Bulette",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Cambion.png",
+    "creatureName": "Cambion",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Centaur.png",
+    "creatureName": "Centaur",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Chimera.png",
+    "creatureName": "Chimera",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Chuul.png",
+    "creatureName": "Chuul",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Cloaker.png",
+    "creatureName": "Cloaker",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Clockwork.png",
+    "creatureName": "Clockwork Sentinel",
+    "creatureType": "Construct",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Cockatrice.png",
+    "creatureName": "Cockatrice",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Coutal.png",
+    "creatureName": "Couatl",
+    "creatureType": "Celestial",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Cyclops.png",
+    "creatureName": "Cyclops",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Darkmantle.png",
+    "creatureName": "Darkmantle",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Demilich.png",
+    "creatureName": "Demilich",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Demon, Balor.png",
+    "creatureName": "Balor",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Demon, Dretch.png",
+    "creatureName": "Dretch",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Demon, Glabrezu.png",
+    "creatureName": "Glabrezu",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Demon, Hezrou.png",
+    "creatureName": "Hezrou",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Demon, Marilith.png",
+    "creatureName": "Marilith",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Demon, Nalfenshee.png",
+    "creatureName": "Nalfeshnee",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Demon, Quasit.png",
+    "creatureName": "Quasit",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Demon, Shadow.png",
+    "creatureName": "Shadow Demon",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Demon, Vrock.png",
+    "creatureName": "Vrock",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Devil, Barbed.png",
+    "creatureName": "Barbed Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Devil, Bearded.png",
+    "creatureName": "Bearded Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Devil, Bone.png",
+    "creatureName": "Bone Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Devil, Chain.png",
+    "creatureName": "Chain Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Devil, Eryines.png",
+    "creatureName": "Erinyes",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Devil, Horned.png",
+    "creatureName": "Horned Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Devil, Ice.png",
+    "creatureName": "Ice Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Devil, Imp.png",
+    "creatureName": "Imp",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Devil, Lemure.png",
+    "creatureName": "Lemure",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Devil, Pit Fiend.png",
+    "creatureName": "Pit Fiend",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dinosaur, Allosaurus.png",
+    "creatureName": "Allosaurus",
+    "creatureType": "Beast",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Doppleganger.png",
+    "creatureName": "Doppelganger",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon Lich.png",
+    "creatureName": "Adult Black Dragon Lich",
+    "creatureType": "Undead",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon Turtle.png",
+    "creatureName": "Dragon Turtle",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon, Green.png",
+    "creatureName": "Adult Green Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon, River.png",
+    "creatureName": "Adult River Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon, Sapphire.png",
+    "creatureName": "Adult Sapphire Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon, Shadow.png",
+    "creatureName": "Shadow",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon, Silver.png",
+    "creatureName": "Adult Silver Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon, copper.png",
+    "creatureName": "Adult Copper Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon, earth.png",
+    "creatureName": "Adult Earth Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon, gold.png",
+    "creatureName": "Adult Gold Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dragon, ice.png",
+    "creatureName": "Adult White Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Dread Knight.png",
+    "creatureName": "Dread Knight",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Drider.png",
+    "creatureName": "Drider",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Dryad.png",
+    "creatureName": "Dryad",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Elemental, Air.png",
+    "creatureName": "Air Elemental",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Elemental, Earth.png",
+    "creatureName": "Earth Elemental",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Elemental, Fire.png",
+    "creatureName": "Fire Elemental",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Elemental, Water.png",
+    "creatureName": "Water Elemental",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Ettercap.png",
+    "creatureName": "Ettercap",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Ettin.png",
+    "creatureName": "Ettin",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Faerie Dragon.png",
+    "creatureName": "Faerie Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Faerie, Noble.png",
+    "creatureName": "Faerie Noble",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Faerie, Sprite.png",
+    "creatureName": "Sprite",
+    "creatureType": "Fey",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Forgotten God.png",
+    "creatureName": "Forgotten God",
+    "creatureType": "Celestial",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Fungus.png",
+    "creatureName": "Fungal Zombie",
+    "creatureType": "Plant",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Gargoyle.png",
+    "creatureName": "Gargoyle",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Genie, Divi.png",
+    "creatureName": "Divi",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Genie, Djinn.png",
+    "creatureName": "Djinni",
+    "creatureType": "Elemental",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Genie, Efreeti.png",
+    "creatureName": "Efreeti",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Genie, Marid.png",
+    "creatureName": "Marid",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Ghost.png",
+    "creatureName": "Ghost",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Ghoul.png",
+    "creatureName": "Ghoul",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Giant, Cloud.png",
+    "creatureName": "Cloud Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Giant, Fire.png",
+    "creatureName": "Fire Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Giant, Frost.png",
+    "creatureName": "Frost Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Giant, Hill.png",
+    "creatureName": "Hill Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Giant, Stone.png",
+    "creatureName": "Stone Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Giant, Storm.png",
+    "creatureName": "Storm Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Gibbering Mouther.png",
+    "creatureName": "Gibbering Mouther",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Gnoll.png",
+    "creatureName": "Gnoll",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Goblin.png",
+    "creatureName": "Goblin",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Gorgon.png",
+    "creatureName": "Gorgon",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Grick.png",
+    "creatureName": "Grick",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Griffon.png",
+    "creatureName": "Griffon",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Grimlock.png",
+    "creatureName": "Grimlock",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Guardian, Clay.png",
+    "creatureName": "Clay Guardian",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Guardian, Flesh.png",
+    "creatureName": "Flesh Guardian",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Guardian, Iron.png",
+    "creatureName": "Iron Guardian",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Guardian, Shield.png",
+    "creatureName": "Shield Guardian",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Guardian, Stone.png",
+    "creatureName": "Stone Guardian",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Hag, Green.png",
+    "creatureName": "Green Hag",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Half-Dragon.png",
+    "creatureName": "Half-Red Dragon Veteran",
+    "creatureType": "Humanoid",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Harpy.png",
+    "creatureName": "Harpy",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Hellhound.png",
+    "creatureName": "Hell Hound",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Hippogriff.png",
+    "creatureName": "Hippogriff",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Hobgoblin.png",
+    "creatureName": "Hobgoblin",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Homonculus.png",
+    "creatureName": "Homunculus",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Hydra.png",
+    "creatureName": "Hydra",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Intellect Devourer.png",
+    "creatureName": "Intellect Devourer",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Invisible Stalker.png",
+    "creatureName": "Invisible Stalker",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Jackalwere.png",
+    "creatureName": "Jackalwere",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Khalkoi.png",
+    "creatureName": "Khalkos",
+    "creatureType": "Aberration",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Kobold.png",
+    "creatureName": "Kobold",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Kraken.png",
+    "creatureName": "Kraken",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Lamia.png",
+    "creatureName": "Lamia",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Lich.png",
+    "creatureName": "Lich",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Lizardfolk.png",
+    "creatureName": "Lizardfolk",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Lycanthrope.png",
+    "creatureName": "Werewolf",
+    "creatureType": "Humanoid",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Magmin.png",
+    "creatureName": "Magmin",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Malcubus.png",
+    "creatureName": "Malcubus",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Manticore.png",
+    "creatureName": "Manticore",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Medusa.png",
+    "creatureName": "Medusa",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Mephit.png",
+    "creatureName": "Dust Mephit",
+    "creatureType": "Elemental",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Merfolk.png",
+    "creatureName": "Merfolk",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Merrow.png",
+    "creatureName": "Merrow",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Mimic.png",
+    "creatureName": "Mimic",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Minotaur.png",
+    "creatureName": "Minotaur",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Mummy.png",
+    "creatureName": "Mummy",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Naga, Guardian.png",
+    "creatureName": "Guardian Naga",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Naga, Spirit.png",
+    "creatureName": "Spirit Naga",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Nightmare.png",
+    "creatureName": "Nightmare",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Ogre.png",
+    "creatureName": "Ogre",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Ooze, Black Pudding.png",
+    "creatureName": "Black Pudding",
+    "creatureType": "Ooze",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Ooze, Gelatinous Cube.png",
+    "creatureName": "Gelatinous Cube",
+    "creatureType": "Ooze",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Otyugh.png",
+    "creatureName": "Otyugh",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Owlbear.png",
+    "creatureName": "Owlbear",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Pegasus.png",
+    "creatureName": "Pegasus",
+    "creatureType": "Celestial",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Peryton.png",
+    "creatureName": "Peryton",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Phase Monster.png",
+    "creatureName": "Phase Monster",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Pseudodragon.png",
+    "creatureName": "Pseudodragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Purple Worm.png",
+    "creatureName": "Purple Worm",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Rakshasa.png",
+    "creatureName": "Rakshasa",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Remorhaz.png",
+    "creatureName": "Remorhaz",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Revenant.png",
+    "creatureName": "Revenant",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Roper.png",
+    "creatureName": "Roper",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Rust Monster.png",
+    "creatureName": "Rust Monster",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Sahuagin.png",
+    "creatureName": "Sahuagin",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Salamander.png",
+    "creatureName": "Salamander",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Satyr.png",
+    "creatureName": "Satyr",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Scarecrow.png",
+    "creatureName": "Scarecrow",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Scorpionfolk.png",
+    "creatureName": "Scorpionfolk",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Sea Serpent.png",
+    "creatureName": "Sea Serpent",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Shadow.png",
+    "creatureName": "Shadow",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Shambling Mound.png",
+    "creatureName": "Shambling Mound",
+    "creatureType": "Plant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Skeleton.png",
+    "creatureName": "Skeleton",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Spectre.png",
+    "creatureName": "Specter",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Sphinx.png",
+    "creatureName": "Sphinx",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Stirge.png",
+    "creatureName": "Stirge",
+    "creatureType": "Beast",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Tarrasque.png",
+    "creatureName": "Tarrasque",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Titan, Empyrian.png",
+    "creatureName": "Empyrean",
+    "creatureType": "Celestial",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Titan, Formian.png",
+    "creatureName": "Fomorian",
+    "creatureType": "Fey",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "Treant.png",
+    "creatureName": "Treant",
+    "creatureType": "Plant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Troglodyte.png",
+    "creatureName": "Troglodyte",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Troll.png",
+    "creatureName": "Troll",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Unicorn.png",
+    "creatureName": "Unicorn",
+    "creatureType": "Celestial",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Vampire.png",
+    "creatureName": "Vampire",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Wight.png",
+    "creatureName": "Wight",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Will-O-Wisp.png",
+    "creatureName": "Will-o-Wisp",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Wraith.png",
+    "creatureName": "Wraith",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Wyvern.png",
+    "creatureName": "Wyvern",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Xorn.png",
+    "creatureName": "Xorn",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Yeti.png",
+    "creatureName": "Yeti",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "Zombie.png",
+    "creatureName": "Zombie",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "dragon, amethyst.png",
+    "creatureName": "Adult Amethyst Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "dragon, black.png",
+    "creatureName": "Adult Black Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "dragon, blue.png",
+    "creatureName": "Adult Blue Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "dragon, brass.png",
+    "creatureName": "Adult Brass Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "dragon, bronze.png",
+    "creatureName": "Adult Bronze Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "dragon, emerald.png",
+    "creatureName": "Adult Emerald Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "MM",
+    "token": "dragon, fire.png",
+    "creatureName": "Adult Red Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "MM",
+    "token": "flumph.png",
+    "creatureName": "Flumph",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "aboleth.webp",
+    "creatureName": "Aboleth",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "air-elemental.webp",
+    "creatureName": "Air Elemental",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "amethyst-dragon.webp",
+    "creatureName": "Adult Amethyst Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "angel.webp",
+    "creatureName": "Angel of Protection",
+    "creatureType": "Celestial",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "animated-object.webp",
+    "creatureName": "Huge Animated Object",
+    "creatureType": "Construct",
+    "matchMethod": "fuzzy"
+  },
+  {
+    "source": "System",
+    "token": "ankheg.webp",
+    "creatureName": "Ankheg",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "azer.webp",
+    "creatureName": "Azer",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "balor.webp",
+    "creatureName": "Balor",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "banshee.webp",
+    "creatureName": "Banshee",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "barbed-devil.webp",
+    "creatureName": "Barbed Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "basilisk.webp",
+    "creatureName": "Basilisk",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "bear.webp",
+    "creatureName": "Brown Bear",
+    "creatureType": "Beast",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "bearded-devil.webp",
+    "creatureName": "Bearded Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "behir.webp",
+    "creatureName": "Behir",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "black-dragon.webp",
+    "creatureName": "Adult Black Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "black-pudding.webp",
+    "creatureName": "Black Pudding",
+    "creatureType": "Ooze",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "blue-dragon.webp",
+    "creatureName": "Adult Blue Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "boggard.webp",
+    "creatureName": "Boggard",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "bone-devil.webp",
+    "creatureName": "Bone Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "brass-dragon.webp",
+    "creatureName": "Adult Brass Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "bronze-dragon.webp",
+    "creatureName": "Adult Bronze Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "bugbear.webp",
+    "creatureName": "Bugbear",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "bulette.webp",
+    "creatureName": "Bulette",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "cambion.webp",
+    "creatureName": "Cambion",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "centaur.webp",
+    "creatureName": "Centaur",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "chain-devil.webp",
+    "creatureName": "Chain Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "chimera.webp",
+    "creatureName": "Chimera",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "chuul.webp",
+    "creatureName": "Chuul",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "clay-guardian.webp",
+    "creatureName": "Clay Guardian",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "cloaker.webp",
+    "creatureName": "Cloaker",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "clockwork.webp",
+    "creatureName": "Clockwork Sentinel",
+    "creatureType": "Construct",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "cloud-giant.webp",
+    "creatureName": "Cloud Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "cockatrice.webp",
+    "creatureName": "Cockatrice",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "copper-dragon.webp",
+    "creatureName": "Adult Copper Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "coutal.webp",
+    "creatureName": "Couatl",
+    "creatureType": "Celestial",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "cyclops.webp",
+    "creatureName": "Cyclops",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "darkmantle.webp",
+    "creatureName": "Darkmantle",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "demilich.webp",
+    "creatureName": "Demilich",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "diplodocus.webp",
+    "creatureName": "Diplodocus",
+    "creatureType": "Beast",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "divi.webp",
+    "creatureName": "Divi",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "djinn.webp",
+    "creatureName": "Djinni",
+    "creatureType": "Elemental",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "doppleganger.webp",
+    "creatureName": "Doppelganger",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "dragon-lich.webp",
+    "creatureName": "Adult Black Dragon Lich",
+    "creatureType": "Undead",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "dragon-turtle.webp",
+    "creatureName": "Dragon Turtle",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "dread-knight.webp",
+    "creatureName": "Dread Knight",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "dretch.webp",
+    "creatureName": "Dretch",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "drider.webp",
+    "creatureName": "Drider",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "dryad.webp",
+    "creatureName": "Dryad",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "earth-dragon.webp",
+    "creatureName": "Adult Earth Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "earth-elemental.webp",
+    "creatureName": "Earth Elemental",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "efreeti.webp",
+    "creatureName": "Efreeti",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "emerald-dragon.webp",
+    "creatureName": "Adult Emerald Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "empyrean.webp",
+    "creatureName": "Empyrean",
+    "creatureType": "Celestial",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "erinyes.webp",
+    "creatureName": "Erinyes",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "ettercap.webp",
+    "creatureName": "Ettercap",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "ettin.webp",
+    "creatureName": "Ettin",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "faerie-dragon.webp",
+    "creatureName": "Faerie Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "faerie-noble.webp",
+    "creatureName": "Faerie Noble",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "fire-dragon.webp",
+    "creatureName": "Adult Red Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "fire-elemental.webp",
+    "creatureName": "Fire Elemental",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "fire-giant.webp",
+    "creatureName": "Fire Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "flesh-guardian.webp",
+    "creatureName": "Flesh Guardian",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "flumph.webp",
+    "creatureName": "Flumph",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "fomorian.webp",
+    "creatureName": "Fomorian",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "forgotten-god.webp",
+    "creatureName": "Forgotten God",
+    "creatureType": "Celestial",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "frost-giant.webp",
+    "creatureName": "Frost Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "fungus.webp",
+    "creatureName": "Fungal Zombie",
+    "creatureType": "Plant",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "gargoyle.webp",
+    "creatureName": "Gargoyle",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "gelatinous-cube.webp",
+    "creatureName": "Gelatinous Cube",
+    "creatureType": "Ooze",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "ghost.webp",
+    "creatureName": "Ghost",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "ghoul.webp",
+    "creatureName": "Ghoul",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "giant-spider.webp",
+    "creatureName": "Giant Spider",
+    "creatureType": "Beast",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "gibbering-mouther.webp",
+    "creatureName": "Gibbering Mouther",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "glabrezu.webp",
+    "creatureName": "Glabrezu",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "gnoll.webp",
+    "creatureName": "Gnoll",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "goblin.webp",
+    "creatureName": "Goblin",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "gold-dragon.webp",
+    "creatureName": "Adult Gold Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "gorgon.webp",
+    "creatureName": "Gorgon",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "green-dragon.webp",
+    "creatureName": "Adult Green Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "green-hag.webp",
+    "creatureName": "Green Hag",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "grick.webp",
+    "creatureName": "Grick",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "griffon.webp",
+    "creatureName": "Griffon",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "grimlock.webp",
+    "creatureName": "Grimlock",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "guardian-naga.webp",
+    "creatureName": "Guardian Naga",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "half-dragon.webp",
+    "creatureName": "Half-Red Dragon Veteran",
+    "creatureType": "Humanoid",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "harpy.webp",
+    "creatureName": "Harpy",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "hellhound.webp",
+    "creatureName": "Hell Hound",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "hezrou.webp",
+    "creatureName": "Hezrou",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "hill-giant.webp",
+    "creatureName": "Hill Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "hippogriff.webp",
+    "creatureName": "Hippogriff",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "hobgoblin.webp",
+    "creatureName": "Hobgoblin",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "homunculus.webp",
+    "creatureName": "Homunculus",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "horned-devil.webp",
+    "creatureName": "Horned Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "hydra.webp",
+    "creatureName": "Hydra",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "ice-devil.webp",
+    "creatureName": "Ice Devil",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "ice-dragon.webp",
+    "creatureName": "Adult White Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "imp.webp",
+    "creatureName": "Imp",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "intellect-devourer.webp",
+    "creatureName": "Intellect Devourer",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "invisible-stalker.webp",
+    "creatureName": "Invisible Stalker",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "iron-guardian.webp",
+    "creatureName": "Iron Guardian",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "jackalwere.webp",
+    "creatureName": "Jackalwere",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "khalkoi.webp",
+    "creatureName": "Khalkos",
+    "creatureType": "Aberration",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "kobold.webp",
+    "creatureName": "Kobold",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "kraken.webp",
+    "creatureName": "Kraken",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "lamia.webp",
+    "creatureName": "Lamia",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "lemure.webp",
+    "creatureName": "Lemure",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "lich.webp",
+    "creatureName": "Lich",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "lizardfolk.webp",
+    "creatureName": "Lizardfolk",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "lycanthrope.webp",
+    "creatureName": "Werewolf",
+    "creatureType": "Humanoid",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "magmin.webp",
+    "creatureName": "Magmin",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "malcubus.webp",
+    "creatureName": "Malcubus",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "manticore.webp",
+    "creatureName": "Manticore",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "marid.webp",
+    "creatureName": "Marid",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "marilith.webp",
+    "creatureName": "Marilith",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "medusa.webp",
+    "creatureName": "Medusa",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "mephit.webp",
+    "creatureName": "Dust Mephit",
+    "creatureType": "Elemental",
+    "matchMethod": "manual"
+  },
+  {
+    "source": "System",
+    "token": "merfolk.webp",
+    "creatureName": "Merfolk",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "merrow.webp",
+    "creatureName": "Merrow",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "mimic.webp",
+    "creatureName": "Mimic",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "minotaur.webp",
+    "creatureName": "Minotaur",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "mummy.webp",
+    "creatureName": "Mummy",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "nalfeshnee.webp",
+    "creatureName": "Nalfeshnee",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "nightmare.webp",
+    "creatureName": "Nightmare",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "ogre.webp",
+    "creatureName": "Ogre",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "otyugh.webp",
+    "creatureName": "Otyugh",
+    "creatureType": "Aberration",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "owlbear.webp",
+    "creatureName": "Owlbear",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "pegasus.webp",
+    "creatureName": "Pegasus",
+    "creatureType": "Celestial",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "peryton.webp",
+    "creatureName": "Peryton",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "phase-monster.webp",
+    "creatureName": "Phase Monster",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "pit-fiend.webp",
+    "creatureName": "Pit Fiend",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "pseudodragon.webp",
+    "creatureName": "Pseudodragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "purple-worm.webp",
+    "creatureName": "Purple Worm",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "quasit.webp",
+    "creatureName": "Quasit",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "rakshasa.webp",
+    "creatureName": "Rakshasa",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "remorhaz.webp",
+    "creatureName": "Remorhaz",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "revenant.webp",
+    "creatureName": "Revenant",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "river-dragon.webp",
+    "creatureName": "Adult River Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "roc.webp",
+    "creatureName": "Roc",
+    "creatureType": "Beast",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "roper.webp",
+    "creatureName": "Roper",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "rust-monster.webp",
+    "creatureName": "Rust Monster",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "sahuagin.webp",
+    "creatureName": "Sahuagin",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "salamander.webp",
+    "creatureName": "Salamander",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "sapphire-dragon.webp",
+    "creatureName": "Adult Sapphire Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "satyr.webp",
+    "creatureName": "Satyr",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "scarecrow.webp",
+    "creatureName": "Scarecrow",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "scorpionfolk.webp",
+    "creatureName": "Scorpionfolk",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "sea-serpent.webp",
+    "creatureName": "Sea Serpent",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "shadow-demon.webp",
+    "creatureName": "Shadow Demon",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "shadow-dragon.webp",
+    "creatureName": "Adult Shadow Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "shadow.webp",
+    "creatureName": "Shadow",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "shambling-mound.webp",
+    "creatureName": "Shambling Mound",
+    "creatureType": "Plant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "shield-guardian.webp",
+    "creatureName": "Shield Guardian",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "silver-dragon.webp",
+    "creatureName": "Adult Silver Dragon",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "skeleton.webp",
+    "creatureName": "Skeleton",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "specter.webp",
+    "creatureName": "Specter",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "sphinx.webp",
+    "creatureName": "Sphinx",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "spirit-naga.webp",
+    "creatureName": "Spirit Naga",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "sprite.webp",
+    "creatureName": "Sprite",
+    "creatureType": "Fey",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "stirge.webp",
+    "creatureName": "Stirge",
+    "creatureType": "Beast",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "stone-giant.webp",
+    "creatureName": "Stone Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "stone-guardian.webp",
+    "creatureName": "Stone Guardian",
+    "creatureType": "Construct",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "storm-giant.webp",
+    "creatureName": "Storm Giant",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "tarrasque.webp",
+    "creatureName": "Tarrasque",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "treant.webp",
+    "creatureName": "Treant",
+    "creatureType": "Plant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "troglodyte.webp",
+    "creatureName": "Troglodyte",
+    "creatureType": "Humanoid",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "troll.webp",
+    "creatureName": "Troll",
+    "creatureType": "Giant",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "unicorn.webp",
+    "creatureName": "Unicorn",
+    "creatureType": "Celestial",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "vampire.webp",
+    "creatureName": "Vampire",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "vrock.webp",
+    "creatureName": "Vrock",
+    "creatureType": "Fiend",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "water-elemental.webp",
+    "creatureName": "Water Elemental",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "wight.webp",
+    "creatureName": "Wight",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "will-o-wisp.webp",
+    "creatureName": "Will-o-Wisp",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "winter-wolf.webp",
+    "creatureName": "Winter Wolf",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "wraith.webp",
+    "creatureName": "Wraith",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "wyvern.webp",
+    "creatureName": "Wyvern",
+    "creatureType": "Dragon",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "xorn.webp",
+    "creatureName": "Xorn",
+    "creatureType": "Elemental",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "yeti.webp",
+    "creatureName": "Yeti",
+    "creatureType": "Monstrosity",
+    "matchMethod": "exact"
+  },
+  {
+    "source": "System",
+    "token": "zombie.webp",
+    "creatureName": "Zombie",
+    "creatureType": "Undead",
+    "matchMethod": "exact"
+  }
+]

@@ -76,6 +76,35 @@
             "defaultArchetype": {
                 "name": "Default Archetype",
                 "hint": "Default archetype when opening the Archetype tab."
+            },
+            "customTokenDirectory": {
+                "name": "Custom Token Directory",
+                "hint": "Data folder containing custom Quick Creatures token-set folders."
+            },
+            "enableOriginalTokens": {
+                "name": "Use Original Tokens",
+                "hint": "Offer the built-in Original Tokens set."
+            },
+            "enableCuteTokens": {
+                "name": "Use Cute Tokens",
+                "hint": "Offer the built-in Cute Tokens set."
+            },
+            "enableA5eSystemTokens": {
+                "name": "Use A5E System Tokens",
+                "hint": "Offer A5E system token assets when the A5E system is installed."
+            },
+            "enableA5eMonstrousMenagerieTokens": {
+                "name": "Use Monstrous Menagerie Tokens",
+                "hint": "Offer Monstrous Menagerie tokens discovered in the custom token directory."
+            },
+            "enableA5eMonstrousMenagerie2Tokens": {
+                "name": "Use Monstrous Menagerie 2 Tokens",
+                "hint": "Offer Monstrous Menagerie 2 tokens discovered in the custom token directory."
+            },
+            "configureTokens": {
+                "name": "Configure Tokens",
+                "label": "Configure Tokens",
+                "hint": "Open the Quick Creatures token set configuration screen."
             }
         },
         "abilities": {
@@ -91,6 +120,18 @@
             "select": "Select a feature...",
             "add": "Add Feature",
             "remove": "Remove feature"
+        },
+        "tokenConfig": {
+            "title": "Quick Creatures Token Sets",
+            "saved": "Quick Creatures token settings saved.",
+            "noCustomSets": "No custom token sets found in the selected directory.",
+            "sections": {
+                "defaults": "Default Token Set + Custom Token Directory",
+                "core": "Core Sets",
+                "pathfinder": "Pathfinder Sets",
+                "a5e": "Level Up Advanced 5E Sets",
+                "custom": "Custom Sets"
+            }
         }
     }
 }

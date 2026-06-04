@@ -1,0 +1,65 @@
+<section class="qc-token-config-section">
+  <h2>{{localize "quick-creatures.tokenConfig.sections.defaults"}}</h2>
+  <div class="form-group">
+    <label>{{localize "quick-creatures.settings.defaultTokenSet.name"}}</label>
+    <div class="form-fields">
+      <select name="defaultTokenSet">
+        {{selectOptions defaultTokenSetChoices selected=defaultTokenSet}}
+      </select>
+    </div>
+    <p class="hint">{{localize "quick-creatures.settings.defaultTokenSet.hint"}}</p>
+  </div>
+  <div class="form-group">
+    <label>{{localize "quick-creatures.settings.customTokenDirectory.name"}}</label>
+    <div class="form-fields">
+      <input type="text" name="customTokenDirectory" value="{{customTokenDirectory}}" />
+      <button type="button" data-action="browseCustomDirectory" title="{{localize 'FILES.BrowseTooltip'}}"><i class="fa-solid fa-folder-open"></i></button>
+    </div>
+    <p class="hint">{{localize "quick-creatures.settings.customTokenDirectory.hint"}}</p>
+  </div>
+</section>
+
+<section class="qc-token-config-section">
+  <h2>{{localize "quick-creatures.tokenConfig.sections.core"}}</h2>
+  {{#each groups.[0].packs}}
+    <div class="form-group qc-token-config-checkbox">
+      <label><input type="checkbox" name="enabled.{{id}}" {{checked enabled}} /> {{name}}</label>
+    </div>
+  {{/each}}
+</section>
+
+<section class="qc-token-config-section">
+  <h2>{{localize "quick-creatures.tokenConfig.sections.pathfinder"}}</h2>
+  {{#each groups.[1].packs}}
+    <div class="form-group qc-token-config-checkbox">
+      <label><input type="checkbox" name="enabled.{{id}}" {{checked enabled}} /> {{name}}</label>
+    </div>
+  {{/each}}
+</section>
+
+<section class="qc-token-config-section">
+  <h2>{{localize "quick-creatures.tokenConfig.sections.a5e"}}</h2>
+  {{#each groups.[2].packs}}
+    <div class="form-group qc-token-config-checkbox">
+      <label><input type="checkbox" name="enabled.{{id}}" {{checked enabled}} /> {{name}}</label>
+    </div>
+  {{/each}}
+</section>
+
+<section class="qc-token-config-section">
+  <h2>{{localize "quick-creatures.tokenConfig.sections.custom"}}</h2>
+  {{#if customSets.length}}
+    {{#each customSets}}
+      <div class="form-group qc-token-config-checkbox">
+        <label><input type="checkbox" name="customEnabled.{{id}}" {{checked enabled}} /> {{name}}</label>
+        <p class="hint">{{classification}}</p>
+      </div>
+    {{/each}}
+  {{else}}
+    <p class="hint">{{localize "quick-creatures.tokenConfig.noCustomSets"}}</p>
+  {{/if}}
+</section>
+
+<footer class="sheet-footer flexrow">
+  <button type="submit"><i class="fa-solid fa-save"></i> {{localize "Save Changes"}}</button>
+</footer>

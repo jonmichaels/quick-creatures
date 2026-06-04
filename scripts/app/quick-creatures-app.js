@@ -17,6 +17,7 @@ import { MONSTER_FEATURES } from "../data/features.js";
 import { TokenPickerApp } from "./quick-creatures-tokens.js";
 import { CreditsDialog } from "./credits-dialog.js";
 import { discoverPacks, getDefaultToken, getDefaultTokenEntry, getTokenSetChoices, tokenImagePath } from "../data/token-packs.js";
+import { QuickCreaturesTokenSetConfig } from "./token-set-config.js";
 
 /** @type {string} Base path for module assets */
 const MODULE_PATH = "modules/quick-creatures";
@@ -603,7 +604,7 @@ export async function initQuickCreatures() {
         name: "quick-creatures.settings.defaultTokenSet.name",
         hint: "quick-creatures.settings.defaultTokenSet.hint",
         scope: "world",
-        config: true,
+        config: false,
         type: String,
         default: "Original_Tokens",
         choices: getTokenSetChoices(game, { respectSettings: false }),
@@ -617,11 +618,35 @@ export async function initQuickCreatures() {
         default: "Soldier",
         choices: Object.fromEntries(ARCHETYPES.map(a => [a.name, `${a.name} (CR ${a.CR})`])),
     });
+    game.settings.register("quick-creatures", "customTokenDirectory", {
+        name: "quick-creatures.settings.customTokenDirectory.name",
+        hint: "quick-creatures.settings.customTokenDirectory.hint",
+        scope: "world",
+        config: false,
+        type: String,
+        default: "Data/assets/quick-creatures-tokens/",
+    });
+    game.settings.register("quick-creatures", "enableOriginalTokens", {
+        name: "quick-creatures.settings.enableOriginalTokens.name",
+        hint: "quick-creatures.settings.enableOriginalTokens.hint",
+        scope: "world",
+        config: false,
+        type: Boolean,
+        default: true,
+    });
+    game.settings.register("quick-creatures", "enableCuteTokens", {
+        name: "quick-creatures.settings.enableCuteTokens.name",
+        hint: "quick-creatures.settings.enableCuteTokens.hint",
+        scope: "world",
+        config: false,
+        type: Boolean,
+        default: true,
+    });
     game.settings.register("quick-creatures", "enablePathfinderTokensBestiaries", {
         name: "quick-creatures.settings.enablePathfinderTokensBestiaries.name",
         hint: "quick-creatures.settings.enablePathfinderTokensBestiaries.hint",
         scope: "world",
-        config: true,
+        config: false,
         type: Boolean,
         default: true,
     });
@@ -629,7 +654,7 @@ export async function initQuickCreatures() {
         name: "quick-creatures.settings.enablePathfinderTokensMonsterCore.name",
         hint: "quick-creatures.settings.enablePathfinderTokensMonsterCore.hint",
         scope: "world",
-        config: true,
+        config: false,
         type: Boolean,
         default: true,
     });
@@ -637,9 +662,47 @@ export async function initQuickCreatures() {
         name: "quick-creatures.settings.enablePathfinderTokensMonsterCore2.name",
         hint: "quick-creatures.settings.enablePathfinderTokensMonsterCore2.hint",
         scope: "world",
-        config: true,
+        config: false,
         type: Boolean,
         default: true,
+    });
+    game.settings.register("quick-creatures", "enableA5eSystemTokens", {
+        name: "quick-creatures.settings.enableA5eSystemTokens.name",
+        hint: "quick-creatures.settings.enableA5eSystemTokens.hint",
+        scope: "world",
+        config: false,
+        type: Boolean,
+        default: true,
+    });
+    game.settings.register("quick-creatures", "enableA5eMonstrousMenagerieTokens", {
+        name: "quick-creatures.settings.enableA5eMonstrousMenagerieTokens.name",
+        hint: "quick-creatures.settings.enableA5eMonstrousMenagerieTokens.hint",
+        scope: "world",
+        config: false,
+        type: Boolean,
+        default: true,
+    });
+    game.settings.register("quick-creatures", "enableA5eMonstrousMenagerie2Tokens", {
+        name: "quick-creatures.settings.enableA5eMonstrousMenagerie2Tokens.name",
+        hint: "quick-creatures.settings.enableA5eMonstrousMenagerie2Tokens.hint",
+        scope: "world",
+        config: false,
+        type: Boolean,
+        default: true,
+    });
+    game.settings.register("quick-creatures", "customTokenSetEnabled", {
+        scope: "world",
+        config: false,
+        type: Object,
+        default: {},
+    });
+    game.settings.registerMenu("quick-creatures", "configureTokens", {
+        name: "quick-creatures.settings.configureTokens.name",
+        label: "quick-creatures.settings.configureTokens.label",
+        hint: "quick-creatures.settings.configureTokens.hint",
+        icon: "fa-solid fa-image",
+        type: QuickCreaturesTokenSetConfig,
+        restricted: true,
     });
 
     // Register Handlebars helpers (not available by default in Foundry)
