@@ -21,7 +21,7 @@
 
 <section class="qc-token-config-section">
   <h2>{{localize "quick-creatures.tokenConfig.sections.core"}}</h2>
-  {{#each groups.[0].packs}}
+  {{#each coreGroup.packs}}
     <div class="form-group qc-token-config-checkbox">
       <label><input type="checkbox" name="enabled.{{id}}" {{checked enabled}} /> {{name}}</label>
     </div>
@@ -30,7 +30,7 @@
 
 <section class="qc-token-config-section">
   <h2>{{localize "quick-creatures.tokenConfig.sections.pathfinder"}}</h2>
-  {{#each groups.[1].packs}}
+  {{#each pathfinderGroup.packs}}
     <div class="form-group qc-token-config-checkbox">
       <label><input type="checkbox" name="enabled.{{id}}" {{checked enabled}} /> {{name}}</label>
     </div>
@@ -39,7 +39,7 @@
 
 <section class="qc-token-config-section">
   <h2>{{localize "quick-creatures.tokenConfig.sections.a5e"}}</h2>
-  {{#each groups.[2].packs}}
+  {{#each a5eGroup.packs}}
     <div class="form-group qc-token-config-checkbox">
       <label><input type="checkbox" name="enabled.{{id}}" {{checked enabled}} /> {{name}}</label>
     </div>

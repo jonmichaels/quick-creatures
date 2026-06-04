@@ -107,5 +107,17 @@ assert.deepEqual(
   [true, true, true, true, true],
 );
 assert.ok(sectionKeys.every((key, index) => index === 0 || templateSource.indexOf(`sections.${sectionKeys[index - 1]}`) < templateSource.indexOf(`sections.${key}`)), "template sections must be in requested order");
+assert.doesNotMatch(
+  templateSource,
+  /groups\.\[/,
+  "template must not use array-index path syntax; Foundry Handlebars has broken on paths like archetypes.[0] before",
+);
+
+const configSource = fs.readFileSync("scripts/app/token-set-config.js", "utf8");
+assert.match(
+  configSource,
+  /customSets\.map\(set => \[set\.id, Boolean\(data\.customEnabled\?\.\[set\.id\]\)\]\)/,
+  "custom enablement submit must persist false for unchecked dynamic custom sets",
+);
 
 console.log("token set config tests passed");

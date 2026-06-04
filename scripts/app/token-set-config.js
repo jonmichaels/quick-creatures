@@ -21,11 +21,14 @@ export class QuickCreaturesTokenSetConfig extends foundry.applications.api.Handl
     const customTokenDirectory = game.settings.get(MODULE_ID, "customTokenDirectory") || DEFAULT_CUSTOM_TOKEN_DIRECTORY;
     const customSets = await discoverCustomTokenSets(customTokenDirectory, game);
     const customEnabled = game.settings.get(MODULE_ID, "customTokenSetEnabled") || {};
+    const [coreGroup, pathfinderGroup, a5eGroup] = getTokenSetConfigGroups(game);
     return {
       defaultTokenSet: game.settings.get(MODULE_ID, "defaultTokenSet") || "Original_Tokens",
       defaultTokenSetChoices: getTokenSetChoices(game, { respectSettings: false, customSets }),
       customTokenDirectory,
-      groups: getTokenSetConfigGroups(game),
+      coreGroup,
+      pathfinderGroup,
+      a5eGroup,
       customSets: customSets.map(set => ({ ...set, enabled: customEnabled[set.id] !== false })),
     };
   }
@@ -53,7 +56,9 @@ export class QuickCreaturesTokenSetConfig extends foundry.applications.api.Handl
         if (pack.settingKey) await game.settings.set(MODULE_ID, pack.settingKey, Boolean(enabled[pack.id]));
       }
     }
-    await game.settings.set(MODULE_ID, "customTokenSetEnabled", data.customEnabled || {});
+    const customSets = await discoverCustomTokenSets(data.customTokenDirectory || DEFAULT_CUSTOM_TOKEN_DIRECTORY, game);
+    const customTokenSetEnabled = Object.fromEntries(customSets.map(set => [set.id, Boolean(data.customEnabled?.[set.id])]));
+    await game.settings.set(MODULE_ID, "customTokenSetEnabled", customTokenSetEnabled);
     ui.notifications.info(game.i18n.localize("quick-creatures.tokenConfig.saved"));
   }
 }
