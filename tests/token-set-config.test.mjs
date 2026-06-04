@@ -107,6 +107,11 @@ assert.deepEqual(
   [true, true, true, true, true],
 );
 assert.ok(sectionKeys.every((key, index) => index === 0 || templateSource.indexOf(`sections.${sectionKeys[index - 1]}`) < templateSource.indexOf(`sections.${key}`)), "template sections must be in requested order");
+assert.match(
+  templateSource.trim(),
+  /^<div class="qc-token-config">[\s\S]*<\/div>$/,
+  "ApplicationV2 template part must render a single root element",
+);
 assert.doesNotMatch(
   templateSource,
   /groups\.\[/,
