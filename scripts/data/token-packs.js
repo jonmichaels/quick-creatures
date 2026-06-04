@@ -480,6 +480,33 @@ export async function discoverPacks() {
     if (Array.isArray(datasheet)) results.push(createPathfinderTokenPack(pack.id, pack.name, datasheet));
   }
 
+  const customDirectory = getSetting(globalThis.game, "customTokenDirectory", "Data/assets/quick-creatures-tokens/");
+  const customSets = await discoverCustomTokenSets(customDirectory, globalThis.game);
+  for (const descriptor of customSets) {
+    if (A5E_TOKEN_PACKS[descriptor.id] && getSetting(globalThis.game, A5E_TOKEN_PACKS[descriptor.id].settingKey, true) === false) continue;
+    if (!A5E_TOKEN_PACKS[descriptor.id] && getSetting(globalThis.game, "customTokenSetEnabled", {})?.[descriptor.id] === false) continue;
+    results.push(createCustomTokenPack(descriptor));
+  }
+
+  const a5eSystem = A5E_TOKEN_PACKS["a5e-system"];
+  if (isA5eTokenPackAvailable("a5e-system", globalThis.game) && getSetting(globalThis.game, a5eSystem.settingKey, true) !== false && globalThis.FilePicker?.browse) {
+    try {
+      const { source, path } = parseCustomTokenDirectory(a5eSystem.dataPath);
+      const browse = await globalThis.FilePicker.browse(source, path);
+      results.push(createCustomTokenPack({
+        id: a5eSystem.id,
+        name: a5eSystem.name,
+        path,
+        files: browse.files || [],
+        dirs: browse.dirs || [],
+        classification: "mapping-file",
+        mappingSource: a5eSystem.mappingSource,
+      }));
+    } catch (e) {
+      console.warn(`Quick Creatures | Failed to browse A5E system tokens`, e);
+    }
+  }
+
   return results;
 }
 
