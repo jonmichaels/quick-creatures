@@ -24,8 +24,10 @@
     <legend>{{localize "quick-creatures.tokenConfig.sections.core"}}</legend>
     {{#each coreGroup.packs}}
       <div class="form-group">
-        <input id="qc-token-enabled-{{id}}" type="checkbox" name="enabled.{{id}}" {{checked enabled}} />
         <label for="qc-token-enabled-{{id}}">{{name}}</label>
+        <div class="form-fields">
+          <input id="qc-token-enabled-{{id}}" type="checkbox" name="enabled.{{id}}" {{checked enabled}} />
+        </div>
       </div>
     {{/each}}
   </fieldset>
@@ -34,8 +36,10 @@
     <legend>{{localize "quick-creatures.tokenConfig.sections.pathfinder"}}</legend>
     {{#each pathfinderGroup.packs}}
       <div class="form-group">
-        <input id="qc-token-enabled-{{id}}" type="checkbox" name="enabled.{{id}}" {{checked enabled}} />
         <label for="qc-token-enabled-{{id}}">{{name}}</label>
+        <div class="form-fields">
+          <input id="qc-token-enabled-{{id}}" type="checkbox" name="enabled.{{id}}" {{checked enabled}} />
+        </div>
       </div>
     {{/each}}
   </fieldset>
@@ -44,8 +48,10 @@
     <legend>{{localize "quick-creatures.tokenConfig.sections.a5e"}}</legend>
     {{#each a5eGroup.packs}}
       <div class="form-group">
-        <input id="qc-token-enabled-{{id}}" type="checkbox" name="enabled.{{id}}" {{checked enabled}} />
         <label for="qc-token-enabled-{{id}}">{{name}}</label>
+        <div class="form-fields">
+          <input id="qc-token-enabled-{{id}}" type="checkbox" name="enabled.{{id}}" {{checked enabled}} />
+        </div>
       </div>
     {{/each}}
   </fieldset>
@@ -55,8 +61,10 @@
     {{#if customSets.length}}
       {{#each customSets}}
         <div class="form-group">
-          <input id="qc-token-custom-enabled-{{id}}" type="checkbox" name="customEnabled.{{id}}" {{checked enabled}} />
           <label for="qc-token-custom-enabled-{{id}}">{{name}}</label>
+          <div class="form-fields">
+            <input id="qc-token-custom-enabled-{{id}}" type="checkbox" name="customEnabled.{{id}}" {{checked enabled}} />
+          </div>
           <p class="hint">{{classification}}</p>
         </div>
       {{/each}}

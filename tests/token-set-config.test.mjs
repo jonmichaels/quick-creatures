@@ -138,5 +138,15 @@ assert.match(templateSource, /^<section class="standard-form scrollable">/, "tok
 assert.match(templateSource, /<fieldset>[\s\S]*<legend>/, "token config groups must render as UIConfig-style fieldsets with legends");
 assert.doesNotMatch(templateSource, /<h2>/, "token config must not use custom h2 section styling");
 assert.doesNotMatch(templateSource, /<footer/, "token config must use the generic form-footer part, not a custom footer");
+assert.match(
+  templateSource,
+  /<div class="form-group">\s*<label for="qc-token-enabled-\{\{id\}\}">\{\{name\}\}<\/label>\s*<div class="form-fields">\s*<input id="qc-token-enabled-\{\{id\}\}" type="checkbox"/,
+  "token set checkboxes must match SettingsConfig layout: label left, form-fields checkbox right",
+);
+assert.match(
+  templateSource,
+  /<div class="form-group">\s*<label for="qc-token-custom-enabled-\{\{id\}\}">\{\{name\}\}<\/label>\s*<div class="form-fields">\s*<input id="qc-token-custom-enabled-\{\{id\}\}" type="checkbox"/,
+  "custom token checkboxes must match SettingsConfig layout: label left, form-fields checkbox right",
+);
 
 console.log("token set config tests passed");
