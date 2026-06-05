@@ -333,7 +333,7 @@
     text-align: center;
     font-size: 13px;
     color: var(--color-text-muted, #888);
-    margin: 6px 0 0;
+    margin: 0 0 6px;
 }
 
 /* Features — two-column grid: checkbox list left, selected attacks/features right */
@@ -399,6 +399,13 @@
     color: var(--color-text-secondary, #aaa);
     overflow-y: auto;
     min-height: 0;
+    flex: 1;
+}
+
+.qc-feature-drop-zone {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 .qc-feature-desc-box.qc-drop-active {
@@ -430,6 +437,7 @@
 
 .qc-selected-item-name {
     min-width: 0;
+    margin-right: auto;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

@@ -63,6 +63,9 @@
 
     <!-- Combined Ability Scores (spans both columns) -->
     <div class="qc-abilities-section">
+        <div class="qc-tab-content active" data-tab="tab_cr">
+            <p class="qc-abilities-hint">Check one or two primary abilities. (<span id="saveBonus">+2</span>) Optional: two or three secondary. (<span id="halfPbLabel">+1</span>)</p>
+        </div>
         <div class="qc-abilities-row flexrow">
             {{#each (arr "str" "dex" "con" "int" "wis" "cha")}}
             <div class="qc-ability-col">
@@ -73,9 +76,6 @@
                 </div>
             </div>
             {{/each}}
-        </div>
-        <div class="qc-tab-content active" data-tab="tab_cr">
-            <p class="qc-abilities-hint">Check one or two primary abilities. (<span id="saveBonus">+2</span>) Optional: two or three secondary. (<span id="halfPbLabel">+1</span>)</p>
         </div>
     </div>
 
