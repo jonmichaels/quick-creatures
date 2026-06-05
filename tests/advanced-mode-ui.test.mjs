@@ -34,6 +34,11 @@ assert.match(template, /data-reset-adjust="hp"/);
 assert.match(template, /data-reset-adjust="ability"/);
 
 assert.match(scss, /\.qc-create-section\s*\{[^}]*grid-template-columns:\s*1fr auto 1fr/s);
+assert.match(scss, /\.qc-token-preview\s*\{[^}]*flex:\s*0 0 88px/s);
+assert.match(scss, /> span:last-of-type\s*\{[^}]*text-align:\s*right/s);
+assert.match(scss, /\.qc-advanced-toggle\s*\{[\s\S]*input\[type="checkbox"\]\s*\{[^}]*appearance:\s*none/s);
+assert.match(scss, /input\[type="checkbox"\]::after/);
+assert.match(scss, /input\[type="checkbox"\]:checked::after\s*\{[^}]*translateX/s);
 assert.match(scss, /\.qc-advanced-control\s*\{[^}]*display:\s*none/s);
 assert.match(scss, /\.qc-advanced-active \.qc-advanced-control/);
 assert.match(scss, /\.qc-adjust-plus\.qc-adjust-active/);
