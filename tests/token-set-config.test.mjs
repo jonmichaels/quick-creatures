@@ -140,13 +140,20 @@ assert.doesNotMatch(templateSource, /<h2>/, "token config must not use custom h2
 assert.doesNotMatch(templateSource, /<footer/, "token config must use the generic form-footer part, not a custom footer");
 assert.match(
   templateSource,
-  /<div class="form-group">\s*<label for="qc-token-enabled-\{\{id\}\}">\{\{name\}\}<\/label>\s*<div class="form-fields">\s*<input id="qc-token-enabled-\{\{id\}\}" type="checkbox"/,
+  /<div class="form-group">\s*<label class="qc-token-set-label" for="qc-token-enabled-\{\{id\}\}">\{\{name\}\}<\/label>\s*<div class="form-fields">\s*<input id="qc-token-enabled-\{\{id\}\}" type="checkbox"/,
   "token set checkboxes must match SettingsConfig layout: label left, form-fields checkbox right",
 );
 assert.match(
   templateSource,
-  /<div class="form-group">\s*<label for="qc-token-custom-enabled-\{\{id\}\}">\{\{name\}\}<\/label>\s*<div class="form-fields">\s*<input id="qc-token-custom-enabled-\{\{id\}\}" type="checkbox"/,
+  /<div class="form-group">\s*<label class="qc-token-set-label" for="qc-token-custom-enabled-\{\{id\}\}">\{\{name\}\}<\/label>\s*<div class="form-fields">\s*<input id="qc-token-custom-enabled-\{\{id\}\}" type="checkbox"/,
   "custom token checkboxes must match SettingsConfig layout: label left, form-fields checkbox right",
+);
+
+const scssSource = fs.readFileSync("scss/module.scss", "utf8");
+assert.match(
+  scssSource,
+  /\.qc-token-set-label\s*\{\s*white-space:\s*nowrap;/,
+  "token set labels must not wrap prefixes like 'Pathfinder Tokens:' onto a separate line",
 );
 
 console.log("token set config tests passed");

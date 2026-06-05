@@ -490,6 +490,10 @@ select option {
     }
 }
 
+.qc-token-set-label {
+    white-space: nowrap;
+}
+
 /* ── Token Picker Window ── */
 .qc-token-picker-window {
     display: flex;
