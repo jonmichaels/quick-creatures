@@ -199,7 +199,7 @@
             margin-right: 4px;
         }
 
-        span:last-child {
+        .qc-stat > span:last-of-type {
             font-weight: bold;
             margin-left: auto;
             white-space: nowrap;
@@ -472,13 +472,59 @@
 
 /* Create button section */
 .qc-create-section {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
+    gap: 8px;
     padding: 4px 0 0;
 }
 
+.qc-advanced-toggle {
+    grid-column: 1;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--color-text-muted, #888);
+}
+
+.qc-advanced-control {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    color: #888;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    flex: 0 0 18px;
+}
+
+.qc-advanced-active .qc-advanced-control {
+    display: inline-flex;
+}
+
+.qc-advanced-control:disabled {
+    display: none;
+}
+
+.qc-adjust-plus.qc-adjust-active { color: #4a3; }
+.qc-adjust-minus.qc-adjust-active { color: #d80; }
+.qc-adjust-value { cursor: pointer; }
+
+.qc-ability-adjust-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-height: 22px;
+}
+
 .qc-create-btn {
+    grid-column: 2;
     padding: 8px 24px;
     font-size: 14px;
     font-weight: bold;
@@ -495,6 +541,8 @@
 
 /* Credits button — icon only, no bounding box */
 .qc-credits-btn {
+    grid-column: 3;
+    justify-self: end;
     background: none;
     border: none;
     color: #777;

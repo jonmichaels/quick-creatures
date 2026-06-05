@@ -10,6 +10,7 @@ import * as dnd5eAdapter from "../systems/dnd5e-adapter.js";
 import * as blackFlagAdapter from "../systems/black-flag-adapter.js";
 import { getDefaultToken, getDefaultTokenEntry, tokenImagePath } from "../data/token-packs.js";
 import { CR_TABLE } from "../data/cr-table.js";
+import { deriveAdvancedStats } from "./advanced-adjustments.js";
 
 /** @type {string} Base path for module assets */
 const MODULE_PATH = "modules/quick-creatures";
@@ -218,6 +219,10 @@ export async function createActor(app, html) {
 
     console.log(`Quick Creatures | Creating monster: type=${monsterType}, CR=${stats.CR || "N/A"}, mode=${isArchetypeMode ? "archetype" : "CR"}`);
 
+    const advancedState = app?.getAdvancedState?.() || { enabled: false, adjustments: {} };
+    const advancedEnabled = advancedState.enabled && !isArchetypeMode;
+    const creationStats = deriveAdvancedStats(stats, advancedState.adjustments, { enabled: advancedEnabled });
+
     // Load the system adapter
     let adapter;
     try {
@@ -229,7 +234,7 @@ export async function createActor(app, html) {
     }
 
     // Track number of attacks for multiattack description (features can reduce it)
-    let multiAtkCount = parseInt(stats.NoA) || 1;
+    let multiAtkCount = parseInt(creationStats.NoA) || 1;
 
     // Build feature items
     const featureItems = [];
@@ -239,7 +244,7 @@ export async function createActor(app, html) {
             multiAtkCount = Math.max(1, multiAtkCount - 1);
         }
         const item = applyRenameOverride(
-            adapter.createFeatureItem(feature, stats),
+            adapter.createFeatureItem(feature, creationStats),
             renameOverrides,
             "feature",
             feature.id || feature.name,
@@ -252,8 +257,8 @@ export async function createActor(app, html) {
 
     // Build attack items: Melee + Ranged (pushed to items array)
     // Items array order: features first, then melee, then ranged
-    const meleeItem = applyRenameOverride(adapter.createAttackItem(stats), renameOverrides, "attack", "melee", "Melee Attack");
-    const rangedItem = applyRenameOverride(adapter.createRangedItem(stats), renameOverrides, "attack", "ranged", "Ranged Attack");
+    const meleeItem = applyRenameOverride(adapter.createAttackItem(creationStats), renameOverrides, "attack", "melee", "Melee Attack");
+    const rangedItem = applyRenameOverride(adapter.createRangedItem(creationStats), renameOverrides, "attack", "ranged", "Ranged Attack");
 
     // Build multiattack feature first (appears before attacks)
     if (multiAtkCount > 1) {
@@ -290,12 +295,14 @@ export async function createActor(app, html) {
     } else {
         // CR mode: all modifiers start at 0; toggled abilities get full or half PB
         abilities = {};
-        const profBonus = parseInt(stats.PAB) || 2;
+        const profBonus = parseInt(creationStats.PAB) || 2;
         const halfPB = Math.ceil(profBonus / 2);
         const ablMap = { str: "strength", dex: "dexterity", con: "constitution", int: "intelligence", wis: "wisdom", cha: "charisma" };
         for (const [short, long] of Object.entries(ablMap)) {
             const state = saveProfs[short] || "off";
-            const mod = state === "full" ? profBonus : state === "half" ? halfPB : 0;
+            const baseMod = state === "full" ? profBonus : state === "half" ? halfPB : 0;
+            const advancedAbilityMod = state === "off" && advancedEnabled ? Number(creationStats.AdvancedAbilityMods?.[short] || 0) : 0;
+            const mod = baseMod + advancedAbilityMod;
             abilities[long] = {
                 value: 10,
                 mod: mod,
@@ -308,7 +315,7 @@ export async function createActor(app, html) {
     for (const dropped of droppedItemInputs || []) {
         const itemData = dropped.itemData || dropped;
         const normalized = adapter.normalizeDroppedItem
-            ? adapter.normalizeDroppedItem(itemData, stats, { dropped, formData, abilities })
+            ? adapter.normalizeDroppedItem(itemData, creationStats, { dropped, formData, abilities })
             : foundry.utils.deepClone(itemData);
         if (normalized) {
             droppedItems.push(applyRenameOverride(
@@ -344,7 +351,7 @@ export async function createActor(app, html) {
     }
 
     // Build actor data through the adapter
-    const actorData = adapter.buildActorData(name, stats, monsterType, abilities, tokenPath, tokenPortraitPath || tokenPath);
+    const actorData = adapter.buildActorData(name, creationStats, monsterType, abilities, tokenPath, tokenPortraitPath || tokenPath);
 
     // Create the actor
     let actor;
@@ -373,7 +380,7 @@ export async function createActor(app, html) {
                 transfer: true,
                 changes: [{
                     key: "system.attributes.prof",
-                    value: stats.PAB,
+                    value: creationStats.PAB,
                     mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
                 }],
             }], { parent: actor });

@@ -56,11 +56,15 @@ function patchDroppedAttackActivity(activity, stats, replaceDamage = false) {
     }
 }
 
+function getSaveDC(stats) {
+    return String(stats.DC ?? stats.ACDC ?? 13);
+}
+
 function patchDroppedSaveActivity(activity, stats) {
     if (!activity?.save) return;
     activity.save.dc ??= {};
     activity.save.dc.calculation = "";
-    activity.save.dc.formula = String(stats.ACDC || 13);
+    activity.save.dc.formula = getSaveDC(stats);
 }
 
 export function normalizeDroppedItem(itemData, stats, context = {}) {
@@ -370,7 +374,7 @@ const FEATURE_ACTIVITIES = {
      *  DC from ACDC chart column. */
     "Damaging Burst": (feature, stats) => {
         const burstDmg = `max(0, 1d6 + floor(${Number(stats.DpR)} / 2) - 3)`;
-        const dc = stats.ACDC || 13;
+        const dc = getSaveDC(stats);
         return {
             activities: buildSaveActivity("action", ["dex", "con", "wis"], dc, burstDmg),
             description: `<p>As an action, the [[lookup @name lowercase]] can create a burst of energy, magic, spines, or some other effect in a 10-foot-radius sphere, either around themself or at a point within 120 feet. Each creature in that area must make a [[/save]] saving throw (your choice, based on the type of burst). On a failure, a target takes damage of an appropriate type equal to half this creature's total damage per round [[/damage average extended]]. On a success, a target takes half as much damage.</p>`,
@@ -380,7 +384,7 @@ const FEATURE_ACTIVITIES = {
 
     /** Knockdown: Strength save vs prone, triggers on hit */
     "Knockdown": (feature, stats) => {
-        const dc = stats.ACDC || 13;
+        const dc = getSaveDC(stats);
         return {
             activities: buildSaveActivity("special", ["str"], dc, null),
             description: `<p>When the [[lookup @name lowercase]] hits a target with a melee attack, the target must succeed on a [[/save]] saving throw or be knocked &Reference[prone].</p>`,
@@ -390,7 +394,7 @@ const FEATURE_ACTIVITIES = {
     /** Restraining Grab: grapple + restrained, contested check to escape.
      *  Triggers on hit like Knockdown. Skills use short codes (acr, ath). */
     "Restraining Grab": (feature, stats) => {
-        const dc = stats.ACDC || 13;
+        const dc = getSaveDC(stats);
         return {
             activities: buildCheckActivity(["acr", "ath"], dc),
             description: `<p>When the [[lookup @name lowercase]] hits a target with a melee attack, the target is &Reference[grappled] ([[/check]] to escape). While grappled, the target is &Reference[restrained].</p>`,

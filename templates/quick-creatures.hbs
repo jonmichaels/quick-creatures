@@ -35,21 +35,27 @@
             </div>
 
             <div class="qc-stats-grid">
-                <div class="qc-stat">
+                <div class="qc-stat qc-adjustable-stat" data-stat="hp">
                     <span class="qc-stat-label">{{i18n "preview.hp"}}</span>
-                    <span id="hpLabel">{{defaultStats.HP}}</span>
+                    <button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="hp" data-direction="-1" data-tooltip="-10%"><i class="fa-solid fa-minus"></i></button>
+                    <span id="hpLabel" class="qc-adjust-value" data-reset-adjust="hp">{{defaultStats.HP}}</span>
+                    <button type="button" class="qc-advanced-control qc-adjust-plus" data-adjust="hp" data-direction="1" data-tooltip="+10%"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div class="qc-stat">
+                <div class="qc-stat qc-adjustable-stat" data-stat="ac">
                     <span class="qc-stat-label">{{i18n "preview.acdc"}}</span>
-                    <span id="acLabel">{{defaultStats.ACDC}}</span>
+                    <button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="ac" data-direction="-1" data-tooltip="-10%"><i class="fa-solid fa-minus"></i></button>
+                    <span id="acLabel" class="qc-adjust-value" data-reset-adjust="ac">{{defaultStats.ACDC}}</span>
+                    <button type="button" class="qc-advanced-control qc-adjust-plus" data-adjust="ac" data-direction="1" data-tooltip="+10%"><i class="fa-solid fa-plus"></i></button>
                 </div>
                 <div class="qc-stat">
                     <span class="qc-stat-label">{{i18n "preview.pb"}}</span>
                     <span id="profLabel">{{defaultStats.PAB}}</span>
                 </div>
-                <div class="qc-stat">
+                <div class="qc-stat qc-adjustable-stat" data-stat="damage">
                     <span class="qc-stat-label">{{i18n "preview.damage"}}</span>
-                    <span id="dmgLabel">{{defaultStats.DpACalc}} &times; {{defaultStats.NoA}}</span>
+                    <button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="damage" data-direction="-1" data-tooltip="-10%"><i class="fa-solid fa-minus"></i></button>
+                    <span id="dmgLabel" class="qc-adjust-value" data-reset-adjust="damage">{{defaultStats.DpACalc}} &times; {{defaultStats.NoA}}</span>
+                    <button type="button" class="qc-advanced-control qc-adjust-plus" data-adjust="damage" data-direction="1" data-tooltip="+10%"><i class="fa-solid fa-plus"></i></button>
                 </div>
             </div>
         </div>
@@ -67,7 +73,11 @@
             {{#each (arr "str" "dex" "con" "int" "wis" "cha")}}
             <div class="qc-ability-col">
                 <span class="qc-ability-label">{{i18n (concat "abilities." this)}}</span>
-                <span id="{{this}}Label" class="qc-ability-mod">+0</span>
+                <div class="qc-ability-adjust-row">
+                    <button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="ability" data-ability="{{this}}" data-direction="-1"><i class="fa-solid fa-minus"></i></button>
+                    <span id="{{this}}Label" class="qc-ability-mod qc-adjust-value" data-reset-adjust="ability" data-ability="{{this}}">+0</span>
+                    <button type="button" class="qc-advanced-control qc-adjust-plus" data-adjust="ability" data-ability="{{this}}" data-direction="1"><i class="fa-solid fa-plus"></i></button>
+                </div>
                 <div class="qc-tab-content active" data-tab="tab_cr">
                     <span class="qc-ability-toggle" data-state="off" data-ability="{{this}}" role="checkbox" aria-checked="false"></span>
                 </div>
@@ -86,11 +96,17 @@
 
     <!-- Create button (spans both columns, last item on page) -->
     <div class="qc-create-section">
-        <button type="button" id="qc-credits-btn" class="qc-credits-btn" data-tooltip="Credits">
-            <i class="fa-solid fa-copyright"></i>
-        </button>
+        <div class="qc-tab-content active" data-tab="tab_cr">
+            <label class="qc-advanced-toggle">
+                <input type="checkbox" id="advanced-mode" {{#if advancedMode}}checked{{/if}} />
+                <span>{{i18n "advanced.label"}}</span>
+            </label>
+        </div>
         <button type="button" id="create-monster-btn" class="qc-create-btn">
             {{i18n "create.button"}}
+        </button>
+        <button type="button" id="qc-credits-btn" class="qc-credits-btn" data-tooltip="Credits">
+            <i class="fa-solid fa-copyright"></i>
         </button>
     </div>
 </div>

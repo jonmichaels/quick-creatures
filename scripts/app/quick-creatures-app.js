@@ -18,6 +18,12 @@ import { TokenPickerApp } from "./quick-creatures-tokens.js";
 import { CreditsDialog } from "./credits-dialog.js";
 import { discoverPacks, getDefaultToken, getDefaultTokenEntry, getTokenSetChoices, tokenImagePath } from "../data/token-packs.js";
 import { QuickCreaturesTokenSetConfig } from "./token-set-config.js";
+import {
+    deriveAdvancedStats,
+    modifierToDnd5eScore,
+    nextAbilityStep,
+    nextPercentStep,
+} from "./advanced-adjustments.js";
 
 /** @type {string} Base path for module assets */
 const MODULE_PATH = "modules/quick-creatures";
@@ -82,6 +88,17 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
 
     /** @type {Array<object>} Available token packs for preview defaults */
     _packs = [];
+
+    /** @type {boolean} Whether advanced CR controls are currently enabled */
+    _advancedMode = game.settings?.get("quick-creatures", "defaultAdvancedMode") || false;
+
+    /** @type {object} Current advanced stat adjustment steps */
+    _advancedAdjustments = {
+        hp: 0,
+        ac: 0,
+        damage: 0,
+        abilities: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
+    };
 
     /** @type {Map<string, string>} Current per-item rename overrides */
     #renameOverrides = new Map();
@@ -221,6 +238,7 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             types,
             features: serializedFeatures,
             defaultStats: crStats[0] || {},
+            advancedMode: this._advancedMode,
             sizes: SIZES,
             defaults: {
                 type: defaultType,
@@ -291,7 +309,35 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
                 const next = states[(states.indexOf(current) + 1) % states.length];
                 toggle.dataset.state = next;
                 toggle.setAttribute("aria-checked", next !== "off");
+                if (next !== "off") {
+                    this._advancedAdjustments.abilities[toggle.dataset.ability] = 0;
+                }
                 this.#updatePreview();
+            });
+        });
+
+        const advancedToggle = html.querySelector("#advanced-mode");
+        if (advancedToggle) {
+            advancedToggle.addEventListener("change", () => {
+                this._advancedMode = advancedToggle.checked;
+                html.classList.toggle("qc-advanced-active", this._advancedMode);
+                this.#updatePreview();
+            });
+        }
+        html.classList.toggle("qc-advanced-active", this._advancedMode);
+
+        html.querySelectorAll(".qc-advanced-control[data-adjust]").forEach(btn => {
+            btn.addEventListener("click", ev => {
+                ev.preventDefault();
+                this.#changeAdvancedAdjustment(btn.dataset.adjust, Number(btn.dataset.direction), btn.dataset.ability);
+            });
+        });
+
+        html.querySelectorAll("[data-reset-adjust]").forEach(value => {
+            value.addEventListener("click", ev => {
+                if (!this._advancedMode) return;
+                ev.preventDefault();
+                this.#resetAdvancedAdjustment(value.dataset.resetAdjust, value.dataset.ability);
             });
         });
 
@@ -398,8 +444,57 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             content.classList.toggle("active", content.dataset.tab === tabId);
         });
 
+        html.classList.toggle("qc-advanced-active", this._advancedMode && tabId === "tab_cr");
         this.#updatePreview();
         this.#updateSelectedItemsList();
+    }
+
+    #changeAdvancedAdjustment(kind, direction, ability = null) {
+        if (!this._advancedMode || this.#isArchetypeMode()) return;
+        if (kind === "ability") {
+            const toggle = this.element?.querySelector(`.qc-ability-toggle[data-ability="${ability}"]`);
+            const enabled = (toggle?.dataset.state || "off") === "off";
+            this._advancedAdjustments.abilities[ability] = nextAbilityStep(this._advancedAdjustments.abilities[ability] || 0, direction, { enabled });
+        } else if (kind in this._advancedAdjustments) {
+            this._advancedAdjustments[kind] = nextPercentStep(this._advancedAdjustments[kind] || 0, direction);
+        }
+        this.#updatePreview();
+    }
+
+    #resetAdvancedAdjustment(kind, ability = null) {
+        if (kind === "ability" && ability) this._advancedAdjustments.abilities[ability] = 0;
+        else if (kind in this._advancedAdjustments) this._advancedAdjustments[kind] = 0;
+        this.#updatePreview();
+    }
+
+    #resetAllAdvancedAdjustments() {
+        this._advancedAdjustments = {
+            hp: 0,
+            ac: 0,
+            damage: 0,
+            abilities: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
+        };
+        this.#updatePreview();
+    }
+
+    #isArchetypeMode() {
+        const crTab = this.element?.querySelector('[data-tab="tab_cr"]');
+        return !!(crTab && !crTab.classList.contains("active"));
+    }
+
+    #updateAdvancedControlStates(html) {
+        html.classList.toggle("qc-advanced-active", this._advancedMode && !this.#isArchetypeMode());
+        html.querySelectorAll(".qc-advanced-control[data-adjust]").forEach(btn => {
+            const kind = btn.dataset.adjust;
+            const ability = btn.dataset.ability;
+            const toggle = ability ? html.querySelector(`.qc-ability-toggle[data-ability="${ability}"]`) : null;
+            const disabled = kind === "ability" && (toggle?.dataset.state || "off") !== "off";
+            const value = kind === "ability"
+                ? Number(this._advancedAdjustments.abilities[ability] || 0)
+                : Number(this._advancedAdjustments[kind] || 0);
+            btn.disabled = disabled;
+            btn.classList.toggle("qc-adjust-active", !disabled && ((btn.dataset.direction === "1" && value > 0) || (btn.dataset.direction === "-1" && value < 0)));
+        });
     }
 
     /**
@@ -435,7 +530,10 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
 
         if (!stats) return;
 
-        saveBonus = stats.PAB || "+2";
+        const advancedEnabled = this._advancedMode && !isArchetype;
+        const displayStats = deriveAdvancedStats(stats, this._advancedAdjustments, { enabled: advancedEnabled });
+
+        saveBonus = displayStats.PAB || "+2";
         // Ensure "+" prefix (archetype PAB is a plain number, CR table PAB has "+")
         saveBonus = String(saveBonus).startsWith("+") ? String(saveBonus) : "+" + String(saveBonus);
 
@@ -445,20 +543,20 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         const halfPbStr = halfPb >= 0 ? `+${halfPb}` : `${halfPb}`;
 
         // Update stat labels
-        this.#setText(html, "#hpLabel", stats.HP);
-        this.#setText(html, "#acLabel", stats.ACDC);
+        this.#setText(html, "#hpLabel", displayStats.HP);
+        this.#setText(html, "#acLabel", displayStats.ACDisplay || displayStats.ACDC);
         this.#setText(html, "#profLabel", saveBonus);
         this.#setText(html, "#saveBonus", saveBonus);
         this.#setText(html, "#halfPbLabel", halfPbStr);
 
         // Damage per attack × number of attacks
-        const noa = stats.NoA || 1;
-        this.#setText(html, "#dmgLabel", `${stats.DpACalc} × ${noa}`);
+        const noa = displayStats.NoA || 1;
+        this.#setText(html, "#dmgLabel", `${displayStats.DpACalc} × ${noa}`);
 
         // Level equivalent
         const eclEl = html.querySelector("#lvlLabel");
         if (eclEl) {
-            eclEl.textContent = stats.ECL || "";
+            eclEl.textContent = displayStats.ECL || "";
         }
 
         // Abilities — archetypes: compute dnd5e score from BF-inflated value.
@@ -496,12 +594,17 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             for (const key of ablKeys) {
                 const toggle = html.querySelector(`.qc-ability-toggle[data-ability="${key}"]`);
                 const state = toggle ? toggle.dataset.state : "off";
-                const mod = state === "full" ? pb : state === "half" ? halfPB : 0;
+                const baseMod = state === "full" ? pb : state === "half" ? halfPB : 0;
+                const advancedAbilityMod = state === "off" && advancedEnabled
+                    ? Number(displayStats.AdvancedAbilityMods?.[key] || 0)
+                    : 0;
+                const mod = baseMod + advancedAbilityMod;
                 const modStr = mod >= 0 ? `+${mod}` : `${mod}`;
                 const labelEl = html.querySelector(`#${key}Label`);
+                if (!labelEl) continue;
                 if (is5E) {
                     const realMod = state === "full" ? mod - prof5E : mod;
-                    const score = 10 + realMod * 2;
+                    const score = modifierToDnd5eScore(realMod);
                     labelEl.textContent = `${score} (${modStr})`;
                     // Tooltip
                     labelEl.title = state === "full"
@@ -521,6 +624,18 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
                 descEl.setAttribute("data-tooltip", stats.desc);
             }
         }
+        this.#updateAdvancedControlStates(html);
+    }
+
+    /**
+     * Get current advanced mode state for actor creation.
+     * @returns {{enabled: boolean, adjustments: object}}
+     */
+    getAdvancedState() {
+        return {
+            enabled: this._advancedMode,
+            adjustments: foundry.utils.deepClone(this._advancedAdjustments),
+        };
     }
 
     /**
@@ -859,6 +974,14 @@ export async function initQuickCreatures() {
         config: true,
         type: Boolean,
         default: true,
+    });
+    game.settings.register("quick-creatures", "defaultAdvancedMode", {
+        name: "quick-creatures.settings.defaultAdvancedMode.name",
+        hint: "quick-creatures.settings.defaultAdvancedMode.hint",
+        scope: "world",
+        config: true,
+        type: Boolean,
+        default: false,
     });
     game.settings.register("quick-creatures", "defaultTokenSet", {
         name: "quick-creatures.settings.defaultTokenSet.name",

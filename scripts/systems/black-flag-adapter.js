@@ -59,10 +59,14 @@ function patchDroppedAttackActivity(activity, stats, replaceDamage = false) {
     }
 }
 
+function getSaveDC(stats) {
+    return String(stats.DC ?? stats.ACDC ?? 13);
+}
+
 function patchDroppedSaveActivity(activity, stats) {
     activity.system ??= {};
     activity.system.save ??= {};
-    activity.system.save.dc = { ability: "custom", formula: String(stats.ACDC || 13) };
+    activity.system.save.dc = { ability: "custom", formula: getSaveDC(stats) };
 }
 
 function getPrimarySpellAbility(abilities = {}) {
@@ -357,7 +361,7 @@ export function createFeatureItem(feature, stats) {
         } else if (bfType === "save") {
             // Non-damaging save activity (Knockdown, Restraining Grab)
             const abilities = feature.bfActivity.abilities || ["strength"];
-            const dcFormula = String(parseInt(stats.ACDC) || 10);
+            const dcFormula = String(parseInt(getSaveDC(stats)) || 10);
             item.system.activities = {
                 [activityId]: {
                     _id: activityId, type: "save", name: item.name,
@@ -385,7 +389,7 @@ export function createFeatureItem(feature, stats) {
             // Ability check activity (Restraining Grab)
             // BF check activities use system.check (NOT system.save)
             // check.ability = single base ability, check.associated = skills that can contribute
-            const dcFormula = String(parseInt(stats.ACDC) || 10);
+            const dcFormula = String(parseInt(getSaveDC(stats)) || 10);
             item.system.activities = {
                 [activityId]: {
                     _id: activityId, type: "check", name: item.name,
@@ -531,7 +535,7 @@ export function createFeatureItem(feature, stats) {
         const saveAbilities = (feature.saveAbilities?.length)
             ? feature.saveAbilities
             : (item.system.save?.ability ? [item.system.save.ability] : ["dexterity"]);
-        const dcFormula = String(parseInt(stats.ACDC) || 10);
+        const dcFormula = String(parseInt(getSaveDC(stats)) || 10);
         const dndActivation = item.system.activation || {};
         const dndTarget = item.system.target || {};
         const dndRange = item.system.range || {};
