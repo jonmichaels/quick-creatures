@@ -198,6 +198,8 @@
             text-transform: uppercase;
             color: var(--color-text-muted, #888);
             margin-right: 4px;
+            text-align: left;
+            min-width: 44px;
         }
 
         > span:last-of-type,
@@ -545,9 +547,9 @@
     width: 12px;
     height: 12px;
     padding: 0;
-    color: #888;
-    background: transparent;
-    border: 0;
+    color: #111;
+    background: #fff;
+    border: 1px solid #111;
     cursor: pointer;
     flex: 0 0 12px;
     font-size: 9px;
@@ -562,8 +564,17 @@
     display: none;
 }
 
-.qc-adjust-plus.qc-adjust-active { color: #4a3; }
-.qc-adjust-minus.qc-adjust-active { color: #d80; }
+.qc-adjust-plus.qc-adjust-active {
+    color: #fff;
+    background: var(--color-bg-accent, #4a3);
+    border-color: var(--color-bg-accent, #4a3);
+}
+
+.qc-adjust-minus.qc-adjust-active {
+    color: #111;
+    background: #d80;
+    border-color: #d80;
+}
 .qc-adjust-value { cursor: pointer; }
 
 .qc-ability-adjust-row {
