@@ -165,11 +165,11 @@
     align-items: flex-start;
 
     .qc-token-preview {
-        flex: 0 0 88px;
+        flex: 0 0 94px;
 
         img {
-            width: 88px;
-            height: 88px;
+            width: 94px;
+            height: 94px;
             border-radius: 50%;
             border: 2px solid var(--color-border, #666);
             object-fit: cover;
@@ -474,16 +474,19 @@
 
 /* Create button section */
 .qc-create-section {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 8px;
     padding: 4px 0 0;
 }
 
+.qc-create-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .qc-advanced-toggle {
-    grid-column: 1;
-    justify-self: start;
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -561,7 +564,7 @@
 }
 
 .qc-create-btn {
-    grid-column: 2;
+    margin-left: auto;
     padding: 8px 24px;
     font-size: 14px;
     font-weight: bold;
@@ -576,10 +579,13 @@
     }
 }
 
+#advanced-mode::before {
+    display: none !important;
+    content: none !important;
+}
+
 /* Credits button — icon only, no bounding box */
 .qc-credits-btn {
-    grid-column: 3;
-    justify-self: end;
     background: none;
     border: none;
     color: #777;

@@ -96,17 +96,19 @@
 
     <!-- Create button (spans both columns, last item on page) -->
     <div class="qc-create-section">
-        <div class="qc-tab-content active" data-tab="tab_cr">
-            <label class="qc-advanced-toggle">
-                <input type="checkbox" id="advanced-mode" {{#if advancedMode}}checked{{/if}} />
-                <span>{{i18n "advanced.label"}}</span>
-            </label>
+        <div class="qc-create-left">
+            <div class="qc-tab-content active" data-tab="tab_cr">
+                <label class="qc-advanced-toggle">
+                    <input type="checkbox" id="advanced-mode" {{#if advancedMode}}checked{{/if}} />
+                    <span>{{i18n "advanced.label"}}</span>
+                </label>
+            </div>
+            <button type="button" id="qc-credits-btn" class="qc-credits-btn" data-tooltip="Credits">
+                <i class="fa-solid fa-copyright"></i>
+            </button>
         </div>
         <button type="button" id="create-monster-btn" class="qc-create-btn">
             {{i18n "create.button"}}
-        </button>
-        <button type="button" id="qc-credits-btn" class="qc-credits-btn" data-tooltip="Credits">
-            <i class="fa-solid fa-copyright"></i>
         </button>
     </div>
 </div>

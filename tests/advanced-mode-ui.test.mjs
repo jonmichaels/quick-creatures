@@ -22,7 +22,9 @@ assert.match(app, /#resetAdvancedAdjustment/);
 assert.match(app, /#updateAdvancedControlStates/);
 
 assert.match(template, /id="advanced-mode"/);
-assert.match(template, /data-tab="tab_cr"[^>]*>\s*<label class="qc-advanced-toggle/s);
+assert.match(template, /<div class="qc-create-left">\s*<div class="qc-tab-content active" data-tab="tab_cr">\s*<label class="qc-advanced-toggle/s);
+assert.match(template, /<\/label>\s*<\/div>\s*<button type="button" id="qc-credits-btn"/s);
+assert.match(template, /<button type="button" id="create-monster-btn" class="qc-create-btn">/);
 assert.match(template, /data-adjust="hp"/);
 assert.match(template, /data-adjust="ac"/);
 assert.match(template, /data-adjust="damage"/);
@@ -33,9 +35,12 @@ assert.match(template, /data-direction="1"/);
 assert.match(template, /data-reset-adjust="hp"/);
 assert.match(template, /data-reset-adjust="ability"/);
 
-assert.match(scss, /\.qc-create-section\s*\{[^}]*grid-template-columns:\s*1fr auto 1fr/s);
-assert.match(scss, /\.qc-token-preview\s*\{[^}]*flex:\s*0 0 88px/s);
+assert.match(scss, /\.qc-create-section\s*\{[^}]*display:\s*flex;[^}]*justify-content:\s*space-between/s);
+assert.match(scss, /\.qc-create-left\s*\{[^}]*display:\s*inline-flex/s);
+assert.match(scss, /\.qc-token-preview\s*\{[^}]*flex:\s*0 0 94px/s);
+assert.match(scss, /\.qc-token-preview\s*\{[\s\S]*img\s*\{[^}]*width:\s*94px;[^}]*height:\s*94px/s);
 assert.match(scss, /> span:last-of-type\s*\{[^}]*text-align:\s*right/s);
+assert.match(scss, /#advanced-mode::before\s*\{[^}]*display:\s*none\s*!important/s);
 assert.match(scss, /\.qc-advanced-toggle\s*\{[\s\S]*input\[type="checkbox"\]\s*\{[^}]*appearance:\s*none/s);
 assert.match(scss, /input\[type="checkbox"\]::after/);
 assert.match(scss, /input\[type="checkbox"\]:checked::after\s*\{[^}]*translateX/s);
