@@ -336,7 +336,7 @@
     margin: 6px 0 0;
 }
 
-/* Features — two-column grid: checkbox list left, description right */
+/* Features — two-column grid: checkbox list left, selected attacks/features right */
 .qc-features-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -397,7 +397,51 @@
     border-radius: 4px;
     font-size: 12px;
     color: var(--color-text-secondary, #aaa);
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.qc-selected-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-height: 0;
+}
+
+.qc-selected-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.04);
+}
+
+.qc-selected-item-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--color-text, #ddd);
+}
+
+.qc-selected-item-edit {
+    flex: 0 0 auto;
+    border: 0;
+    background: transparent;
+    color: var(--color-text-secondary, #aaa);
+    cursor: pointer;
+    padding: 1px 2px;
+
+    &:hover {
+        color: var(--color-text, #fff);
+    }
+}
+
+.qc-selected-items-empty {
     font-style: italic;
+    color: var(--color-text-secondary, #aaa);
 }
 
 /* Create button section */

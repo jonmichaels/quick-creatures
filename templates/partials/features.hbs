@@ -1,15 +1,15 @@
-<!-- Feature selection with checkboxes + hover description -->
+<!-- Feature selection with checkboxes + hover tooltips and selected list -->
 <div class="qc-features-wrap">
     <h3>{{i18n "features.title"}}</h3>
     <div class="qc-features-list">
         {{#each features}}
-        <label class="qc-feature-check" data-feature="{{serialized}}">
+        <label class="qc-feature-check" data-feature="{{serialized}}" title="{{tooltip}}">
             <input type="checkbox" class="qc-feature-cb" />
             <span class="qc-feature-name">{{name}}</span>
         </label>
         {{/each}}
     </div>
-    <div class="qc-feature-desc-box">
-        <p class="qc-feature-desc-text"></p>
+    <div class="qc-feature-desc-box" aria-label="Selected attacks and features">
+        <div class="qc-selected-items-list" data-empty-text="No features selected."></div>
     </div>
 </div>

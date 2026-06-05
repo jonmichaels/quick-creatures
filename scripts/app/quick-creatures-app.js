@@ -83,6 +83,9 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
     /** @type {Array<object>} Available token packs for preview defaults */
     _packs = [];
 
+    /** @type {Map<string, string>} Current per-item rename overrides */
+    #renameOverrides = new Map();
+
     /** @override */
     static DEFAULT_OPTIONS = {
         id: "quick-creatures",
@@ -177,10 +180,14 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             serialized: JSON.stringify(a),
         }));
 
-        const serializedFeatures = features.map(f => ({
-            ...f,
-            serialized: JSON.stringify(f),
-        }));
+        const serializedFeatures = features.map(f => {
+            const tooltip = f.desc || f.description || "";
+            const view = { ...f, tooltip };
+            return {
+                ...view,
+                serialized: JSON.stringify(view),
+            };
+        });
 
         const defaultType = game.settings?.get("quick-creatures", "defaultType") || "Aberration";
         this._packs = await discoverPacks();
@@ -258,13 +265,19 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         // CR select change
         const crSelect = html.querySelector("#cr-value");
         if (crSelect) {
-            crSelect.addEventListener("change", () => this.#updatePreview());
+            crSelect.addEventListener("change", () => {
+                this.#updatePreview();
+                this.#updateSelectedItemsList();
+            });
         }
 
         // Archetype select change
         const archetypeSelect = html.querySelector("#archetype-select");
         if (archetypeSelect) {
-            archetypeSelect.addEventListener("change", () => this.#updatePreview());
+            archetypeSelect.addEventListener("change", () => {
+                this.#updatePreview();
+                this.#updateSelectedItemsList();
+            });
         }
 
         // 3-state ability proficiency toggles: off → full → half → off
@@ -293,26 +306,14 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
                 if (tokenImg) {
                     tokenImg.src = this._getTokenPreviewSrc(displayType);
                 }
+                this.#updateSelectedItemsList();
             });
         }
 
-        // Feature hover — show description in description box
-        const descBoxText = html.querySelector(".qc-feature-desc-text");
-        if (descBoxText) {
-            html.querySelectorAll(".qc-feature-check").forEach(check => {
-                check.addEventListener("mouseenter", () => {
-                    try {
-                        const feature = JSON.parse(check.dataset.feature);
-                        descBoxText.textContent = feature.desc || feature.description || "";
-                    } catch (e) {
-                        descBoxText.textContent = "";
-                    }
-                });
-                check.addEventListener("mouseleave", () => {
-                    descBoxText.textContent = "";
-                });
-            });
-        }
+        // Feature checkbox changes — update selected attacks/features list
+        html.querySelectorAll(".qc-feature-cb").forEach(cb => {
+            cb.addEventListener("change", () => this.#updateSelectedItemsList());
+        });
 
         // Create monster button
         const createMonsterBtn = html.querySelector("#create-monster-btn");
@@ -363,6 +364,8 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
                 }).render({ force: true });
             });
         }
+
+        this.#updateSelectedItemsList();
     }
 
     /**
@@ -383,6 +386,7 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
         });
 
         this.#updatePreview();
+        this.#updateSelectedItemsList();
     }
 
     /**
@@ -504,6 +508,183 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
                 descEl.setAttribute("data-tooltip", stats.desc);
             }
         }
+    }
+
+    /**
+     * Get current rename overrides for actor creation.
+     * @returns {Map<string, string>}
+     */
+    getRenameOverrides() {
+        return new Map(this.#renameOverrides);
+    }
+
+    /**
+     * Compute current stats from the active tab.
+     * @returns {object|null}
+     */
+    #getCurrentStats() {
+        const html = this.element;
+        if (!html) return null;
+
+        const crTab = html.querySelector('[data-tab="tab_cr"]');
+        const isArchetype = crTab && !crTab.classList.contains("active");
+        const select = html.querySelector(isArchetype ? "#archetype-select" : "#cr-value");
+        const option = select?.options?.[select.selectedIndex];
+        if (!option?.dataset.stats) return null;
+
+        try {
+            const stats = JSON.parse(option.dataset.stats);
+            if (isArchetype && stats?.CR) {
+                const chartRow = CR_TABLE.find(r => r.CR === stats.CR);
+                if (chartRow) {
+                    for (const [key, value] of Object.entries(chartRow)) {
+                        if (!(key in stats)) stats[key] = value;
+                    }
+                }
+            }
+            return stats;
+        } catch (_err) {
+            return null;
+        }
+    }
+
+    /**
+     * Build a stable key for rename overrides.
+     * @param {string} kind
+     * @param {string} key
+     * @returns {string}
+     */
+    #renameKey(kind, key) {
+        return `${kind}:${key}`;
+    }
+
+    /**
+     * Return checked feature payloads from the current DOM.
+     * @returns {Array<object>}
+     */
+    #getSelectedFeatures() {
+        const features = [];
+        this.element?.querySelectorAll(".qc-feature-cb:checked").forEach(cb => {
+            const label = cb.closest(".qc-feature-check");
+            if (!label?.dataset.feature) return;
+            try {
+                features.push(JSON.parse(label.dataset.feature));
+            } catch (_err) {
+                // Ignore malformed feature payloads; createActor has its own parsing guard.
+            }
+        });
+        return features;
+    }
+
+    /**
+     * Multiattack displays if the create path will add it after selected feature reductions.
+     * @returns {boolean}
+     */
+    #shouldShowMultiattack() {
+        const stats = this.#getCurrentStats();
+        if (!stats) return false;
+
+        let attacks = parseInt(stats.NoA, 10) || 1;
+        for (const feature of this.#getSelectedFeatures()) {
+            if (feature.reduceAtk) attacks = Math.max(1, attacks - 1);
+        }
+        return attacks > 1;
+    }
+
+    /**
+     * Build selected attacks/features for the summary box.
+     * @returns {Array<object>}
+     */
+    #getSelectedListItems() {
+        const items = [
+            { kind: "attack", key: "melee", originalName: "Melee Attack" },
+            { kind: "attack", key: "ranged", originalName: "Ranged Attack" },
+        ];
+
+        if (this.#shouldShowMultiattack()) {
+            items.push({ kind: "attack", key: "multiattack", originalName: "Multiattack" });
+        }
+
+        for (const feature of this.#getSelectedFeatures()) {
+            const key = feature.id || feature.name;
+            if (!key) continue;
+            items.push({
+                kind: "feature",
+                key,
+                originalName: feature.name,
+            });
+        }
+
+        return items.map(item => {
+            const renameKey = this.#renameKey(item.kind, item.key || item.originalName);
+            return {
+                ...item,
+                displayName: this.#renameOverrides.get(renameKey) || item.originalName,
+            };
+        });
+    }
+
+    /**
+     * Render the selected attacks/features list without re-rendering the app.
+     */
+    #updateSelectedItemsList() {
+        const list = this.element?.querySelector(".qc-selected-items-list");
+        if (!list) return;
+
+        list.replaceChildren();
+        for (const item of this.#getSelectedListItems()) {
+            const row = document.createElement("div");
+            row.className = "qc-selected-item";
+            row.dataset.kind = item.kind;
+            row.dataset.key = item.key || item.originalName;
+            row.dataset.originalName = item.originalName;
+
+            const name = document.createElement("span");
+            name.className = "qc-selected-item-name";
+            name.textContent = item.displayName;
+
+            const edit = document.createElement("button");
+            edit.type = "button";
+            edit.className = "qc-selected-item-edit";
+            edit.title = `Rename ${item.displayName}`;
+            edit.setAttribute("aria-label", `Rename ${item.displayName}`);
+            edit.innerHTML = '<i class="fas fa-edit" aria-hidden="true"></i>';
+            edit.addEventListener("click", () => this.#renameSelectedItem(item));
+
+            row.append(name, edit);
+            list.append(row);
+        }
+    }
+
+    /**
+     * Prompt for a new item name and update the selected list.
+     * @param {object} item
+     */
+    async #renameSelectedItem(item) {
+        const current = item.displayName || item.originalName;
+        const escapedCurrent = foundry.utils.escapeHTML(current);
+        let next = null;
+
+        if (globalThis.Dialog?.prompt) {
+            next = await Dialog.prompt({
+                title: `Rename ${item.originalName}`,
+                content: `<div class="form-group"><label>Name</label><div class="form-fields"><input type="text" name="name" value="${escapedCurrent}" autofocus></div></div>`,
+                callback: html => (html.querySelector?.("input[name='name']") || html[0]?.querySelector?.("input[name='name']"))?.value,
+                rejectClose: false,
+            });
+        } else {
+            next = globalThis.prompt?.(`Rename ${item.originalName}`, current);
+        }
+
+        if (next == null) return;
+        const trimmed = String(next).trim();
+        const renameKey = this.#renameKey(item.kind, item.key || item.originalName);
+        if (!trimmed || trimmed === item.originalName) {
+            this.#renameOverrides.delete(renameKey);
+        } else {
+            this.#renameOverrides.set(renameKey, trimmed);
+        }
+        this.#updateSelectedItemsList();
     }
 
     /**

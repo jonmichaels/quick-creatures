@@ -33,6 +33,16 @@ function getAdapter() {
     return adapter;
 }
 
+function getRenameOverrides(app) {
+    return app?.getRenameOverrides?.() || new Map();
+}
+
+function applyRenameOverride(item, renameOverrides, kind, key, originalName = item?.name) {
+    const override = renameOverrides.get(`${kind}:${key || originalName}`);
+    if (override && item) item.name = override;
+    return item;
+}
+
 /**
  * Read all form data from the ApplicationV2 app's HTML.
  * @param {ApplicationV2} app - The QuickCreaturesApp instance
@@ -192,6 +202,7 @@ export function buildPrototypeTokenUpdates(creatureSize, tokenArtworkScale, dyna
 export async function createActor(app, html) {
     const formData = readFormData(app, html);
     const { stats, monsterType, creatureName, saveProfs, features, creatureSize, isArchetypeMode, dynamicRing } = formData;
+    const renameOverrides = getRenameOverrides(app);
 
     if (!stats) {
         ui.notifications.error(game.i18n.localize("quick-creatures.create.noStats"));
@@ -220,7 +231,13 @@ export async function createActor(app, html) {
         if (feature.reduceAtk) {
             multiAtkCount = Math.max(1, multiAtkCount - 1);
         }
-        const item = adapter.createFeatureItem(feature, stats);
+        const item = applyRenameOverride(
+            adapter.createFeatureItem(feature, stats),
+            renameOverrides,
+            "feature",
+            feature.id || feature.name,
+            feature.name,
+        );
         if (item) {
             featureItems.push(item);
         }
@@ -228,12 +245,18 @@ export async function createActor(app, html) {
 
     // Build attack items: Melee + Ranged (pushed to items array)
     // Items array order: features first, then melee, then ranged
-    const meleeItem = adapter.createAttackItem(stats);
-    const rangedItem = adapter.createRangedItem(stats);
+    const meleeItem = applyRenameOverride(adapter.createAttackItem(stats), renameOverrides, "attack", "melee", "Melee Attack");
+    const rangedItem = applyRenameOverride(adapter.createRangedItem(stats), renameOverrides, "attack", "ranged", "Ranged Attack");
 
     // Build multiattack feature first (appears before attacks)
     if (multiAtkCount > 1) {
-        const multiItem = adapter.createMultiattackItem(multiAtkCount);
+        const multiItem = applyRenameOverride(
+            adapter.createMultiattackItem(multiAtkCount),
+            renameOverrides,
+            "attack",
+            "multiattack",
+            "Multiattack",
+        );
         if (multiItem) featureItems.push(multiItem);
     }
 
