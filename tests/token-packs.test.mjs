@@ -223,8 +223,49 @@ assert.equal(
   "external Monster Core 2 token paths should not be prefixed with Quick Creatures assets",
 );
 
+const a5eBrowseResult = {
+  target: "assets/quick-creatures-tokens",
+  dirs: [
+    "assets/quick-creatures-tokens/Monstrous_Menagerie_1_Tokens",
+    "assets/quick-creatures-tokens/Monstrous_Menagerie_2_Tokens",
+  ],
+  files: [],
+};
+const a5eDescriptors = tokenPacks.createCustomTokenSetDescriptors(a5eBrowseResult, {
+  customTokenDirectory: "Data/assets/quick-creatures-tokens/",
+});
+assert.deepEqual(
+  a5eDescriptors.map(set => [set.id, set.name]),
+  [
+    ["a5e-monstrous-menagerie", "Monstrous Menagerie"],
+    ["a5e-monstrous-menagerie-2", "Monstrous Menagerie 2"],
+  ],
+  "known A5E folder aliases should use canonical display names, not raw underscored folder names",
+);
+const a5eGame = {
+  system: { id: "dnd5e" },
+  systems: new Map([["a5e", {}]]),
+  settings: { get: (_namespace, key) => ({
+    enableOriginalTokens: false,
+    enableCuteTokens: false,
+    enableA5eSystemTokens: true,
+    enableA5eMonstrousMenagerieTokens: true,
+    enableA5eMonstrousMenagerie2Tokens: true,
+  }[key]) },
+};
+assert.deepEqual(
+  tokenPacks.getTokenSetChoices(a5eGame, { customSets: a5eDescriptors }),
+  {
+    "a5e-system": "A5E System",
+    "a5e-monstrous-menagerie": "Monstrous Menagerie",
+    "a5e-monstrous-menagerie-2": "Monstrous Menagerie 2",
+  },
+  "A5E token choices should include the checked system set and canonical MM names without custom duplicates",
+);
+
 const originalGame = globalThis.game;
 const originalFetch = globalThis.fetch;
+const originalFilePicker = globalThis.FilePicker;
 const requestedPaths = [];
 globalThis.game = activeAllPathfinderGame;
 globalThis.fetch = async (url) => {
@@ -249,6 +290,48 @@ assert.equal(
   discovered.find(pack => pack.id === "pf2e-tokens-monster-core-2")?.tokens.Celestial[0]?.scale,
   1.25,
   "discoverPacks should include Monster Core 2 with datasheet scale metadata",
+);
+
+const browseCalls = [];
+globalThis.game = a5eGame;
+globalThis.fetch = async () => ({ ok: false, text: async () => "", json: async () => null });
+globalThis.FilePicker = {
+  browse: async (_source, target) => {
+    browseCalls.push(target);
+    const normalizedTarget = target.replace(/\/$/, "");
+    if (normalizedTarget === "assets/quick-creatures-tokens") return a5eBrowseResult;
+    if (normalizedTarget === "assets/quick-creatures-tokens/Monstrous_Menagerie_1_Tokens") return {
+      target,
+      dirs: [],
+      files: [`${normalizedTarget}/Aboleth.webp`],
+    };
+    if (normalizedTarget === "assets/quick-creatures-tokens/Monstrous_Menagerie_2_Tokens") return {
+      target,
+      dirs: [],
+      files: [`${normalizedTarget}/MOME2_001_archlich.webp`],
+    };
+    if (normalizedTarget === "systems/a5e/assets") return {
+      target,
+      dirs: [],
+      files: [`${normalizedTarget}/Aboleth.webp`],
+    };
+    return { target, dirs: [], files: [] };
+  },
+};
+const a5eDiscovered = await tokenPacks.discoverPacks();
+globalThis.FilePicker = originalFilePicker;
+globalThis.fetch = originalFetch;
+globalThis.game = originalGame;
+assert.ok(browseCalls.map(path => path.replace(/\/$/, "")).includes("assets/quick-creatures-tokens/Monstrous_Menagerie_1_Tokens"));
+assert.equal(
+  a5eDiscovered.find(pack => pack.id === "a5e-monstrous-menagerie")?.tokens.Aberration.length,
+  1,
+  "discoverPacks should browse known A5E child folders so Monstrous Menagerie has tokens",
+);
+assert.equal(
+  a5eDiscovered.find(pack => pack.id === "a5e-monstrous-menagerie-2")?.tokens.Beast.length,
+  1,
+  "discoverPacks should browse known A5E child folders so Monstrous Menagerie 2 has tokens",
 );
 
 console.log("token pack tests passed");

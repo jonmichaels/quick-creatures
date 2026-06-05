@@ -374,6 +374,7 @@ export function getTokenSetChoices(gameLike = globalThis.game, options = {}) {
     if (isA5eTokenPackAvailable(pack.id, gameLike, options) && (!respectSettings || getSetting(gameLike, pack.settingKey, true) !== false)) choices[pack.id] = pack.name;
   }
   for (const set of customSets) {
+    if (A5E_TOKEN_PACKS[set.id]) continue;
     const enabled = getSetting(gameLike, "customTokenSetEnabled", {})?.[set.id] !== false;
     if (!respectSettings || enabled) choices[set.id] = set.name;
   }
@@ -482,7 +483,7 @@ export async function discoverPacks() {
 
   const customDirectory = getSetting(globalThis.game, "customTokenDirectory", "Data/assets/quick-creatures-tokens/");
   const customSets = await discoverCustomTokenSets(customDirectory, globalThis.game);
-  for (const descriptor of customSets) {
+  for (const descriptor of await hydrateCustomTokenSetDescriptors(customSets)) {
     if (A5E_TOKEN_PACKS[descriptor.id] && getSetting(globalThis.game, A5E_TOKEN_PACKS[descriptor.id].settingKey, true) === false) continue;
     if (!A5E_TOKEN_PACKS[descriptor.id] && getSetting(globalThis.game, "customTokenSetEnabled", {})?.[descriptor.id] === false) continue;
     results.push(createCustomTokenPack(descriptor));
@@ -633,7 +634,7 @@ export function createCustomTokenSetDescriptors(browseResult = {}, options = {})
     const known = Object.values(A5E_TOKEN_PACKS).find(pack => pack.folderAliases?.includes(name));
     return {
       id: slugCustomId(name),
-      name,
+      name: known?.name || name,
       path: String(dir).replace(/^Data\//, "") || `${root}/${name}`,
       files: childFiles,
       dirs: childDirs,
@@ -641,6 +642,26 @@ export function createCustomTokenSetDescriptors(browseResult = {}, options = {})
       mappingSource: known?.mappingSource || null,
     };
   });
+}
+
+async function hydrateCustomTokenSetDescriptors(descriptors = []) {
+  if (!globalThis.FilePicker?.browse) return descriptors;
+  return Promise.all(descriptors.map(async descriptor => {
+    if ((descriptor.files || []).length || (descriptor.dirs || []).length) return descriptor;
+    try {
+      const { source, path } = parseCustomTokenDirectory(descriptor.path);
+      const browse = await globalThis.FilePicker.browse(source, path);
+      return {
+        ...descriptor,
+        files: browse.files || [],
+        dirs: browse.dirs || [],
+        classification: descriptor.mappingSource ? "mapping-file" : classifyCustomSetStructure({ folders: browse.dirs || [], files: browse.files || [] }),
+      };
+    } catch (e) {
+      console.warn(`Quick Creatures | Failed to browse token set: ${descriptor.path}`, e);
+      return descriptor;
+    }
+  }));
 }
 
 export function createCustomTokenPack(descriptor) {

@@ -121,6 +121,11 @@ assert.doesNotMatch(
 const configSource = fs.readFileSync("scripts/app/token-set-config.js", "utf8");
 assert.match(
   configSource,
+  /customSets:\s*customSets\.filter\(set => !A5E_TOKEN_PACKS\[set\.id\]\)/,
+  "known A5E folders must be hidden from the Custom Token Sets section",
+);
+assert.match(
+  configSource,
   /window:\s*\{[\s\S]*?contentClasses:\s*\["standard-form"\]/,
   "token config window content section must use Foundry's standard-form styling like UIConfig",
 );

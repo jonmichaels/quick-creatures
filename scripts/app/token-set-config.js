@@ -1,4 +1,4 @@
-import { discoverCustomTokenSets, getTokenSetChoices, getTokenSetConfigGroups } from "../data/token-packs.js";
+import { A5E_TOKEN_PACKS, discoverCustomTokenSets, getTokenSetChoices, getTokenSetConfigGroups } from "../data/token-packs.js";
 
 const MODULE_ID = "quick-creatures";
 const DEFAULT_CUSTOM_TOKEN_DIRECTORY = "Data/assets/quick-creatures-tokens/";
@@ -42,7 +42,7 @@ export class QuickCreaturesTokenSetConfig extends foundry.applications.api.Handl
       coreGroup,
       pathfinderGroup,
       a5eGroup,
-      customSets: customSets.map(set => ({ ...set, enabled: customEnabled[set.id] !== false })),
+      customSets: customSets.filter(set => !A5E_TOKEN_PACKS[set.id]).map(set => ({ ...set, enabled: customEnabled[set.id] !== false })),
       buttons: [
         { type: "reset", label: "Reset", icon: "fa-solid fa-arrow-rotate-left", action: "reset" },
         { type: "submit", label: "Save Changes", icon: "fa-solid fa-floppy-disk" },
