@@ -64,6 +64,11 @@ assert.equal(
   "modules/pf2e-tokens-bestiaries/tokens/bestial/wolf.webp",
   "external PF token paths should not be prefixed with Quick Creatures assets",
 );
+assert.equal(
+  tokenPacks.tokenImagePath("a5e-monstrous-menagerie-2", "assets/quick-creatures-tokens/Monstrous_Menagerie_2_Tokens/MOME2_001_archlich.webp"),
+  "assets/quick-creatures-tokens/Monstrous_Menagerie_2_Tokens/MOME2_001_archlich.webp",
+  "A5E/custom Data-folder token image URLs must stay browser-visible paths without a Data/ prefix",
+);
 
 const inactiveGame = {
   modules: new Map([
@@ -137,8 +142,8 @@ assert.deepEqual(
 );
 assert.deepEqual(
   Object.keys(tokenPacks.getTokenSetChoices({ ...disabledSettingsGame, modules: activeAllPathfinderGame.modules }, { respectSettings: false })),
-  ["Original_Tokens", "Cute_Tokens", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core", "pf2e-tokens-monster-core-2"],
-  "defaultTokenSet registration can list active PF modules before the last toggle settings are registered",
+  ["Original_Tokens", "Cute_Tokens", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core", "pf2e-tokens-monster-core-2", "a5e-system"],
+  "defaultTokenSet registration can list active PF modules and A5E System before the later toggle settings are registered",
 );
 
 const sampleDatasheet = [
@@ -244,7 +249,6 @@ assert.deepEqual(
 );
 const a5eGame = {
   system: { id: "dnd5e" },
-  systems: new Map([["a5e", {}]]),
   settings: { get: (_namespace, key) => ({
     enableOriginalTokens: false,
     enableCuteTokens: false,
@@ -253,6 +257,11 @@ const a5eGame = {
     enableA5eMonstrousMenagerie2Tokens: true,
   }[key]) },
 };
+assert.equal(
+  tokenPacks.isA5eTokenPackAvailable("a5e-system", a5eGame),
+  true,
+  "A5E System availability cannot depend on game.systems in Foundry v13 because inactive installed systems are not exposed there",
+);
 assert.deepEqual(
   tokenPacks.getTokenSetChoices(a5eGame, { customSets: a5eDescriptors }),
   {
@@ -329,9 +338,19 @@ assert.equal(
   "discoverPacks should browse known A5E child folders so Monstrous Menagerie has tokens",
 );
 assert.equal(
+  a5eDiscovered.find(pack => pack.id === "a5e-monstrous-menagerie")?.tokens.Aberration[0]?.file,
+  "assets/quick-creatures-tokens/Monstrous_Menagerie_1_Tokens/Aboleth.webp",
+  "Monstrous Menagerie image entries must not use a Data/ URL prefix",
+);
+assert.equal(
   a5eDiscovered.find(pack => pack.id === "a5e-monstrous-menagerie-2")?.tokens.Beast.length,
   1,
   "discoverPacks should browse known A5E child folders so Monstrous Menagerie 2 has tokens",
+);
+assert.equal(
+  a5eDiscovered.find(pack => pack.id === "a5e-system")?.tokens.Aberration[0]?.file,
+  "systems/a5e/assets/Aboleth.webp",
+  "A5E System token image entries must not use a Data/ URL prefix",
 );
 
 console.log("token pack tests passed");

@@ -302,7 +302,14 @@ function getSetting(gameLike, key, fallback) {
 export function isA5eTokenPackAvailable(packId, gameLike = globalThis.game, options = {}) {
   const pack = A5E_TOKEN_PACKS[packId];
   if (!pack) return false;
-  if (pack.systemId) return gameLike?.system?.id === pack.systemId || gameLike?.systems?.get?.(pack.systemId);
+  if (pack.systemId) {
+    if (gameLike?.system?.id === pack.systemId) return true;
+    try {
+      return gameLike?.settings?.get?.("quick-creatures", pack.settingKey) === true;
+    } catch (_e) {
+      return false;
+    }
+  }
   const aliases = pack.folderAliases || [];
   const descriptors = options.customSets || [];
   return descriptors.some(set => set.id === packId || aliases.includes(set.name));
@@ -371,7 +378,8 @@ export function getTokenSetChoices(gameLike = globalThis.game, options = {}) {
     if (enabled) choices[pack.id] = pack.name;
   }
   for (const pack of Object.values(A5E_TOKEN_PACKS)) {
-    if (isA5eTokenPackAvailable(pack.id, gameLike, options) && (!respectSettings || getSetting(gameLike, pack.settingKey, true) !== false)) choices[pack.id] = pack.name;
+    const available = !respectSettings && pack.systemId ? true : isA5eTokenPackAvailable(pack.id, gameLike, options);
+    if (available && (!respectSettings || getSetting(gameLike, pack.settingKey, true) !== false)) choices[pack.id] = pack.name;
   }
   for (const set of customSets) {
     if (A5E_TOKEN_PACKS[set.id]) continue;
@@ -611,7 +619,7 @@ function dirname(p = "") {
 }
 
 function dataPath(path) {
-  return String(path).startsWith("Data/") ? path : `Data/${String(path).replace(/^\/+/, "")}`;
+  return String(path).replace(/^Data\//, "").replace(/^\/+/, "");
 }
 
 export function classifyCustomSetStructure({ folders = [], files = [] } = {}) {

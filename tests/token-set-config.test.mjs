@@ -65,7 +65,7 @@ const fallbackPack = tokenPacks.createCustomTokenPack({
   classification: "filename-fallback",
 });
 assert.equal(fallbackPack.tokens.Beast[0].name, "Dragon Lord");
-assert.equal(fallbackPack.tokens.Undead[0].file, "Data/assets/quick-creatures-tokens/MM2/Dragon_Lord.png");
+assert.equal(fallbackPack.tokens.Undead[0].file, "assets/quick-creatures-tokens/MM2/Dragon_Lord.png");
 
 assert.equal(tokenPacks.resolveA5eTokenMapping("Aboleth.webp", "MM")?.creatureType, "Aberration");
 assert.equal(tokenPacks.resolveA5eTokenMapping("Beast_Giant_Spider.webp", "MM")?.creatureName, "Giant Spider");
