@@ -121,6 +121,11 @@ assert.doesNotMatch(
 const configSource = fs.readFileSync("scripts/app/token-set-config.js", "utf8");
 assert.match(
   configSource,
+  /window:\s*\{[\s\S]*?contentClasses:\s*\["standard-form"\]/,
+  "token config window content section must use Foundry's standard-form styling like SettingsConfig",
+);
+assert.match(
+  configSource,
   /customSets\.map\(set => \[set\.id, Boolean\(data\.customEnabled\?\.\[set\.id\]\)\]\)/,
   "custom enablement submit must persist false for unchecked dynamic custom sets",
 );

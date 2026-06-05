@@ -7,7 +7,11 @@ export class QuickCreaturesTokenSetConfig extends foundry.applications.api.Handl
   static DEFAULT_OPTIONS = {
     id: "quick-creatures-token-config",
     tag: "form",
-    window: { title: "quick-creatures.tokenConfig.title", icon: "fa-solid fa-image" },
+    window: {
+      title: "quick-creatures.tokenConfig.title",
+      icon: "fa-solid fa-image",
+      contentClasses: ["standard-form"],
+    },
     position: { width: 560, height: "auto" },
     form: { handler: QuickCreaturesTokenSetConfig.#onSubmit, closeOnSubmit: true },
     actions: { browseCustomDirectory: QuickCreaturesTokenSetConfig.#browseCustomDirectory },
