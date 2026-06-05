@@ -199,7 +199,7 @@
             color: var(--color-text-muted, #888);
             margin-right: 4px;
             text-align: left;
-            min-width: 44px;
+            flex: 0 0 52px;
         }
 
         > span:last-of-type,
@@ -217,7 +217,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 2px;
+    margin-left: auto;
+    gap: 4px;
 }
 
 /* Dynamic Ring checkbox below token preview */
@@ -547,6 +548,7 @@
     width: 12px;
     height: 12px;
     padding: 0;
+    box-sizing: border-box;
     color: #111;
     background: #fff;
     border: 1px solid #111;
@@ -581,7 +583,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 4px;
     min-height: 22px;
 }
 
