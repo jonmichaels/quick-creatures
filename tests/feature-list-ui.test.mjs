@@ -11,7 +11,7 @@ const abilitiesHintIndex = quickTemplate.indexOf("qc-abilities-hint");
 const abilitiesRowIndex = quickTemplate.indexOf("qc-abilities-row");
 assert.ok(abilitiesHintIndex !== -1, "abilities hint must exist");
 assert.ok(abilitiesRowIndex !== -1, "abilities row must exist");
-assert.ok(abilitiesHintIndex < abilitiesRowIndex, "abilities hint must render above the abilities divider/row");
+assert.ok(abilitiesRowIndex < abilitiesHintIndex, "abilities hint must render below the ability checkboxes");
 
 assert.match(template, /title="\{\{tooltip\}\}"/, "feature checkbox labels must expose descriptions as hover tooltips");
 assert.match(template, /qc-selected-items-list/, "feature description box must contain a selected items list");
@@ -40,7 +40,12 @@ assert.match(createSource, /getRenameOverrides\(/, "actor creation must read ren
 assert.match(createSource, /applyRenameOverride/, "actor creation must apply renamed item names before creation");
 
 assert.match(scss, /\.qc-feature-desc-box\s*\{[\s\S]*overflow-y:\s*auto;/, "selected items box must scroll for long lists");
-assert.match(scss, /\.qc-feature-drop-zone\s*\{[\s\S]*display:\s*flex;[\s\S]*flex-direction:\s*column;/, "drop hint and selected-items box must share the right-side feature drop zone");
+assert.match(scss, /\.qc-features-wrap\s*\{[\s\S]*grid-template-rows:\s*auto 1fr;/, "features layout must keep heading/drop hint row above aligned boxes");
+assert.match(scss, /\.qc-features-wrap\s*\{[\s\S]*h3\s*\{[\s\S]*grid-column:\s*1;[\s\S]*grid-row:\s*1;/, "features heading must occupy the left cell of the first row");
+assert.match(scss, /\.qc-feature-drop-zone\s*\{[\s\S]*display:\s*grid;[\s\S]*grid-column:\s*2;[\s\S]*grid-row:\s*1 \/ 3;/, "drop hint and selected-items box must occupy the right column across both rows");
+assert.match(scss, /\.qc-drop-hint\s*\{[\s\S]*text-align:\s*center;/, "drop hint must be centered above the selected-items box");
+assert.match(scss, /\.qc-abilities-row\s*\{(?:(?!border-bottom).)*\}/s, "abilities row must not draw the divider above the hint");
+assert.match(scss, /\.qc-abilities-hint\s*\{[\s\S]*border-bottom:\s*1px solid var\(--color-border-dark, #444\);/, "abilities hint must draw the divider below itself");
 assert.match(scss, /\.qc-selected-item\s*\{[\s\S]*display:\s*flex;/, "selected item rows must be flex rows");
 assert.match(scss, /\.qc-selected-item-name\s*\{[\s\S]*margin-right:\s*auto;/, "selected item names must push edit/remove controls to the right");
 assert.match(scss, /\.qc-selected-item-edit[\s\S]*\.qc-selected-item-remove\s*\{/, "edit and remove icon buttons must have dedicated styling");
