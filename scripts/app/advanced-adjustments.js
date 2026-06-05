@@ -40,8 +40,17 @@ function candidateAverage(count, die, modifier) {
 }
 
 function formatFormula({ count, die, modifier }) {
-    const suffix = modifier > 0 ? `+${modifier}` : modifier < 0 ? String(modifier) : "";
+    const suffix = modifier > 0 ? `+${modifier}` : "";
     return `${count}d${die}${suffix}`;
+}
+
+function isBetterScore(score, bestScore) {
+    if (!bestScore) return true;
+    for (let index = 0; index < score.length; index += 1) {
+        if (score[index] < bestScore[index]) return true;
+        if (score[index] > bestScore[index]) return false;
+    }
+    return false;
 }
 
 export function formulaForAverage(targetAverage, { originalFormula = "" } = {}) {
@@ -51,19 +60,19 @@ export function formulaForAverage(targetAverage, { originalFormula = "" } = {}) 
 
     for (let count = 1; count <= 12; count += 1) {
         for (const die of [4, 6, 8, 10, 12]) {
-            for (let modifier = -20; modifier <= 40; modifier += 1) {
+            for (let modifier = 0; modifier <= 40; modifier += 1) {
                 const candidate = { count, die, modifier };
                 const avg = candidateAverage(count, die, modifier);
                 const score = [
                     Math.abs(avg - target),
                     Math.abs(count - original.count),
                     Math.abs(die - original.die),
-                    Math.abs(modifier - original.modifier),
-                    Math.abs(modifier),
+                    Math.abs(modifier - Math.max(0, original.modifier)),
+                    modifier,
                     count,
                     die,
                 ];
-                if (!best || score.some((value, index) => value < best.score[index]) && !score.some((value, index) => value > best.score[index] && score.slice(0, index).every((v, i) => v === best.score[i]))) {
+                if (isBetterScore(score, best?.score)) {
                     best = { candidate, score };
                 }
             }

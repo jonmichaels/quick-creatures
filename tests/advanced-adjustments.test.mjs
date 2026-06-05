@@ -37,7 +37,9 @@ assert.notEqual(plus10.DpACalc, "3d6+2");
 assert.equal(Number(adjustDamageStats(base, 20).DpR), 42);
 assert.equal(Number(adjustDamageStats(base, -10).DpR), 31);
 assert.equal(Number(adjustDamageStats(base, -20).DpR), 28);
-assert.match(plus10.DpACalc, /^\d+d(4|6|8|10|12)([+-]\d+)?$/, "damage adjustment must produce a real dice formula");
+assert.match(plus10.DpACalc, /^\d+d(4|6|8|10|12)(\+\d+)?$/, "damage adjustment must produce a real dice formula without negative modifiers");
+assert.doesNotMatch(adjustDamageStats({ DpR: "6", NoA: "2", DpA: "3", DpACalc: "1d6" }, -20).DpACalc, /-\d+/, "damage formula modifiers must never be negative");
+assert.doesNotMatch(adjustDamageStats({ DpR: "10", NoA: "3", DpA: "3", DpACalc: "1d6" }, 20).DpACalc, /-\d+/, "damage formula modifiers must never be negative when increasing damage");
 assert.equal(plus10.NoA ?? base.NoA, base.NoA, "damage adjustment must not change number of attacks");
 
 const derived = deriveAdvancedStats(base, { hp: 10, ac: 10, damage: 20, abilities: { str: 2 } }, { enabled: true });
