@@ -92,6 +92,6 @@ const bfSpell = bf.normalizeDroppedItem({
   },
 }, stats, { abilities: { charisma: { mod: 5 }, wisdom: { mod: 2 }, intelligence: { mod: 1 } } });
 assert.equal(bfSpell.flags["black-flag"].relationship.origin.ability, "charisma");
-assert.deepEqual(bfSpell.system.activities.s1.system.save.dc, { formula: "15" });
+assert.deepEqual(bfSpell.system.activities.s1.system.save.dc, { ability: "custom", formula: "15" });
 
 console.log("dropped items tests passed");

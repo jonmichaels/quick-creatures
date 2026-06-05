@@ -62,7 +62,7 @@ function patchDroppedAttackActivity(activity, stats, replaceDamage = false) {
 function patchDroppedSaveActivity(activity, stats) {
     activity.system ??= {};
     activity.system.save ??= {};
-    activity.system.save.dc = { formula: String(stats.ACDC || 13) };
+    activity.system.save.dc = { ability: "custom", formula: String(stats.ACDC || 13) };
 }
 
 function getPrimarySpellAbility(abilities = {}) {
