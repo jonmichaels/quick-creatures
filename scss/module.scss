@@ -639,19 +639,3 @@ select option {
     max-width: 140px;
 }
 
-#quick-creatures-token-config {
-    .qc-token-config-section {
-        margin-bottom: 0.75rem;
-
-        h2 {
-            margin: 0 0 0.5rem;
-            border-bottom: 1px solid var(--color-border-light-primary);
-        }
-    }
-
-    .qc-token-config-checkbox label {
-        display: flex;
-        align-items: center;
-        gap: 0.35rem;
-    }
-}

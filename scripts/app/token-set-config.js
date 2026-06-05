@@ -12,13 +12,22 @@ export class QuickCreaturesTokenSetConfig extends foundry.applications.api.Handl
       icon: "fa-solid fa-image",
       contentClasses: ["standard-form"],
     },
-    position: { width: 560, height: "auto" },
+    position: { width: 540 },
     form: { handler: QuickCreaturesTokenSetConfig.#onSubmit, closeOnSubmit: true },
-    actions: { browseCustomDirectory: QuickCreaturesTokenSetConfig.#browseCustomDirectory },
+    actions: {
+      browseCustomDirectory: QuickCreaturesTokenSetConfig.#browseCustomDirectory,
+      reset: QuickCreaturesTokenSetConfig.#onReset,
+    },
   };
 
   static PARTS = {
-    form: { template: "modules/quick-creatures/templates/token-set-config.hbs" },
+    form: {
+      template: "modules/quick-creatures/templates/token-set-config.hbs",
+      scrollable: [""],
+    },
+    footer: {
+      template: "templates/generic/form-footer.hbs",
+    },
   };
 
   async _prepareContext(options) {
@@ -34,6 +43,10 @@ export class QuickCreaturesTokenSetConfig extends foundry.applications.api.Handl
       pathfinderGroup,
       a5eGroup,
       customSets: customSets.map(set => ({ ...set, enabled: customEnabled[set.id] !== false })),
+      buttons: [
+        { type: "reset", label: "Reset", icon: "fa-solid fa-arrow-rotate-left", action: "reset" },
+        { type: "submit", label: "Save Changes", icon: "fa-solid fa-floppy-disk" },
+      ],
     };
   }
 
@@ -47,6 +60,15 @@ export class QuickCreaturesTokenSetConfig extends foundry.applications.api.Handl
       callback: path => { if (input) input.value = path.startsWith("Data/") ? path : `Data/${path}`; },
     });
     return fp.browse();
+  }
+
+  static async #onReset(event) {
+    event.preventDefault();
+    const input = this.element.querySelector('input[name="customTokenDirectory"]');
+    if (input) input.value = DEFAULT_CUSTOM_TOKEN_DIRECTORY;
+    const select = this.element.querySelector('select[name="defaultTokenSet"]');
+    if (select) select.value = "Original_Tokens";
+    for (const checkbox of this.element.querySelectorAll('input[type="checkbox"]')) checkbox.checked = true;
   }
 
   static async #onSubmit(event, form, formData) {

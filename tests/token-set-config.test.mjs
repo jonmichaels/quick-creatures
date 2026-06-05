@@ -109,8 +109,8 @@ assert.deepEqual(
 assert.ok(sectionKeys.every((key, index) => index === 0 || templateSource.indexOf(`sections.${sectionKeys[index - 1]}`) < templateSource.indexOf(`sections.${key}`)), "template sections must be in requested order");
 assert.match(
   templateSource.trim(),
-  /^<div class="qc-token-config">[\s\S]*<\/div>$/,
-  "ApplicationV2 template part must render a single root element",
+  /^<section class="standard-form scrollable">[\s\S]*<\/section>$/,
+  "ApplicationV2 template part must render a single UIConfig-style root section element",
 );
 assert.doesNotMatch(
   templateSource,
@@ -122,12 +122,21 @@ const configSource = fs.readFileSync("scripts/app/token-set-config.js", "utf8");
 assert.match(
   configSource,
   /window:\s*\{[\s\S]*?contentClasses:\s*\["standard-form"\]/,
-  "token config window content section must use Foundry's standard-form styling like SettingsConfig",
+  "token config window content section must use Foundry's standard-form styling like UIConfig",
 );
+assert.match(configSource, /position:\s*\{\s*width:\s*540\s*\}/, "token config window width must match UIConfig");
+assert.match(configSource, /form:\s*\{[\s\S]*?scrollable:\s*\[""\]/, "token config form part must use UIConfig scrollable form part styling");
+assert.match(configSource, /footer:\s*\{[\s\S]*?template:\s*"templates\/generic\/form-footer\.hbs"/, "token config must use Foundry's generic form footer like UIConfig");
+assert.match(configSource, /buttons:\s*\[/, "token config context must provide generic form-footer buttons");
 assert.match(
   configSource,
   /customSets\.map\(set => \[set\.id, Boolean\(data\.customEnabled\?\.\[set\.id\]\)\]\)/,
   "custom enablement submit must persist false for unchecked dynamic custom sets",
 );
+
+assert.match(templateSource, /^<section class="standard-form scrollable">/, "token config template must use UIConfig's standard-form scrollable root section");
+assert.match(templateSource, /<fieldset>[\s\S]*<legend>/, "token config groups must render as UIConfig-style fieldsets with legends");
+assert.doesNotMatch(templateSource, /<h2>/, "token config must not use custom h2 section styling");
+assert.doesNotMatch(templateSource, /<footer/, "token config must use the generic form-footer part, not a custom footer");
 
 console.log("token set config tests passed");
