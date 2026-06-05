@@ -125,6 +125,13 @@
             "title": "Quick Creatures Token Sets",
             "saved": "Quick Creatures token settings saved.",
             "noCustomSets": "No custom token sets found in the selected directory.",
+            "a5eOverlapHint": "A5E System and Monstrous Menagerie are nearly the same set of tokens. You should probably only select one.",
+            "status": {
+                "a5eSystemNotDetected": "Not installed. Install the Game System from the Foundry Setup screen.",
+                "a5eSystemDetected": "These tokens are large and will hide any dynamic ring.",
+                "mmNotDetected": "Not detected. Add the token folder to the Custom Token Directory.",
+                "mmDetected": "Detected in Custom Token Directory."
+            },
             "sections": {
                 "defaults": "Default Token Set + Custom Token Directory",
                 "core": "Core Sets",

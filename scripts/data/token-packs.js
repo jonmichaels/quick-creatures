@@ -491,9 +491,10 @@ export async function discoverPacks() {
 
   const customDirectory = getSetting(globalThis.game, "customTokenDirectory", "Data/assets/quick-creatures-tokens/");
   const customSets = await discoverCustomTokenSets(customDirectory, globalThis.game);
-  for (const descriptor of await hydrateCustomTokenSetDescriptors(customSets)) {
-    if (A5E_TOKEN_PACKS[descriptor.id] && getSetting(globalThis.game, A5E_TOKEN_PACKS[descriptor.id].settingKey, true) === false) continue;
-    if (!A5E_TOKEN_PACKS[descriptor.id] && getSetting(globalThis.game, "customTokenSetEnabled", {})?.[descriptor.id] === false) continue;
+  const hydratedCustomSets = await hydrateCustomTokenSetDescriptors(customSets);
+  for (const descriptor of hydratedCustomSets) {
+    if (A5E_TOKEN_PACKS[descriptor.id]) continue;
+    if (getSetting(globalThis.game, "customTokenSetEnabled", {})?.[descriptor.id] === false) continue;
     results.push(createCustomTokenPack(descriptor));
   }
 
@@ -514,6 +515,12 @@ export async function discoverPacks() {
     } catch (e) {
       console.warn(`Quick Creatures | Failed to browse A5E system tokens`, e);
     }
+  }
+
+  for (const descriptor of hydratedCustomSets) {
+    if (!A5E_TOKEN_PACKS[descriptor.id]) continue;
+    if (getSetting(globalThis.game, A5E_TOKEN_PACKS[descriptor.id].settingKey, true) === false) continue;
+    results.push(createCustomTokenPack(descriptor));
   }
 
   return results;
@@ -591,12 +598,34 @@ async function _loadManifest(path) {
   }
 }
 
-export function getTokenSetConfigGroups(gameLike = globalThis.game) {
+export function getTokenSetConfigGroups(gameLike = globalThis.game, options = {}) {
   const allPacks = { ...CORE_TOKEN_PACKS, ...PATHFINDER_TOKEN_PACKS, ...A5E_TOKEN_PACKS };
   return TOKEN_SET_GROUPS.map(group => ({
     ...group,
-    packs: group.packIds.map(id => ({ ...allPacks[id], enabled: getSetting(gameLike, allPacks[id]?.settingKey, true) !== false })).filter(pack => pack.id),
+    packs: group.packIds.map(id => {
+      const pack = allPacks[id];
+      if (!pack) return null;
+      return {
+        ...pack,
+        enabled: getSetting(gameLike, pack.settingKey, true) !== false,
+        statusKey: getTokenSetConfigStatusKey(pack, gameLike, options),
+      };
+    }).filter(Boolean),
   }));
+}
+
+function getTokenSetConfigStatusKey(pack, gameLike = globalThis.game, options = {}) {
+  if (pack.id === "a5e-system") {
+    return isA5eTokenPackAvailable(pack.id, gameLike, options)
+      ? "quick-creatures.tokenConfig.status.a5eSystemDetected"
+      : "quick-creatures.tokenConfig.status.a5eSystemNotDetected";
+  }
+  if (pack.id === "a5e-monstrous-menagerie" || pack.id === "a5e-monstrous-menagerie-2") {
+    return isA5eTokenPackAvailable(pack.id, gameLike, options)
+      ? "quick-creatures.tokenConfig.status.mmDetected"
+      : "quick-creatures.tokenConfig.status.mmNotDetected";
+  }
+  return null;
 }
 
 export function parseCustomTokenDirectory(value = "Data/assets/quick-creatures-tokens/") {

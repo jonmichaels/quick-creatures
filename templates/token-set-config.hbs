@@ -46,12 +46,16 @@
 
   <fieldset>
     <legend>{{localize "quick-creatures.tokenConfig.sections.a5e"}}</legend>
+    <p class="hint">{{localize "quick-creatures.tokenConfig.a5eOverlapHint"}}</p>
     {{#each a5eGroup.packs}}
       <div class="form-group">
         <label class="qc-token-set-label" for="qc-token-enabled-{{id}}">{{name}}</label>
         <div class="form-fields">
           <input id="qc-token-enabled-{{id}}" type="checkbox" name="enabled.{{id}}" {{checked enabled}} />
         </div>
+        {{#if statusKey}}
+          <p class="hint">{{localize statusKey}}</p>
+        {{/if}}
       </div>
     {{/each}}
   </fieldset>

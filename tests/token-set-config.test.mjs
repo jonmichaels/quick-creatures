@@ -45,6 +45,36 @@ assert.deepEqual(descriptors.map(set => set.id), ["custom:My_Set", "a5e-monstrou
 assert.equal(descriptors[0].name, "My_Set");
 assert.equal(descriptors[1].classification, "filename-fallback");
 
+const a5eConfigGame = {
+  system: { id: "dnd5e" },
+  settings: { get: (_namespace, key) => ({
+    enableA5eSystemTokens: true,
+    enableA5eMonstrousMenagerieTokens: true,
+    enableA5eMonstrousMenagerie2Tokens: true,
+  }[key]) },
+};
+const a5eGroup = tokenPacks.getTokenSetConfigGroups(a5eConfigGame, { customSets: descriptors })
+  .find(group => group.id === "a5e");
+assert.deepEqual(
+  a5eGroup.packs.map(pack => pack.id),
+  ["a5e-system", "a5e-monstrous-menagerie", "a5e-monstrous-menagerie-2"],
+  "A5E System must render before both Monstrous Menagerie rows",
+);
+assert.equal(a5eGroup.packs[0].statusKey, "quick-creatures.tokenConfig.status.a5eSystemDetected");
+assert.equal(a5eGroup.packs[1].statusKey, "quick-creatures.tokenConfig.status.mmNotDetected");
+assert.equal(a5eGroup.packs[2].statusKey, "quick-creatures.tokenConfig.status.mmDetected");
+
+const missingA5eConfigGame = {
+  system: { id: "dnd5e" },
+  settings: { get: () => false },
+};
+assert.equal(
+  tokenPacks.getTokenSetConfigGroups(missingA5eConfigGame, { customSets: descriptors })
+    .find(group => group.id === "a5e").packs[0].statusKey,
+  "quick-creatures.tokenConfig.status.a5eSystemNotDetected",
+  "A5E System row should explain when the system is not detected",
+);
+
 const typedPack = tokenPacks.createCustomTokenPack({
   id: "custom:Typed",
   name: "Typed",
@@ -116,6 +146,17 @@ assert.doesNotMatch(
   templateSource,
   /groups\.\[/,
   "template must not use array-index path syntax; Foundry Handlebars has broken on paths like archetypes.[0] before",
+);
+
+assert.match(
+  templateSource,
+  /<legend>\{\{localize "quick-creatures\.tokenConfig\.sections\.a5e"\}\}<\/legend>\s*<p class="hint">\{\{localize "quick-creatures\.tokenConfig\.a5eOverlapHint"\}\}<\/p>/,
+  "A5E section must warn that A5E System and Monstrous Menagerie overlap heavily",
+);
+assert.match(
+  templateSource,
+  /\{\{#if statusKey\}\}\s*<p class="hint">\{\{localize statusKey\}\}<\/p>\s*\{\{\/if\}\}/,
+  "token config rows must render per-pack status hints",
 );
 
 const configSource = fs.readFileSync("scripts/app/token-set-config.js", "utf8");

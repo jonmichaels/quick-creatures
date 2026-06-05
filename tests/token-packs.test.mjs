@@ -331,6 +331,11 @@ const a5eDiscovered = await tokenPacks.discoverPacks();
 globalThis.FilePicker = originalFilePicker;
 globalThis.fetch = originalFetch;
 globalThis.game = originalGame;
+const a5eDiscoveredIds = a5eDiscovered.map(pack => pack.id);
+assert.ok(
+  a5eDiscoveredIds.indexOf("a5e-system") < a5eDiscoveredIds.indexOf("a5e-monstrous-menagerie"),
+  "discoverPacks should list A5E System before Monstrous Menagerie in the token picker",
+);
 assert.ok(browseCalls.map(path => path.replace(/\/$/, "")).includes("assets/quick-creatures-tokens/Monstrous_Menagerie_1_Tokens"));
 assert.equal(
   a5eDiscovered.find(pack => pack.id === "a5e-monstrous-menagerie")?.tokens.Aberration.length,
