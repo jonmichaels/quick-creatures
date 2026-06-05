@@ -37,6 +37,10 @@ function getRenameOverrides(app) {
     return app?.getRenameOverrides?.() || new Map();
 }
 
+function getDroppedItems(app) {
+    return app?.getDroppedItems?.() || [];
+}
+
 function applyRenameOverride(item, renameOverrides, kind, key, originalName = item?.name) {
     const override = renameOverrides.get(`${kind}:${key || originalName}`);
     if (override && item) item.name = override;
@@ -150,12 +154,15 @@ function readFormData(app, html) {
     const dynamicRingCB = html.querySelector("#dynamic-ring");
     const dynamicRing = dynamicRingCB ? dynamicRingCB.checked : false;
 
+    const droppedItems = getDroppedItems(app);
+
     return {
         stats,
         monsterType,
         creatureName,
         saveProfs,
         features,
+        droppedItems,
         creatureSize,
         isArchetypeMode,
         dynamicRing,
@@ -201,7 +208,7 @@ export function buildPrototypeTokenUpdates(creatureSize, tokenArtworkScale, dyna
  */
 export async function createActor(app, html) {
     const formData = readFormData(app, html);
-    const { stats, monsterType, creatureName, saveProfs, features, creatureSize, isArchetypeMode, dynamicRing } = formData;
+    const { stats, monsterType, creatureName, saveProfs, features, droppedItems: droppedItemInputs, creatureSize, isArchetypeMode, dynamicRing } = formData;
     const renameOverrides = getRenameOverrides(app);
 
     if (!stats) {
@@ -297,6 +304,23 @@ export async function createActor(app, html) {
         }
     }
 
+    const droppedItems = [];
+    for (const dropped of droppedItemInputs || []) {
+        const itemData = dropped.itemData || dropped;
+        const normalized = adapter.normalizeDroppedItem
+            ? adapter.normalizeDroppedItem(itemData, stats, { dropped, formData, abilities })
+            : foundry.utils.deepClone(itemData);
+        if (normalized) {
+            droppedItems.push(applyRenameOverride(
+                normalized,
+                renameOverrides,
+                "dropped",
+                dropped.id || normalized.name,
+                normalized.name,
+            ));
+        }
+    }
+
     // Token image path — use user-selected token or pack default
     let tokenPath;
     let tokenSubjectPath = app._currentTokenSubject || null;
@@ -359,7 +383,7 @@ export async function createActor(app, html) {
     }
 
     // Create embedded items
-    const allItems = [...attackItems, ...featureItems];
+    const allItems = [...attackItems, ...featureItems, ...droppedItems];
     if (allItems.length > 0) {
         try {
             await actor.createEmbeddedDocuments("Item", allItems);

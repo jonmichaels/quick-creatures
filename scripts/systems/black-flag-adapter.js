@@ -22,6 +22,84 @@ function parseDice(diceStr) {
     };
 }
 
+function forEachActivity(item, callback) {
+    const activities = item.system?.activities;
+    if (!activities) return;
+    for (const [key, activity] of Object.entries(activities)) {
+        if (key === "range" || !activity || typeof activity !== "object") continue;
+        callback(activity, key, activities);
+    }
+}
+
+function buildDroppedDamagePart(stats) {
+    const dice = parseDice(stats.DpACalc);
+    return {
+        number: dice.count,
+        denomination: dice.die,
+        bonus: dice.modifier ? String(dice.modifier) : "",
+        custom: { enabled: false },
+        type: "",
+        scaling: { number: 1 },
+    };
+}
+
+function patchDroppedAttackActivity(activity, stats, replaceDamage = false) {
+    activity.system ??= {};
+    activity.system.attack ??= {};
+    activity.system.attack.ability = "";
+    activity.system.attack.flat = true;
+    activity.system.attack.bonus = stats.PAB || "+2";
+    activity.system.attack.critical ??= {};
+    activity.system.attack.type ??= {};
+    if (replaceDamage) {
+        activity.system.damage ??= {};
+        activity.system.damage.parts = [buildDroppedDamagePart(stats)];
+        activity.system.damage.critical ??= {};
+        activity.system.damage.includeBase = false;
+    }
+}
+
+function patchDroppedSaveActivity(activity, stats) {
+    activity.system ??= {};
+    activity.system.save ??= {};
+    activity.system.save.dc = { formula: String(stats.ACDC || 13) };
+}
+
+function getPrimarySpellAbility(abilities = {}) {
+    const priority = ["charisma", "wisdom", "intelligence", "strength", "dexterity", "constitution"];
+    let best = "charisma";
+    let bestMod = -Infinity;
+    for (const ability of priority) {
+        const mod = Number(abilities?.[ability]?.mod ?? abilities?.[ability]?.adjustedMod ?? 0);
+        if (mod > bestMod) {
+            best = ability;
+            bestMod = mod;
+        }
+    }
+    return best;
+}
+
+function patchDroppedSpell(item, context) {
+    const ability = getPrimarySpellAbility(context.abilities);
+    item.flags ??= {};
+    item.flags["black-flag"] ??= {};
+    item.flags["black-flag"].relationship ??= {};
+    item.flags["black-flag"].relationship.origin ??= {};
+    item.flags["black-flag"].relationship.origin.ability = ability;
+}
+
+export function normalizeDroppedItem(itemData, stats, context = {}) {
+    const item = foundry.utils.deepClone(itemData);
+    delete item._id;
+    const isWeapon = item.type === "weapon";
+    if (item.type === "spell") patchDroppedSpell(item, context);
+    forEachActivity(item, activity => {
+        if (activity.type === "attack") patchDroppedAttackActivity(activity, stats, isWeapon);
+        if (activity.type === "save") patchDroppedSaveActivity(activity, stats);
+    });
+    return item;
+}
+
 /**
  * Build a Black Flag attack activity for a natural weapon.
  * Range is a SIBLING entry, NOT nested in the activity.

@@ -20,7 +20,59 @@ function parseDice(diceStr) {
     };
 }
 
-// ─── Activity Builders ────────────────────────────────────────────────
+function forEachActivity(item, callback) {
+    const activities = item.system?.activities;
+    if (!activities) return;
+    for (const [key, activity] of Object.entries(activities)) {
+        if (key === "range" || !activity || typeof activity !== "object") continue;
+        callback(activity, key, activities);
+    }
+}
+
+function buildDroppedDamagePart(stats) {
+    const dice = parseDice(stats.DpACalc);
+    return {
+        number: dice.count,
+        denomination: dice.die,
+        bonus: dice.modifier ? String(dice.modifier) : "",
+        types: [],
+        custom: { enabled: false },
+        scaling: { number: 1 },
+    };
+}
+
+function patchDroppedAttackActivity(activity, stats, replaceDamage = false) {
+    activity.attack ??= {};
+    activity.attack.ability = "";
+    activity.attack.flat = true;
+    activity.attack.bonus = stats.PAB || "+2";
+    activity.attack.critical ??= {};
+    activity.attack.type ??= {};
+    if (replaceDamage) {
+        activity.damage ??= {};
+        activity.damage.parts = [buildDroppedDamagePart(stats)];
+        activity.damage.includeBase = false;
+        activity.damage.critical ??= {};
+    }
+}
+
+function patchDroppedSaveActivity(activity, stats) {
+    if (!activity?.save) return;
+    activity.save.dc ??= {};
+    activity.save.dc.calculation = "";
+    activity.save.dc.formula = String(stats.ACDC || 13);
+}
+
+export function normalizeDroppedItem(itemData, stats, context = {}) {
+    const item = foundry.utils.deepClone(itemData);
+    delete item._id;
+    const isWeapon = item.type === "weapon";
+    forEachActivity(item, activity => {
+        if (activity.type === "attack") patchDroppedAttackActivity(activity, stats, isWeapon);
+        if (activity.type === "save") patchDroppedSaveActivity(activity, stats);
+    });
+    return item;
+}
 
 /**
  * Build a standard attack activity (melee or ranged).

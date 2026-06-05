@@ -393,12 +393,22 @@
     margin-top: 0;
     padding: 6px 8px;
     background: rgba(0,0,0,0.15);
-    border: 1px solid var(--color-border-dark, #444);
+    border: 1px dashed var(--color-border-dark, #444);
     border-radius: 4px;
     font-size: 12px;
     color: var(--color-text-secondary, #aaa);
     overflow-y: auto;
     min-height: 0;
+}
+
+.qc-feature-desc-box.qc-drop-active {
+    border-color: var(--color-border-highlight, #f0c36d);
+}
+
+.qc-drop-hint {
+    font-size: 0.8rem;
+    opacity: 0.75;
+    margin-bottom: 4px;
 }
 
 .qc-selected-items-list {
@@ -426,7 +436,8 @@
     color: var(--color-text, #ddd);
 }
 
-.qc-selected-item-edit {
+.qc-selected-item-edit,
+.qc-selected-item-remove {
     flex: 0 0 auto;
     border: 0;
     background: transparent;

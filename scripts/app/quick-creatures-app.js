@@ -86,6 +86,9 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
     /** @type {Map<string, string>} Current per-item rename overrides */
     #renameOverrides = new Map();
 
+    /** @type {Array<object>} Dropped item snapshots to add to the generated actor */
+    #droppedItems = [];
+
     /** @override */
     static DEFAULT_OPTIONS = {
         id: "quick-creatures",
@@ -315,6 +318,16 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             cb.addEventListener("change", () => this.#updateSelectedItemsList());
         });
 
+        const dropBox = html.querySelector(".qc-feature-desc-box[data-drop-zone='item']");
+        if (dropBox) {
+            dropBox.addEventListener("dragover", event => {
+                event.preventDefault();
+                dropBox.classList.add("qc-drop-active");
+            });
+            dropBox.addEventListener("dragleave", () => dropBox.classList.remove("qc-drop-active"));
+            dropBox.addEventListener("drop", event => this.#handleItemDrop(event));
+        }
+
         // Create monster button
         const createMonsterBtn = html.querySelector("#create-monster-btn");
         if (createMonsterBtn) {
@@ -519,6 +532,50 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
     }
 
     /**
+     * Get dropped item snapshots for actor creation.
+     * @returns {Array<object>}
+     */
+    getDroppedItems() {
+        return foundry.utils.deepClone(this.#droppedItems);
+    }
+
+    /**
+     * Handle a Foundry item dropped onto the selected-items box.
+     * @param {DragEvent} event
+     */
+    async #handleItemDrop(event) {
+        event.preventDefault();
+        event.currentTarget?.classList?.remove("qc-drop-active");
+
+        const data = TextEditor.getDragEventData(event);
+        if (data?.type !== "Item") return;
+
+        const item = await Item.fromDropData(data);
+        if (!item) return;
+
+        this.#droppedItems.push({
+            id: foundry.utils.randomID(),
+            uuid: item.uuid,
+            name: item.name,
+            type: item.type,
+            img: item.img,
+            systemId: game.system.id,
+            itemData: item.toObject(),
+        });
+        this.#updateSelectedItemsList();
+    }
+
+    /**
+     * Remove a dropped item from the selected-items box.
+     * @param {string} id
+     */
+    #removeDroppedItem(id) {
+        this.#droppedItems = this.#droppedItems.filter(item => item.id !== id);
+        this.#renameOverrides.delete(this.#renameKey("dropped", id));
+        this.#updateSelectedItemsList();
+    }
+
+    /**
      * Compute current stats from the active tab.
      * @returns {object|null}
      */
@@ -615,6 +672,16 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             });
         }
 
+        for (const dropped of this.#droppedItems) {
+            items.push({
+                kind: "dropped",
+                key: dropped.id,
+                originalName: dropped.name,
+                itemType: dropped.type,
+                droppedId: dropped.id,
+            });
+        }
+
         return items.map(item => {
             const renameKey = this.#renameKey(item.kind, item.key || item.originalName);
             return {
@@ -652,6 +719,18 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
             edit.addEventListener("click", () => this.#renameSelectedItem(item));
 
             row.append(name, edit);
+
+            if (item.kind === "dropped") {
+                const remove = document.createElement("button");
+                remove.type = "button";
+                remove.className = "qc-selected-item-remove";
+                remove.title = `Remove ${item.displayName}`;
+                remove.setAttribute("aria-label", `Remove ${item.displayName}`);
+                remove.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
+                remove.addEventListener("click", () => this.#removeDroppedItem(item.droppedId));
+                row.append(remove);
+            }
+
             list.append(row);
         }
     }
