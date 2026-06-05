@@ -37,15 +37,19 @@
             <div class="qc-stats-grid">
                 <div class="qc-stat qc-adjustable-stat" data-stat="hp">
                     <span class="qc-stat-label">{{i18n "preview.hp"}}</span>
-                    <button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="hp" data-direction="-1" data-tooltip="-10%"><i class="fa-solid fa-minus"></i></button>
-                    <span id="hpLabel" class="qc-adjust-value" data-reset-adjust="hp">{{defaultStats.HP}}</span>
-                    <button type="button" class="qc-advanced-control qc-adjust-plus" data-adjust="hp" data-direction="1" data-tooltip="+10%"><i class="fa-solid fa-plus"></i></button>
+                    <div class="qc-stat-adjust-row">
+                        <button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="hp" data-direction="-1" data-tooltip="-10%"><i class="fa-solid fa-minus"></i></button>
+                        <span id="hpLabel" class="qc-adjust-value" data-reset-adjust="hp">{{defaultStats.HP}}</span>
+                        <button type="button" class="qc-advanced-control qc-adjust-plus" data-adjust="hp" data-direction="1" data-tooltip="+10%"><i class="fa-solid fa-plus"></i></button>
+                    </div>
                 </div>
                 <div class="qc-stat qc-adjustable-stat" data-stat="ac">
                     <span class="qc-stat-label">{{i18n "preview.acdc"}}</span>
-                    <button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="ac" data-direction="-1" data-tooltip="-10%"><i class="fa-solid fa-minus"></i></button>
-                    <span id="acLabel" class="qc-adjust-value" data-reset-adjust="ac">{{defaultStats.ACDC}}</span>
-                    <button type="button" class="qc-advanced-control qc-adjust-plus" data-adjust="ac" data-direction="1" data-tooltip="+10%"><i class="fa-solid fa-plus"></i></button>
+                    <div class="qc-stat-adjust-row">
+                        <button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="ac" data-direction="-1" data-tooltip="-10%"><i class="fa-solid fa-minus"></i></button>
+                        <span id="acLabel" class="qc-adjust-value" data-reset-adjust="ac">{{defaultStats.ACDC}}</span>
+                        <button type="button" class="qc-advanced-control qc-adjust-plus" data-adjust="ac" data-direction="1" data-tooltip="+10%"><i class="fa-solid fa-plus"></i></button>
+                    </div>
                 </div>
                 <div class="qc-stat">
                     <span class="qc-stat-label">{{i18n "preview.pb"}}</span>
@@ -53,9 +57,11 @@
                 </div>
                 <div class="qc-stat qc-adjustable-stat" data-stat="damage">
                     <span class="qc-stat-label">{{i18n "preview.damage"}}</span>
-                    <button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="damage" data-direction="-1" data-tooltip="-10%"><i class="fa-solid fa-minus"></i></button>
-                    <span id="dmgLabel" class="qc-adjust-value" data-reset-adjust="damage">{{defaultStats.DpACalc}} &times; {{defaultStats.NoA}}</span>
-                    <button type="button" class="qc-advanced-control qc-adjust-plus" data-adjust="damage" data-direction="1" data-tooltip="+10%"><i class="fa-solid fa-plus"></i></button>
+                    <div class="qc-stat-adjust-row">
+                        <button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="damage" data-direction="-1" data-tooltip="-10%"><i class="fa-solid fa-minus"></i></button>
+                        <span id="dmgLabel" class="qc-adjust-value" data-reset-adjust="damage">{{defaultStats.DpACalc}} &times; {{defaultStats.NoA}}</span>
+                        <button type="button" class="qc-advanced-control qc-adjust-plus" data-adjust="damage" data-direction="1" data-tooltip="+10%"><i class="fa-solid fa-plus"></i></button>
+                    </div>
                 </div>
             </div>
         </div>

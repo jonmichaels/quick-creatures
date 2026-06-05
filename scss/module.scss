@@ -165,11 +165,12 @@
     align-items: flex-start;
 
     .qc-token-preview {
-        flex: 0 0 94px;
+        flex: 0 0 88px;
+        padding-right: 4px;
 
         img {
-            width: 94px;
-            height: 94px;
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
             border: 2px solid var(--color-border, #666);
             object-fit: cover;
@@ -199,7 +200,8 @@
             margin-right: 4px;
         }
 
-        > span:last-of-type {
+        > span:last-of-type,
+        .qc-stat-adjust-row {
             font-weight: bold;
             margin-left: auto;
             text-align: right;
@@ -207,6 +209,13 @@
             white-space: nowrap;
         }
     }
+}
+
+.qc-stat-adjust-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2px;
 }
 
 /* Dynamic Ring checkbox below token preview */
@@ -533,14 +542,16 @@
     display: none;
     align-items: center;
     justify-content: center;
-    width: 18px;
-    height: 18px;
+    width: 12px;
+    height: 12px;
     padding: 0;
     color: #888;
     background: transparent;
     border: 0;
     cursor: pointer;
-    flex: 0 0 18px;
+    flex: 0 0 12px;
+    font-size: 9px;
+    line-height: 1;
 }
 
 .qc-advanced-active .qc-advanced-control {

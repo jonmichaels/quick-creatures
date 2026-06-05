@@ -37,9 +37,12 @@ assert.match(template, /data-reset-adjust="ability"/);
 
 assert.match(scss, /\.qc-create-section\s*\{[^}]*display:\s*flex;[^}]*justify-content:\s*space-between/s);
 assert.match(scss, /\.qc-create-left\s*\{[^}]*display:\s*inline-flex/s);
-assert.match(scss, /\.qc-token-preview\s*\{[^}]*flex:\s*0 0 94px/s);
-assert.match(scss, /\.qc-token-preview\s*\{[\s\S]*img\s*\{[^}]*width:\s*94px;[^}]*height:\s*94px/s);
-assert.match(scss, /> span:last-of-type\s*\{[^}]*text-align:\s*right/s);
+assert.match(template, /<div class="qc-stat-adjust-row">\s*<button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="hp"/s);
+assert.match(template, /data-reset-adjust="damage">\{\{defaultStats\.DpACalc\}\} &times; \{\{defaultStats\.NoA\}\}<\/span>\s*<button type="button" class="qc-advanced-control qc-adjust-plus"/s);
+assert.match(scss, /\.qc-token-preview\s*\{[^}]*flex:\s*0 0 88px;[^}]*padding-right:\s*4px/s);
+assert.match(scss, /\.qc-token-preview\s*\{[\s\S]*img\s*\{[^}]*width:\s*88px;[^}]*height:\s*88px/s);
+assert.match(scss, /\.qc-stat-adjust-row\s*\{[^}]*margin-left:\s*auto/s);
+assert.match(scss, /\.qc-advanced-control\s*\{[^}]*width:\s*12px;[^}]*height:\s*12px;[^}]*font-size:\s*9px/s);
 assert.match(scss, /#advanced-mode::before\s*\{[^}]*display:\s*none\s*!important/s);
 assert.match(scss, /\.qc-advanced-toggle\s*\{[\s\S]*input\[type="checkbox"\]\s*\{[^}]*appearance:\s*none/s);
 assert.match(scss, /input\[type="checkbox"\]::after/);
