@@ -118,8 +118,8 @@ assert.equal(tokenPacks.isPathfinderTokensMonsterCore2Available(inactiveGame), f
 assert.equal(tokenPacks.isPathfinderTokensMonsterCore2Available(activeAllPathfinderGame), true);
 assert.deepEqual(
   Object.keys(tokenPacks.getTokenSetChoices(inactiveGame)),
-  ["Original_Tokens", "Cute_Tokens"],
-  "PF packs should not be offered when modules are inactive",
+  ["Original_Tokens", "Cute_Tokens", "dnd-monster-manual", "kp-tov-monster-vault", "kp-tov-monster-vault-2"],
+  "D&D and ToV token packs should remain available cross-system even when their source modules are inactive",
 );
 assert.deepEqual(
   Object.keys(tokenPacks.getTokenSetChoices(activeBestiariesGame)),
@@ -128,8 +128,8 @@ assert.deepEqual(
 );
 assert.deepEqual(
   Object.keys(tokenPacks.getTokenSetChoices(activeBothGame)),
-  ["Original_Tokens", "Cute_Tokens", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core"],
-  "PF packs should be offered after built-in packs when active",
+  ["Original_Tokens", "Cute_Tokens", "dnd-monster-manual", "kp-tov-monster-vault", "kp-tov-monster-vault-2", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core"],
+  "D&D and ToV packs should not depend on active system modules, while PF packs still require active modules",
 );
 assert.deepEqual(
   Object.keys(tokenPacks.getTokenSetChoices(activeAllPathfinderGame)),
@@ -304,11 +304,14 @@ assert.equal(
 assert.deepEqual(
   tokenPacks.getTokenSetChoices(a5eGame, { customSets: a5eDescriptors }),
   {
+    "dnd-monster-manual": "Monster Manual",
+    "kp-tov-monster-vault": "Monster Vault",
+    "kp-tov-monster-vault-2": "Monster Vault 2",
     "a5e-system": "A5E System",
     "a5e-monstrous-menagerie": "Monstrous Menagerie",
     "a5e-monstrous-menagerie-2": "Monstrous Menagerie 2",
   },
-  "A5E token choices should include the checked system set and canonical MM names without custom duplicates",
+  "D&D and ToV token choices should remain available cross-system; A5E token choices should include the checked system set and canonical MM names without custom duplicates",
 );
 
 const originalGame = globalThis.game;

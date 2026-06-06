@@ -360,7 +360,7 @@ export function isA5eTokenPackAvailable(packId, gameLike = globalThis.game, opti
  */
 export function shouldUseCreatureDatasheetTokenPack(packId, gameLike = globalThis.game) {
   const pack = DND_TOKEN_PACKS[packId] || TOV_TOKEN_PACKS[packId];
-  if (!pack || !isModuleActive(pack.id, gameLike)) return false;
+  if (!pack) return false;
   return getSetting(gameLike, pack.settingKey, true) !== false;
 }
 
@@ -421,9 +421,7 @@ export function getTokenSetChoices(gameLike = globalThis.game, options = {}) {
     if (!respectSettings || getSetting(gameLike, pack.settingKey, true) !== false) choices[pack.id] = pack.name;
   }
   for (const pack of [...Object.values(DND_TOKEN_PACKS), ...Object.values(TOV_TOKEN_PACKS)]) {
-    const enabled = respectSettings
-      ? shouldUseCreatureDatasheetTokenPack(pack.id, gameLike)
-      : isModuleActive(pack.id, gameLike);
+    const enabled = !respectSettings || shouldUseCreatureDatasheetTokenPack(pack.id, gameLike);
     if (enabled) choices[pack.id] = pack.name;
   }
   for (const pack of Object.values(PATHFINDER_TOKEN_PACKS)) {

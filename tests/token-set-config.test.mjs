@@ -111,6 +111,9 @@ const disabledGame = {
   settings: { get: (_ns, key) => ({
     enableOriginalTokens: false,
     enableCuteTokens: false,
+    enableDndMonsterManualTokens: false,
+    enableTovMonsterVaultTokens: false,
+    enableTovMonsterVault2Tokens: false,
     enablePathfinderTokensBestiaries: false,
   }[key]) },
 };
