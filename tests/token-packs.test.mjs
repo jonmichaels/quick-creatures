@@ -72,6 +72,9 @@ assert.equal(
 
 const inactiveGame = {
   modules: new Map([
+    ["dnd-monster-manual", { active: false }],
+    ["kp-tov-monster-vault", { active: false }],
+    ["kp-tov-monster-vault-2", { active: false }],
     ["pf2e-tokens-bestiaries", { active: false }],
     ["pf2e-tokens-monster-core", { active: false }],
     ["pf2e-tokens-monster-core-2", { active: false }],
@@ -79,6 +82,9 @@ const inactiveGame = {
 };
 const activeBestiariesGame = {
   modules: new Map([
+    ["dnd-monster-manual", { active: true }],
+    ["kp-tov-monster-vault", { active: true }],
+    ["kp-tov-monster-vault-2", { active: true }],
     ["pf2e-tokens-bestiaries", { active: true }],
     ["pf2e-tokens-monster-core", { active: false }],
     ["pf2e-tokens-monster-core-2", { active: false }],
@@ -86,6 +92,9 @@ const activeBestiariesGame = {
 };
 const activeBothGame = {
   modules: new Map([
+    ["dnd-monster-manual", { active: false }],
+    ["kp-tov-monster-vault", { active: false }],
+    ["kp-tov-monster-vault-2", { active: false }],
     ["pf2e-tokens-bestiaries", { active: true }],
     ["pf2e-tokens-monster-core", { active: true }],
     ["pf2e-tokens-monster-core-2", { active: false }],
@@ -93,6 +102,9 @@ const activeBothGame = {
 };
 const activeAllPathfinderGame = {
   modules: new Map([
+    ["dnd-monster-manual", { active: true }],
+    ["kp-tov-monster-vault", { active: true }],
+    ["kp-tov-monster-vault-2", { active: true }],
     ["pf2e-tokens-bestiaries", { active: true }],
     ["pf2e-tokens-monster-core", { active: true }],
     ["pf2e-tokens-monster-core-2", { active: true }],
@@ -111,8 +123,8 @@ assert.deepEqual(
 );
 assert.deepEqual(
   Object.keys(tokenPacks.getTokenSetChoices(activeBestiariesGame)),
-  ["Original_Tokens", "Cute_Tokens", "pf2e-tokens-bestiaries"],
-  "Bestiaries pack should be offered when that module is active",
+  ["Original_Tokens", "Cute_Tokens", "dnd-monster-manual", "kp-tov-monster-vault", "kp-tov-monster-vault-2", "pf2e-tokens-bestiaries"],
+  "D&D, ToV, and Bestiaries packs should be offered after built-in packs when active",
 );
 assert.deepEqual(
   Object.keys(tokenPacks.getTokenSetChoices(activeBothGame)),
@@ -121,14 +133,17 @@ assert.deepEqual(
 );
 assert.deepEqual(
   Object.keys(tokenPacks.getTokenSetChoices(activeAllPathfinderGame)),
-  ["Original_Tokens", "Cute_Tokens", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core", "pf2e-tokens-monster-core-2"],
-  "Monster Core 2 should be offered after Bestiaries and Monster Core when active",
+  ["Original_Tokens", "Cute_Tokens", "dnd-monster-manual", "kp-tov-monster-vault", "kp-tov-monster-vault-2", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core", "pf2e-tokens-monster-core-2"],
+  "D&D, ToV, and all Pathfinder packs should be offered after built-in packs when active",
 );
 
 const disabledSettingsGame = {
   modules: activeAllPathfinderGame.modules,
   settings: {
     get: (_namespace, key) => ({
+      enableDndMonsterManualTokens: false,
+      enableTovMonsterVaultTokens: false,
+      enableTovMonsterVault2Tokens: false,
       enablePathfinderTokensBestiaries: false,
       enablePathfinderTokensMonsterCore: false,
       enablePathfinderTokensMonsterCore2: false,
@@ -142,8 +157,32 @@ assert.deepEqual(
 );
 assert.deepEqual(
   Object.keys(tokenPacks.getTokenSetChoices({ ...disabledSettingsGame, modules: activeAllPathfinderGame.modules }, { respectSettings: false })),
-  ["Original_Tokens", "Cute_Tokens", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core", "pf2e-tokens-monster-core-2", "a5e-system"],
+  ["Original_Tokens", "Cute_Tokens", "dnd-monster-manual", "kp-tov-monster-vault", "kp-tov-monster-vault-2", "pf2e-tokens-bestiaries", "pf2e-tokens-monster-core", "pf2e-tokens-monster-core-2", "a5e-system"],
   "defaultTokenSet registration can list active PF modules and A5E System before the later toggle settings are registered",
+);
+
+
+const creaturePack = tokenPacks.createCreatureDatasheetTokenPack(
+  "dnd-monster-manual",
+  "Monster Manual",
+  [
+    {
+      label: "Aboleth",
+      creatureType: "Aberration",
+      art: {
+        token: "modules/dnd-monster-manual/assets/tokens/aboleth.webp",
+        subject: "modules/dnd-monster-manual/assets/subjects/aboleth.webp",
+        portrait: "modules/dnd-monster-manual/assets/portraits/aboleth-small.webp",
+      },
+    },
+  ],
+);
+assert.equal(creaturePack.tokens.Aberration[0].file, "modules/dnd-monster-manual/assets/tokens/aboleth.webp");
+assert.equal(creaturePack.tokens.Aberration[0].subject, "modules/dnd-monster-manual/assets/subjects/aboleth.webp");
+assert.equal(
+  tokenPacks.tokenImagePath("dnd-monster-manual", "modules/dnd-monster-manual/assets/tokens/aboleth.webp"),
+  "modules/dnd-monster-manual/assets/tokens/aboleth.webp",
+  "external D&D token paths should not be prefixed with Quick Creatures assets",
 );
 
 const sampleDatasheet = [

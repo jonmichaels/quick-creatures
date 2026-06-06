@@ -11,7 +11,7 @@ const tokenPacks = await loadTokenPacks();
 
 assert.deepEqual(
   tokenPacks.TOKEN_SET_CONFIG_SECTION_ORDER,
-  ["defaults", "core", "pathfinder", "a5e", "custom"],
+  ["defaults", "core", "dnd", "tov", "pathfinder", "a5e", "custom"],
   "token config sections must render in requested order",
 );
 
@@ -53,8 +53,12 @@ const a5eConfigGame = {
     enableA5eMonstrousMenagerie2Tokens: true,
   }[key]) },
 };
-const a5eGroup = tokenPacks.getTokenSetConfigGroups(a5eConfigGame, { customSets: descriptors })
-  .find(group => group.id === "a5e");
+const configGroups = tokenPacks.getTokenSetConfigGroups(a5eConfigGame, { customSets: descriptors });
+const dndGroup = configGroups.find(group => group.id === "dnd");
+const tovGroup = configGroups.find(group => group.id === "tov");
+const a5eGroup = configGroups.find(group => group.id === "a5e");
+assert.deepEqual(dndGroup.packs.map(pack => pack.id), ["dnd-monster-manual"], "D&D section should contain Monster Manual");
+assert.deepEqual(tovGroup.packs.map(pack => pack.id), ["kp-tov-monster-vault", "kp-tov-monster-vault-2"], "ToV section should contain Monster Vault then Monster Vault 2");
 assert.deepEqual(
   a5eGroup.packs.map(pack => pack.id),
   ["a5e-system", "a5e-monstrous-menagerie", "a5e-monstrous-menagerie-2"],
@@ -115,6 +119,9 @@ assert.deepEqual(Object.keys(tokenPacks.getTokenSetChoices(disabledGame)), ["Ori
 const settingsSource = fs.readFileSync("scripts/app/quick-creatures-app.js", "utf8");
 for (const key of [
   "defaultTokenSet",
+  "enableDndMonsterManualTokens",
+  "enableTovMonsterVaultTokens",
+  "enableTovMonsterVault2Tokens",
   "enablePathfinderTokensBestiaries",
   "enablePathfinderTokensMonsterCore",
   "enablePathfinderTokensMonsterCore2",
@@ -131,10 +138,10 @@ for (const key of [
 assert.match(settingsSource, /registerMenu\("quick-creatures", "configureTokens"/, "Configure Tokens settings menu must be registered");
 
 const templateSource = fs.readFileSync("templates/token-set-config.hbs", "utf8");
-const sectionKeys = ["defaults", "core", "pathfinder", "a5e", "custom"];
+const sectionKeys = ["defaults", "core", "dnd", "tov", "pathfinder", "a5e", "custom"];
 assert.deepEqual(
   sectionKeys.map(key => templateSource.indexOf(`quick-creatures.tokenConfig.sections.${key}`)).map(index => index > -1),
-  [true, true, true, true, true],
+  sectionKeys.map(() => true),
 );
 assert.ok(sectionKeys.every((key, index) => index === 0 || templateSource.indexOf(`sections.${sectionKeys[index - 1]}`) < templateSource.indexOf(`sections.${key}`)), "template sections must be in requested order");
 assert.match(

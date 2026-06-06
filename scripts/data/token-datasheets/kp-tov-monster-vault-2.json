@@ -1,0 +1,2570 @@
+[
+  {
+    "label": "Abizeth",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Devil_Archdevil_Abizeth.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Devil_Archdevil_Abizeth.webp"
+    }
+  },
+  {
+    "label": "Achorfiend",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Achorfiend.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Achorfiend.webp"
+    }
+  },
+  {
+    "label": "Adamantine Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Dragon_Adamantine_Wyrmling.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Dragon_Adamantine_Wyrmling.webp"
+    }
+  },
+  {
+    "label": "Adult Adamantine Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Dragon_Adamantine_Adult.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Dragon_Adamantine_Adult.webp"
+    }
+  },
+  {
+    "label": "Adult Coruscine Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Coruscine_Dragon_Adult.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Coruscine_Dragon_Adult.webp"
+    }
+  },
+  {
+    "label": "Adult Verdure Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Verdure_Dragon_Adult.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Verdure_Dragon_Adult.webp"
+    }
+  },
+  {
+    "label": "Ancient Adamantine Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Dragon_Adamantine_Ancient.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Dragon_Adamantine_Ancient.webp"
+    }
+  },
+  {
+    "label": "Ancient Coruscine Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Coruscine_Dragon_Ancient.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Coruscine_Dragon_Ancient.webp"
+    }
+  },
+  {
+    "label": "Ancient Verdure Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Verdure_Dragon_Ancient.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Verdure_Dragon_Ancient.webp"
+    }
+  },
+  {
+    "label": "Apkallu",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Apkallu_Celestial_hires.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Apkallu_Celestial_hires.webp"
+    }
+  },
+  {
+    "label": "Apporter Pulp",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Apporter_Pulp.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Apporter_Pulp.webp"
+    }
+  },
+  {
+    "label": "Aquan Behemoth",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Aquan_Behemoth_hires.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Aquan_Behemoth_hires.webp"
+    }
+  },
+  {
+    "label": "Arachnoth",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Arachnoth.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Arachnoth.webp"
+    }
+  },
+  {
+    "label": "Arbalest Crab",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Crab_Arbalest.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Crab_Arbalest.webp"
+    }
+  },
+  {
+    "label": "Arcane Grenadier",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Arcane_Grenadier.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Arcane_Grenadier.webp"
+    }
+  },
+  {
+    "label": "Artagu",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Artagu_hires.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Artagu_hires.webp"
+    }
+  },
+  {
+    "label": "Ascendant Petitioner",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/ascendant_petitioner.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/ascendant_petitioner.webp"
+    }
+  },
+  {
+    "label": "Askembla",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Askembla_hires.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Askembla_hires.webp"
+    }
+  },
+  {
+    "label": "Auropod",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Auropod.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Auropod.webp"
+    }
+  },
+  {
+    "label": "Auroran",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Angel_Auroran.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Angel_Auroran.webp"
+    }
+  },
+  {
+    "label": "Automata Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Devil_Automata.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Devil_Automata.webp"
+    }
+  },
+  {
+    "label": "Ballista Sentinel",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Ballista_Sentinel.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Ballista_Sentinel.webp"
+    }
+  },
+  {
+    "label": "Band of Myrmekes",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Myrmekes.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Myrmekes.webp"
+    }
+  },
+  {
+    "label": "Bar Brawl",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/bar_brawl_.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/bar_brawl_.webp"
+    }
+  },
+  {
+    "label": "Bard Maestro",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Bard-Maestro.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Bard-Maestro.webp"
+    }
+  },
+  {
+    "label": "Barquil",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Barquil.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Barquil.webp"
+    }
+  },
+  {
+    "label": "Batonabi",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/batonabi_final.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/batonabi_final.webp"
+    }
+  },
+  {
+    "label": "Blight Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Devil_Blight.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Devil_Blight.webp"
+    }
+  },
+  {
+    "label": "Blueshroom",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Blueshroom.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Blueshroom.webp"
+    }
+  },
+  {
+    "label": "Bog Bounder",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Bog_Bounder__fiend__hires.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Bog_Bounder__fiend__hires.webp"
+    }
+  },
+  {
+    "label": "Bog Ogre",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Ogre_Bog.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Ogre_Bog.webp"
+    }
+  },
+  {
+    "label": "Bone Whale",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Bone_Whale.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Bone_Whale.webp"
+    }
+  },
+  {
+    "label": "Bone-Brewer Gnoll",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Gnoll_Bone_Brewer.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Gnoll_Bone_Brewer.webp"
+    }
+  },
+  {
+    "label": "Bonebrash",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Bonebrash.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Bonebrash.webp"
+    }
+  },
+  {
+    "label": "Border Sentinel",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Border_Sentinel.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Border_Sentinel.webp"
+    }
+  },
+  {
+    "label": "Brachysnatch",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Brachysnatch.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Brachysnatch.webp"
+    }
+  },
+  {
+    "label": "Broken Fixer",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Broken_Fixer.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Broken_Fixer.webp"
+    }
+  },
+  {
+    "label": "Broodlings",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Chuul_Broodling_Swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Chuul_Broodling_Swarm.webp"
+    }
+  },
+  {
+    "label": "Candlecorpse",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Candlecorpse.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Candlecorpse.webp"
+    }
+  },
+  {
+    "label": "Carrion Nightmare",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Carrion_Nightmare.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Carrion_Nightmare.webp"
+    }
+  },
+  {
+    "label": "Cavalry Camel",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/CavalryCamel.png",
+      "token": "modules/kp-tov-monster-vault-2/assets/artwork/CavalryCamel.png"
+    }
+  },
+  {
+    "label": "Celebrant Shade",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Celebrant_Shade.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Celebrant_Shade.webp"
+    }
+  },
+  {
+    "label": "Cerulean Slime",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Cerulean_Slime.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Cerulean_Slime.webp"
+    }
+  },
+  {
+    "label": "Chaos-Touched Rakshasa",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Rakshasa_Chaos-Touched.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Rakshasa_Chaos-Touched.webp"
+    }
+  },
+  {
+    "label": "Chasmal Horror",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Chasmal_Horror.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Chasmal_Horror.webp"
+    }
+  },
+  {
+    "label": "Chilldeath Grass",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Chilldeath_Grass.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Chilldeath_Grass.webp"
+    }
+  },
+  {
+    "label": "Clockwork Assassin",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Clockwork_Assassin.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Clockwork_Assassin.webp"
+    }
+  },
+  {
+    "label": "Clockwork Constructor",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Clockwork_Constructor.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Clockwork_Constructor.webp"
+    }
+  },
+  {
+    "label": "Clockwork Scorpion",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Clockwork-Scorpion.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Clockwork-Scorpion.webp"
+    }
+  },
+  {
+    "label": "Clockwork Watchman",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Clockwork_Watchman.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Clockwork_Watchman.webp"
+    }
+  },
+  {
+    "label": "Cloth Flitkith",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Flitkith_Cloth.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Flitkith_Cloth.webp"
+    }
+  },
+  {
+    "label": "Coastal Marauder",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Coastal_Marauder.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Coastal_Marauder.webp"
+    }
+  },
+  {
+    "label": "Corpselight Gardener",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Corpselight_Gardener.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Corpselight_Gardener.webp"
+    }
+  },
+  {
+    "label": "Coruscine Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Coruscine_Dragon_Wyrmling.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Coruscine_Dragon_Wyrmling.webp"
+    }
+  },
+  {
+    "label": "Crimson Mist",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Crimson_Mist.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Crimson_Mist.webp"
+    }
+  },
+  {
+    "label": "Crypt Lurcher",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Crypt_Lurcher.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Crypt_Lurcher.webp"
+    }
+  },
+  {
+    "label": "Crystalline Servitor",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Crystalline_Servitor.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Crystalline_Servitor.webp"
+    }
+  },
+  {
+    "label": "Darhask",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Demon_Lord__Darhask.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Demon_Lord__Darhask.webp"
+    }
+  },
+  {
+    "label": "Deadeye Giant",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Giant_Deadeye.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Giant_Deadeye.webp"
+    }
+  },
+  {
+    "label": "Death Butterfly Swarm",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/death-butterfly-swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/death-butterfly-swarm.webp"
+    }
+  },
+  {
+    "label": "Decatrine",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Decatrine.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Decatrine.webp"
+    }
+  },
+  {
+    "label": "Dolmen Giant",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Dolmen_Giant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Dolmen_Giant.webp"
+    }
+  },
+  {
+    "label": "Doomwing",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Doomwing.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Doomwing.webp"
+    }
+  },
+  {
+    "label": "Drenqatu",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Drenqatu_Demon.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Drenqatu_Demon.webp"
+    }
+  },
+  {
+    "label": "Drouk",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Drouk.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Drouk.webp"
+    }
+  },
+  {
+    "label": "Drow Mystic",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Drow_Mystic.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Drow_Mystic.webp"
+    }
+  },
+  {
+    "label": "Duergar Warformer",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Dwarf_Duergar_Warformer.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Dwarf_Duergar_Warformer.webp"
+    }
+  },
+  {
+    "label": "Duodekadron",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mechadron_Duodekadron.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mechadron_Duodekadron.webp"
+    }
+  },
+  {
+    "label": "Dupladron",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mechadron-Dupladron.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mechadron-Dupladron.webp"
+    }
+  },
+  {
+    "label": "Dustcloak",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/dustcloak.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/dustcloak.webp"
+    }
+  },
+  {
+    "label": "Eldritch Ooze",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Ooze_Eldritch.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Ooze_Eldritch.webp"
+    }
+  },
+  {
+    "label": "Eldritch Sable",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Eldritch_Sable.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Eldritch_Sable.webp"
+    }
+  },
+  {
+    "label": "Empty Soul",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Empty_Soul.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Empty_Soul.webp"
+    }
+  },
+  {
+    "label": "Enlightened Naga",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Naga_Enlightened.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Enlightened_Naga.webp"
+    }
+  },
+  {
+    "label": "Eye Coral",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Eye_Coral.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Eye_Coral.webp"
+    }
+  },
+  {
+    "label": "Facefetch",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/facefetch.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/facefetch.webp"
+    }
+  },
+  {
+    "label": "Fen Lurcher",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fen_Lurcher.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fen_Lurcher.webp"
+    }
+  },
+  {
+    "label": "Fenrosk",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fenrosk.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fenrosk.webp"
+    }
+  },
+  {
+    "label": "Fey Chamberlain",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fey_Chamberlain.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fey_Chamberlain.webp"
+    }
+  },
+  {
+    "label": "Fey Champion Hippogriff",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hippogriff.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hippogriff.webp"
+    }
+  },
+  {
+    "label": "Feymount Raccoon",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Feymount_Raccoon.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Feymount_Raccoon.webp"
+    }
+  },
+  {
+    "label": "Field Hag",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hag_Field.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hag_Field.webp"
+    }
+  },
+  {
+    "label": "Fiendish Viletrap",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fiendish_Viletrap.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fiendish_Viletrap.webp"
+    }
+  },
+  {
+    "label": "Fiery Phantom Troll",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Troll_Fiery_Phantom.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Troll_Fiery_Phantom.webp"
+    }
+  },
+  {
+    "label": "Fir Beast",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fir_Beast.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fir_Beast.webp"
+    }
+  },
+  {
+    "label": "Fire Cat",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fire_Cat.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fire_Cat.webp"
+    }
+  },
+  {
+    "label": "Fire Giant Commander",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fire_Giant_Commander.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fire_Giant_Commander.webp"
+    }
+  },
+  {
+    "label": "Firedrop Fungus",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Firedrop_Fungi_Swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Firedrop_Fungi_Swarm.webp"
+    }
+  },
+  {
+    "label": "First Servant",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/First_Servant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/First_Servant.webp"
+    }
+  },
+  {
+    "label": "Flamescale Salamander",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Flamescale_Salamander.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Flamescale_Salamander.webp"
+    }
+  },
+  {
+    "label": "Flock Caller",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Flock_Caller.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Flock_Caller.webp"
+    }
+  },
+  {
+    "label": "Flotsam Guardian",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Flotsam_Guardian.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Flotsam_Guardian.webp"
+    }
+  },
+  {
+    "label": "Forgotten Smith",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fey_Lord_Forgotten_Smith.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fey_Lord_Forgotten_Smith.webp"
+    }
+  },
+  {
+    "label": "Formicbane",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Formicbane.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Formicbane.webp"
+    }
+  },
+  {
+    "label": "Forsaken Genie",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Genie_Forsaken.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Genie_Forsaken.webp"
+    }
+  },
+  {
+    "label": "Fractidron",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mechadron_Fractidron.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mechadron_Fractidron.webp"
+    }
+  },
+  {
+    "label": "Frost Giant Jarl",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Frost_Giant_Jarl.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Frost_Giant_Jarl.webp"
+    }
+  },
+  {
+    "label": "Ghostweed",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Ghostweed.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Ghostweed.webp"
+    }
+  },
+  {
+    "label": "Ghoul Lord",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Ghoul_Lord.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Ghoul_Lord.webp"
+    }
+  },
+  {
+    "label": "Giant Axolotl",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Axolotl_Giant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Axolotl_Giant.webp"
+    }
+  },
+  {
+    "label": "Giant Hedgehog",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hedgehog_Giant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hedgehog_Giant.webp"
+    }
+  },
+  {
+    "label": "Giant Honey Bee",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Giant_Honey_Bees.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Giant_Honey_Bee.webp"
+    }
+  },
+  {
+    "label": "Giant Millipede",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Centipede-Giant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Centipede-Giant.webp"
+    }
+  },
+  {
+    "label": "Giant Opossum",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Opossum.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Opossum.webp"
+    }
+  },
+  {
+    "label": "Giant Skunk",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Skunk_Giant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Skunk_Giant.webp"
+    }
+  },
+  {
+    "label": "Girtablilu",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Girtablilu.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Girtablilu.webp"
+    }
+  },
+  {
+    "label": "Glass Mephit",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mephit_Glass.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mephit_Glass.webp"
+    }
+  },
+  {
+    "label": "Glass Ooze",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Ooze_Glass.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Ooze_Glass.webp"
+    }
+  },
+  {
+    "label": "Glittermaw",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Glittermaw.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Glittermaw.webp"
+    }
+  },
+  {
+    "label": "Gloomrot Ogre",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Gloomrot_Hulk.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Gloomrot-Hulk.webp"
+    }
+  },
+  {
+    "label": "Gluckshund",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Gluckshund.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Gluckshund.webp"
+    }
+  },
+  {
+    "label": "Goreling",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Goreling_Swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Goreling.webp"
+    }
+  },
+  {
+    "label": "Goreling Swarm",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Goreling_Swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Goreling_Swarm.webp"
+    }
+  },
+  {
+    "label": "Gorus",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Gorus.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Gorus.webp"
+    }
+  },
+  {
+    "label": "Graack",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Graack.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Graack.webp"
+    }
+  },
+  {
+    "label": "Grain Vika",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Grain_Vika.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Grain_Vika.webp"
+    }
+  },
+  {
+    "label": "Grave Hag",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hag_Grave.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hag_Grave.webp"
+    }
+  },
+  {
+    "label": "Gray Thresher",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Gray_Thresher.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Gray_Thresher.webp"
+    }
+  },
+  {
+    "label": "Greater Death Butterfly Swarm",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/death-butterfly-swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/death-butterfly-swarm.webp"
+    }
+  },
+  {
+    "label": "Greater Pseudodragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Dragonette_Greater_Pseudodragon.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Dragonette_Greater_Pseudodragon.webp"
+    }
+  },
+  {
+    "label": "Greatwyrm Green Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Great_Wyrm_Green_Dragon.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Great_Wyrm_Green_Dragon.webp"
+    }
+  },
+  {
+    "label": "Grim Giant Owl",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Grim_Owl.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Grim_Owl.webp"
+    }
+  },
+  {
+    "label": "Hammerbill Goose",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hammerbill_Goose.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hammerbill_Goose.webp"
+    }
+  },
+  {
+    "label": "Hammergeist",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hammergeist.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hammergeist.webp"
+    }
+  },
+  {
+    "label": "Hatchling Owlbear",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/owlbear_hatchling_juvi.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/owlbear_hatchling_juvi.webp"
+    }
+  },
+  {
+    "label": "Hellspawn Ankheg",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/hellspawn.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hellspawn.webp"
+    }
+  },
+  {
+    "label": "Hellworm",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hellworm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hellworm.webp"
+    }
+  },
+  {
+    "label": "High Mechanist",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/High_Mechanist.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/High_Mechanist.webp"
+    }
+  },
+  {
+    "label": "Hill Giant Chieftain",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hill_Giant_Chieftain.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hill_Giant_Chieftain.webp"
+    }
+  },
+  {
+    "label": "Hippalektryon",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/hippalektryon.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/hippalektryon.webp"
+    }
+  },
+  {
+    "label": "Hoard Golem",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/hoard_golem_v2.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Golem-Hoard.webp"
+    }
+  },
+  {
+    "label": "Hobfoot",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hobfoot.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hobfoot.webp"
+    }
+  },
+  {
+    "label": "Hooded One",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Kobold_Hooded_One.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Kobold_Hooded_One.webp"
+    }
+  },
+  {
+    "label": "Hungering Tangle",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hungering_Tangle.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hungering_Tangle.webp"
+    }
+  },
+  {
+    "label": "Huntmaster",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Huntmaster.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Huntmaster.webp"
+    }
+  },
+  {
+    "label": "Ice Sila",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Genie_Ice_Sila.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Genie_Ice_Sila.webp"
+    }
+  },
+  {
+    "label": "Icerift Demon",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Demon_Icerift.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Demon_Icerift.webp"
+    }
+  },
+  {
+    "label": "Iceskitter",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Iceskitter.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Iceskitter.webp"
+    }
+  },
+  {
+    "label": "Illuminant",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Angel_Illuminant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Angel_Illuminant.webp"
+    }
+  },
+  {
+    "label": "Infernal Dreg",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Infernal_Dreg.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Infernal_Dreg.webp"
+    }
+  },
+  {
+    "label": "Integron",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mechadron_Integron.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mechadron_Integron.webp"
+    }
+  },
+  {
+    "label": "Isazix",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Isazix.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Isazix.webp"
+    }
+  },
+  {
+    "label": "Isherrar",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Isherrar.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Isherrar.webp"
+    }
+  },
+  {
+    "label": "Issgandr",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Issgandr.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Issgandr.webp"
+    }
+  },
+  {
+    "label": "Joy Thief",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Joy_Thief.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Joy_Thief.webp"
+    }
+  },
+  {
+    "label": "Jurist Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Devil_Jurist.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Devil_Jurist.webp"
+    }
+  },
+  {
+    "label": "Juvenile Owlbear",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/owlbear_hatchling_juvi.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/owlbear_hatchling_juvi.webp"
+    }
+  },
+  {
+    "label": "Keg Golem",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Golem_Keg.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Golem_Keg.webp"
+    }
+  },
+  {
+    "label": "Kel Essuf",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Kel_Essuf.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Kel_Essuf.webp"
+    }
+  },
+  {
+    "label": "Kelp Wight",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Wight_Kelp.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Wight_Kelp.webp"
+    }
+  },
+  {
+    "label": "Killsward",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Killsward.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Killsward.webp"
+    }
+  },
+  {
+    "label": "Kineater",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Kineater.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Kineater.webp"
+    }
+  },
+  {
+    "label": "Lamentine Shrike",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Lamenting_Shrike.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Lamenting_Shrike.webp"
+    }
+  },
+  {
+    "label": "Lava Sprite",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Lava_Sprite.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Lava_Sprite.webp"
+    }
+  },
+  {
+    "label": "Least Drake",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Least_Drake.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Least_Drake.webp"
+    }
+  },
+  {
+    "label": "Leoformic",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Leoformic.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Leoformic.webp"
+    }
+  },
+  {
+    "label": "Leshnydukh",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Leshnydukh.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Leoformic.webp"
+    }
+  },
+  {
+    "label": "Lethbloom Swarm",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Lethbloom.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Lethbloom.webp"
+    }
+  },
+  {
+    "label": "Lingering Shade",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Lingering_Shade.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Lingering_Shade.webp"
+    }
+  },
+  {
+    "label": "Living Loam",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Living_Loam.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Living_Loam.webp"
+    }
+  },
+  {
+    "label": "Living Quicksand",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Living_Quicksand.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Living_Quicksand.webp"
+    }
+  },
+  {
+    "label": "Luciva",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Luciva.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Luciva.webp"
+    }
+  },
+  {
+    "label": "Luminous Lord",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fey_Lord_Luminous_Lord.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fey_Lord_Luminous_Lord.webp"
+    }
+  },
+  {
+    "label": "Lustralichen Spider",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Lustralichen_Spider_Drone.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Lustralichen_Spider_Drone.webp"
+    }
+  },
+  {
+    "label": "Mage Knight",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mage_Knight.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mage_Knight.webp"
+    }
+  },
+  {
+    "label": "Manax",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Manax.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Manax.webp"
+    }
+  },
+  {
+    "label": "Many-Handed Raven",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Many_Handed_Familiar.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Many_Handed_Familiar.webp"
+    }
+  },
+  {
+    "label": "Maroq",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Maroq.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Maroq.webp"
+    }
+  },
+  {
+    "label": "Master Assassin",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Assassin_Master.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Assassin_Master.webp"
+    }
+  },
+  {
+    "label": "Merchant",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Merchant_Captain.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Merchant_Captain.webp"
+    }
+  },
+  {
+    "label": "Merchant Captain",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Merchant_Captain.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Merchant_Captain.webp"
+    }
+  },
+  {
+    "label": "Metal Flitkith",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Flitkith_Metal.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Flitkith_Metal.webp"
+    }
+  },
+  {
+    "label": "Minjara",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Minjara.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Minjara.webp"
+    }
+  },
+  {
+    "label": "Mirror Drake",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mirror_Drake.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mirror_Drake.webp"
+    }
+  },
+  {
+    "label": "Monster Hunter",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Monster_Hunter.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Monster_Hunter.webp"
+    }
+  },
+  {
+    "label": "Montarr",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Montarr.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Montarr.webp"
+    }
+  },
+  {
+    "label": "Mothman",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mothman.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mothman.webp"
+    }
+  },
+  {
+    "label": "Mud Giant",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Giant_Mud_Giant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Giant_Mud_Giant.webp"
+    }
+  },
+  {
+    "label": "Mudcrawler",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mudcrawler.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mudcrawler.webp"
+    }
+  },
+  {
+    "label": "Mudflow Ooze",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Ooze_Mudflow.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Ooze_Mudflow.webp"
+    }
+  },
+  {
+    "label": "Musculi",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Musculi.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Musculi.webp"
+    }
+  },
+  {
+    "label": "Mycoptyx",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mycoptyx.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mycoptyx.webp"
+    }
+  },
+  {
+    "label": "Myrmeke",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Myrmekes.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Myrmekes.webp"
+    }
+  },
+  {
+    "label": "Naavlashuk",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Naavlashuk.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Naavlashuk.webp"
+    }
+  },
+  {
+    "label": "Nanuq",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Nanuq.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Nanuq.webp"
+    }
+  },
+  {
+    "label": "Necrograft Cultist",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Necrograft_Cultist.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Necrograft_Cultist.webp"
+    }
+  },
+  {
+    "label": "Negalzyn",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Negalzyn.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Negalzyn.webp"
+    }
+  },
+  {
+    "label": "Nightwing",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Nightwing.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Nightwing.webp"
+    }
+  },
+  {
+    "label": "Nullifier",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Nullifier.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Nullifier.webp"
+    }
+  },
+  {
+    "label": "Nullphidian",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Nullphidian.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Nullphidian.webp"
+    }
+  },
+  {
+    "label": "Observer",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Observer.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Observer.webp"
+    }
+  },
+  {
+    "label": "Oculo Swarm",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Oculo_Swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Oculo_Swarm.webp"
+    }
+  },
+  {
+    "label": "Oliphaunt Warbeast",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Oliphaunt-Warbeast.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Oliphaunt-Warbeast.webp"
+    }
+  },
+  {
+    "label": "Opossum",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Opossum.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Opossum.webp"
+    }
+  },
+  {
+    "label": "Oromur",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Oromur.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Oromur.webp"
+    }
+  },
+  {
+    "label": "Patternmaster Minotaur",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Minotaur__Patternmaster.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Minotaur__Patternmaster.webp"
+    }
+  },
+  {
+    "label": "Peak Warden",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Peak_Warden.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Peak_Warden.webp"
+    }
+  },
+  {
+    "label": "Pebble Golem",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Golem_Pebble.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Golem_Pebble.webp"
+    }
+  },
+  {
+    "label": "Pelagic Dragonette",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Dragonette_Pelagic.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Dragonette_Pelagic.webp"
+    }
+  },
+  {
+    "label": "Phantasmid",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Phantasmid.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Phantasmid.webp"
+    }
+  },
+  {
+    "label": "Phibbit",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Phibbit.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Phibbit.webp"
+    }
+  },
+  {
+    "label": "Phoenix",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Phoenix.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Phoenix.webp"
+    }
+  },
+  {
+    "label": "Phytotitan",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Phytotitan.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Phytotitan.webp"
+    }
+  },
+  {
+    "label": "Planewort",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Planewort.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Planewort-01.webp"
+    }
+  },
+  {
+    "label": "Potentate",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Chuul_Potentate.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Chuul_Potentate.webp"
+    }
+  },
+  {
+    "label": "Prescient Ghoul",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Prescient_Ghoul.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Prescient_Ghoul.webp"
+    }
+  },
+  {
+    "label": "Psylocite Shard",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Psylocite_Shard.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Psylocite_Shard.webp"
+    }
+  },
+  {
+    "label": "Psylocite Splinter",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Psylocite_Splinter.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Psylocite_Splinter.webp"
+    }
+  },
+  {
+    "label": "Psylocite Star",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Psylocite_Star.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Psylocite_Star.webp"
+    }
+  },
+  {
+    "label": "Pumpkin King",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Pumpkin_King.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Pumpkin_King.webp"
+    }
+  },
+  {
+    "label": "Pyroclasm",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Pyroclasm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Pyroclasm.webp"
+    }
+  },
+  {
+    "label": "Quimbus",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Quimbus.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Quimbus.webp"
+    }
+  },
+  {
+    "label": "Raiju",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Raiju.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Raiju.webp"
+    }
+  },
+  {
+    "label": "Rampede",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Rampede.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Rampede.webp"
+    }
+  },
+  {
+    "label": "Ratatoskr the Clever",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Angel__Archangel__Ratatoskr.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Angel__Archangel__Ratatoskr.webp"
+    }
+  },
+  {
+    "label": "Rattus Eel",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Rattus_Eel.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Rattus_Eel.webp"
+    }
+  },
+  {
+    "label": "Razor Drake",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Razor_Drake.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Razor_Drake.webp"
+    }
+  },
+  {
+    "label": "Riftspawn",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Riftspawn.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Riftspawn.webp"
+    }
+  },
+  {
+    "label": "Rimecaller",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Rimecaller.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Rimecaller.webp"
+    }
+  },
+  {
+    "label": "Riptide Ogre",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Ogre_Riptide.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Ogre_Riptide.webp"
+    }
+  },
+  {
+    "label": "Rosetta",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Rosetta.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Rosetta.webp"
+    }
+  },
+  {
+    "label": "Rune Lindwurm",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Rune_Lindwurm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Rune_Lindwurm.webp"
+    }
+  },
+  {
+    "label": "Salvager",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Salvager.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Salvager.webp"
+    }
+  },
+  {
+    "label": "Samum",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Genie_Samum.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Genie_Samum.webp"
+    }
+  },
+  {
+    "label": "Sargassum Stalker",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Sargassum_Stalker.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Sargassum_Stalker.webp"
+    }
+  },
+  {
+    "label": "Sawgrass Zephyr",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Sawgrass_Zephyr.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Sawgrass_Zephyr.webp"
+    }
+  },
+  {
+    "label": "Scaled War Weasel",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Scaled_War_Weasel.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Scaled_War_Weasel.webp"
+    }
+  },
+  {
+    "label": "Scavenger",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Scavenger.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Scavenger.webp"
+    }
+  },
+  {
+    "label": "Scouring Cicada",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Scouring_Cicada.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Scouring_Cicada.webp"
+    }
+  },
+  {
+    "label": "Scuttleweb",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Scuttleweb.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Scuttleweb.webp"
+    }
+  },
+  {
+    "label": "Sea Naga",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Naga_Sea.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Naga_Sea.webp"
+    }
+  },
+  {
+    "label": "Sea Snare",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Sea_Snare.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Sea_Snare.webp"
+    }
+  },
+  {
+    "label": "Searsprite",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Searsprite.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Searsprite.webp"
+    }
+  },
+  {
+    "label": "Selkolla",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fey_Lady_Selkolla.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fey_Lady_Selkolla.webp"
+    }
+  },
+  {
+    "label": "Servitor of Abizeth",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Devil_Servitor_of_Abizeth.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Devil_Servitor_of_Abizeth.webp"
+    }
+  },
+  {
+    "label": "Shadow Fey Confidante",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Shadow_Fey_Confidante.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Shadow_Fey_Confidante.webp"
+    }
+  },
+  {
+    "label": "Shadow Hag",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Hag_Shadow.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Hag_Shadow.webp"
+    }
+  },
+  {
+    "label": "Shadowcaller",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Shadowcaller.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Shadowcaller.webp"
+    }
+  },
+  {
+    "label": "Shanlayu",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Demon_Shanlayu.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Demon_Shanlayu.webp"
+    }
+  },
+  {
+    "label": "Shatterstar",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Shatterstar.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Shatterstar.webp"
+    }
+  },
+  {
+    "label": "Shimmer Mole",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Shimmer_Mole.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Shimmer_Mole.webp"
+    }
+  },
+  {
+    "label": "Shoreline Drake",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Shoreline_Drake.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Shoreline_Drake.webp"
+    }
+  },
+  {
+    "label": "Shrine Keeper",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/shrine_keeper.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/shrine_keeper.webp"
+    }
+  },
+  {
+    "label": "Sidhe Ox",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Sidhe_Ox.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Sidhe_Ox.webp"
+    }
+  },
+  {
+    "label": "Silt Lurker",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Silt_Lurker.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Silt_Lurker.webp"
+    }
+  },
+  {
+    "label": "Skeleton Lord",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Skeleton_Lord.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Skeleton_Lord.webp"
+    }
+  },
+  {
+    "label": "Skunk",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Skunk_Giant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Skunk_Giant.webp"
+    }
+  },
+  {
+    "label": "Slaughter Hide",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Slaughter_Hide.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Slaughter_Hide.webp"
+    }
+  },
+  {
+    "label": "Sludge Mephit",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mephit_Sludge.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mephit_Sludge.webp"
+    }
+  },
+  {
+    "label": "Soarer",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Soarer_Elemental.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Soarer_Elemental.webp"
+    }
+  },
+  {
+    "label": "Soilsinger",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Soilsinger.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Soilsinger.webp"
+    }
+  },
+  {
+    "label": "Solodron",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mechadron-Solodron.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/artwork/Mechadron-Solodron.webp"
+    }
+  },
+  {
+    "label": "Spellbane Gremlin",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Gremlin_Spellbane.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Gremlin_Spellbane.webp"
+    }
+  },
+  {
+    "label": "Spellscale Vassal",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Spellscale_Vassal.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Spellscale_Vassal.webp"
+    }
+  },
+  {
+    "label": "Spellweaver Ettercap",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Ettercap_Spellweaver.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Ettercap_Spellweaver.webp"
+    }
+  },
+  {
+    "label": "Starspot Swarm",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Starspot_Swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Starspot_Swarm.webp"
+    }
+  },
+  {
+    "label": "Steam Golem",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Golem_Steam.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Golem_Steam.webp"
+    }
+  },
+  {
+    "label": "Stenar",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Stenar.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Stenar.webp"
+    }
+  },
+  {
+    "label": "Stitchcloak",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Stitchcloak.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Stitchcloak.webp"
+    }
+  },
+  {
+    "label": "Stone Sage",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Stone_Sage.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Stone_Sage.webp"
+    }
+  },
+  {
+    "label": "Stone Sifter",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Stone_Sifter.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Stone_Sifter.webp"
+    }
+  },
+  {
+    "label": "Stonefish Drake",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Stonefish_Drake.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Stonefish_Drake.webp"
+    }
+  },
+  {
+    "label": "Storm Mephit",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mephit_Storm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mephit_Storm.webp"
+    }
+  },
+  {
+    "label": "Storm Serpent",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Storm_Serpent.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Storm_Serpent.webp"
+    }
+  },
+  {
+    "label": "Styx Demon",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Styx_Demon.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Styx_Demon.webp"
+    }
+  },
+  {
+    "label": "Swamp Stalker",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Swamp_Stalker.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Swamp_Stalker.webp"
+    }
+  },
+  {
+    "label": "Swarm of Firedrop Fungi",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Firedrop_Fungi_Swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Firedrop_Fungi_Swarm.webp"
+    }
+  },
+  {
+    "label": "Swarm of Honey Bees",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Giant_Honey_Bees.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Swarm_Giant_Honey_Bees.webp"
+    }
+  },
+  {
+    "label": "Swarm of Pebble Golems",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Golem_Pebble.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Golem_Pebble_Swarm.webp"
+    }
+  },
+  {
+    "label": "Swarm of Piranha Lotuses",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Piranha_Lotus.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Piranha_Lotus.webp"
+    }
+  },
+  {
+    "label": "Swarm of Rattus Eels",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Rattus_Eel.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Rattus_Eel.webp"
+    }
+  },
+  {
+    "label": "Swarm of Vampire Ant Larvae",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Vampire_Ant_Larvae_Swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Vampire_Ant_Larvae_Swarm.webp"
+    }
+  },
+  {
+    "label": "Swarmskin",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Swarmskin.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Swarmskin.webp"
+    }
+  },
+  {
+    "label": "Taiga Crawler",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Taiga_Crawler.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Taiga_Crawler.webp"
+    }
+  },
+  {
+    "label": "Thief Lord",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Thief_Lord.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Thief_Lord.webp"
+    }
+  },
+  {
+    "label": "Thorn Stag",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Thorn_Stag.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Thorn_Stag.webp"
+    }
+  },
+  {
+    "label": "Thronebound",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Thronebound.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Thronebound.webp"
+    }
+  },
+  {
+    "label": "Thundrux",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Thundrux.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Thundrux.webp"
+    }
+  },
+  {
+    "label": "Tinder Wyrm",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Tinder_Wyrm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Tinder_Wyrm.webp"
+    }
+  },
+  {
+    "label": "Toadstool Troll",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Troll_Toadstool.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Troll_Toadstool.webp"
+    }
+  },
+  {
+    "label": "Tress Lizard",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Tress_Lizard.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Tress_Lizard.webp"
+    }
+  },
+  {
+    "label": "Triceratops Tar Skeleton",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Tar_Skeleton_-_Final.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Tar_Skeleton_-_Final.webp"
+    }
+  },
+  {
+    "label": "Tripladron",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Mechadron-Tripladron.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Mechadron-Tripladron.webp"
+    }
+  },
+  {
+    "label": "Truescale",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Kobold_Truescale_Swolbold.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Kobold_Truescale_Swolbold.webp"
+    }
+  },
+  {
+    "label": "Tunnel Rumbler",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Tunnel_Rumbler.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Tunnel_Rumbler.webp"
+    }
+  },
+  {
+    "label": "Tynan",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Fey_Lady_Tynan.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Fey_Lady_Tynan.webp"
+    }
+  },
+  {
+    "label": "Umbral Ogre",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Ogre_Umbral.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Ogre_Umbral.webp"
+    }
+  },
+  {
+    "label": "Unearthed",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Unearthed.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Unearthed.webp"
+    }
+  },
+  {
+    "label": "Unflamed",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Unflamed.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Unflamed.webp"
+    }
+  },
+  {
+    "label": "Vampire Ant",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Vampire_Ant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Vampire_Ant.webp"
+    }
+  },
+  {
+    "label": "Veiled Passenger",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Veiled_Passenger.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Veiled_Passenger.webp"
+    }
+  },
+  {
+    "label": "Veilworm",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Veilworm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Veilworm.webp"
+    }
+  },
+  {
+    "label": "Venture Priest",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Venture_Priest.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Venture_Priest.webp"
+    }
+  },
+  {
+    "label": "Verdure Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Verdure_Dragon_Wyrmling.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Verdure_Dragon_Wyrmling.webp"
+    }
+  },
+  {
+    "label": "Vikalver",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Vikalver.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Vikalver.webp"
+    }
+  },
+  {
+    "label": "Viridian Queen",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Viridian_Queen.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Viridian_Queen.webp"
+    }
+  },
+  {
+    "label": "Void Harbinger",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Void_Harbinger.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Void_Harbinger.webp"
+    }
+  },
+  {
+    "label": "Void Troll",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Void_Troll.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Void_Troll.webp"
+    }
+  },
+  {
+    "label": "Voltaic Newt",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Voltaic_Newt.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Voltaic_Newt.webp"
+    }
+  },
+  {
+    "label": "Vulkeen",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Vulkeen.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Vulkeen.webp"
+    }
+  },
+  {
+    "label": "War Giant",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Giant_War_Giant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Giant_War_Giant.webp"
+    }
+  },
+  {
+    "label": "War Pig",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Warpig.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Warpig.webp"
+    }
+  },
+  {
+    "label": "Warmwreath Lichen Swarm",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Warmwreath_Lichen_Swarm.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Warmwreath_Lichen_Swarm.webp"
+    }
+  },
+  {
+    "label": "Wasteborn Despoiler",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Wasteborn_Despoiler.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Wasteborn_Despoiler.webp"
+    }
+  },
+  {
+    "label": "Wax Golem",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Golem_Wax.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Golem_Wax.webp"
+    }
+  },
+  {
+    "label": "Waxworker Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/devil_waxworker.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/devil_waxworker.webp"
+    }
+  },
+  {
+    "label": "Weeping Treant",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Weeping_Treant.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Weeping_Treant.webp"
+    }
+  },
+  {
+    "label": "Weirwood Sower",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Weirwood_Sower.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Weirwood_Sower.webp"
+    }
+  },
+  {
+    "label": "Wind Leech",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Wind_Leech.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Wind_Leech.webp"
+    }
+  },
+  {
+    "label": "Withered Elder",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Withered_Elder.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Withered_Elder.webp"
+    }
+  },
+  {
+    "label": "Wood Flitkith",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Flitkith_Wood.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Flitkith_Wood.webp"
+    }
+  },
+  {
+    "label": "Wooly Hippopotamus",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Wooly_Hippopotamus.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Wooly_Hippopotamus.webp"
+    }
+  },
+  {
+    "label": "World Tree Sapling",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/World_Tree_Sapling.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/World_Tree_Sapling.webp"
+    }
+  },
+  {
+    "label": "Wrath Wight",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Wight_Wrath.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Wight_Wrath.webp"
+    }
+  },
+  {
+    "label": "Xenarth",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Xenarth.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Xenarth.webp"
+    }
+  },
+  {
+    "label": "Young Adamantine Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Dragon_Adamantine_Young.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Dragon_Adamantine_Young.webp"
+    }
+  },
+  {
+    "label": "Young Coruscine Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Coruscine_Dragon_Young.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Coruscine_Dragon_Young.webp"
+    }
+  },
+  {
+    "label": "Young Verdure Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Verdure_Dragon_Young.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Verdure_Dragon_Young.webp"
+    }
+  },
+  {
+    "label": "Ystol",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Chol_Ystol.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Chol_Ystol.webp"
+    }
+  },
+  {
+    "label": "Zombie Lord",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Zombie_Lord.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Zombie_Lord.webp"
+    }
+  },
+  {
+    "label": "Zwölfhulk",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/kp-tov-monster-vault-2/assets/artwork/Zwolfhulk.webp",
+      "token": "modules/kp-tov-monster-vault-2/assets/tokens/Zwolfhulk.webp"
+    }
+  }
+]

@@ -68,6 +68,18 @@
                 "name": "Default Token Set",
                 "hint": "Default token pack used for creature portraits."
             },
+            "enableDndMonsterManualTokens": {
+                "name": "Use D&D Monster Manual Tokens",
+                "hint": "When the dnd-monster-manual module is active, offer its artwork as a Quick Creatures token set."
+            },
+            "enableTovMonsterVaultTokens": {
+                "name": "Use Monster Vault Tokens",
+                "hint": "When the kp-tov-monster-vault module is active, offer its artwork as a Quick Creatures token set."
+            },
+            "enableTovMonsterVault2Tokens": {
+                "name": "Use Monster Vault 2 Tokens",
+                "hint": "When the kp-tov-monster-vault-2 module is active, offer its artwork as a Quick Creatures token set."
+            },
             "enablePathfinderTokensBestiaries": {
                 "name": "Use Pathfinder Tokens: Bestiaries",
                 "hint": "When the pf2e-tokens-bestiaries module is active, offer its artwork as a Quick Creatures token set."
@@ -142,6 +154,8 @@
             "sections": {
                 "defaults": "Default Token Set + Custom Token Directory",
                 "core": "Core Sets",
+                "dnd": "Dungeons & Dragons Sets",
+                "tov": "Tales of the Valiant Sets",
                 "pathfinder": "Pathfinder Sets",
                 "a5e": "Level Up Advanced 5E Sets",
                 "custom": "Custom Sets"

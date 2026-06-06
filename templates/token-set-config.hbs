@@ -32,6 +32,31 @@
     {{/each}}
   </fieldset>
 
+
+  <fieldset>
+    <legend>{{localize "quick-creatures.tokenConfig.sections.dnd"}}</legend>
+    {{#each dndGroup.packs}}
+      <div class="form-group">
+        <label class="qc-token-set-label" for="qc-token-enabled-{{id}}">{{name}}</label>
+        <div class="form-fields">
+          <input id="qc-token-enabled-{{id}}" type="checkbox" name="enabled.{{id}}" {{checked enabled}} />
+        </div>
+      </div>
+    {{/each}}
+  </fieldset>
+
+  <fieldset>
+    <legend>{{localize "quick-creatures.tokenConfig.sections.tov"}}</legend>
+    {{#each tovGroup.packs}}
+      <div class="form-group">
+        <label class="qc-token-set-label" for="qc-token-enabled-{{id}}">{{name}}</label>
+        <div class="form-fields">
+          <input id="qc-token-enabled-{{id}}" type="checkbox" name="enabled.{{id}}" {{checked enabled}} />
+        </div>
+      </div>
+    {{/each}}
+  </fieldset>
+
   <fieldset>
     <legend>{{localize "quick-creatures.tokenConfig.sections.pathfinder"}}</legend>
     {{#each pathfinderGroup.packs}}

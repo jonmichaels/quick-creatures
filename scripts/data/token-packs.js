@@ -22,8 +22,11 @@ const TYPES = [
 const PF2E_TOKENS_BESTIARIES_ID = "pf2e-tokens-bestiaries";
 const PF2E_TOKENS_MONSTER_CORE_ID = "pf2e-tokens-monster-core";
 const PF2E_TOKENS_MONSTER_CORE_2_ID = "pf2e-tokens-monster-core-2";
+const DND_MONSTER_MANUAL_ID = "dnd-monster-manual";
+const TOV_MONSTER_VAULT_ID = "kp-tov-monster-vault";
+const TOV_MONSTER_VAULT_2_ID = "kp-tov-monster-vault-2";
 
-export const TOKEN_SET_CONFIG_SECTION_ORDER = ["defaults", "core", "pathfinder", "a5e", "custom"];
+export const TOKEN_SET_CONFIG_SECTION_ORDER = ["defaults", "core", "dnd", "tov", "pathfinder", "a5e", "custom"];
 
 const CORE_TOKEN_PACKS = {
   Original_Tokens: { id: "Original_Tokens", name: "Original Tokens", settingKey: "enableOriginalTokens" },
@@ -57,9 +60,39 @@ export const A5E_TOKEN_PACKS = {
 
 export const TOKEN_SET_GROUPS = [
   { id: "core", labelKey: "quick-creatures.tokenConfig.sections.core", packIds: ["Original_Tokens", "Cute_Tokens"] },
+  { id: "dnd", labelKey: "quick-creatures.tokenConfig.sections.dnd", packIds: [DND_MONSTER_MANUAL_ID] },
+  { id: "tov", labelKey: "quick-creatures.tokenConfig.sections.tov", packIds: [TOV_MONSTER_VAULT_ID, TOV_MONSTER_VAULT_2_ID] },
   { id: "pathfinder", labelKey: "quick-creatures.tokenConfig.sections.pathfinder", packIds: [PF2E_TOKENS_BESTIARIES_ID, PF2E_TOKENS_MONSTER_CORE_ID, PF2E_TOKENS_MONSTER_CORE_2_ID] },
   { id: "a5e", labelKey: "quick-creatures.tokenConfig.sections.a5e", packIds: ["a5e-system", "a5e-monstrous-menagerie", "a5e-monstrous-menagerie-2"] },
 ];
+
+
+const DND_TOKEN_PACKS = {
+  [DND_MONSTER_MANUAL_ID]: {
+    id: DND_MONSTER_MANUAL_ID,
+    name: "Monster Manual",
+    description: "Artwork from the D&D Monster Manual module.",
+    settingKey: "enableDndMonsterManualTokens",
+    datasheet: `${MODULE_PATH}/scripts/data/token-datasheets/dnd-monster-manual.json`,
+  },
+};
+
+const TOV_TOKEN_PACKS = {
+  [TOV_MONSTER_VAULT_ID]: {
+    id: TOV_MONSTER_VAULT_ID,
+    name: "Monster Vault",
+    description: "Artwork from the Tales of the Valiant Monster Vault module.",
+    settingKey: "enableTovMonsterVaultTokens",
+    datasheet: `${MODULE_PATH}/scripts/data/token-datasheets/kp-tov-monster-vault.json`,
+  },
+  [TOV_MONSTER_VAULT_2_ID]: {
+    id: TOV_MONSTER_VAULT_2_ID,
+    name: "Monster Vault 2",
+    description: "Artwork from the Tales of the Valiant Monster Vault 2 module.",
+    settingKey: "enableTovMonsterVault2Tokens",
+    datasheet: `${MODULE_PATH}/scripts/data/token-datasheets/kp-tov-monster-vault-2.json`,
+  },
+};
 
 const PATHFINDER_TOKEN_PACKS = {
   [PF2E_TOKENS_BESTIARIES_ID]: {
@@ -286,7 +319,11 @@ export function isPathfinderTokensMonsterCore2Available(gameLike = globalThis.ga
 }
 
 function isPathfinderTokenPackAvailable(packId, gameLike = globalThis.game) {
-  const module = gameLike?.modules?.get?.(packId);
+  return isModuleActive(packId, gameLike);
+}
+
+function isModuleActive(moduleId, gameLike = globalThis.game) {
+  const module = gameLike?.modules?.get?.(moduleId);
   return Boolean(module?.active);
 }
 
@@ -313,6 +350,18 @@ export function isA5eTokenPackAvailable(packId, gameLike = globalThis.game, opti
   const aliases = pack.folderAliases || [];
   const descriptors = options.customSets || [];
   return descriptors.some(set => set.id === packId || aliases.includes(set.name));
+}
+
+/**
+ * Should a D&D/Tales of the Valiant token set be offered?
+ * @param {string} packId
+ * @param {object} [gameLike=game]
+ * @returns {boolean}
+ */
+export function shouldUseCreatureDatasheetTokenPack(packId, gameLike = globalThis.game) {
+  const pack = DND_TOKEN_PACKS[packId] || TOV_TOKEN_PACKS[packId];
+  if (!pack || !isModuleActive(pack.id, gameLike)) return false;
+  return getSetting(gameLike, pack.settingKey, true) !== false;
 }
 
 /**
@@ -370,6 +419,12 @@ export function getTokenSetChoices(gameLike = globalThis.game, options = {}) {
   const choices = {};
   for (const pack of Object.values(CORE_TOKEN_PACKS)) {
     if (!respectSettings || getSetting(gameLike, pack.settingKey, true) !== false) choices[pack.id] = pack.name;
+  }
+  for (const pack of [...Object.values(DND_TOKEN_PACKS), ...Object.values(TOV_TOKEN_PACKS)]) {
+    const enabled = respectSettings
+      ? shouldUseCreatureDatasheetTokenPack(pack.id, gameLike)
+      : isModuleActive(pack.id, gameLike);
+    if (enabled) choices[pack.id] = pack.name;
   }
   for (const pack of Object.values(PATHFINDER_TOKEN_PACKS)) {
     const enabled = respectSettings
@@ -448,6 +503,31 @@ export function createPathfinderBestiariesPack(datasheet = []) {
   return createPathfinderTokenPack(config.id, config.name, datasheet);
 }
 
+export function createCreatureDatasheetTokenPack(packId, packName, datasheet = []) {
+  const config = DND_TOKEN_PACKS[packId] || TOV_TOKEN_PACKS[packId] || { description: `Artwork from the ${packName} module.` };
+  const tokens = Object.fromEntries(TYPES.map(type => [type, []]));
+  for (const entry of datasheet) {
+    const type = TYPES.includes(entry?.creatureType) ? entry.creatureType : null;
+    const token = entry?.art?.token;
+    if (!type || !token) continue;
+    tokens[type].push({
+      file: token,
+      name: entry.label || nameFromFile(token.split("/").pop() || token),
+      subject: entry.art?.subject || null,
+      portrait: entry.art?.portrait || null,
+      scale: entry.art?.scale ?? 1,
+    });
+  }
+  for (const list of Object.values(tokens)) list.sort((a, b) => a.name.localeCompare(b.name));
+  return {
+    id: packId,
+    name: packName,
+    description: config.description,
+    defaults: {},
+    tokens,
+  };
+}
+
 /**
  * Display-friendly name from a filename (remove extension, replace underscores).
  * @param {string} filename
@@ -481,6 +561,12 @@ export async function discoverPacks() {
         tokens,
       });
     }
+  }
+
+  for (const pack of [...Object.values(DND_TOKEN_PACKS), ...Object.values(TOV_TOKEN_PACKS)]) {
+    if (!shouldUseCreatureDatasheetTokenPack(pack.id)) continue;
+    const datasheet = await _loadJson(pack.datasheet);
+    if (Array.isArray(datasheet)) results.push(createCreatureDatasheetTokenPack(pack.id, pack.name, datasheet));
   }
 
   for (const pack of Object.values(PATHFINDER_TOKEN_PACKS)) {
@@ -546,6 +632,14 @@ export function getDefaultToken(packId, type) {
  */
 export async function getDefaultTokenEntry(packId, type) {
   if (EMBEDDED_TOKENS[packId]?.[type]?.length) return EMBEDDED_TOKENS[packId][type][0];
+  const creaturePackConfig = DND_TOKEN_PACKS[packId] || TOV_TOKEN_PACKS[packId];
+  if (creaturePackConfig) {
+    if (!shouldUseCreatureDatasheetTokenPack(packId)) return null;
+    const datasheet = await _loadJson(creaturePackConfig.datasheet);
+    if (!Array.isArray(datasheet)) return null;
+    const pack = createCreatureDatasheetTokenPack(creaturePackConfig.id, creaturePackConfig.name, datasheet);
+    return pack.tokens[type]?.[0] || null;
+  }
   const packConfig = PATHFINDER_TOKEN_PACKS[packId];
   if (!packConfig || !shouldUsePathfinderTokenPack(packId)) return null;
   const datasheet = await _loadJson(packConfig.datasheet);
@@ -561,7 +655,7 @@ export async function getDefaultTokenEntry(packId, type) {
  * @returns {string} Full module path e.g. "modules/quick-creatures/assets/Original_Tokens/Aberration/aberration.webp"
  */
 export function tokenImagePath(packId, file) {
-  if (PATHFINDER_TOKEN_PACKS[packId] || A5E_TOKEN_PACKS[packId] || String(packId).startsWith("custom:")) return file;
+  if (DND_TOKEN_PACKS[packId] || TOV_TOKEN_PACKS[packId] || PATHFINDER_TOKEN_PACKS[packId] || A5E_TOKEN_PACKS[packId] || String(packId).startsWith("custom:")) return file;
   return `${MODULE_PATH}/assets/${packId}/${file}`;
 }
 
@@ -599,7 +693,7 @@ async function _loadManifest(path) {
 }
 
 export function getTokenSetConfigGroups(gameLike = globalThis.game, options = {}) {
-  const allPacks = { ...CORE_TOKEN_PACKS, ...PATHFINDER_TOKEN_PACKS, ...A5E_TOKEN_PACKS };
+  const allPacks = { ...CORE_TOKEN_PACKS, ...DND_TOKEN_PACKS, ...TOV_TOKEN_PACKS, ...PATHFINDER_TOKEN_PACKS, ...A5E_TOKEN_PACKS };
   return TOKEN_SET_GROUPS.map(group => ({
     ...group,
     packs: group.packIds.map(id => {

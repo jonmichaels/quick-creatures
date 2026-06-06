@@ -1,0 +1,4511 @@
+[
+  {
+    "label": "Aarakocra Aeromancer",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/aarakocra-aeromancer.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/aarakocra-aeromancer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/aarakocra-aeromancer.webp"
+    }
+  },
+  {
+    "label": "Aarakocra Skirmisher",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/aarakocra-skirmisher.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/aarakocra-skirmisher.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/aarakocra-skirmisher.webp"
+    }
+  },
+  {
+    "label": "Aberrant Cultist",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/aberrant-cultist.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/aberrant-cultist.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/aberrant-cultist.webp"
+    }
+  },
+  {
+    "label": "Aboleth",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/aboleth-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/aboleth.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/aboleth.webp"
+    }
+  },
+  {
+    "label": "Abominable Yeti",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/abominable-yeti.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/abominable-yeti.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/abominable-yeti.webp"
+    }
+  },
+  {
+    "label": "Adult Black Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/adult-black-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/adult-black-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/adult-black-dragon.webp"
+    }
+  },
+  {
+    "label": "Adult Blue Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/adult-blue-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/adult-blue-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/adult-blue-dragon.webp"
+    }
+  },
+  {
+    "label": "Adult Brass Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/adult-brass-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/adult-brass-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/adult-brass-dragon.webp"
+    }
+  },
+  {
+    "label": "Adult Bronze Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bronze-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-bronze-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-bronze-dragon.webp"
+    }
+  },
+  {
+    "label": "Adult Copper Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/adult-copper-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/adult-copper-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/adult-copper-dragon.webp"
+    }
+  },
+  {
+    "label": "Adult Gold Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/adult-gold-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/adult-gold-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/adult-gold-dragon.webp"
+    }
+  },
+  {
+    "label": "Adult Green Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ancient-green-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-green-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-green-dragon.webp"
+    }
+  },
+  {
+    "label": "Adult Red Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/adult-red-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/adult-red-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/adult-red-dragon.webp"
+    }
+  },
+  {
+    "label": "Adult Silver Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/adult-silver-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/adult-silver-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/adult-silver-dragon.webp"
+    }
+  },
+  {
+    "label": "Adult White Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/adult-white-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/adult-white-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/adult-white-dragon.webp"
+    }
+  },
+  {
+    "label": "Air Elemental",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/air-elemental.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/air-elemental.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/air-elemental.webp"
+    }
+  },
+  {
+    "label": "Allosaurus",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/allosaurus-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/allosaurus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/allosaurus.webp"
+    }
+  },
+  {
+    "label": "Ancient Black Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ancient-black-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-black-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-black-dragon.webp"
+    }
+  },
+  {
+    "label": "Ancient Blue Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ancient-blue-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-blue-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-blue-dragon.webp"
+    }
+  },
+  {
+    "label": "Ancient Brass Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ancient-brass-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-brass-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-brass-dragon.webp"
+    }
+  },
+  {
+    "label": "Ancient Bronze Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ancient-bronze-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-bronze-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-bronze-dragon.webp"
+    }
+  },
+  {
+    "label": "Ancient Copper Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/adult-copper-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/adult-copper-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/adult-copper-dragon.webp"
+    }
+  },
+  {
+    "label": "Ancient Gold Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ancient-gold-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-gold-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-gold-dragon.webp"
+    }
+  },
+  {
+    "label": "Ancient Green Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ancient-green-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-green-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-green-dragon.webp"
+    }
+  },
+  {
+    "label": "Ancient Red Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ancient-red-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-red-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-red-dragon.webp"
+    }
+  },
+  {
+    "label": "Ancient Silver Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ancient-silver-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-silver-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-silver-dragon.webp"
+    }
+  },
+  {
+    "label": "Ancient White Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ancient-white-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ancient-white-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ancient-white-dragon.webp"
+    }
+  },
+  {
+    "label": "Animal Lord",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/animal-lord.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/animal-lord-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Animated Armor",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/animated-armor.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/animated-armor.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/animated-armor.webp"
+    }
+  },
+  {
+    "label": "Animated Boulder",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/galeb-duhr.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/galeb-duhr.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/galeb-duhr.webp"
+    }
+  },
+  {
+    "label": "Animated Broom",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/animated-broom.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/animated-broom.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/animated-broom.webp"
+    }
+  },
+  {
+    "label": "Animated Flying Sword",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/animated-flying-sword.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/animated-flying-sword.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/animated-flying-sword.webp"
+    }
+  },
+  {
+    "label": "Animated Rug of Smothering",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/animated-rug-of-smothering.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/animated-rug-of-smothering.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/animated-rug-of-smothering.webp"
+    }
+  },
+  {
+    "label": "Ankheg",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ankheg.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ankheg.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ankheg.webp"
+    }
+  },
+  {
+    "label": "Ankylosaurus",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ankylosaurus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ankylosaurus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ankylosaurus.webp"
+    }
+  },
+  {
+    "label": "Ape",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ape.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ape.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ape.webp"
+    }
+  },
+  {
+    "label": "Arcanaloth",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/arcanaloth.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/arcanaloth.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/arcanaloth.webp"
+    }
+  },
+  {
+    "label": "Arch-hag",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/arch-hag-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/arch-hag-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Archelon",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/archelon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/archelon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/archelon.webp"
+    }
+  },
+  {
+    "label": "Archmage",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/archmage.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/archmage.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/archmage.webp"
+    }
+  },
+  {
+    "label": "Archpriest",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/archpriest.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/archpriest.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/archpriest.webp"
+    }
+  },
+  {
+    "label": "Assassin",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/assassin.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/assassin.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/assassin.webp"
+    }
+  },
+  {
+    "label": "Awakened Shrub",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/awakened-shrub-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/awakened-shrub-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Awakened Tree",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/awakened-tree.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/awakened-tree.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/awakened-tree.webp"
+    }
+  },
+  {
+    "label": "Axe Beak",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/axe-beak.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/axe-beak.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/axe-beak.webp"
+    }
+  },
+  {
+    "label": "Azer Pyromancer",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/azer.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/azer-pyromancer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/azer-pyromancer.webp"
+    }
+  },
+  {
+    "label": "Azer Sentinel",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/azer.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/azer-sentinel.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/azer-sentinel.webp"
+    }
+  },
+  {
+    "label": "Baboon",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/baboon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/baboon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/baboon.webp"
+    }
+  },
+  {
+    "label": "Badger",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/badger-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/badger.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/badger.webp"
+    }
+  },
+  {
+    "label": "Balor",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/balor.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/balor.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/balor.webp"
+    }
+  },
+  {
+    "label": "Bandit",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/bandits.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bandit.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bandit.webp"
+    }
+  },
+  {
+    "label": "Bandit Captain",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bandit-captain.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bandit-captain.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bandit-captain.webp"
+    }
+  },
+  {
+    "label": "Bandit Crime Lord",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bandit-crime-lord.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bandit-crime-lord.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bandit-crime-lord.webp"
+    }
+  },
+  {
+    "label": "Bandit Deceiver",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bandit-deceiver.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bandit-deceiver.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bandit-deceiver.webp"
+    }
+  },
+  {
+    "label": "Banshee",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/banshee-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/banshee-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Barbed Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/barbed-devil.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/barbed-devil.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/barbed-devil.webp"
+    }
+  },
+  {
+    "label": "Barlgura",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/barlgura.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/barlgura.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/barlgura.webp"
+    }
+  },
+  {
+    "label": "Basilisk",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/basilisk.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/basilisk.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/basilisk.webp"
+    }
+  },
+  {
+    "label": "Bat",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bat-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bat.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bat.webp"
+    }
+  },
+  {
+    "label": "Bearded Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bearded-devil.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bearded-devil.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bearded-devil.webp"
+    }
+  },
+  {
+    "label": "Behir",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/behir.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/behir.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/behir.webp"
+    }
+  },
+  {
+    "label": "Beholder",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/beholder.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/beholder.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/beholder.webp"
+    }
+  },
+  {
+    "label": "Beholder Zombie",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/beholder-zombie.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/beholder-zombie.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/beholder-zombie.webp"
+    }
+  },
+  {
+    "label": "Berserker",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/berserker-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/berserker-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Berserker Commander",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/berserker-commander.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/berserker-commander.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/berserker-commander.webp"
+    }
+  },
+  {
+    "label": "Black Bear",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/black-bear.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/black-bear.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/black-bear.webp"
+    }
+  },
+  {
+    "label": "Black Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/black-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/black-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/black-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Black Pudding",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/black-pudding.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/black-pudding.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/black-pudding.webp"
+    }
+  },
+  {
+    "label": "Blink Dog",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/blink-dog.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/blink-dog.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/blink-dog.webp"
+    }
+  },
+  {
+    "label": "Blob of Annihilation",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/blob-of-annihilation.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/blob-of-annihilation.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/blob-of-annihilation.webp"
+    }
+  },
+  {
+    "label": "Blood Hawk",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/blood-hawk.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/blood-hawk.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/blood-hawk.webp"
+    }
+  },
+  {
+    "label": "Blue Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/blue-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/blue-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/blue-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Blue Slaad",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/blue-slaad.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/blue-slaad.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/blue-slaad.webp"
+    }
+  },
+  {
+    "label": "Boar",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/boar.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/boar.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/boar.webp"
+    }
+  },
+  {
+    "label": "Bone Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bone-devil.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bone-devil.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bone-devil.webp"
+    }
+  },
+  {
+    "label": "Bone Naga",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bone-naga.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bone-naga.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bone-naga.webp"
+    }
+  },
+  {
+    "label": "Brass Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/brass-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/brass-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/brass-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Brazen Gorgon",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/brazen-gorgon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/brazen-gorgon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/brazen-gorgon.webp"
+    }
+  },
+  {
+    "label": "Bronze Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bronze-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bronze-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bronze-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Brown Bear",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/brown-bear.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/brown-bear.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/brown-bear.webp"
+    }
+  },
+  {
+    "label": "Bugbear Stalker",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bugbear-stalker.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bugbear-stalker.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bugbear-stalker.webp"
+    }
+  },
+  {
+    "label": "Bugbear Warrior",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bugbear-warrior.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bugbear-warrior.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bugbear-warrior.webp"
+    }
+  },
+  {
+    "label": "Bulette",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bulette.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bulette.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bulette.webp"
+    }
+  },
+  {
+    "label": "Bulette Pup",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bulette-pup.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bulette-pup.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bulette-pup.webp"
+    }
+  },
+  {
+    "label": "Bullywug Bog Sage",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bullywug-bog-sage.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bullywug-bog-sage.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bullywug-bog-sage.webp"
+    }
+  },
+  {
+    "label": "Bullywug Warrior",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bullywug-warrior.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bullywug-warrior.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bullywug-warrior.webp"
+    }
+  },
+  {
+    "label": "Cambion",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/cambion-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cambion-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Camel",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/camel.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/camel.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/camel.webp"
+    }
+  },
+  {
+    "label": "Carrion Crawler",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/carrion-crawler.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/carrion-crawler.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/carrion-crawler.webp"
+    }
+  },
+  {
+    "label": "Cat",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/cat.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cat-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Centaur Trooper",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/centaur-trooper.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/centaur-trooper.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/centaur-trooper.webp"
+    }
+  },
+  {
+    "label": "Centaur Warden",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/centaur-warden.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/centaur-warden.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/centaur-warden.webp"
+    }
+  },
+  {
+    "label": "Chain Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/chain-devil.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/chain-devil.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/chain-devil.webp"
+    }
+  },
+  {
+    "label": "Chasme",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/chasme.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/chasme.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/chasme.webp"
+    }
+  },
+  {
+    "label": "Chimera",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/chimera.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/chimera.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/chimera.webp"
+    }
+  },
+  {
+    "label": "Chuul",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/chuul.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/chuul.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/chuul.webp"
+    }
+  },
+  {
+    "label": "Clay Golem",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/clay-golem.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/clay-golem.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/clay-golem.webp"
+    }
+  },
+  {
+    "label": "Cloaker",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/cloaker.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cloaker.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/cloaker.webp"
+    }
+  },
+  {
+    "label": "Cloud Giant",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/cloud-giant-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cloud-giant-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Cockatrice",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/cockatrice.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cockatrice.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/cockatrice.webp"
+    }
+  },
+  {
+    "label": "Cockatrice Regent",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/cockatrice.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cockatrice-regent.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/cockatrice-regent.webp"
+    }
+  },
+  {
+    "label": "Colossus",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/colossus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/colossus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/colossus.webp"
+    }
+  },
+  {
+    "label": "Commoner",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/commoner-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/commoner-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Constrictor Snake",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/constrictor-snake.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/constrictor-snake.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/constrictor-snake.webp"
+    }
+  },
+  {
+    "label": "Copper Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/copper-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/copper-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/copper-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Couatl",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/couatl.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/couatl.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/couatl.webp"
+    }
+  },
+  {
+    "label": "Crab",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/crab-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/crab.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/crab.webp"
+    }
+  },
+  {
+    "label": "Crawling Claw",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/crawling-claw.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/crawling-claw.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/crawling-claw.webp"
+    }
+  },
+  {
+    "label": "Crocodile",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/crocodile.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/crocodile.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/crocodile.webp"
+    }
+  },
+  {
+    "label": "Cultist",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/cultists.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cultist.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/cultist.webp"
+    }
+  },
+  {
+    "label": "Cultist Fanatic",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/cultist-fanatic-02.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cultist-fanatic-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Cultist Hierophant",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/cultist-hierophant.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cultist-hierophant.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/cultist-hierophant.webp"
+    }
+  },
+  {
+    "label": "Cyclops Oracle",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/cyclops-oracle.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cyclops-oracle.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/cyclops-oracle.webp"
+    }
+  },
+  {
+    "label": "Cyclops Sentry",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/cyclopes.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/cyclops-sentry.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/cyclops-sentry.webp"
+    }
+  },
+  {
+    "label": "Dao",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/dao.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/dao.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/dao.webp"
+    }
+  },
+  {
+    "label": "Darkmantle",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/darkmantle.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/darkmantle.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/darkmantle.webp"
+    }
+  },
+  {
+    "label": "Death Cultist",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/death-cultist.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/death-cultist.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/death-cultist.webp"
+    }
+  },
+  {
+    "label": "Death Dog",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/death-dog.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/death-dog.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/death-dog.webp"
+    }
+  },
+  {
+    "label": "Death Knight",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/death-knight.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/death-knight.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/death-knight.webp"
+    }
+  },
+  {
+    "label": "Death Knight Aspirant",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/death-knight-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/death-knight-aspirant.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/death-knight-aspirant.webp"
+    }
+  },
+  {
+    "label": "Death Slaad",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/death-slaad.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/death-slaad.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/death-slaad.webp"
+    }
+  },
+  {
+    "label": "Death Tyrant",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/death-tyrant.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/death-tyrant.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/death-tyrant.webp"
+    }
+  },
+  {
+    "label": "Deer",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/deer.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/deer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/deer.webp"
+    }
+  },
+  {
+    "label": "Demilich",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/demilich.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/demilich.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/demilich.webp"
+    }
+  },
+  {
+    "label": "Deva",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/deva.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/deva.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/deva.webp"
+    }
+  },
+  {
+    "label": "Dire Wolf",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/dire-wolf.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/dire-wolf.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/dire-wolf.webp"
+    }
+  },
+  {
+    "label": "Dire Worg",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/dire-worg.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/dire-worg.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/dire-worg.webp"
+    }
+  },
+  {
+    "label": "Displacer Beast",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/displacer-beast.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/displacer-beast.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/displacer-beast.webp"
+    }
+  },
+  {
+    "label": "Djinni",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/djinni.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/djinni.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/djinni.webp"
+    }
+  },
+  {
+    "label": "Doppelganger",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/doppelganger.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/doppelganger.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/doppelganger.webp"
+    }
+  },
+  {
+    "label": "Dracolich",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/dracolich.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/dracolich.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/dracolich.webp"
+    }
+  },
+  {
+    "label": "Draft Horse",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/draft-horse.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/horse-02.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/horse-02.webp"
+    }
+  },
+  {
+    "label": "Dragon Turtle",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/dragon-turtle.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/dragon-turtle.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/dragon-turtle.webp"
+    }
+  },
+  {
+    "label": "Dretch",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/dretch.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/dretch.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/dretch.webp"
+    }
+  },
+  {
+    "label": "Drider",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/drider.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/drider.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/drider.webp"
+    }
+  },
+  {
+    "label": "Druid",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/druid-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/druid-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Dryad",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/dryad-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/dryad-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Dust Mephit",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/dust-mephit.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/dust-mephit.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/dust-mephit.webp"
+    }
+  },
+  {
+    "label": "Eagle",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/eagle.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/eagle.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/eagle.webp"
+    }
+  },
+  {
+    "label": "Earth Elemental",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/earth-elemental.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/earth-elemental.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/earth-elemental.webp"
+    }
+  },
+  {
+    "label": "Efreeti",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/efreeti.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/efreeti.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/efreeti.webp"
+    }
+  },
+  {
+    "label": "Elemental Cataclysm",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/elemental-cataclysm.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/elemental-cataclysm.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/elemental-cataclysm.webp"
+    }
+  },
+  {
+    "label": "Elemental Cultist",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/elemental-cultist.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/elemental-cultist.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/elemental-cultist.webp"
+    }
+  },
+  {
+    "label": "Elephant",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/elephant.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/elephant.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/elephant.webp"
+    }
+  },
+  {
+    "label": "Elk",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/elk.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/elk.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/elk.webp"
+    }
+  },
+  {
+    "label": "Empyrean",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/empyrean.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/empyrean.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/empyrean.webp"
+    }
+  },
+  {
+    "label": "Empyrean Iota",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/empyrean.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/empyrean-iota.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/empyrean-iota.webp"
+    }
+  },
+  {
+    "label": "Erinyes",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/erinyes.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/erinyes.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/erinyes.webp"
+    }
+  },
+  {
+    "label": "Ettercap",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ettercap.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ettercap.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ettercap.webp"
+    }
+  },
+  {
+    "label": "Ettin",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ettin.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ettin.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ettin.webp"
+    }
+  },
+  {
+    "label": "Faerie Dragon Adult",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/faerie-dragons.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/faerie-dragon-adult.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/faerie-dragon-adult.webp"
+    }
+  },
+  {
+    "label": "Faerie Dragon Youth",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/faerie-dragons.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/faerie-dragon-youth.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/faerie-dragon-youth.webp"
+    }
+  },
+  {
+    "label": "Fiend Cultist",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/fiend-cultist.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/fiend-cultist-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Fire Elemental",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/fire-elemental.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/fire-elemental.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/fire-elemental.webp"
+    }
+  },
+  {
+    "label": "Fire Giant",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/fire-giant-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/fire-giant-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Flameskull",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/flameskull-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/flameskull-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Flaming Skeleton",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/flaming-skeleton.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/flaming-skeleton.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/flaming-skeleton.webp"
+    }
+  },
+  {
+    "label": "Flesh Golem",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/flesh-golem.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/flesh-golem.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/flesh-golem.webp"
+    }
+  },
+  {
+    "label": "Flumph",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/flumph.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/flumph.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/flumph.webp"
+    }
+  },
+  {
+    "label": "Flying Snake",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/flying-snake.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/flying-snake.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/flying-snake.webp"
+    }
+  },
+  {
+    "label": "Fomorian",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/fomorian-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/fomorian-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Frog",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/frog.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/frog-01.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/frog-01.webp"
+    }
+  },
+  {
+    "label": "Frost Giant",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/frost-giant-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/frost-giant-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Galeb Duhr",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/galeb-duhr.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/galeb-duhr.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/galeb-duhr.webp"
+    }
+  },
+  {
+    "label": "Gargoyle",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gargoyle.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gargoyle.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gargoyle.webp"
+    }
+  },
+  {
+    "label": "Gas Spore Fungus",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gas-spore-fungus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gas-spore-fungus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gas-spore-fungus.webp"
+    }
+  },
+  {
+    "label": "Gelatinous Cube",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gelatinous-cube.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gelatinous-cube.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gelatinous-cube.webp"
+    }
+  },
+  {
+    "label": "Ghast",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ghast.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ghast.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ghast.webp"
+    }
+  },
+  {
+    "label": "Ghast Gravecaller",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/ghasts.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ghast-gravecaller.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ghast-gravecaller.webp"
+    }
+  },
+  {
+    "label": "Ghost",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ghost.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ghost.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ghost.webp"
+    }
+  },
+  {
+    "label": "Ghoul",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ghoul.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ghoul.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ghoul.webp"
+    }
+  },
+  {
+    "label": "Giant Ape",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-ape.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-ape.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-ape.webp"
+    }
+  },
+  {
+    "label": "Giant Axe Beak",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/axe-beak.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/axe-beak.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/axe-beak.webp"
+    }
+  },
+  {
+    "label": "Giant Badger",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-badger.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-badger.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-badger.webp"
+    }
+  },
+  {
+    "label": "Giant Bat",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bat-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-bat.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-bat.webp"
+    }
+  },
+  {
+    "label": "Giant Boar",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-boar.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-boar.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-boar.webp"
+    }
+  },
+  {
+    "label": "Giant Centipede",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-centipede.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-centipede.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-centipede.webp"
+    }
+  },
+  {
+    "label": "Giant Constrictor Snake",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-constrictor-snake.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-constrictor-snake.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-constrictor-snake.webp"
+    }
+  },
+  {
+    "label": "Giant Crab",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-crab.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-crab.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-crab.webp"
+    }
+  },
+  {
+    "label": "Giant Crocodile",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/crocodile.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/crocodile.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/crocodile.webp"
+    }
+  },
+  {
+    "label": "Giant Eagle",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/eagle-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/eagle.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/eagle.webp"
+    }
+  },
+  {
+    "label": "Giant Elk",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/elk.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/elk.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/elk.webp"
+    }
+  },
+  {
+    "label": "Giant Fire Beetle",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-fire-beetle.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-fire-beetle.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-fire-beetle.webp"
+    }
+  },
+  {
+    "label": "Giant Frog",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/frog.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-frog.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-frog.webp"
+    }
+  },
+  {
+    "label": "Giant Goat",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-goat.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-goat.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-goat.webp"
+    }
+  },
+  {
+    "label": "Giant Hyena",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hyena.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hyena.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hyena.webp"
+    }
+  },
+  {
+    "label": "Giant Lizard",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-lizard.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-lizard.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-lizard.webp"
+    }
+  },
+  {
+    "label": "Giant Octopus",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/octopus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/octopus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/octopus.webp"
+    }
+  },
+  {
+    "label": "Giant Owl",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/owl.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/owl-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Giant Rat",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/rats.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-rat.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-rat.webp"
+    }
+  },
+  {
+    "label": "Giant Scorpion",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/scorpion.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/scorpion.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/scorpion.webp"
+    }
+  },
+  {
+    "label": "Giant Seahorse",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-seahorse.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-seahorse.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-seahorse.webp"
+    }
+  },
+  {
+    "label": "Giant Shark",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-shark.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-shark.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-shark.webp"
+    }
+  },
+  {
+    "label": "Giant Spider",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-spider-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-spider-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Giant Squid",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-squid.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-squid.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-squid.webp"
+    }
+  },
+  {
+    "label": "Giant Toad",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/frog.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-toad.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-toad.webp"
+    }
+  },
+  {
+    "label": "Giant Venomous Snake",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/venomous-snake.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/venomous-snake.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/venomous-snake.webp"
+    }
+  },
+  {
+    "label": "Giant Vulture",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/vulture.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/vulture.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/vulture.webp"
+    }
+  },
+  {
+    "label": "Giant Wasp",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-wasp.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-wasp.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-wasp.webp"
+    }
+  },
+  {
+    "label": "Giant Weasel",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-weasel.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-weasel.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-weasel.webp"
+    }
+  },
+  {
+    "label": "Giant Wolf Spider",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-wolf-spider.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-wolf-spider.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-wolf-spider.webp"
+    }
+  },
+  {
+    "label": "Gibbering Mouther",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gibbering-mouther.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gibbering-mouther.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gibbering-mouther.webp"
+    }
+  },
+  {
+    "label": "Githyanki Dracomancer",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/githyanki-dracomancer-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/githyanki-dracomancer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/githyanki-dracomancer.webp"
+    }
+  },
+  {
+    "label": "Githyanki Knight",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/githyanki-knight.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/githyanki-knight.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/githyanki-knight.webp"
+    }
+  },
+  {
+    "label": "Githyanki Warrior",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/githyanki-soldier.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/githyanki-soldier.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/githyanki-soldier.webp"
+    }
+  },
+  {
+    "label": "Githzerai Monk",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/githzerai-monk.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/githzerai-monk.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/githzerai-monk.webp"
+    }
+  },
+  {
+    "label": "Githzerai Psion",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/githzerai-psion.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/githzerai-psion.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/githzerai-psion.webp"
+    }
+  },
+  {
+    "label": "Githzerai Zerth",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/githzerai-zerth.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/githzerai-zerth.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/githzerai-zerth.webp"
+    }
+  },
+  {
+    "label": "Glabrezu",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/glabrezu.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/glabrezu.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/glabrezu.webp"
+    }
+  },
+  {
+    "label": "Gladiator",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gladiator.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gladiator.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gladiator.webp"
+    }
+  },
+  {
+    "label": "Gnoll Demoniac",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gnoll-demoniac.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gnoll-demoniac.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gnoll-demoniac.webp"
+    }
+  },
+  {
+    "label": "Gnoll Fang of Yeenoghu",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/gnolls.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gnoll-fang-of-yeenoghu.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gnoll-fang-of-yeenoghu.webp"
+    }
+  },
+  {
+    "label": "Gnoll Pack Lord",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gnoll-pack-lord.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gnoll-pack-lord.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gnoll-pack-lord.webp"
+    }
+  },
+  {
+    "label": "Gnoll Warrior",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gnoll-warrior-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gnoll-warrior.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gnoll-warrior.webp"
+    }
+  },
+  {
+    "label": "Goat",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/goat.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/goat.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/goat.webp"
+    }
+  },
+  {
+    "label": "Goblin Boss",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/goblins.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/goblin-boss.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/goblin-boss.webp"
+    }
+  },
+  {
+    "label": "Goblin Hexer",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/goblins.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/goblin-hexer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/goblin-hexer.webp"
+    }
+  },
+  {
+    "label": "Goblin Minion",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/goblin-warrior.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/goblin-warrior.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/goblin-warrior.webp"
+    }
+  },
+  {
+    "label": "Goblin Warrior",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/goblin-warrior.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/goblin-warrior.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/goblin-warrior.webp"
+    }
+  },
+  {
+    "label": "Gold Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gold-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gold-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gold-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Gorgon",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gorgon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gorgon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gorgon.webp"
+    }
+  },
+  {
+    "label": "Goristro",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/goristro.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/goristro.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/goristro.webp"
+    }
+  },
+  {
+    "label": "Graveyard Revenant",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/revenant.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/graveyard-revenant.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/graveyard-revenant.webp"
+    }
+  },
+  {
+    "label": "Gray Ooze",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gray-ooze.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gray-ooze.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gray-ooze.webp"
+    }
+  },
+  {
+    "label": "Gray Slaad",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gray-slaad-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gray-slaad.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gray-slaad.webp"
+    }
+  },
+  {
+    "label": "Green Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/green-dragon-wyrmling-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/green-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/green-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Green Hag",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/green-hag.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/green-hag.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/green-hag.webp"
+    }
+  },
+  {
+    "label": "Green Slaad",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/green-slaad-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/green-slaad.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/green-slaad.webp"
+    }
+  },
+  {
+    "label": "Grell",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/grell.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/grell.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/grell.webp"
+    }
+  },
+  {
+    "label": "Grick",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/grick.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/grick.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/grick.webp"
+    }
+  },
+  {
+    "label": "Grick Ancient",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/grick.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/grick.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/grick.webp"
+    }
+  },
+  {
+    "label": "Griffon",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/griffon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/griffon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/griffon.webp"
+    }
+  },
+  {
+    "label": "Grimlock",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/grimlock.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/grimlock.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/grimlock.webp"
+    }
+  },
+  {
+    "label": "Guard",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/guard.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/guard.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/guard.webp"
+    }
+  },
+  {
+    "label": "Guard Captain",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/guard-captain.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/guard-captain.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/guard-captain.webp"
+    }
+  },
+  {
+    "label": "Guardian Naga",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/guardian-naga.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/guardian-naga.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/guardian-naga.webp"
+    }
+  },
+  {
+    "label": "Gulthias Blight",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gulthias-blight.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gulthias-blight.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gulthias-blight.webp"
+    }
+  },
+  {
+    "label": "Half-Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/half-dragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/half-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/half-dragon.webp"
+    }
+  },
+  {
+    "label": "Harpy",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/harpy.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/harpy.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/harpy.webp"
+    }
+  },
+  {
+    "label": "Haunting Revenant",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/haunting-revenant.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/haunting-revenant.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/haunting-revenant.webp"
+    }
+  },
+  {
+    "label": "Hawk",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hawk.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hawk.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hawk.webp"
+    }
+  },
+  {
+    "label": "Hell Hound",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hell-hound.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hell-hound.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hell-hound.webp"
+    }
+  },
+  {
+    "label": "Helmed Horror",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/helmed-horror.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/helmed-horror.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/helmed-horror.webp"
+    }
+  },
+  {
+    "label": "Hezrou",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hezrou.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hezrou.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hezrou.webp"
+    }
+  },
+  {
+    "label": "Hill Giant",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hill-giant-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hill-giant-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Hippogriff",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hippogriff.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hippogriff.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hippogriff.webp"
+    }
+  },
+  {
+    "label": "Hippopotamus",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hippopotamus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hippopotamus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hippopotamus.webp"
+    }
+  },
+  {
+    "label": "Hobgoblin Captain",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hobgoblin-captain.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hobgoblin-captain.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hobgoblin-captain.webp"
+    }
+  },
+  {
+    "label": "Hobgoblin Warlord",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hobgoblin-warlord.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hobgoblin-warlord.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hobgoblin-warlord.webp"
+    }
+  },
+  {
+    "label": "Hobgoblin Warrior",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hobgoblin-warrior.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hobgoblin-warrior.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hobgoblin-warrior.webp"
+    }
+  },
+  {
+    "label": "Homunculus",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/homunculus-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/homunculus-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Hook Horror",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hook-horror.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hook-horror.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hook-horror.webp"
+    }
+  },
+  {
+    "label": "Horned Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/horned-devil.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/horned-devil.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/horned-devil.webp"
+    }
+  },
+  {
+    "label": "Hunter Shark",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-shark.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-shark.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-shark.webp"
+    }
+  },
+  {
+    "label": "Hydra",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hydra.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hydra.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hydra.webp"
+    }
+  },
+  {
+    "label": "Hyena",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/hyena.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/hyena.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/hyena.webp"
+    }
+  },
+  {
+    "label": "Ice Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ice-devil.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ice-devil.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ice-devil.webp"
+    }
+  },
+  {
+    "label": "Ice Mephit",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ice-mephit.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ice-mephit.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ice-mephit.webp"
+    }
+  },
+  {
+    "label": "Imp",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/imp.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/imp.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/imp.webp"
+    }
+  },
+  {
+    "label": "Incubus",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/incubus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/incubus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/incubus.webp"
+    }
+  },
+  {
+    "label": "Intellect Devourer",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/intellect-devourer.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/intellect-devourer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/intellect-devourer.webp"
+    }
+  },
+  {
+    "label": "Invisible Stalker",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/invisible-stalker.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/invisible-stalker-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Iron Golem",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/iron-golem.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/iron-golem.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/iron-golem.webp"
+    }
+  },
+  {
+    "label": "Jackal",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/jackal.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/jackal.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/jackal.webp"
+    }
+  },
+  {
+    "label": "Jackalwere",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/jackalwere-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/jackalwere-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Juvenile Shadow Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/shadow-dragons.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/shadow-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/shadow-dragon.webp"
+    }
+  },
+  {
+    "label": "Kenku",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/kenku.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/kenku.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/kenku.webp"
+    }
+  },
+  {
+    "label": "Killer Whale",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/killer-whale.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/killer-whale.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/killer-whale.webp"
+    }
+  },
+  {
+    "label": "Knight",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/knight.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/knight.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/knight.webp"
+    }
+  },
+  {
+    "label": "Kobold Warrior",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/kobold-warrior.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/kobold-warrior.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/kobold-warrior.webp"
+    }
+  },
+  {
+    "label": "Kraken",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/kraken.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/kraken.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/kraken.webp"
+    }
+  },
+  {
+    "label": "Kuo-toa",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/kuo-toa.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/kuo-toa.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/kuo-toa.webp"
+    }
+  },
+  {
+    "label": "Kuo-toa Archpriest",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/kuo-toa-archpriest.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/kuo-toa-archpriest.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/kuo-toa-archpriest.webp"
+    }
+  },
+  {
+    "label": "Kuo-toa Monitor",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/kuo-toa-monitor.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/kuo-toa-monitor.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/kuo-toa-monitor.webp"
+    }
+  },
+  {
+    "label": "Kuo-toa Whip",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/kuo-toa-whip.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/kuo-toa-whip.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/kuo-toa-whip.webp"
+    }
+  },
+  {
+    "label": "Lacedon Ghoul",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/lacedon-ghoul.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/lacedon-ghoul.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/lacedon-ghoul.webp"
+    }
+  },
+  {
+    "label": "Lamia",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/lamia.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/lamia.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/lamia.webp"
+    }
+  },
+  {
+    "label": "Larva",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/larva-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/larva-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Lemure",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/lemure.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/lemure.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/lemure.webp"
+    }
+  },
+  {
+    "label": "Lich",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/lich.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/lich.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/lich.webp"
+    }
+  },
+  {
+    "label": "Lion",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/lion.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/lion.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/lion.webp"
+    }
+  },
+  {
+    "label": "Lizard",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-lizard.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-lizard.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-lizard.webp"
+    }
+  },
+  {
+    "label": "Lizardfolk Geomancer",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/lizardfolk.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/lizardfolk-geomancer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/lizardfolk-geomancer.webp"
+    }
+  },
+  {
+    "label": "Lizardfolk Sovereign",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/lizardfolk-sovereign.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/lizardfolk-sovereign.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/lizardfolk-sovereign.webp"
+    }
+  },
+  {
+    "label": "Mage",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/mages.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mage.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mage.webp"
+    }
+  },
+  {
+    "label": "Mage Apprentice",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/mage-apprentice.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mage-apprentice.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mage-apprentice.webp"
+    }
+  },
+  {
+    "label": "Magma Mephit",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/magma-mephit.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/magma-mephit.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/magma-mephit.webp"
+    }
+  },
+  {
+    "label": "Magmin",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/magmin.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/magmin.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/magmin.webp"
+    }
+  },
+  {
+    "label": "Mammoth",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/mammoth.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mammoth.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mammoth.webp"
+    }
+  },
+  {
+    "label": "Manes",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/manes.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/manes.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/manes.webp"
+    }
+  },
+  {
+    "label": "Manes Vaporspawn",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/manes-vaporspawn.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/manes-vaporspawn.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/manes-vaporspawn.webp"
+    }
+  },
+  {
+    "label": "Manticore",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/manticore.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/manticore.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/manticore.webp"
+    }
+  },
+  {
+    "label": "Marid",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/marid.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/marid.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/marid.webp"
+    }
+  },
+  {
+    "label": "Marilith",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/marilith.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/marilith.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/marilith.webp"
+    }
+  },
+  {
+    "label": "Mastiff",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/mastiff-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mastiff.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mastiff.webp"
+    }
+  },
+  {
+    "label": "Medusa",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/medusa-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/medusa-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Merfolk Skirmisher",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/merfolk-skirmisher.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/merfolk-skirmisher.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/merfolk-skirmisher.webp"
+    }
+  },
+  {
+    "label": "Merfolk Wavebender",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/merfolk-wavebender.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/merfolk-wavebender.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/merfolk-wavebender.webp"
+    }
+  },
+  {
+    "label": "Merrow",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/merrow.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/merrow.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/merrow.webp"
+    }
+  },
+  {
+    "label": "Mezzoloth",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/mezzoloth.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mezzoloth.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mezzoloth.webp"
+    }
+  },
+  {
+    "label": "Mimic",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/mimic.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mimic.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mimic.webp"
+    }
+  },
+  {
+    "label": "Mind Flayer",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/mind-flayer.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mind-flayer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mind-flayer.webp"
+    }
+  },
+  {
+    "label": "Mind Flayer Arcanist",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/mind-flayer.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mind-flayer-arcanist.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mind-flayer-arcanist.webp"
+    }
+  },
+  {
+    "label": "Minotaur of Baphomet",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/minotaur-of-baphomet.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/minotaur-of-baphomet.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/minotaur-of-baphomet.webp"
+    }
+  },
+  {
+    "label": "Minotaur Skeleton",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/minotaur-skeleton.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/minotaur-skeleton.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/minotaur-skeleton.webp"
+    }
+  },
+  {
+    "label": "Modron Duodrone",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/modron-duodrone.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/modron-duodrone.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/modron-duodrone.webp"
+    }
+  },
+  {
+    "label": "Modron Monodrone",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/modron-monodrone.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/modron-monodrone.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/modron-monodrone.webp"
+    }
+  },
+  {
+    "label": "Modron Pentadrone",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/modron-pentadrone.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/modron-pentadrone.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/modron-pentadrone.webp"
+    }
+  },
+  {
+    "label": "Modron Quadrone",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/modron-quadrone.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/modron-quadrone.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/modron-quadrone.webp"
+    }
+  },
+  {
+    "label": "Modron Tridrone",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/modron-tridrone.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/modron-tridrone.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/modron-tridrone.webp"
+    }
+  },
+  {
+    "label": "Mud Mephit",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/mud-mephit.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mud-mephit.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mud-mephit.webp"
+    }
+  },
+  {
+    "label": "Mule",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/mule-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mule.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mule.webp"
+    }
+  },
+  {
+    "label": "Mummy",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/mummy.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mummy.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mummy.webp"
+    }
+  },
+  {
+    "label": "Mummy Lord",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/mummy-lord.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/mummy-lord.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/mummy-lord.webp"
+    }
+  },
+  {
+    "label": "Myconid Adult",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/myconid-adult.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/myconid-adult.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/myconid-adult.webp"
+    }
+  },
+  {
+    "label": "Myconid Sovereign",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/myconids.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/myconid-sovereign.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/myconid-sovereign.webp"
+    }
+  },
+  {
+    "label": "Myconid Spore Servant",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/myconid-spore-servant-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/myconid-spore-servant-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Myconid Sprout",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/myconid-sprout-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/myconid-sprout-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Nalfeshnee",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/nalfeshnee.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/nalfeshnee.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/nalfeshnee.webp"
+    }
+  },
+  {
+    "label": "Needle Blight",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/needle-blight.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/needle-blight.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/needle-blight.webp"
+    }
+  },
+  {
+    "label": "Night Hag",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/night-hag.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/night-hag.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/night-hag.webp"
+    }
+  },
+  {
+    "label": "Nightmare",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/nightmare-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/nightmare-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Noble",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/noble.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/noble.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/noble.webp"
+    }
+  },
+  {
+    "label": "Noble Prodigy",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/nobles.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/noble-prodigy.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/noble-prodigy.webp"
+    }
+  },
+  {
+    "label": "Nothic",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/nothic.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/nothic.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/nothic.webp"
+    }
+  },
+  {
+    "label": "Nycaloth",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/nycaloth.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/nycaloth.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/nycaloth.webp"
+    }
+  },
+  {
+    "label": "Ochre Jelly",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ochre-jelly-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ochre-jelly-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Octopus",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/octopus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/octopus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/octopus.webp"
+    }
+  },
+  {
+    "label": "Ogre",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ogre.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ogre.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ogre.webp"
+    }
+  },
+  {
+    "label": "Ogre Zombie",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ogre-zombie.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ogre-zombie.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ogre-zombie.webp"
+    }
+  },
+  {
+    "label": "Ogrillon Ogre",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ogre.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ogre.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ogre.webp"
+    }
+  },
+  {
+    "label": "Oni",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/oni.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/oni.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/oni.webp"
+    }
+  },
+  {
+    "label": "Otyugh",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/otyugh.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/otyugh.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/otyugh.webp"
+    }
+  },
+  {
+    "label": "Owl",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/owl.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/owl-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Owlbear",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/owlbear.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/owlbear.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/owlbear.webp"
+    }
+  },
+  {
+    "label": "Panther",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/panther.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/panther.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/panther.webp"
+    }
+  },
+  {
+    "label": "Pegasus",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/pegasus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/pegasus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/pegasus.webp"
+    }
+  },
+  {
+    "label": "Performer",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/performer-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/performer-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Performer Legend",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/performer-legend-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/performer-legend-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Performer Maestro",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/performer-maestro.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/performer-maestro.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/performer-maestro.webp"
+    }
+  },
+  {
+    "label": "Peryton",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/peryton.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/peryton.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/peryton.webp"
+    }
+  },
+  {
+    "label": "Phase Spider",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/phase-spider.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/phase-spider.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/phase-spider.webp"
+    }
+  },
+  {
+    "label": "Piercer",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/piercer-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/piercer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/piercer.webp"
+    }
+  },
+  {
+    "label": "Piranha",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/piranha-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/piranha.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/piranha.webp"
+    }
+  },
+  {
+    "label": "Pirate",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/pirate.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/pirate.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/pirate.webp"
+    }
+  },
+  {
+    "label": "Pirate Admiral",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/pirate-admiral.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/pirate-admiral.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/pirate-admiral.webp"
+    }
+  },
+  {
+    "label": "Pirate Captain",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/pirates.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/pirate-captain.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/pirate-captain.webp"
+    }
+  },
+  {
+    "label": "Pit Fiend",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/pit-fiend.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/pit-fiend.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/pit-fiend.webp"
+    }
+  },
+  {
+    "label": "Pixie",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/pixie.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/pixie.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/pixie.webp"
+    }
+  },
+  {
+    "label": "Pixie Wonderbringer",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/pixie-wonderbringer.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/pixie-wonderbringer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/pixie-wonderbringer.webp"
+    }
+  },
+  {
+    "label": "Planetar",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/planetar.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/planetar.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/planetar.webp"
+    }
+  },
+  {
+    "label": "Plesiosaurus",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/plesiosaurus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/plesiosaurus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/plesiosaurus.webp"
+    }
+  },
+  {
+    "label": "Polar Bear",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/polar-bear.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/polar-bear.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/polar-bear.webp"
+    }
+  },
+  {
+    "label": "Poltergeist",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/poltergeist.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/poltergeist.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/poltergeist.webp"
+    }
+  },
+  {
+    "label": "Pony",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/pony.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/horse-02.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/horse-02.webp"
+    }
+  },
+  {
+    "label": "Priest",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/priests.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/priest.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/priest.webp"
+    }
+  },
+  {
+    "label": "Priest Acolyte",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/priest-acolyte-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/priest-acolyte-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Primeval Owlbear",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/owlbear.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/owlbear.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/owlbear.webp"
+    }
+  },
+  {
+    "label": "Pseudodragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/pseudodragon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/pseudodragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/pseudodragon.webp"
+    }
+  },
+  {
+    "label": "Psychic Gray Ooze",
+    "creatureType": "Ooze",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/psychic-gray-ooze.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/psychic-gray-ooze.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/psychic-gray-ooze.webp"
+    }
+  },
+  {
+    "label": "Pteranodon",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/pteranodon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/pteranodon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/pteranodon.webp"
+    }
+  },
+  {
+    "label": "Purple Worm",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/purple-worm.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/purple-worm.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/purple-worm.webp"
+    }
+  },
+  {
+    "label": "Quaggoth",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/quaggoths.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/quaggoth.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/quaggoth.webp"
+    }
+  },
+  {
+    "label": "Quaggoth Thonot",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/quaggoths.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/quaggoth-thonot.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/quaggoth-thonot.webp"
+    }
+  },
+  {
+    "label": "Quasit",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/quasit.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/quasit.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/quasit.webp"
+    }
+  },
+  {
+    "label": "Questing Knight",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/knight-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/questing-knight.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/questing-knight.webp"
+    }
+  },
+  {
+    "label": "Rakshasa",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/rakshasa.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/rakshasa.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/rakshasa.webp"
+    }
+  },
+  {
+    "label": "Rat",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/rats.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/rat.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/rat.webp"
+    }
+  },
+  {
+    "label": "Raven",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/raven.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/raven.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/raven.webp"
+    }
+  },
+  {
+    "label": "Red Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/red-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/red-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/red-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Red Slaad",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/red-slaad.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/red-slaad.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/red-slaad.webp"
+    }
+  },
+  {
+    "label": "Reef Shark",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/reef-shark.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/reef-shark.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/reef-shark.webp"
+    }
+  },
+  {
+    "label": "Remorhaz",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/remorhazes.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/remorhaz.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/remorhaz.webp"
+    }
+  },
+  {
+    "label": "Revenant",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/revenant.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/revenant.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/revenant.webp"
+    }
+  },
+  {
+    "label": "Rhinoceros",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/rhinoceros.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/rhinoceros.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/rhinoceros.webp"
+    }
+  },
+  {
+    "label": "Riding Horse",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/horse-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/horse-01.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/horse-01.webp"
+    }
+  },
+  {
+    "label": "Roc",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/roc.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/roc.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/roc.webp"
+    }
+  },
+  {
+    "label": "Roper",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/roper.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/roper.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/roper.webp"
+    }
+  },
+  {
+    "label": "Rust Monster",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/rust-monster.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/rust-monster.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/rust-monster.webp"
+    }
+  },
+  {
+    "label": "Saber-Toothed Tiger",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/saber-toothed-tiger.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/saber-toothed-tiger.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/saber-toothed-tiger.webp"
+    }
+  },
+  {
+    "label": "Sahuagin Baron",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/sahuagin-baron.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/sahuagin-baron.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/sahuagin-baron.webp"
+    }
+  },
+  {
+    "label": "Sahuagin Priest",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/sahuagin-priest.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/sahuagin-priest.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/sahuagin-priest.webp"
+    }
+  },
+  {
+    "label": "Sahuagin Warrior",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/sahuagin-warrior.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/sahuagin-warrior.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/sahuagin-warrior.webp"
+    }
+  },
+  {
+    "label": "Salamander",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/salamander.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/salamander.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/salamander.webp"
+    }
+  },
+  {
+    "label": "Salamander Fire Snake",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/fire-salamander.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/salamander-fire-snake.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/salamander-fire-snake.webp"
+    }
+  },
+  {
+    "label": "Salamander Inferno Master",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/salamander-inferno-master.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/salamander-inferno-master.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/salamander-inferno-master.webp"
+    }
+  },
+  {
+    "label": "Satyr",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/satyr.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/satyr.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/satyr.webp"
+    }
+  },
+  {
+    "label": "Satyr Revelmaster",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/satyr-revelmaster.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/satyr-revelmaster.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/satyr-revelmaster.webp"
+    }
+  },
+  {
+    "label": "Scarecrow",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/scarecrow.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/scarecrow.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/scarecrow.webp"
+    }
+  },
+  {
+    "label": "Scorpion",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/scorpion.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/scorpion.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/scorpion.webp"
+    }
+  },
+  {
+    "label": "Scout",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/scout.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/scout.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/scout.webp"
+    }
+  },
+  {
+    "label": "Scout Captain",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/scouts.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/scout-captain.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/scout-captain.webp"
+    }
+  },
+  {
+    "label": "Sea Hag",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/sea-hag.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/sea-hag.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/sea-hag.webp"
+    }
+  },
+  {
+    "label": "Seahorse",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-seahorse.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/giant-seahorse.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/giant-seahorse.webp"
+    }
+  },
+  {
+    "label": "Shadow",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/shadow.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/shadow.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/shadow.webp"
+    }
+  },
+  {
+    "label": "Shadow Demon",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/shadow-demon.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/shadow-demon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/shadow-demon.webp"
+    }
+  },
+  {
+    "label": "Shadow Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/shadow-dragons.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/shadow-dragon.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/shadow-dragon.webp"
+    }
+  },
+  {
+    "label": "Shambling Mound",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/shambling-mound.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/shambling-mound.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/shambling-mound.webp"
+    }
+  },
+  {
+    "label": "Shield Guardian",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/shield-guardian.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/shield-guardian.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/shield-guardian.webp"
+    }
+  },
+  {
+    "label": "Shrieker Fungus",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/shrieker-fungus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/shrieker-fungus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/shrieker-fungus.webp"
+    }
+  },
+  {
+    "label": "Silver Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/silver-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/silver-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/silver-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Skeleton",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/skeletons.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/skeleton-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Slaad Tadpole",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/slaad-tadpole.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/slaad-tadpole.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/slaad-tadpole.webp"
+    }
+  },
+  {
+    "label": "Smoke Mephit",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/smoke-mephit.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/smoke-mephit.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/smoke-mephit.webp"
+    }
+  },
+  {
+    "label": "Solar",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/solar.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/solar.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/solar.webp"
+    }
+  },
+  {
+    "label": "Spectator",
+    "creatureType": "Aberration",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/spectator.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/spectator.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/spectator.webp"
+    }
+  },
+  {
+    "label": "Specter",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/specter-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/specter-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Sphinx of Lore",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/sphinx-of-lore.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/sphinx-of-lore.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/sphinx-of-lore.webp"
+    }
+  },
+  {
+    "label": "Sphinx of Secrets",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/sphinx-of-secrets.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/sphinx-of-secrets.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/sphinx-of-secrets.webp"
+    }
+  },
+  {
+    "label": "Sphinx of Valor",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/sphinx-of-valor.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/sphinx-of-valor.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/sphinx-of-valor.webp"
+    }
+  },
+  {
+    "label": "Sphinx of Wonder",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/sphinx-of-wonder.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/sphinx-of-wonder.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/sphinx-of-wonder.webp"
+    }
+  },
+  {
+    "label": "Spider",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/giant-spider-02.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/spider.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/spider.webp"
+    }
+  },
+  {
+    "label": "Spined Devil",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/spined-devil.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/spined-devil-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Spirit Naga",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/spirit-naga.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/spirit-naga.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/spirit-naga.webp"
+    }
+  },
+  {
+    "label": "Sprite",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/sprite.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/sprite-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Spy",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/spies.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/spy-master-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Spy Master",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/spies.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/spy-master-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Steam Mephit",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/steam-mephit.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/steam-mephit.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/steam-mephit.webp"
+    }
+  },
+  {
+    "label": "Stirge",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/stirge.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/stirge.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/stirge.webp"
+    }
+  },
+  {
+    "label": "Stone Giant",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/stone-giant-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/stone-giant-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Stone Golem",
+    "creatureType": "Construct",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/stone-golem.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/stone-golem.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/stone-golem.webp"
+    }
+  },
+  {
+    "label": "Storm Giant",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/storm-giant.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/storm-giant.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/storm-giant.webp"
+    }
+  },
+  {
+    "label": "Succubus",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/succubus-incubus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/succubus-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Swarm of Bats",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bat-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/swarm-of-bats.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/swarm-of-bats.webp"
+    }
+  },
+  {
+    "label": "Swarm of Crawling Claws",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/crawling-claws.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/swarm-of-crawling-claws.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/swarm-of-crawling-claws.webp"
+    }
+  },
+  {
+    "label": "Swarm of Dretches",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/dretches.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/swarm-of-dretches.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/swarm-of-dretches.webp"
+    }
+  },
+  {
+    "label": "Swarm of Insects",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/swarm-of-insects.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/swarm-of-insects.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/swarm-of-insects.webp"
+    }
+  },
+  {
+    "label": "Swarm of Larvae",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/larvae.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/swarm-of-larvae.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/swarm-of-larvae.webp"
+    }
+  },
+  {
+    "label": "Swarm of Lemures",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/swarm-of-lemures.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/swarm-of-lemures.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/swarm-of-lemures.webp"
+    }
+  },
+  {
+    "label": "Swarm of Piranhas",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/piranha-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/swarm-of-piranha.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/swarm-of-piranha.webp"
+    }
+  },
+  {
+    "label": "Swarm of Rats",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/rats.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/swarm-of-rats.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/swarm-of-rats.webp"
+    }
+  },
+  {
+    "label": "Swarm of Ravens",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/swarm-of-ravens.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/swarm-of-ravens.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/swarm-of-ravens.webp"
+    }
+  },
+  {
+    "label": "Swarm of Venomous Snakes",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/swarm-of-venomous-snakes.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/swarm-of-venomous-snakes.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/swarm-of-venomous-snakes.webp"
+    }
+  },
+  {
+    "label": "Tarrasque",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/tarrasque.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/tarrasque-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Thri-kreen Marauder",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/thri-kreen-marauder.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/thri-kreen-marauder.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/thri-kreen-marauder.webp"
+    }
+  },
+  {
+    "label": "Thri-kreen Psion",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/thri-kreen-psion.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/thri-kreen-psion.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/thri-kreen-psion.webp"
+    }
+  },
+  {
+    "label": "Tiger",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/tiger-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/tiger-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Tough",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/toughs.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/tough.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/tough.webp"
+    }
+  },
+  {
+    "label": "Tough Boss",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/toughs.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/tough.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/tough.webp"
+    }
+  },
+  {
+    "label": "Treant",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/treant.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/treant.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/treant.webp"
+    }
+  },
+  {
+    "label": "Tree Blight",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/vine-blight-tree-blight.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/tree-blight.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/tree-blight.webp"
+    }
+  },
+  {
+    "label": "Triceratops",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/triceratops.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/triceratops.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/triceratops.webp"
+    }
+  },
+  {
+    "label": "Troglodyte",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/troglodyte.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/troglodyte.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/troglodyte.webp"
+    }
+  },
+  {
+    "label": "Troll",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/troll.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/troll.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/troll.webp"
+    }
+  },
+  {
+    "label": "Troll Limb",
+    "creatureType": "Giant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/troll-limb.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/troll-limb.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/troll-limb.webp"
+    }
+  },
+  {
+    "label": "Twig Blight",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/twig-blight.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/twig-blight.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/twig-blight.webp"
+    }
+  },
+  {
+    "label": "Tyrannosaurus Rex",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/tyrannosaurus-rex.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/tyrannosaurus-rex.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/tyrannosaurus-rex.webp"
+    }
+  },
+  {
+    "label": "Ultroloth",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/ultroloth.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/ultroloth.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/ultroloth.webp"
+    }
+  },
+  {
+    "label": "Umber Hulk",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/umber-hulk.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/umber-hulk.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/umber-hulk.webp"
+    }
+  },
+  {
+    "label": "Unicorn",
+    "creatureType": "Celestial",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/unicorn.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/unicorn.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/unicorn.webp"
+    }
+  },
+  {
+    "label": "Vampire",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/vampire-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/vampire-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Vampire Familiar",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/vampires.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/vampire-familiar.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/vampire-familiar.webp"
+    }
+  },
+  {
+    "label": "Vampire Nightbringer",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/vampire-nightbringer.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/vampire-nightbringer.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/vampire-nightbringer.webp"
+    }
+  },
+  {
+    "label": "Vampire Spawn",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/vampire-spawn.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/vampire-spawn.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/vampire-spawn.webp"
+    }
+  },
+  {
+    "label": "Vampire Umbral Lord",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/vampire-umbral-lord-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/vampire-umbral-lord-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Venomous Snake",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/venomous-snake.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/venomous-snake.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/venomous-snake.webp"
+    }
+  },
+  {
+    "label": "Vine Blight",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/vine-blight.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/vine-blight.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/vine-blight.webp"
+    }
+  },
+  {
+    "label": "Violet Fungus",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/violet-fungus.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/violet-fungus.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/violet-fungus.webp"
+    }
+  },
+  {
+    "label": "Violet Fungus Necrohulk",
+    "creatureType": "Plant",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/violet-fungus-necrohulk.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/violet-fungus-necrohulk.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/violet-fungus-necrohulk.webp"
+    }
+  },
+  {
+    "label": "Vrock",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/vrock.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/vrock.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/vrock.webp"
+    }
+  },
+  {
+    "label": "Vulture",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/vulture.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/vulture.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/vulture.webp"
+    }
+  },
+  {
+    "label": "Warhorse",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/warhorse.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/warhorse.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/warhorse.webp"
+    }
+  },
+  {
+    "label": "Warhorse Skeleton",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/warhorse-skeleton.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/warhorse-skeleton.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/warhorse-skeleton.webp"
+    }
+  },
+  {
+    "label": "Warrior Commander",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/warrior-commander.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/warrior-veteran.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/warrior-veteran.webp"
+    }
+  },
+  {
+    "label": "Warrior Infantry",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/warrior-infantry.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/warrior-infantry.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/warrior-infantry.webp"
+    }
+  },
+  {
+    "label": "Warrior Veteran",
+    "creatureType": "Humanoid",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/warrior-veteran.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/warrior-veteran.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/warrior-veteran.webp"
+    }
+  },
+  {
+    "label": "Water Elemental",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/water-elemental.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/water-elemental.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/water-elemental.webp"
+    }
+  },
+  {
+    "label": "Water Weird",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/water-weird.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/water-weird.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/water-weird.webp"
+    }
+  },
+  {
+    "label": "Weasel",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/weasel.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/weasel.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/weasel.webp"
+    }
+  },
+  {
+    "label": "Werebear",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/werebear.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/werebear.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/werebear.webp"
+    }
+  },
+  {
+    "label": "Wereboar",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/werebear.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/wereboar.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/wereboar.webp"
+    }
+  },
+  {
+    "label": "Wererat",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/wererat.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/wererat.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/wererat.webp"
+    }
+  },
+  {
+    "label": "Weretiger",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/weretiger.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/weretiger.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/weretiger.webp"
+    }
+  },
+  {
+    "label": "White Dragon Wyrmling",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/white-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/white-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/white-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Wight",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/wight.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/wight.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/wight.webp"
+    }
+  },
+  {
+    "label": "Winged Kobold",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/winged-kobold-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/winged-kobold.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/winged-kobold.webp"
+    }
+  },
+  {
+    "label": "Winter Wolf",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/winter-wolf.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/winter-wolf.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/winter-wolf.webp"
+    }
+  },
+  {
+    "label": "Wolf",
+    "creatureType": "Beast",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/dire-wolf.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/wolf-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Worg",
+    "creatureType": "Fey",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/worg.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/worg.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/worg.webp"
+    }
+  },
+  {
+    "label": "Wraith",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/wraith.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/wraith.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/wraith.webp"
+    }
+  },
+  {
+    "label": "Wyvern",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/wyvern.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/wyvern.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/wyvern.webp"
+    }
+  },
+  {
+    "label": "Xorn",
+    "creatureType": "Elemental",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/xorn.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/xorn.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/xorn.webp"
+    }
+  },
+  {
+    "label": "Yeti",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/yeti.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/yeti.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/yeti.webp"
+    }
+  },
+  {
+    "label": "Yochlol",
+    "creatureType": "Fiend",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/yochlol.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/yochlol.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/yochlol.webp"
+    }
+  },
+  {
+    "label": "Young Black Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/black-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/black-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/black-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Young Blue Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/blue-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/blue-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/blue-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Young Brass Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/brass-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/brass-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/brass-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Young Bronze Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/bronze-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/bronze-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/bronze-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Young Copper Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/copper-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/copper-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/copper-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Young Gold Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/gold-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/gold-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/gold-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Young Green Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/green-dragon-wyrmling-small.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/green-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/green-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Young Red Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/red-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/red-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/red-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Young Remorhaz",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/remorhazes.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/remorhaz.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/remorhaz.webp"
+    }
+  },
+  {
+    "label": "Young Silver Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/silver-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/silver-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/silver-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Young White Dragon",
+    "creatureType": "Dragon",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/white-dragon-wyrmling.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/white-dragon-wyrmling.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/white-dragon-wyrmling.webp"
+    }
+  },
+  {
+    "label": "Yuan-ti Abomination",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/journal-art/yuan-ti-abomination.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/yuan-ti-abomination.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/yuan-ti-abomination.webp"
+    }
+  },
+  {
+    "label": "Yuan-ti Infiltrator",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/yuan-ti-infiltrator-02.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/yuan-ti-infiltrator-01.webp",
+      "subject": null
+    }
+  },
+  {
+    "label": "Yuan-ti Malison (Type 1)",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/yuan-ti-malison-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/yuan-ti-malison-01.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/yuan-ti-malison-01.webp"
+    }
+  },
+  {
+    "label": "Yuan-ti Malison (Type 2)",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/yuan-ti-malison-02.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/yuan-ti-malison-02.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/yuan-ti-malison-02.webp"
+    }
+  },
+  {
+    "label": "Yuan-ti Malison (Type 3)",
+    "creatureType": "Monstrosity",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/yuan-ti-malison-03.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/yuan-ti-malison-03.webp",
+      "subject": "modules/dnd-monster-manual/assets/subjects/yuan-ti-malison-03.webp"
+    }
+  },
+  {
+    "label": "Zombie",
+    "creatureType": "Undead",
+    "art": {
+      "portrait": "modules/dnd-monster-manual/assets/portraits/zombie-01.webp",
+      "token": "modules/dnd-monster-manual/assets/tokens/zombie-01.webp",
+      "subject": null
+    }
+  }
+]

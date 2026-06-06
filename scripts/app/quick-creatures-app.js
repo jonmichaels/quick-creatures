@@ -1025,6 +1025,30 @@ export async function initQuickCreatures() {
         type: Boolean,
         default: true,
     });
+    game.settings.register("quick-creatures", "enableDndMonsterManualTokens", {
+        name: "quick-creatures.settings.enableDndMonsterManualTokens.name",
+        hint: "quick-creatures.settings.enableDndMonsterManualTokens.hint",
+        scope: "world",
+        config: false,
+        type: Boolean,
+        default: true,
+    });
+    game.settings.register("quick-creatures", "enableTovMonsterVaultTokens", {
+        name: "quick-creatures.settings.enableTovMonsterVaultTokens.name",
+        hint: "quick-creatures.settings.enableTovMonsterVaultTokens.hint",
+        scope: "world",
+        config: false,
+        type: Boolean,
+        default: true,
+    });
+    game.settings.register("quick-creatures", "enableTovMonsterVault2Tokens", {
+        name: "quick-creatures.settings.enableTovMonsterVault2Tokens.name",
+        hint: "quick-creatures.settings.enableTovMonsterVault2Tokens.hint",
+        scope: "world",
+        config: false,
+        type: Boolean,
+        default: true,
+    });
     game.settings.register("quick-creatures", "enablePathfinderTokensBestiaries", {
         name: "quick-creatures.settings.enablePathfinderTokensBestiaries.name",
         hint: "quick-creatures.settings.enablePathfinderTokensBestiaries.hint",

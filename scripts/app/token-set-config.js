@@ -34,12 +34,14 @@ export class QuickCreaturesTokenSetConfig extends foundry.applications.api.Handl
     const customTokenDirectory = game.settings.get(MODULE_ID, "customTokenDirectory") || DEFAULT_CUSTOM_TOKEN_DIRECTORY;
     const customSets = await discoverCustomTokenSets(customTokenDirectory, game);
     const customEnabled = game.settings.get(MODULE_ID, "customTokenSetEnabled") || {};
-    const [coreGroup, pathfinderGroup, a5eGroup] = getTokenSetConfigGroups(game, { customSets });
+    const [coreGroup, dndGroup, tovGroup, pathfinderGroup, a5eGroup] = getTokenSetConfigGroups(game, { customSets });
     return {
       defaultTokenSet: game.settings.get(MODULE_ID, "defaultTokenSet") || "Original_Tokens",
       defaultTokenSetChoices: getTokenSetChoices(game, { respectSettings: false, customSets }),
       customTokenDirectory,
       coreGroup,
+      dndGroup,
+      tovGroup,
       pathfinderGroup,
       a5eGroup,
       customSets: customSets.filter(set => !A5E_TOKEN_PACKS[set.id]).map(set => ({ ...set, enabled: customEnabled[set.id] !== false })),
