@@ -551,7 +551,7 @@ class QuickCreaturesApp extends foundry.applications.api.HandlebarsApplicationMi
 
         // Damage per attack × number of attacks
         const noa = displayStats.NoA || 1;
-        this.#setText(html, "#dmgLabel", `${displayStats.DpACalc} × ${noa}`);
+        this.#setText(html, "#dmgLabel", `${displayStats.DpACalc} ×${noa}`);
 
         // Level equivalent
         const eclEl = html.querySelector("#lvlLabel");

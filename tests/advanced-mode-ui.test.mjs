@@ -38,7 +38,7 @@ assert.match(template, /data-reset-adjust="ability"/);
 assert.match(scss, /\.qc-create-section\s*\{[^}]*display:\s*flex;[^}]*justify-content:\s*space-between/s);
 assert.match(scss, /\.qc-create-left\s*\{[^}]*display:\s*inline-flex/s);
 assert.match(template, /<div class="qc-stat-adjust-row">\s*<button type="button" class="qc-advanced-control qc-adjust-minus" data-adjust="hp"/s);
-assert.match(template, /data-reset-adjust="damage">\{\{defaultStats\.DpACalc\}\} &times; \{\{defaultStats\.NoA\}\}<\/span>\s*<button type="button" class="qc-advanced-control qc-adjust-plus"/s);
+assert.match(template, /data-reset-adjust="damage">\{\{defaultStats\.DpACalc\}\} &times;\{\{defaultStats\.NoA\}\}<\/span>\s*<button type="button" class="qc-advanced-control qc-adjust-plus"/s);
 assert.match(scss, /\.qc-token-preview\s*\{[^}]*flex:\s*0 0 88px;[^}]*padding-right:\s*4px/s);
 assert.match(scss, /\.qc-token-preview\s*\{[\s\S]*img\s*\{[^}]*width:\s*88px;[^}]*height:\s*88px/s);
 assert.match(scss, /\.qc-stat\s*\{[^}]*padding:\s*3px 6px 3px 0;[^}]*flex-wrap:\s*nowrap/s);
@@ -46,9 +46,9 @@ assert.match(scss, /\.qc-stat-label\s*\{[^}]*margin-right:\s*4px;[^}]*text-align
 assert.doesNotMatch(scss, /\.qc-stat-label\s*\{[^}]*flex:\s*0 0 52px/s);
 assert.match(scss, /> span:not\(\.qc-stat-label\):last-child,\s*\n\s*\.qc-stat-adjust-row\s*\{[^}]*margin-left:\s*auto/s);
 assert.doesNotMatch(scss, /> span:last-of-type,\s*\n\s*\.qc-stat-adjust-row/);
-assert.match(scss, /\.qc-advanced-control\s*\{[^}]*width:\s*10px;[^}]*height:\s*10px;[^}]*background:\s*transparent;[^}]*border:\s*0;[^}]*font-size:\s*8px;[\s\S]*i\s*\{[^}]*width:\s*10px;[^}]*height:\s*10px;[^}]*background:\s*#fff;[^}]*border:\s*1px solid #111/s);
+assert.match(scss, /\.qc-advanced-control\s*\{[^}]*width:\s*12px;[^}]*height:\s*12px;[^}]*background:\s*transparent;[^}]*border:\s*0;[^}]*font-size:\s*9px;[\s\S]*i\s*\{[^}]*width:\s*12px;[^}]*height:\s*12px;[^}]*background:\s*#fff;[^}]*border:\s*1px solid #111/s);
 assert.match(scss, /#quick-creatures \.qc-stat \.qc-stat-label\s*\{[^}]*margin-left:\s*0;[^}]*text-align:\s*left/s);
-assert.match(scss, /#quick-creatures button\.qc-advanced-control\s*\{[^}]*--button-size:\s*10px;[^}]*--input-height:\s*10px;[^}]*appearance:\s*none;[^}]*width:\s*10px !important;[^}]*height:\s*10px !important;[^}]*min-width:\s*10px !important;[^}]*min-height:\s*10px !important;[^}]*max-width:\s*10px !important;[^}]*max-height:\s*10px !important;[^}]*inline-size:\s*10px !important;[^}]*block-size:\s*10px !important;[^}]*flex:\s*0 0 10px !important/s);
+assert.match(scss, /#quick-creatures button\.qc-advanced-control\s*\{[^}]*--button-size:\s*12px;[^}]*--input-height:\s*12px;[^}]*appearance:\s*none;[^}]*width:\s*12px !important;[^}]*height:\s*12px !important;[^}]*min-width:\s*12px !important;[^}]*min-height:\s*12px !important;[^}]*max-width:\s*12px !important;[^}]*max-height:\s*12px !important;[^}]*inline-size:\s*12px !important;[^}]*block-size:\s*12px !important;[^}]*flex:\s*0 0 12px !important/s);
 assert.match(scss, /\.qc-adjust-plus\.qc-adjust-active i\s*\{[^}]*color:\s*#fff;[^}]*background:\s*var\(--color-bg-accent, #4a3\)/s);
 assert.match(scss, /\.qc-adjust-minus\.qc-adjust-active i\s*\{[^}]*color:\s*#111;[^}]*background:\s*#d80/s);
 assert.match(scss, /\.qc-ability-adjust-row\s*\{[^}]*gap:\s*4px/s);
@@ -61,6 +61,7 @@ assert.match(scss, /\.qc-advanced-active \.qc-advanced-control/);
 assert.match(scss, /\.qc-adjust-plus\.qc-adjust-active/);
 assert.match(scss, /\.qc-adjust-minus\.qc-adjust-active/);
 
+assert.match(app, /`\$\{displayStats\.DpACalc\} ×\$\{noa\}`/);
 assert.match(create, /deriveAdvancedStats/);
 assert.match(create, /getAdvancedState/);
 assert.match(create, /creationStats/);
