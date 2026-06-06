@@ -1,6 +1,6 @@
 {
   "name": "quick-creatures",
-  "version": "0.1.0",
+  "version": "1.5.0",
   "scripts": {
     "build": "npx webpack --config webpack.config.js --mode production",
     "test": "node tests/advanced-adjustments.test.mjs && node tests/advanced-mode-ui.test.mjs && node tests/token-packs.test.mjs && node tests/prototype-token-updates.test.mjs && node tests/token-set-config.test.mjs && node tests/feature-list-ui.test.mjs && node tests/dropped-items.test.mjs",
