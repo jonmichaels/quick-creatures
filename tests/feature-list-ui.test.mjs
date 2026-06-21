@@ -51,6 +51,8 @@ assert.match(scss, /\.qc-abilities-row\s*\{(?:(?!border-bottom).)*\}/s, "abiliti
 assert.match(scss, /\.qc-abilities-hint\s*\{[\s\S]*border-bottom:\s*1px solid var\(--color-border-dark, #444\);/, "abilities hint must draw the divider below itself");
 assert.match(scss, /\.qc-selected-item\s*\{[\s\S]*display:\s*flex;/, "selected item rows must be flex rows");
 assert.match(scss, /\.qc-selected-item-name\s*\{[\s\S]*margin-right:\s*auto;/, "selected item names must push edit/remove controls to the right");
+assert.match(scss, /#app\.theme-light #quick-creatures-content,[\s\S]*\.theme-light #quick-creatures-content\s*\{[\s\S]*\.qc-stat-preview\s*\{[\s\S]*background:\s*var\(--color-light-2, #efe6d8\) !important;/, "Light theme stat preview must use Foundry's standard parchment background");
+assert.match(scss, /#app\.theme-light #quick-creatures-content,[\s\S]*\.theme-light #quick-creatures-content\s*\{[\s\S]*\.qc-feature-check \.qc-feature-name,[\s\S]*\.qc-selected-item-name\s*\{[\s\S]*color:\s*#000 !important;[\s\S]*-webkit-text-fill-color:\s*#000 !important;/, "Light theme feature and selected item names must render black text");
 assert.match(scss, /\.qc-selected-item-edit[\s\S]*\.qc-selected-item-remove\s*\{/, "edit and remove icon buttons must have dedicated styling");
 
 console.log("feature list UI tests passed");

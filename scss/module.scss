@@ -466,6 +466,19 @@
     color: var(--color-text, #ddd);
 }
 
+#app.theme-light #quick-creatures-content,
+.theme-light #quick-creatures-content {
+    .qc-stat-preview {
+        background: var(--color-light-2, #efe6d8) !important;
+    }
+
+    .qc-feature-check .qc-feature-name,
+    .qc-selected-item-name {
+        color: #000 !important;
+        -webkit-text-fill-color: #000 !important;
+    }
+}
+
 .qc-selected-item-edit,
 .qc-selected-item-remove {
     flex: 0 0 auto;
