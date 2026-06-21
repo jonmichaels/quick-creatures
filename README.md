@@ -5,7 +5,7 @@
 [![Foundry VTT](https://img.shields.io/badge/Foundry-v13%20%7C%20v14-orange)](https://foundryvtt.com)
 [![D&D 5E](https://img.shields.io/badge/System-D%26D%205E-red)](https://dnd.wizards.com)
 [![Black Flag](https://img.shields.io/badge/System-Black%20Flag%20%2F%20ToV-blue)](https://github.com/koboldpress/black-flag)
-[![Version](https://img.shields.io/badge/Version-v1.5-green)](https://github.com/jonmichaels/quick-creatures/releases)
+[![Version](https://img.shields.io/badge/Version-v1.5.1-green)](https://github.com/jonmichaels/quick-creatures/releases)
 
 Quickly generate custom monsters for **D&D 5E** and **Black Flag (Tales of the Valiant)**. Based on the [Lazy GM's 5e Monster Builder Resource Document](https://slyflourish.com/lazy_5e_monster_building_resource_document.html) (CC-BY 4.0). Select a Challenge Rating or archetype stat block, pick creature features, and create a fully-statted NPC in seconds.
 
@@ -39,8 +39,13 @@ Download the [latest release](https://github.com/jonmichaels/quick-creatures/rel
 
 ## Requirements
 
-- **Foundry VTT** v13+
+- **Foundry VTT** v13+ (verified through v14)
 - **D&D 5E** (v5.0+) or **Black Flag Roleplaying / Tales of the Valiant** (v2.0+)
+
+## What's New in v1.5.1
+
+- Fixed Foundry v13 deprecation warnings by using the namespaced Handlebars template API.
+- Improved Foundry Light theme styling for Quick Creatures stat panels, stat rows, feature selections, and selected item names.
 
 ## How It Works
 
