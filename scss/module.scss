@@ -468,8 +468,11 @@
 
 #app.theme-light #quick-creatures-content,
 .theme-light #quick-creatures-content {
-    .qc-stat-preview {
-        background: var(--color-light-2, #efe6d8) !important;
+    .qc-stat-preview,
+    .qc-stat-preview .qc-stat,
+    .qc-feature-check {
+        background: transparent !important;
+        background-color: transparent !important;
     }
 
     .qc-feature-check .qc-feature-name,
