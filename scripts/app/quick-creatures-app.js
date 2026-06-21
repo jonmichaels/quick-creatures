@@ -1134,9 +1134,10 @@ export async function initQuickCreatures() {
         "modules/quick-creatures/templates/partials/tab-archetype.hbs",
         "modules/quick-creatures/templates/partials/features.hbs",
     ];
-    await loadTemplates(partials);
+    const handlebars = foundry.applications.handlebars;
+    await handlebars.loadTemplates(partials);
     for (const path of partials) {
-        Handlebars.registerPartial(path, await getTemplate(path));
+        Handlebars.registerPartial(path, await handlebars.getTemplate(path));
     }
 
     // Register core data from local data files

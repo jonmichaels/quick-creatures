@@ -35,6 +35,9 @@ assert.match(appSource, /Ranged Attack/, "selected list must include Ranged Atta
 assert.match(appSource, /Multiattack/, "selected list must include Multiattack when applicable");
 assert.match(appSource, /#renameOverrides/, "app must store rename overrides for listed attacks/features");
 assert.match(appSource, /foundry\.utils\.escapeHTML/, "rename prompt must escape the current name before injecting dialog HTML");
+assert.match(appSource, /foundry\.applications\.handlebars/, "template preloading must use the v13+ namespaced Handlebars API");
+assert.doesNotMatch(appSource, /\bawait\s+loadTemplates\(/, "app must not call deprecated global loadTemplates");
+assert.doesNotMatch(appSource, /\bawait\s+getTemplate\(/, "app must not call deprecated global getTemplate");
 
 assert.match(createSource, /getRenameOverrides\(/, "actor creation must read rename overrides from the app instance");
 assert.match(createSource, /applyRenameOverride/, "actor creation must apply renamed item names before creation");
